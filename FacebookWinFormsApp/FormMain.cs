@@ -35,6 +35,7 @@ namespace BasicFacebookFeatures
                 "user_location",
                 "user_photos",
                 "user_posts",
+                "groups_access_member_info",
                 "user_videos");
 
             if (!string.IsNullOrEmpty(LoginResult.AccessToken))
@@ -76,6 +77,39 @@ namespace BasicFacebookFeatures
             m_PictureBoxProfilePhoto.LoadAsync(LoggedInUser.PictureLargeURL);
             m_LabelFullName.Text = LoginResult.LoggedInUser.Name;
             m_LabelBirthday.Text = LoginResult.LoggedInUser.Birthday;
+        }
+
+        private void m_ButtonPopularPhotos_Click(object sender, EventArgs e)
+        {
+            fetchPhotos();
+        }
+
+        private void m_ListBoxPopularPhotos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (m_ListBoxPopularPhotos.SelectedItems.Count == 1)
+            {
+                Photo selectedPage = m_ListBoxPopularPhotos.SelectedItem as Photo;
+                m_PictureBoxSelectedPopularPhoto.LoadAsync(selectedPage.PictureNormalURL);
+            }
+        }
+
+        private void fetchPhotos()
+        {
+            m_ListBoxPopularPhotos.Items.Clear();
+            m_ListBoxPopularPhotos.DisplayMember = "Name";
+
+            foreach (Album album in LoggedInUser.Albums)
+            {
+                foreach (Photo photo in album.Photos)
+                {
+                    m_ListBoxPopularPhotos.Items.Add(photo);
+                }
+            }
+
+            if (m_ListBoxPopularPhotos.Items.Count == 0)
+            {
+                MessageBox.Show("No Photo to retrieve :(");
+            }
         }
     }
 }
