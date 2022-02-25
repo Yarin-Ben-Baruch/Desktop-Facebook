@@ -148,6 +148,12 @@
   <ItemGroup>
     <None Include="Resources\MostLikesForm.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogicFacbookApp\LogicFacebookApp.csproj">
+      <Project>{b9da793e-f4e4-4f13-8eb8-53491752249f}</Project>
+      <Name>LogicFacebookApp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
