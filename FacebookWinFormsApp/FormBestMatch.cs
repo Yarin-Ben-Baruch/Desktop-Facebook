@@ -29,7 +29,7 @@ namespace BasicFacebookFeatures
 
             // BestMatchs Return NULL !!
             List<User> bestMatchs = r_FormMain.ManagerLogic.FindBestMatch(
-                r_FormMain.LoggedInUser.Friends.ToList(),
+                r_FormMain.LoggedInUser.Friends,
                 r_FormMain.LoggedInUser);
 
             try

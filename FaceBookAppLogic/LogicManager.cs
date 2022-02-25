@@ -29,16 +29,16 @@ namespace FaceBookAppLogic
         }
 
         // All categories together
-        public List<User> FindBestMatch(List<User> i_LoggedInUserFriends, User i_LoggedInUser)
+        public List<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser)
         {
             return r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser);
         }
 
         // Pages || Groups || Friends
-        public List<T> FindCommonBetweenOneCategory<T>(List<T> i_CollectionOfLoginUser, List<T> i_CollctionOfMatchUser)
-        {
-            return r_BestMatchLogic.FindCommonBetweenTwoLists(i_CollectionOfLoginUser, i_CollctionOfMatchUser);
-        }
+        // public List<T> FindCommonBetweenOneCategory<T>(FacebookObjectCollection<T> i_CollectionOfLoginUser, FacebookObjectCollection<T> i_CollctionOfMatchUser)
+        // {
+        //     //return r_BestMatchLogic.FindCommonBetweenTwoLists(i_CollectionOfLoginUser, i_CollctionOfMatchUser);
+        // }
 
     }
 }
