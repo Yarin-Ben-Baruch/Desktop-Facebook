@@ -10,8 +10,8 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private const string k_AppId = "507070034420577";
-        private LogicManager r_LogicManager;
 
+        public LogicManager ManagerLogic { get; }
         public User LoggedInUser { get; set; }
 
         public LoginResult LoginResult { get; set; }
@@ -21,7 +21,7 @@ namespace BasicFacebookFeatures
             InitializeComponent();
             FacebookService.s_CollectionLimit = 100;
 
-            r_LogicManager = new LogicManager();
+            ManagerLogic = new LogicManager();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -75,7 +75,7 @@ namespace BasicFacebookFeatures
 
         private void fetchPhotos()
         {
-            List<Photo> photos = r_LogicManager.FetchPhotos(LoggedInUser.Albums);
+            List<Photo> photos = ManagerLogic.FetchPhotos(LoggedInUser.Albums);
 
             m_ListBoxPopularPhotos.Items.Clear();
             m_ListBoxPopularPhotos.DisplayMember = "Name";

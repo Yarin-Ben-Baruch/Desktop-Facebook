@@ -16,7 +16,6 @@ namespace BasicFacebookFeatures
         private readonly FormMain r_FormMain;
         
 
-
         public FormBestMatch(FormMain i_FormMain)
         {
             r_FormMain = i_FormMain;
@@ -28,9 +27,14 @@ namespace BasicFacebookFeatures
             m_ListBoxBestMatch.Items.Clear();
             m_ListBoxBestMatch.DisplayMember = "Name";
 
+            // BestMatchs Return NULL !!
+            LinkedList<User> bestMatchs = r_FormMain.ManagerLogic.FindBestMatch(
+                r_FormMain.LoggedInUser.Friends.ToList(),
+                r_FormMain.LoggedInUser);
+
             try
             {
-                foreach (User user in r_FormMain.LoggedInUser.Friends)
+                foreach (User user in bestMatchs)
                 {
                     m_ListBoxBestMatch.Items.Add(user);
                 }
@@ -177,6 +181,11 @@ namespace BasicFacebookFeatures
                 System.Diagnostics.Process.Start(selectedUser.Link);
             }
             
+        }
+
+        private void m_ComboBoxCategoriesToMatch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

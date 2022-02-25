@@ -52,6 +52,8 @@ namespace BasicFacebookFeatures
             this.m_LinkLabelCommonGroups = new System.Windows.Forms.LinkLabel();
             this.m_LinkLabelCommonPages = new System.Windows.Forms.LinkLabel();
             this.m_LinkLabelCommonFriends = new System.Windows.Forms.LinkLabel();
+            this.m_LabelMatchBy = new System.Windows.Forms.Label();
+            this.m_ComboBoxCategoriesToMatch = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxGroups)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxPages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxFriends)).BeginInit();
@@ -61,6 +63,10 @@ namespace BasicFacebookFeatures
             // m_ComboBoxGender
             // 
             this.m_ComboBoxGender.FormattingEnabled = true;
+            this.m_ComboBoxGender.Items.AddRange(new object[] {
+            "Male",
+            "Female",
+            "I don\'t care"});
             this.m_ComboBoxGender.Location = new System.Drawing.Point(111, 24);
             this.m_ComboBoxGender.Margin = new System.Windows.Forms.Padding(4);
             this.m_ComboBoxGender.Name = "m_ComboBoxGender";
@@ -70,7 +76,14 @@ namespace BasicFacebookFeatures
             // m_ComboBoxAge
             // 
             this.m_ComboBoxAge.FormattingEnabled = true;
-            this.m_ComboBoxAge.Location = new System.Drawing.Point(111, 74);
+            this.m_ComboBoxAge.Items.AddRange(new object[] {
+            "15-20",
+            "20-25",
+            "25-30",
+            "30-35",
+            "35-40",
+            "40+"});
+            this.m_ComboBoxAge.Location = new System.Drawing.Point(111, 70);
             this.m_ComboBoxAge.Margin = new System.Windows.Forms.Padding(4);
             this.m_ComboBoxAge.Name = "m_ComboBoxAge";
             this.m_ComboBoxAge.Size = new System.Drawing.Size(160, 24);
@@ -79,7 +92,7 @@ namespace BasicFacebookFeatures
             // m_LabelGender
             // 
             this.m_LabelGender.AutoSize = true;
-            this.m_LabelGender.Location = new System.Drawing.Point(28, 35);
+            this.m_LabelGender.Location = new System.Drawing.Point(18, 31);
             this.m_LabelGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelGender.Name = "m_LabelGender";
             this.m_LabelGender.Size = new System.Drawing.Size(56, 17);
@@ -89,7 +102,7 @@ namespace BasicFacebookFeatures
             // m_LabelAge
             // 
             this.m_LabelAge.AutoSize = true;
-            this.m_LabelAge.Location = new System.Drawing.Point(28, 77);
+            this.m_LabelAge.Location = new System.Drawing.Point(18, 77);
             this.m_LabelAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelAge.Name = "m_LabelAge";
             this.m_LabelAge.Size = new System.Drawing.Size(33, 17);
@@ -99,7 +112,7 @@ namespace BasicFacebookFeatures
             // m_ButtonSearchMatch
             // 
             this.m_ButtonSearchMatch.BackColor = System.Drawing.Color.White;
-            this.m_ButtonSearchMatch.Location = new System.Drawing.Point(97, 129);
+            this.m_ButtonSearchMatch.Location = new System.Drawing.Point(309, 71);
             this.m_ButtonSearchMatch.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonSearchMatch.Name = "m_ButtonSearchMatch";
             this.m_ButtonSearchMatch.Size = new System.Drawing.Size(100, 28);
@@ -274,6 +287,31 @@ namespace BasicFacebookFeatures
             this.m_LinkLabelCommonFriends.Text = "See common";
             this.m_LinkLabelCommonFriends.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_LinkLabelCommonFriends_LinkClicked);
             // 
+            // m_LabelMatchBy
+            // 
+            this.m_LabelMatchBy.AutoSize = true;
+            this.m_LabelMatchBy.Location = new System.Drawing.Point(18, 123);
+            this.m_LabelMatchBy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.m_LabelMatchBy.Name = "m_LabelMatchBy";
+            this.m_LabelMatchBy.Size = new System.Drawing.Size(69, 17);
+            this.m_LabelMatchBy.TabIndex = 22;
+            this.m_LabelMatchBy.Text = "Match by:";
+            // 
+            // m_ComboBoxCategoriesToMatch
+            // 
+            this.m_ComboBoxCategoriesToMatch.FormattingEnabled = true;
+            this.m_ComboBoxCategoriesToMatch.Items.AddRange(new object[] {
+            "Groups",
+            "Pages",
+            "Friends",
+            "All the categories"});
+            this.m_ComboBoxCategoriesToMatch.Location = new System.Drawing.Point(111, 116);
+            this.m_ComboBoxCategoriesToMatch.Margin = new System.Windows.Forms.Padding(4);
+            this.m_ComboBoxCategoriesToMatch.Name = "m_ComboBoxCategoriesToMatch";
+            this.m_ComboBoxCategoriesToMatch.Size = new System.Drawing.Size(160, 24);
+            this.m_ComboBoxCategoriesToMatch.TabIndex = 21;
+            this.m_ComboBoxCategoriesToMatch.SelectedIndexChanged += new System.EventHandler(this.m_ComboBoxCategoriesToMatch_SelectedIndexChanged);
+            // 
             // FormBestMatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -281,6 +319,8 @@ namespace BasicFacebookFeatures
             this.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.MostLikesForm;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(991, 554);
+            this.Controls.Add(this.m_LabelMatchBy);
+            this.Controls.Add(this.m_ComboBoxCategoriesToMatch);
             this.Controls.Add(this.m_LinkLabelCommonFriends);
             this.Controls.Add(this.m_LinkLabelCommonPages);
             this.Controls.Add(this.m_LinkLabelCommonGroups);
@@ -340,5 +380,7 @@ namespace BasicFacebookFeatures
         private System.Windows.Forms.LinkLabel m_LinkLabelCommonGroups;
         private System.Windows.Forms.LinkLabel m_LinkLabelCommonPages;
         private System.Windows.Forms.LinkLabel m_LinkLabelCommonFriends;
+        private Label m_LabelMatchBy;
+        private ComboBox m_ComboBoxCategoriesToMatch;
     }
 }
