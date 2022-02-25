@@ -57,19 +57,41 @@ namespace BasicFacebookFeatures
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
-        {
-			FacebookService.LogoutWithUI();
-			m_ButtonLogin.Text = "Login";
+        { 
+            FacebookService.LogoutWithUI();
+            resetWhenLogout();
 		}
+
+        private void resetWhenLogout()
+        {
+            LoggedInUser = null;
+            LoginResult = null;
+            m_ButtonLogin.Text = "Login";
+
+            m_PictureBoxProfilePhoto.Image = null;
+            m_LabelFullName.Text = "Full name";
+            m_LabelBirthday.Text = "Birthday";
+
+            m_ListBoxPopularPhotos.Items.Clear();
+
+        }
 
         private void m_ButtonBestMatch_Click(object sender, EventArgs e)
         {
-            new FormBestMatch(this).ShowDialog();
+            if (LoggedInUser != null)
+            {
+                new FormBestMatch(this).ShowDialog();
+            }
+            // TODO: ERROR MESSAGE
         }
 
         private void m_ButtonMostLikesFromFriends_Click(object sender, EventArgs e)
         {
-            new FormMostLikesFromFriends(this).ShowDialog();
+            if (LoggedInUser != null)
+            {
+                new FormMostLikesFromFriends(this).ShowDialog();
+            }
+            // TODO: ERROR MESSAGE
         }
 
         private void fetchUserInfo()
@@ -81,7 +103,11 @@ namespace BasicFacebookFeatures
 
         private void m_ButtonPopularPhotos_Click(object sender, EventArgs e)
         {
-            fetchPhotos();
+            if (LoggedInUser != null)
+            {
+                fetchPhotos();
+            }
+            // TODO : ERROR MESSAGE
         }
 
         private void m_ListBoxPopularPhotos_SelectedIndexChanged(object sender, EventArgs e)
