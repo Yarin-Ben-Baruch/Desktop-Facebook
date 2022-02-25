@@ -8,8 +8,10 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private const string k_AppId = "507070034420577";
-        private LoginResult m_LoginResult;
-        private User m_LoggedInUser;
+
+        public User LoggedInUser { get; set; }
+
+        public LoginResult LoginResult { get; set; }
 
         public FormMain()
         {
@@ -19,7 +21,7 @@ namespace BasicFacebookFeatures
 
         private void loginAndInit()
         {
-            m_LoginResult = FacebookService.Login(k_AppId,
+            LoginResult = FacebookService.Login(k_AppId,
                 "email",
                 "public_profile",
                 "user_age_range",
@@ -35,16 +37,16 @@ namespace BasicFacebookFeatures
                 "user_posts",
                 "user_videos");
 
-            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
+            if (!string.IsNullOrEmpty(LoginResult.AccessToken))
             {
-                m_LoggedInUser = m_LoginResult.LoggedInUser;
+                LoggedInUser = LoginResult.LoggedInUser;
 
                 m_ButtonLogin.Text = $"Logged in";
                 fetchUserInfo();
             }
             else
             {
-                MessageBox.Show(m_LoginResult.ErrorMessage, "Login Failed");
+                MessageBox.Show(LoginResult.ErrorMessage, "Login Failed");
             }
         }
 
@@ -61,19 +63,19 @@ namespace BasicFacebookFeatures
 
         private void m_ButtonBestMatch_Click(object sender, EventArgs e)
         {
-            new FormBestMatch().ShowDialog();
+            new FormBestMatch(this).ShowDialog();
         }
 
         private void m_ButtonMostLikesFromFriends_Click(object sender, EventArgs e)
         {
-            new FormMostLikesFromFriends().ShowDialog();
+            new FormMostLikesFromFriends(this).ShowDialog();
         }
 
         private void fetchUserInfo()
         {
-            m_PictureBoxProfilePhoto.LoadAsync(m_LoggedInUser.PictureLargeURL);
-            m_LabelFullName.Text = m_LoginResult.LoggedInUser.Name;
-            m_LabelBirthday.Text = m_LoginResult.LoggedInUser.Birthday;
+            m_PictureBoxProfilePhoto.LoadAsync(LoggedInUser.PictureLargeURL);
+            m_LabelFullName.Text = LoginResult.LoggedInUser.Name;
+            m_LabelBirthday.Text = LoginResult.LoggedInUser.Birthday;
         }
     }
 }

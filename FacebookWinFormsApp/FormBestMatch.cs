@@ -12,9 +12,17 @@ namespace BasicFacebookFeatures
 {
     public partial class FormBestMatch : Form
     {
-        public FormBestMatch()
+        private readonly FormMain r_FormMain;
+
+        public FormBestMatch(FormMain i_FormMain)
         {
+            r_FormMain = i_FormMain;
             InitializeComponent();
+        }
+
+        private void m_LinkLabelLoverProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
         }
     }
 }

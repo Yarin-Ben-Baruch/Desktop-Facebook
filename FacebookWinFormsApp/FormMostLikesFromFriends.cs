@@ -12,8 +12,11 @@ namespace BasicFacebookFeatures
 {
     public partial class FormMostLikesFromFriends : Form
     {
-        public FormMostLikesFromFriends()
+        private readonly FormMain r_FormMain;
+
+        public FormMostLikesFromFriends(FormMain i_FormMain)
         {
+            r_FormMain = i_FormMain;
             InitializeComponent();
         }
     }
