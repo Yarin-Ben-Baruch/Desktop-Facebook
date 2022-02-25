@@ -40,6 +40,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxPopularPhotos = new System.Windows.Forms.ListBox();
             this.m_PictureBoxSelectedPopularPhoto = new System.Windows.Forms.PictureBox();
             this.m_ButtonPopularPhotos = new System.Windows.Forms.Button();
+            this.m_LabelNumberOfLikes = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxProfilePhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxSelectedPopularPhoto)).BeginInit();
             this.SuspendLayout();
@@ -141,17 +142,17 @@ namespace BasicFacebookFeatures
             // 
             this.m_PictureBoxSelectedPopularPhoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.m_PictureBoxSelectedPopularPhoto.Location = new System.Drawing.Point(1078, 550);
-            this.m_PictureBoxSelectedPopularPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.m_PictureBoxSelectedPopularPhoto.Margin = new System.Windows.Forms.Padding(4);
             this.m_PictureBoxSelectedPopularPhoto.Name = "m_PictureBoxSelectedPopularPhoto";
             this.m_PictureBoxSelectedPopularPhoto.Size = new System.Drawing.Size(148, 152);
+            this.m_PictureBoxSelectedPopularPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.m_PictureBoxSelectedPopularPhoto.TabIndex = 59;
             this.m_PictureBoxSelectedPopularPhoto.TabStop = false;
             // 
             // m_ButtonPopularPhotos
             // 
             this.m_ButtonPopularPhotos.BackColor = System.Drawing.Color.White;
-            this.m_ButtonPopularPhotos.Location = new System.Drawing.Point(910, 290);
+            this.m_ButtonPopularPhotos.Location = new System.Drawing.Point(840, 290);
             this.m_ButtonPopularPhotos.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonPopularPhotos.Name = "m_ButtonPopularPhotos";
             this.m_ButtonPopularPhotos.Size = new System.Drawing.Size(236, 50);
@@ -159,6 +160,15 @@ namespace BasicFacebookFeatures
             this.m_ButtonPopularPhotos.Text = "My popular photos";
             this.m_ButtonPopularPhotos.UseVisualStyleBackColor = false;
             this.m_ButtonPopularPhotos.Click += new System.EventHandler(this.m_ButtonPopularPhotos_Click);
+            // 
+            // m_LabelNumberOfLikes
+            // 
+            this.m_LabelNumberOfLikes.AutoSize = true;
+            this.m_LabelNumberOfLikes.Location = new System.Drawing.Point(1092, 303);
+            this.m_LabelNumberOfLikes.Name = "m_LabelNumberOfLikes";
+            this.m_LabelNumberOfLikes.Size = new System.Drawing.Size(69, 25);
+            this.m_LabelNumberOfLikes.TabIndex = 61;
+            this.m_LabelNumberOfLikes.Text = "Likes:";
             // 
             // FormMain
             // 
@@ -168,6 +178,7 @@ namespace BasicFacebookFeatures
             this.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.background_image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1252, 727);
+            this.Controls.Add(this.m_LabelNumberOfLikes);
             this.Controls.Add(this.m_ButtonPopularPhotos);
             this.Controls.Add(this.m_PictureBoxSelectedPopularPhoto);
             this.Controls.Add(this.m_ListBoxPopularPhotos);
@@ -203,6 +214,7 @@ namespace BasicFacebookFeatures
         private System.Windows.Forms.ListBox m_ListBoxPopularPhotos;
         private System.Windows.Forms.PictureBox m_PictureBoxSelectedPopularPhoto;
         private System.Windows.Forms.Button m_ButtonPopularPhotos;
-	}
+        private Label m_LabelNumberOfLikes;
+    }
 }
 

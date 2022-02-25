@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using FaceBookAppLogic;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
 
@@ -8,6 +10,7 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private const string k_AppId = "507070034420577";
+        private LogicManager r_LogicManager;
 
         public User LoggedInUser { get; set; }
 
@@ -17,6 +20,8 @@ namespace BasicFacebookFeatures
         {
             InitializeComponent();
             FacebookService.s_CollectionLimit = 100;
+
+            r_LogicManager = new LogicManager();
         }
 
         private void buttonLogin_Click(object sender, EventArgs e)
@@ -52,7 +57,7 @@ namespace BasicFacebookFeatures
         {
             if (LoggedInUser != null)
             {
-                //fetchPhotos();
+                fetchPhotos();
             }
             // TODO : ERROR MESSAGE
         }
@@ -61,27 +66,23 @@ namespace BasicFacebookFeatures
         {
             if (m_ListBoxPopularPhotos.SelectedItems.Count == 1)
             {
-                Photo selectedPage = m_ListBoxPopularPhotos.SelectedItem as Photo;
-                m_PictureBoxSelectedPopularPhoto.LoadAsync(selectedPage.PictureNormalURL);
+                Photo selectedPhoto = m_ListBoxPopularPhotos.SelectedItem as Photo;
+
+                m_PictureBoxSelectedPopularPhoto.LoadAsync(selectedPhoto.PictureNormalURL);
+                m_LabelNumberOfLikes.Text = string.Format("Likes: {0}", selectedPhoto.LikedBy.Count);
             }
         }
 
         private void fetchPhotos()
         {
+            List<Photo> photos = r_LogicManager.FetchPhotos(LoggedInUser.Albums);
+
             m_ListBoxPopularPhotos.Items.Clear();
             m_ListBoxPopularPhotos.DisplayMember = "Name";
 
-            foreach (Album album in LoggedInUser.Albums)
+            foreach (Photo photo in photos)
             {
-                foreach (Photo photo in album.Photos)
-                {
-                    m_ListBoxPopularPhotos.Items.Add(photo);
-                }
-            }
-
-            if (m_ListBoxPopularPhotos.Items.Count == 0)
-            {
-                MessageBox.Show("No Photo to retrieve :(");
+                m_ListBoxPopularPhotos.Items.Add(photo);
             }
         }
 
