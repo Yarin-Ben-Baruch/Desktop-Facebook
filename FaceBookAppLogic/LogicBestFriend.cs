@@ -1,14 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FacebookWrapper.ObjectModel;
 
 namespace FaceBookAppLogic
 {
     public class LogicBestFriend
     {
+        public List<Photo> FetchPhotos(FacebookObjectCollection<Album> i_Albums)
+        {
+            List<Photo> photos = new List<Photo>();
+            List<Photo> sortedPhotos;
+
+            foreach (Album album in i_Albums)
+            {
+                foreach (Photo photo in album.Photos)
+                {
+                    photos.Add(photo);
+                }
+            }
+
+            sortedPhotos = photos.OrderBy(photo => -photo.LikedBy.Count).ToList();
+
+            return sortedPhotos;
+        }
+
         public LinkedList<User> GetMostLikesByUsers(FacebookObjectCollection<Album> i_Albums)
         {
             List<Photo> photos = FetchPhotos(i_Albums);
@@ -40,22 +55,35 @@ namespace FaceBookAppLogic
             return sortedUsers;
         }
 
-        public List<Photo> FetchPhotos(FacebookObjectCollection<Album> i_Albums)
+        public LinkedList<User> FetchPosts(FacebookObjectCollection<Post> i_Post)
         {
-            List<Photo> photos = new List<Photo>();
-            List<Photo> sortedPhotos;
+            List<Post> posts = new List<Post>();
+            Dictionary<User, int> usersMostLikes = new Dictionary<User, int>();
+            LinkedList<User> sortedUsers = new LinkedList<User>();
 
-            foreach (Album album in i_Albums)
+            foreach (Post post in i_Post)
             {
-                foreach (Photo photo in album.Photos)
+                foreach (User user in post.LikedBy)
                 {
-                    photos.Add(photo);
+                    if (usersMostLikes.ContainsKey(user))
+                    {
+                        usersMostLikes[user] += 1;
+                    }
+                    else
+                    {
+                        usersMostLikes.Add(user, 1);
+                    }
                 }
             }
 
-            sortedPhotos = photos.OrderBy(photo => -photo.LikedBy.Count).ToList();
+            IOrderedEnumerable<KeyValuePair<User, int>> orderDic = usersMostLikes.OrderBy(key => key.Value);
 
-            return sortedPhotos;
+            foreach (KeyValuePair<User, int> user in orderDic)
+            {
+                sortedUsers.Append(user.Key);
+            }
+
+            return sortedUsers;
         }
     }
 }
