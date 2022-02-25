@@ -39,7 +39,7 @@ namespace BasicFacebookFeatures
             {
                 m_LoggedInUser = m_LoginResult.LoggedInUser;
 
-                m_ButtonLogin.Text = $"Logged in as {m_LoginResult.LoggedInUser.Name}";
+                m_ButtonLogin.Text = $"Logged in";
                 fetchUserInfo();
             }
             else
@@ -71,14 +71,9 @@ namespace BasicFacebookFeatures
 
         private void fetchUserInfo()
         {
-            m_PictureBoxProfilePhoto.LoadAsync(m_LoggedInUser.PictureNormalURL);
+            m_PictureBoxProfilePhoto.LoadAsync(m_LoggedInUser.PictureLargeURL);
             m_LabelFullName.Text = m_LoginResult.LoggedInUser.Name;
-            m_LabelAge.Text = m_LoginResult.LoggedInUser.Birthday;
-
-            if (m_LoggedInUser.Posts.Count > 0)
-            {
-                //textBoxStatus.Text = m_LoggedInUser.Posts[0].Message;
-            }
+            m_LabelBirthday.Text = m_LoginResult.LoggedInUser.Birthday;
         }
     }
 }

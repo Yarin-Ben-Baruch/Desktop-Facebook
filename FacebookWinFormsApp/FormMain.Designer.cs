@@ -1,4 +1,6 @@
-﻿namespace BasicFacebookFeatures
+﻿using System.Windows.Forms;
+
+namespace BasicFacebookFeatures
 {
     partial class FormMain
     {
@@ -32,7 +34,7 @@
             this.m_ButtonLogout = new System.Windows.Forms.Button();
             this.m_PictureBoxProfilePhoto = new System.Windows.Forms.PictureBox();
             this.m_LabelFullName = new System.Windows.Forms.Label();
-            this.m_LabelAge = new System.Windows.Forms.Label();
+            this.m_LabelBirthday = new System.Windows.Forms.Label();
             this.m_ButtonBestMatch = new System.Windows.Forms.Button();
             this.m_ButtonMostLikesFromFriends = new System.Windows.Forms.Button();
             this.m_ListBoxPopularPhotos = new System.Windows.Forms.ListBox();
@@ -69,11 +71,11 @@
             // m_PictureBoxProfilePhoto
             // 
             this.m_PictureBoxProfilePhoto.BackColor = System.Drawing.Color.White;
-            this.m_PictureBoxProfilePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.m_PictureBoxProfilePhoto.Location = new System.Drawing.Point(66, 37);
+            this.m_PictureBoxProfilePhoto.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.m_PictureBoxProfilePhoto.Location = new System.Drawing.Point(22, 23);
             this.m_PictureBoxProfilePhoto.Margin = new System.Windows.Forms.Padding(4);
             this.m_PictureBoxProfilePhoto.Name = "m_PictureBoxProfilePhoto";
-            this.m_PictureBoxProfilePhoto.Size = new System.Drawing.Size(262, 210);
+            this.m_PictureBoxProfilePhoto.Size = new System.Drawing.Size(316, 250);
             this.m_PictureBoxProfilePhoto.TabIndex = 53;
             this.m_PictureBoxProfilePhoto.TabStop = false;
             // 
@@ -88,16 +90,16 @@
             this.m_LabelFullName.TabIndex = 54;
             this.m_LabelFullName.Text = "Full name";
             // 
-            // m_LabelAge
+            // m_LabelBirthday
             // 
-            this.m_LabelAge.AutoSize = true;
-            this.m_LabelAge.BackColor = System.Drawing.Color.White;
-            this.m_LabelAge.Location = new System.Drawing.Point(372, 117);
-            this.m_LabelAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.m_LabelAge.Name = "m_LabelAge";
-            this.m_LabelAge.Size = new System.Drawing.Size(50, 25);
-            this.m_LabelAge.TabIndex = 55;
-            this.m_LabelAge.Text = "Age";
+            this.m_LabelBirthday.AutoSize = true;
+            this.m_LabelBirthday.BackColor = System.Drawing.Color.White;
+            this.m_LabelBirthday.Location = new System.Drawing.Point(372, 117);
+            this.m_LabelBirthday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.m_LabelBirthday.Name = "m_LabelBirthday";
+            this.m_LabelBirthday.Size = new System.Drawing.Size(91, 25);
+            this.m_LabelBirthday.TabIndex = 55;
+            this.m_LabelBirthday.Text = "Birthday";
             // 
             // m_ButtonBestMatch
             // 
@@ -168,7 +170,7 @@
             this.Controls.Add(this.m_ListBoxPopularPhotos);
             this.Controls.Add(this.m_ButtonMostLikesFromFriends);
             this.Controls.Add(this.m_ButtonBestMatch);
-            this.Controls.Add(this.m_LabelAge);
+            this.Controls.Add(this.m_LabelBirthday);
             this.Controls.Add(this.m_LabelFullName);
             this.Controls.Add(this.m_PictureBoxProfilePhoto);
             this.Controls.Add(this.m_ButtonLogout);
@@ -192,7 +194,7 @@
         private System.Windows.Forms.Button m_ButtonLogout;
         private System.Windows.Forms.PictureBox m_PictureBoxProfilePhoto;
         private System.Windows.Forms.Label m_LabelFullName;
-        private System.Windows.Forms.Label m_LabelAge;
+        private System.Windows.Forms.Label m_LabelBirthday;
         private System.Windows.Forms.Button m_ButtonBestMatch;
         private System.Windows.Forms.Button m_ButtonMostLikesFromFriends;
         private System.Windows.Forms.ListBox m_ListBoxPopularPhotos;
