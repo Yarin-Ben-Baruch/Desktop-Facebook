@@ -28,7 +28,7 @@ namespace BasicFacebookFeatures
             m_ListBoxBestMatch.DisplayMember = "Name";
 
             // BestMatchs Return NULL !!
-            LinkedList<User> bestMatchs = r_FormMain.ManagerLogic.FindBestMatch(
+            List<User> bestMatchs = r_FormMain.ManagerLogic.FindBestMatch(
                 r_FormMain.LoggedInUser.Friends.ToList(),
                 r_FormMain.LoggedInUser);
 

@@ -29,7 +29,7 @@ namespace FaceBookAppLogic
         }
 
         // All categories together
-        public LinkedList<User> FindBestMatch(List<User> i_LoggedInUserFriends, User i_LoggedInUser)
+        public List<User> FindBestMatch(List<User> i_LoggedInUserFriends, User i_LoggedInUser)
         {
             return r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser);
         }

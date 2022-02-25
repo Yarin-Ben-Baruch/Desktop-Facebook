@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using FacebookWrapper.ObjectModel;
 
@@ -13,28 +14,32 @@ namespace FaceBookAppLogic
         {
             List<T> commonGroupsList = new List<T>();
 
-            foreach (T matchGroup in i_CollctionOfMatchUser)
+            foreach (T matchObject in i_CollctionOfMatchUser)
             {
-                if (i_CollectionOfLoginUser.Contains(matchGroup))
+                
+                if (i_CollectionOfLoginUser.Contains(matchObject))
                 {
-                    commonGroupsList.Add(matchGroup);
+                    commonGroupsList.Add(matchObject);
                 }
             }
 
             return commonGroupsList;
         }
 
-        public LinkedList<User> FindBestMatch(List<User> i_LoggedInUserFriends,User i_LoggedInUser)
+        public List<User> FindBestMatch(List<User> i_LoggedInUserFriends,User i_LoggedInUser)
         {
             Dictionary<User, int> commonDictionary = new Dictionary<User, int>();
 
             foreach (User myFriend in i_LoggedInUserFriends)
             {
+            
                 commonDictionary.Add(myFriend,
                 FindCommonBetweenTwoLists
                     (myFriend.Groups.ToList(),
                     i_LoggedInUser.Groups.ToList()).Count);
             }
+
+            Thread.Sleep(1000);
 
             foreach (User myFriend in i_LoggedInUserFriends)
             {
@@ -70,11 +75,11 @@ namespace FaceBookAppLogic
                 }
             }
 
-            LinkedList<User> bestMatchFriends = new LinkedList<User>(); 
+            List<User> bestMatchFriends = new List<User>(); 
 
             foreach (KeyValuePair<User, int> user in commonDictionary.OrderBy(key => key.Value))
             {
-                bestMatchFriends.Append(user.Key);
+                bestMatchFriends.Add(user.Key);
             }
 
             return bestMatchFriends;
