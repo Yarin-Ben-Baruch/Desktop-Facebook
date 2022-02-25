@@ -23,6 +23,7 @@ namespace FaceBookAppLogic
                 }
             }
 
+            
             sortedPhotos = photos.OrderBy(photo => -photo.LikedBy.Count).ToList();
 
             return sortedPhotos;
