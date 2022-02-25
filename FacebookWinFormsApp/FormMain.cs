@@ -8,8 +8,6 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private const string k_AppId = "507070034420577";
-        private ManagerLogic r_ManagerLogic;
-
 
         public User LoggedInUser { get; set; }
 
