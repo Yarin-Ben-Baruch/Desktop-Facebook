@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using FacebookWrapper.ObjectModel;
@@ -23,10 +24,11 @@ namespace FaceBookAppLogic
                 }
             }
 
-            
             sortedPhotos = photos.OrderBy(photo => -photo.LikedBy.Count).ToList();
 
             return sortedPhotos;
         }
+
+
     }
 }
