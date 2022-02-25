@@ -46,7 +46,7 @@
             // 
             this.m_ButtonLogin.BackColor = System.Drawing.Color.White;
             this.m_ButtonLogin.Location = new System.Drawing.Point(868, 46);
-            this.m_ButtonLogin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.m_ButtonLogin.Margin = new System.Windows.Forms.Padding(6);
             this.m_ButtonLogin.Name = "m_ButtonLogin";
             this.m_ButtonLogin.Size = new System.Drawing.Size(358, 44);
             this.m_ButtonLogin.TabIndex = 36;
@@ -58,7 +58,7 @@
             // 
             this.m_ButtonLogout.BackColor = System.Drawing.Color.White;
             this.m_ButtonLogout.Location = new System.Drawing.Point(868, 108);
-            this.m_ButtonLogout.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.m_ButtonLogout.Margin = new System.Windows.Forms.Padding(6);
             this.m_ButtonLogout.Name = "m_ButtonLogout";
             this.m_ButtonLogout.Size = new System.Drawing.Size(358, 44);
             this.m_ButtonLogout.TabIndex = 52;
@@ -69,8 +69,9 @@
             // m_PictureBoxProfilePhoto
             // 
             this.m_PictureBoxProfilePhoto.BackColor = System.Drawing.Color.White;
+            this.m_PictureBoxProfilePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.m_PictureBoxProfilePhoto.Location = new System.Drawing.Point(66, 37);
-            this.m_PictureBoxProfilePhoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_PictureBoxProfilePhoto.Margin = new System.Windows.Forms.Padding(4);
             this.m_PictureBoxProfilePhoto.Name = "m_PictureBoxProfilePhoto";
             this.m_PictureBoxProfilePhoto.Size = new System.Drawing.Size(262, 210);
             this.m_PictureBoxProfilePhoto.TabIndex = 53;
@@ -102,7 +103,7 @@
             // 
             this.m_ButtonBestMatch.BackColor = System.Drawing.Color.White;
             this.m_ButtonBestMatch.Location = new System.Drawing.Point(66, 575);
-            this.m_ButtonBestMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ButtonBestMatch.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonBestMatch.Name = "m_ButtonBestMatch";
             this.m_ButtonBestMatch.Size = new System.Drawing.Size(228, 88);
             this.m_ButtonBestMatch.TabIndex = 56;
@@ -114,7 +115,7 @@
             // 
             this.m_ButtonMostLikesFromFriends.BackColor = System.Drawing.Color.White;
             this.m_ButtonMostLikesFromFriends.Location = new System.Drawing.Point(66, 387);
-            this.m_ButtonMostLikesFromFriends.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ButtonMostLikesFromFriends.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonMostLikesFromFriends.Name = "m_ButtonMostLikesFromFriends";
             this.m_ButtonMostLikesFromFriends.Size = new System.Drawing.Size(228, 88);
             this.m_ButtonMostLikesFromFriends.TabIndex = 57;
@@ -128,7 +129,7 @@
             this.m_ListBoxPopularPhotos.FormattingEnabled = true;
             this.m_ListBoxPopularPhotos.ItemHeight = 25;
             this.m_ListBoxPopularPhotos.Location = new System.Drawing.Point(840, 348);
-            this.m_ListBoxPopularPhotos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ListBoxPopularPhotos.Margin = new System.Windows.Forms.Padding(4);
             this.m_ListBoxPopularPhotos.Name = "m_ListBoxPopularPhotos";
             this.m_ListBoxPopularPhotos.Size = new System.Drawing.Size(386, 354);
             this.m_ListBoxPopularPhotos.TabIndex = 58;
@@ -137,7 +138,7 @@
             // 
             this.m_PictureBoxSelectedPopularPhoto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.m_PictureBoxSelectedPopularPhoto.Location = new System.Drawing.Point(1078, 550);
-            this.m_PictureBoxSelectedPopularPhoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_PictureBoxSelectedPopularPhoto.Margin = new System.Windows.Forms.Padding(4);
             this.m_PictureBoxSelectedPopularPhoto.Name = "m_PictureBoxSelectedPopularPhoto";
             this.m_PictureBoxSelectedPopularPhoto.Size = new System.Drawing.Size(148, 152);
             this.m_PictureBoxSelectedPopularPhoto.TabIndex = 59;
@@ -147,7 +148,7 @@
             // 
             this.m_ButtonPopularPhotos.BackColor = System.Drawing.Color.White;
             this.m_ButtonPopularPhotos.Location = new System.Drawing.Point(868, 290);
-            this.m_ButtonPopularPhotos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ButtonPopularPhotos.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonPopularPhotos.Name = "m_ButtonPopularPhotos";
             this.m_ButtonPopularPhotos.Size = new System.Drawing.Size(236, 50);
             this.m_ButtonPopularPhotos.TabIndex = 60;
@@ -173,7 +174,7 @@
             this.Controls.Add(this.m_ButtonLogout);
             this.Controls.Add(this.m_ButtonLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
