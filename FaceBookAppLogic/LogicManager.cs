@@ -44,7 +44,6 @@ namespace FaceBookAppLogic
             return r_BestFriendLogic.GetMostLikesOnPostsByUsers(i_Post);
         }
 
-        // All categories together
         public LinkedList<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser, User.eGender i_ChosenGender)
         {
             Dictionary<User, int> bestMatchDictionary = r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser, i_ChosenGender);
@@ -83,33 +82,31 @@ namespace FaceBookAppLogic
             return sortedUsers;
         }
 
-
-        // NEED TO FIX
-        public List<T> FindCommonLikedPages<T>(string i_MyMatch)
+        public List<Page> FindCommonLikedPages(string i_MyMatch)
         {
             List<FacebookObject> commonList = new List<FacebookObject>();
 
-            commonList = r_BestMatchLogic.commonLikedPagesWithFriend(i_MyMatch);
-            
-            return commonList.Cast<T>().ToList();
+            commonList = r_BestMatchLogic.CommonLikedPagesDic[i_MyMatch];
+
+            return commonList.Cast<Page>().ToList();
         }
 
-        public List<T> FindCommonGroups<T>(string i_MyMatch)
+        public List<Group> FindCommonGroups(string i_MyMatch)
         {
             List<FacebookObject> commonList = new List<FacebookObject>();
 
-            commonList = r_BestMatchLogic.commonGroupsWithFriend(i_MyMatch);
+            commonList = r_BestMatchLogic.CommonGroupsDic[i_MyMatch];
 
-            return commonList.Cast<T>().ToList();
+            return commonList.Cast<Group>().ToList();
         }
 
-        public List<T> FindCommonFriends<T>(string i_MyMatch)
+        public List<User> FindCommonFriends(string i_MyMatch)
         {
             List<FacebookObject> commonList = new List<FacebookObject>();
 
-            commonList = r_BestMatchLogic.commonFriendsWithFriend(i_MyMatch);
+            commonList = r_BestMatchLogic.CommonFriendsDic[i_MyMatch];
 
-            return commonList.Cast<T>().ToList();
+            return commonList.Cast<User>().ToList();
         }
 
     }

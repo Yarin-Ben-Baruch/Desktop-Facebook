@@ -151,7 +151,7 @@ namespace BasicFacebookFeatures
             List<Page> commonPagesWithMatch = new List<Page>();
 
             bestMatchs = bestMatchsInLinkedList.ToList();
-            commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages<Page>(bestMatchs[SelectedIndex].Id);
+            commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages(bestMatchs[SelectedIndex].Id);
 
             m_ListBoxPages.Items.Clear();
             m_ListBoxPages.DisplayMember = "Name";
@@ -180,7 +180,7 @@ namespace BasicFacebookFeatures
             List<Group> commonGroupsWithMatch = new List<Group>();
 
             bestMatchs = bestMatchsInLinkedList.ToList();
-            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups<Group>(bestMatchs[SelectedIndex].Id);
+            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups(bestMatchs[SelectedIndex].Id);
 
             m_ListBoxGroups.Items.Clear();
             m_ListBoxGroups.DisplayMember = "Name";
@@ -209,7 +209,7 @@ namespace BasicFacebookFeatures
             List<User> commonGroupsWithMatch = new List<User>();
 
             bestMatchs = bestMatchsInLinkedList.ToList();
-            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends<User>(bestMatchs[SelectedIndex].Id);
+            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends(bestMatchs[SelectedIndex].Id);
 
             m_ListBoxFriends.Items.Clear();
             m_ListBoxFriends.DisplayMember = "Name";
@@ -231,5 +231,6 @@ namespace BasicFacebookFeatures
                 MessageBox.Show("No friends to retrieve :(");
             }
         }
+
     }
 }
