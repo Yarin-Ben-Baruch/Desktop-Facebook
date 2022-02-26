@@ -16,12 +16,12 @@ namespace BasicFacebookFeatures
             InitializeComponent();
         }
 
-        private void labelMostLikesOnPhotos_Click(object sender, EventArgs e)
+        private void buttonMostLikesOnPhotos_Click(object sender, EventArgs e)
         {
-            fetchPhotos();
+            fetchUserPhotos();
         }
 
-        private void m_LabelMostCommentsOnPosts_Click(object sender, EventArgs e)
+        private void buttonMostComments_Click(object sender, EventArgs e)
         {
             fetchUserComments();
         }
@@ -36,7 +36,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_ListBoxMostComments_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxMostComments_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxMostComments.SelectedItems.Count == 1)
             {
@@ -46,7 +46,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void fetchPhotos()
+        private void fetchUserPhotos()
         {
             List<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
 
@@ -94,7 +94,8 @@ namespace BasicFacebookFeatures
 
 
 
-        private void labelMostLikesOnPosts_Click(object sender, EventArgs e)
+
+        private void m_ButtonMostLikesOnPosts_Click(object sender, EventArgs e)
         {
             fetchPosts();
         }
@@ -115,6 +116,5 @@ namespace BasicFacebookFeatures
                 MessageBox.Show("No Posts to retrieve :(");
             }
         }
-
     }
 }

@@ -15,9 +15,12 @@ namespace FaceBookAppLogic
             r_BestMatchLogic = new BestMatchLogic();
         }
 
-        public List<Photo> FetchPhotos(FacebookObjectCollection<Album> i_Albums)
+        public List<Photo> FetchSortedPhotos(FacebookObjectCollection<Album> i_Albums)
         {
-            return r_BestFriendLogic.FetchPhotos(i_Albums);
+            List<Photo> allPhotos = r_BestFriendLogic.FetchPhotos(i_Albums);
+            List<Photo> sortedPhotos = allPhotos.OrderBy(photo => -photo.LikedBy.Count).ToList();
+
+            return sortedPhotos;
         }
 
         public LinkedList<User> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums, List<User> i_FriendsList)

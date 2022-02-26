@@ -10,6 +10,11 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private const string k_AppId = "507070034420577";
+        private static string[] s_Permissions = {
+            "email", "public_profile", "user_age_range", "user_birthday", "user_events",
+            "user_friends", "user_gender", "user_hometown", "user_likes", "user_link",
+            "user_location", "user_photos", "user_posts", "groups_access_member_info",
+            "user_videos"};
 
         public LogicManager ManagerLogic { get; }
 
@@ -42,7 +47,10 @@ namespace BasicFacebookFeatures
             {
                 new FormBestMatch(this).ShowDialog();
             }
-            // TODO: ERROR MESSAGE
+            else
+            {
+                MessageBox.Show(LoginResult.ErrorMessage, "You need to be logged in");
+            }
         }
 
         private void buttonMostLikesFromFriends_Click(object sender, EventArgs e)
@@ -51,7 +59,10 @@ namespace BasicFacebookFeatures
             {
                 new FormMostLikesFromFriends(this).ShowDialog();
             }
-            // TODO: ERROR MESSAGE
+            else
+            {
+                MessageBox.Show(LoginResult.ErrorMessage, "You need to be logged in");
+            }
         }
 
         private void buttonPopularPhotos_Click(object sender, EventArgs e)
@@ -60,7 +71,10 @@ namespace BasicFacebookFeatures
             {
                 fetchPhotos();
             }
-            // TODO : ERROR MESSAGE
+            else
+            {
+                MessageBox.Show(LoginResult.ErrorMessage, "You need to be logged in");
+            }
         }
 
         private void listBoxPopularPhotos_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,7 +90,7 @@ namespace BasicFacebookFeatures
 
         private void fetchPhotos()
         {
-            List<Photo> photos = ManagerLogic.FetchPhotos(LoggedInUser.Albums);
+            List<Photo> photos = ManagerLogic.FetchSortedPhotos(LoggedInUser.Albums);
 
             m_ListBoxPopularPhotos.Items.Clear();
             m_ListBoxPopularPhotos.DisplayMember = "Name";
@@ -109,22 +123,7 @@ namespace BasicFacebookFeatures
 
         private void loginAndInit()
         {
-            LoginResult = FacebookService.Login(k_AppId,
-                "email",
-                "public_profile",
-                "user_age_range",
-                "user_birthday",
-                "user_events",
-                "user_friends",
-                "user_gender",
-                "user_hometown",
-                "user_likes",
-                "user_link",
-                "user_location",
-                "user_photos",
-                "user_posts",
-                "groups_access_member_info",
-                "user_videos");
+            LoginResult = FacebookService.Login(k_AppId, s_Permissions);
 
             if (!string.IsNullOrEmpty(LoginResult.AccessToken))
             {
