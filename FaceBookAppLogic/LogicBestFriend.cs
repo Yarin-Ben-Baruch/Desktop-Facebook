@@ -24,7 +24,7 @@ namespace FaceBookAppLogic
             return sortedPhotos;
         }
 
-        public LinkedList<User> GetMostLikesByUsers(FacebookObjectCollection<Album> i_Albums)
+        public LinkedList<User> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
         {
             List<Photo> photos = FetchPhotos(i_Albums);
             Dictionary<User, int> usersMostLikes = new Dictionary<User, int>();
@@ -55,7 +55,7 @@ namespace FaceBookAppLogic
             return sortedUsers;
         }
 
-        public LinkedList<User> FetchPosts(FacebookObjectCollection<Post> i_Post)
+        public LinkedList<User> GetMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_Post)
         {
             List<Post> posts = new List<Post>();
             Dictionary<User, int> usersMostLikes = new Dictionary<User, int>();

@@ -12,6 +12,7 @@ namespace BasicFacebookFeatures
         private const string k_AppId = "507070034420577";
 
         public LogicManager ManagerLogic { get; }
+
         public User LoggedInUser { get; set; }
 
         public LoginResult LoginResult { get; set; }

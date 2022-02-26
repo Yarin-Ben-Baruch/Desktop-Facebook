@@ -23,9 +23,14 @@ namespace FaceBookAppLogic
             return r_BestFriendLogic.FetchPhotos(i_Albums);
         }
 
-        public LinkedList<User> GetMostLikesByUsers(FacebookObjectCollection<Album> i_Albums)
+        public LinkedList<User> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
         {
-            return r_BestFriendLogic.GetMostLikesByUsers(i_Albums);
+            return r_BestFriendLogic.GetMostLikesOnPhotosByUsers(i_Albums);
+        }
+
+        public LinkedList<User> GetMostLikesOnPostByUsers(FacebookObjectCollection<Post> i_Post)
+        {
+            return r_BestFriendLogic.GetMostLikesOnPostsByUsers(i_Post);
         }
 
         // All categories together
