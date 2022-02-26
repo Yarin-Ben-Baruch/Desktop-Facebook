@@ -75,11 +75,10 @@ namespace FaceBookAppLogic
             return sortedUsers;
         }
 
-        // Pages || Groups || Friends
-        // public List<T> FindCommonBetweenOneCategory<T>(FacebookObjectCollection<T> i_CollectionOfLoginUser, FacebookObjectCollection<T> i_CollctionOfMatchUser)
-        // {
-        //     //return r_BestMatchLogic.FindCommonBetweenTwoLists(i_CollectionOfLoginUser, i_CollctionOfMatchUser);
-        // }
+        public List<FacebookObject> FindCommonBetweenOneCategory(FacebookObjectCollection<FacebookObject> i_CollectionOfLoginUser, FacebookObjectCollection<FacebookObject> i_CollctionOfMatchUser)
+        {
+            return r_BestMatchLogic.FindCommonObjectsInCollection(i_CollectionOfLoginUser.ToList(), i_CollctionOfMatchUser.ToList());
+        }
 
     }
 }

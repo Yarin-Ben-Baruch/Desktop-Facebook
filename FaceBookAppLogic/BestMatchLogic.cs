@@ -10,6 +10,7 @@ namespace FaceBookAppLogic
 {
     class BestMatchLogic
     {
+        public Dictionary<User, List<FacebookObject>> CommonGroupsDic { get; set; }
 
         public List<FacebookObject> FindCommonObjectsInCollection(List<FacebookObject> i_CollectionOfLoginUser, List<FacebookObject> i_CollctionOfMatchUser)
         {
@@ -33,6 +34,12 @@ namespace FaceBookAppLogic
         {
             Dictionary<User, int> commonDictionary = new Dictionary<User, int>();
 
+            // THINK
+            Dictionary<User, List<FacebookObject>> commonGroupsDic = new Dictionary<User, List<FacebookObject>>();
+            Dictionary<User, List<FacebookObject>> commonLikedPagesDic = new Dictionary<User, List<FacebookObject>>();
+            Dictionary<User, List<FacebookObject>> commonFriendsDic = new Dictionary<User, List<FacebookObject>>();
+
+
             foreach (User myFriend in i_LoggedInUserFriends)
             {
                 if (myFriend.Gender == i_ChosenGender)
@@ -49,19 +56,24 @@ namespace FaceBookAppLogic
                     commonDictionary[myFriend] += FindCommonObjectsInCollection(myFriend.Friends.Cast<FacebookObject>().ToList(),
                             i_LoggedInUser.Friends.Cast<FacebookObject>().ToList())
                         .Count;
+
+
+                    // TODO: NEED TO FIX
+                    commonGroupsDic.Add(myFriend,
+                        FindCommonObjectsInCollection(myFriend.Groups.Cast<FacebookObject>().ToList(),
+                            i_LoggedInUser.Groups.Cast<FacebookObject>().ToList()));
+
+                    // TODO : NEED TO FIX
+                    commonLikedPagesDic[myFriend] = FindCommonObjectsInCollection(myFriend.LikedPages.Cast<FacebookObject>().ToList(),
+                            i_LoggedInUser.LikedPages.Cast<FacebookObject>().ToList());
+
+                    // TODO: NEED TO FIX
+                    commonFriendsDic[myFriend] = FindCommonObjectsInCollection(myFriend.Friends.Cast<FacebookObject>().ToList(),
+                            i_LoggedInUser.Friends.Cast<FacebookObject>().ToList());
                 }
             }
 
             return commonDictionary;
-
-            // List<User> bestMatchFriends = new List<User>(); 
-            //
-            // foreach (KeyValuePair<User, int> user in commonDictionary.OrderBy(key => -key.Value))
-            // {
-            //     bestMatchFriends.Add(user.Key);
-            // }
-            //
-            // return bestMatchFriends;
         }
 
     }

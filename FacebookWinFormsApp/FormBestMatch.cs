@@ -51,8 +51,15 @@ namespace BasicFacebookFeatures
             }
         }
 
+        private void initializatedCommonGroupsList(LinkedList<User> bestMatchsInLinkedList)
+        {
+
+
+        }
+
         private void linkLabelCommonGroups_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            
             m_ListBoxGroups.Items.Clear();
             m_ListBoxGroups.DisplayMember = "Name";
 
