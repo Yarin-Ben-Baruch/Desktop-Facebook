@@ -75,9 +75,13 @@ namespace FaceBookAppLogic
             return sortedUsers;
         }
 
-        public List<FacebookObject> FindCommonBetweenOneCategory(FacebookObjectCollection<FacebookObject> i_CollectionOfLoginUser, FacebookObjectCollection<FacebookObject> i_CollctionOfMatchUser)
+        public List<T> FindCommonBetweenOneCategory<T>(string i_MyMatch)
         {
-            return r_BestMatchLogic.FindCommonObjectsInCollection(i_CollectionOfLoginUser.ToList(), i_CollctionOfMatchUser.ToList());
+            List<FacebookObject> commonList = new List<FacebookObject>();
+
+            commonList = r_BestMatchLogic.commonGroupsWithFriend(i_MyMatch);
+            
+            return commonList.Cast<T>().ToList();
         }
 
     }

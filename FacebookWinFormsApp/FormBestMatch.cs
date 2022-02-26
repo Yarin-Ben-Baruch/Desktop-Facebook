@@ -33,6 +33,8 @@ namespace BasicFacebookFeatures
                 r_FormMain.LoggedInUser,
                 m_ChosenGender);
 
+            initializatedCommonGroupsList(bestMatchs);
+
             try
             {
                 foreach (User user in bestMatchs)
@@ -53,8 +55,31 @@ namespace BasicFacebookFeatures
 
         private void initializatedCommonGroupsList(LinkedList<User> bestMatchsInLinkedList)
         {
+            List<User> bestMatchs = new List<User>();
+            List<Page> commonGroupsWithMatch = new List<Page>();
 
+            bestMatchs = bestMatchsInLinkedList.ToList();
+            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonBetweenOneCategory<Page>(bestMatchs[].Id);
 
+            m_ListBoxPages.Items.Clear();
+            m_ListBoxPages.DisplayMember = "Name";
+
+            try
+            {
+                foreach (Page page in commonGroupsWithMatch)
+                {
+                    m_ListBoxPages.Items.Add(page);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (m_ListBoxPages.Items.Count == 0)
+            {
+                MessageBox.Show("No liked pages to retrieve :(");
+            }
         }
 
         private void linkLabelCommonGroups_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
