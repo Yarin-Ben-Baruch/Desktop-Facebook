@@ -10,61 +10,80 @@ namespace FaceBookAppLogic
 {
     class BestMatchLogic
     {
-        public List<User> FindCommonFriends(FacebookObjectCollection<User> i_CollectionOfLoginUser, FacebookObjectCollection<User> i_CollctionOfMatchUser)
+
+        public List<FacebookObject> FindCommonObjectsInCollection(List<FacebookObject> i_CollectionOfLoginUser, List<FacebookObject> i_CollctionOfMatchUser)
         {
-            List<User> commonGroupsList = new List<User>();
-
-            foreach (User matchObject in i_CollectionOfLoginUser)
-            {
-                foreach (User checkPage in i_CollctionOfMatchUser)
-                {
-                    if (matchObject.Name.Equals(checkPage.Name))
-                    {
-                        commonGroupsList.Add(matchObject);
-                    }
-                }
-            }
-
-            return commonGroupsList;
-        }
-
-        public List<Group> FindCommonGroups(FacebookObjectCollection<Group> i_CollectionOfLoginUser, FacebookObjectCollection<Group> i_CollctionOfMatchUser)
-        {
-            List<Group> commonGroupsList = new List<Group>();
-
-            foreach (Group matchObject in i_CollectionOfLoginUser)
-            {
-                foreach (Group checkPage in i_CollctionOfMatchUser)
-                {
-                    if (matchObject.Name.Equals(checkPage.Name))
-                    {
-                        commonGroupsList.Add(matchObject);
-                    }
-                }
-
-            }
-
-            return commonGroupsList;
-        }
-
-        public List<Page> FindCommonPages(FacebookObjectCollection<Page> i_CollectionOfLoginUser, FacebookObjectCollection<Page> i_CollctionOfMatchUser)
-        {
-            List<Page> commonGroupsList = new List<Page>();
+            List<FacebookObject> commonObjectsList = new List<FacebookObject>();
             
-            foreach (Page matchObject in i_CollectionOfLoginUser)
+            foreach (FacebookObject matchObject in i_CollectionOfLoginUser)
             {
-                foreach (Page checkPage in i_CollctionOfMatchUser)
+                foreach (FacebookObject checkObject in i_CollctionOfMatchUser)
                 {
-                    if (matchObject.Name.Equals(checkPage.Name))
+                    if (matchObject.Id.Equals(checkObject.Id))
                     {
-                        commonGroupsList.Add(matchObject);
+                        commonObjectsList.Add(matchObject);
                     }
                 }
-                
             }
 
-            return commonGroupsList;
+            return commonObjectsList;
         }
+
+        // public List<User> FindCommonFriends(FacebookObjectCollection<User> i_CollectionOfLoginUser, FacebookObjectCollection<User> i_CollctionOfMatchUser)
+        // {
+        //     List<User> commonGroupsList = new List<User>();
+        //
+        //     foreach (User matchObject in i_CollectionOfLoginUser)
+        //     {
+        //         foreach (User checkPage in i_CollctionOfMatchUser)
+        //         {
+        //             if (matchObject.Name.Equals(checkPage.Name))
+        //             {
+        //                 commonGroupsList.Add(matchObject);
+        //             }
+        //         }
+        //     }
+        //
+        //     return commonGroupsList;
+        // }
+        //
+        // public List<Group> FindCommonGroups(FacebookObjectCollection<Group> i_CollectionOfLoginUser, FacebookObjectCollection<Group> i_CollctionOfMatchUser)
+        // {
+        //     List<Group> commonGroupsList = new List<Group>();
+        //
+        //     foreach (Group matchObject in i_CollectionOfLoginUser)
+        //     {
+        //         foreach (Group checkPage in i_CollctionOfMatchUser)
+        //         {
+        //             if (matchObject.Name.Equals(checkPage.Name))
+        //             {
+        //                 commonGroupsList.Add(matchObject);
+        //             }
+        //         }
+        //
+        //     }
+        //
+        //     return commonGroupsList;
+        // }
+        //
+        // public List<Page> FindCommonPages(FacebookObjectCollection<Page> i_CollectionOfLoginUser, FacebookObjectCollection<Page> i_CollctionOfMatchUser)
+        // {
+        //     List<Page> commonGroupsList = new List<Page>();
+        //     
+        //     foreach (Page matchObject in i_CollectionOfLoginUser)
+        //     {
+        //         foreach (Page checkPage in i_CollctionOfMatchUser)
+        //         {
+        //             if (matchObject.Name.Equals(checkPage.Name))
+        //             {
+        //                 commonGroupsList.Add(matchObject);
+        //             }
+        //         }
+        //         
+        //     }
+        //
+        //     return commonGroupsList;
+        // }
 
         public List<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends,User i_LoggedInUser)
         {
@@ -72,27 +91,28 @@ namespace FaceBookAppLogic
 
             foreach (User myFriend in i_LoggedInUserFriends)
             {
-            
                 commonDictionary.Add(myFriend,
-                    FindCommonGroups
-                    (myFriend.Groups,
-                    i_LoggedInUser.Groups).Count);
+                    FindCommonObjectsInCollection
+                    (myFriend.Groups.Cast<FacebookObject>().ToList(),
+                    i_LoggedInUser.Groups.Cast<FacebookObject>().ToList()).Count);
             }
 
             foreach (User myFriend in i_LoggedInUserFriends)
             {
                 if (commonDictionary.ContainsKey(myFriend))
                 {
-                    commonDictionary[myFriend] += FindCommonPages
-                    (myFriend.LikedPages,
-                        i_LoggedInUser.LikedPages).Count;
+                    commonDictionary[myFriend] += FindCommonObjectsInCollection
+                    (myFriend.LikedPages.Cast<FacebookObject>().ToList(),
+                        i_LoggedInUser.LikedPages.Cast<FacebookObject>().ToList())
+                        .Count;
                 }
                 else
                 {
                     commonDictionary.Add(myFriend,
-                        FindCommonPages
-                        (myFriend.LikedPages,
-                            i_LoggedInUser.LikedPages).Count);
+                        FindCommonObjectsInCollection
+                        (myFriend.LikedPages.Cast<FacebookObject>().ToList(),
+                            i_LoggedInUser.LikedPages.Cast<FacebookObject>().ToList())
+                            .Count);
                 }
             }
 
@@ -100,22 +120,24 @@ namespace FaceBookAppLogic
             {
                 if (commonDictionary.ContainsKey(myFriend))
                 {
-                    commonDictionary[myFriend] += FindCommonFriends
-                    (myFriend.Friends,
-                        i_LoggedInUser.Friends).Count;
+                    commonDictionary[myFriend] += FindCommonObjectsInCollection
+                    (myFriend.Friends.Cast<FacebookObject>().ToList(),
+                        i_LoggedInUser.Friends.Cast<FacebookObject>().ToList())
+                        .Count;
                 }
                 else
                 {
                     commonDictionary.Add(myFriend,
-                        FindCommonFriends
-                        (myFriend.Friends,
-                            i_LoggedInUser.Friends).Count);
+                        FindCommonObjectsInCollection
+                        (myFriend.Friends.Cast<FacebookObject>().ToList(),
+                            i_LoggedInUser.Friends.Cast<FacebookObject>().ToList())
+                            .Count);
                 }
             }
 
             List<User> bestMatchFriends = new List<User>(); 
 
-            foreach (KeyValuePair<User, int> user in commonDictionary.OrderBy(key => key.Value))
+            foreach (KeyValuePair<User, int> user in commonDictionary.OrderBy(key => -key.Value))
             {
                 bestMatchFriends.Add(user.Key);
             }

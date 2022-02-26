@@ -149,9 +149,9 @@ namespace BasicFacebookFeatures
 
         private void m_ListBoxBestMatch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (m_ListBoxFriends.SelectedItems.Count == 1)
+            if (m_ListBoxBestMatch.SelectedItems.Count == 1)
             {
-                User selectedUser = m_ListBoxFriends.SelectedItem as User;
+                User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
                 m_PictureBoxBestMatch.LoadAsync(selectedUser.PictureNormalURL);
             }
         }
