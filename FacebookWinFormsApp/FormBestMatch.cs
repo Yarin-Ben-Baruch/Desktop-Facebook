@@ -15,7 +15,7 @@ namespace BasicFacebookFeatures
     {
         private readonly FormMain r_FormMain;
         private User.eGender m_ChosenGender;
-        private LinkedList<User> m_BestMatchs;
+        private LinkedList<User> m_BestMatches;
 
         public FormBestMatch(FormMain i_FormMain)
         {
@@ -29,7 +29,7 @@ namespace BasicFacebookFeatures
             m_ListBoxBestMatch.Items.Clear();
             m_ListBoxBestMatch.DisplayMember = "Name";
 
-            m_BestMatchs = r_FormMain.ManagerLogic.FindBestMatch(
+            m_BestMatches = r_FormMain.ManagerLogic.FindBestMatch(
                 r_FormMain.LoggedInUser.Friends,
                 r_FormMain.LoggedInUser,
                 m_ChosenGender,
@@ -38,7 +38,7 @@ namespace BasicFacebookFeatures
 
             try
             {
-                foreach (User user in m_BestMatchs)
+                foreach (User user in m_BestMatches)
                 {
                     m_ListBoxBestMatch.Items.Add(user);
                 }
@@ -90,9 +90,9 @@ namespace BasicFacebookFeatures
                 m_PictureBoxBestMatch.LoadAsync(selectedUser.PictureNormalURL);
             }
 
-            initializatedCommonPagesList(m_BestMatchs, m_ListBoxBestMatch.SelectedIndex);
-            initializatedCommonGroupsList(m_BestMatchs, m_ListBoxBestMatch.SelectedIndex);
-            initializatedCommonFriendsList(m_BestMatchs, m_ListBoxBestMatch.SelectedIndex);
+            initializedCommonPagesList(m_BestMatches, m_ListBoxBestMatch.SelectedIndex);
+            initializedCommonGroupsList(m_BestMatches, m_ListBoxBestMatch.SelectedIndex);
+            initializedCommonFriendsList(m_BestMatches, m_ListBoxBestMatch.SelectedIndex);
         }
 
         private void linkLabelLoverProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -113,12 +113,12 @@ namespace BasicFacebookFeatures
         }
 
         // TODO : Move To external function
-        private void initializatedCommonPagesList(LinkedList<User> bestMatchsInLinkedList, int SelectedIndex)
+        private void initializedCommonPagesList(LinkedList<User> bestMatchesInLinkedList, int SelectedIndex)
         {
             List<User> bestMatchs = new List<User>();
             List<Page> commonPagesWithMatch = new List<Page>();
 
-            bestMatchs = bestMatchsInLinkedList.ToList();
+            bestMatchs = bestMatchesInLinkedList.ToList();
             commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages(bestMatchs[SelectedIndex].Id);
 
             m_ListBoxPages.Items.Clear();
@@ -142,12 +142,12 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void initializatedCommonGroupsList(LinkedList<User> bestMatchsInLinkedList, int SelectedIndex)
+        private void initializedCommonGroupsList(LinkedList<User> bestMatchesInLinkedList, int SelectedIndex)
         {
             List<User> bestMatchs = new List<User>();
             List<Group> commonGroupsWithMatch = new List<Group>();
 
-            bestMatchs = bestMatchsInLinkedList.ToList();
+            bestMatchs = bestMatchesInLinkedList.ToList();
             commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups(bestMatchs[SelectedIndex].Id);
 
             m_ListBoxGroups.Items.Clear();
@@ -171,12 +171,12 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void initializatedCommonFriendsList(LinkedList<User> bestMatchsInLinkedList, int SelectedIndex)
+        private void initializedCommonFriendsList(LinkedList<User> bestMatchesInLinkedList, int SelectedIndex)
         {
             List<User> bestMatchs = new List<User>();
             List<User> commonGroupsWithMatch = new List<User>();
 
-            bestMatchs = bestMatchsInLinkedList.ToList();
+            bestMatchs = bestMatchesInLinkedList.ToList();
             commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends(bestMatchs[SelectedIndex].Id);
 
             m_ListBoxFriends.Items.Clear();

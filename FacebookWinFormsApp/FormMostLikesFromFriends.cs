@@ -87,9 +87,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-
-
-
         private void m_ButtonMostLikesOnPosts_Click(object sender, EventArgs e)
         {
             fetchPosts();

@@ -11,7 +11,8 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private const string k_AppId = "507070034420577";
-        private static string[] s_Permissions = {
+        // TODO: ITS OK ? sr ? rs ?
+        private static readonly string[] sr_Permissions = {
             "email", "public_profile", "user_age_range", "user_birthday", "user_events",
             "user_friends", "user_gender", "user_hometown", "user_likes", "user_link",
             "user_location", "user_photos", "user_posts", "groups_access_member_info",
@@ -131,7 +132,7 @@ namespace BasicFacebookFeatures
 
         private void loginAndInit()
         {
-            LoginResult = FacebookService.Login(k_AppId, s_Permissions);
+            LoginResult = FacebookService.Login(k_AppId, sr_Permissions);
 
             if (!string.IsNullOrEmpty(LoginResult.AccessToken))
             {
