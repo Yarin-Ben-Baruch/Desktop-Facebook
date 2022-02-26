@@ -32,7 +32,9 @@ namespace BasicFacebookFeatures
             m_BestMatchs = r_FormMain.ManagerLogic.FindBestMatch(
                 r_FormMain.LoggedInUser.Friends,
                 r_FormMain.LoggedInUser,
-                m_ChosenGender);
+                m_ChosenGender,
+                m_NumericUpDownStartAge.Value,
+                m_NumericUpDownEndAge.Value);
 
             try
             {
@@ -105,43 +107,9 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void comboBoxAge_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void comboBoxGender_SelectedIndexChanged(object sender, EventArgs e)
         {
             m_ChosenGender = (User.eGender)m_ComboBoxGender.SelectedIndex;
-        }
-
-        private void visitLoverProfile()
-        {
-            // Change the color of the link text by setting LinkVisited
-            // to true.
-            m_LinkLabelLoverProfile.LinkVisited = true;
-            //Call the Process.Start method to open the default browser
-            //with a URL:
-            if (m_ListBoxBestMatch.SelectedItems.Count == 1)
-            {
-                User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
-                System.Diagnostics.Process.Start(selectedUser.Link);
-            }
-
-        }
-
-        private void getingTheData()
-        {
-            m_ComboBoxAge.SelectedItem.ToString();
-
-        }
-
-        private void resetPreviusPhotos()
-        {
-            m_PictureBoxBestMatch.Image = null;
-            m_PictureBoxPages.Image = null;
-            m_PictureBoxFriends.Image = null;
-            m_PictureBoxGroups.Image = null;
         }
 
         // NEED TO FIX
@@ -232,5 +200,43 @@ namespace BasicFacebookFeatures
             }
         }
 
+        private void numericUpDownStartAge_ValueChanged(object sender, EventArgs e)
+        {
+            if (m_NumericUpDownStartAge.Value > m_NumericUpDownEndAge.Value)
+            {
+                m_NumericUpDownEndAge.Value = m_NumericUpDownStartAge.Value;
+            }
+        }
+
+        private void numericUpDownEndAge_ValueChanged(object sender, EventArgs e)
+        {
+            if (m_NumericUpDownStartAge.Value > m_NumericUpDownEndAge.Value)
+            {
+                m_NumericUpDownStartAge.Value = m_NumericUpDownEndAge.Value;
+            }
+        }
+
+        private void visitLoverProfile()
+        {
+            // Change the color of the link text by setting LinkVisited
+            // to true.
+            m_LinkLabelLoverProfile.LinkVisited = true;
+            //Call the Process.Start method to open the default browser
+            //with a URL:
+            if (m_ListBoxBestMatch.SelectedItems.Count == 1)
+            {
+                User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
+                System.Diagnostics.Process.Start(selectedUser.Link);
+            }
+
+        }
+
+        private void resetPreviusPhotos()
+        {
+            m_PictureBoxBestMatch.Image = null;
+            m_PictureBoxPages.Image = null;
+            m_PictureBoxFriends.Image = null;
+            m_PictureBoxGroups.Image = null;
+        }
     }
 }

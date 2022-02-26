@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using FaceBookAppLogic;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
+using Message = System.Windows.Forms.Message;
 
 namespace BasicFacebookFeatures
 {
@@ -36,10 +37,17 @@ namespace BasicFacebookFeatures
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
-        { 
-            FacebookService.LogoutWithUI();
-            resetWhenLogout();
-		}
+        {
+            if (LoggedInUser != null)
+            {
+                FacebookService.LogoutWithUI();
+                resetWhenLogout();
+            }
+            else
+            {
+                MessageBox.Show("You need to be logged in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void buttonBestMatch_Click(object sender, EventArgs e)
         {
@@ -49,7 +57,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(LoginResult.ErrorMessage, "You need to be logged in");
+                MessageBox.Show("You need to be logged in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -61,7 +69,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(LoginResult.ErrorMessage, "You need to be logged in");
+                MessageBox.Show("You need to be logged in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -73,7 +81,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(LoginResult.ErrorMessage, "You need to be logged in");
+                MessageBox.Show("You need to be logged in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -134,7 +142,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(LoginResult.ErrorMessage, "Login Failed");
+                MessageBox.Show("Login Failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

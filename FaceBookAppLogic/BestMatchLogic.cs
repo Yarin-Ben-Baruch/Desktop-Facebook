@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using FacebookWrapper.ObjectModel;
 
 namespace FaceBookAppLogic
@@ -39,45 +36,53 @@ namespace FaceBookAppLogic
             return commonObjectsList;
         }
 
-        public Dictionary<User, int> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends,User i_LoggedInUser, User.eGender i_ChosenGender)
+        public Dictionary<User, int> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, 
+            User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)
         {
             Dictionary<User, int> commonDictionary = new Dictionary<User, int>();
+            List<FacebookObject> currentCommonGroups;
+            List<FacebookObject> currentCommonLikedPages;
+            List<FacebookObject> currentCommonFriends;
+            int currentUserAge;
+
+            resetDictionaries();
 
             foreach (User myFriend in i_LoggedInUserFriends)
             {
-                if (myFriend.Gender == i_ChosenGender)
+                currentUserAge = int.Parse(myFriend.Birthday.Substring(myFriend.Birthday.Length - 5, myFriend.Birthday.Length));
+
+                if (myFriend.Gender == i_ChosenGender && i_StartAge <= currentUserAge && currentUserAge <= i_EndAge)
                 {
-                    commonDictionary.Add(myFriend,
-                        FindCommonObjectsInCollection(myFriend.Groups.Cast<FacebookObject>().ToList(),
-                            i_LoggedInUser.Groups.Cast<FacebookObject>().ToList())
-                            .Count);
+                    currentCommonGroups = FindCommonObjectsInCollection(myFriend.Groups.Cast<FacebookObject>().ToList(),
+                        i_LoggedInUser.Groups.Cast<FacebookObject>().ToList());
 
-                    commonDictionary[myFriend] += FindCommonObjectsInCollection(myFriend.LikedPages.Cast<FacebookObject>().ToList(),
-                            i_LoggedInUser.LikedPages.Cast<FacebookObject>().ToList())
-                        .Count;
+                    currentCommonLikedPages = FindCommonObjectsInCollection(
+                        myFriend.LikedPages.Cast<FacebookObject>().ToList(),
+                        i_LoggedInUser.LikedPages.Cast<FacebookObject>().ToList());
 
-                    commonDictionary[myFriend] += FindCommonObjectsInCollection(myFriend.Friends.Cast<FacebookObject>().ToList(),
-                            i_LoggedInUser.Friends.Cast<FacebookObject>().ToList())
-                        .Count;
+                    currentCommonFriends = FindCommonObjectsInCollection(
+                        myFriend.Friends.Cast<FacebookObject>().ToList(),
+                        i_LoggedInUser.Friends.Cast<FacebookObject>().ToList());
+
+                    commonDictionary.Add(myFriend, currentCommonGroups.Count);
+                    commonDictionary[myFriend] += currentCommonLikedPages.Count;
+                    commonDictionary[myFriend] += currentCommonFriends.Count;
 
 
-                    // TODO: NEED TO FIX
-                    CommonGroupsDic.Add(myFriend.Id,
-                        FindCommonObjectsInCollection(myFriend.Groups.Cast<FacebookObject>().ToList(),
-                            i_LoggedInUser.Groups.Cast<FacebookObject>().ToList()));
-
-                    // TODO : NEED TO FIX
-                    CommonLikedPagesDic[myFriend.Id] = FindCommonObjectsInCollection(myFriend.LikedPages.Cast<FacebookObject>().ToList(),
-                            i_LoggedInUser.LikedPages.Cast<FacebookObject>().ToList());
-
-                    // TODO: NEED TO FIX
-                    CommonFriendsDic[myFriend.Id] = FindCommonObjectsInCollection(myFriend.Friends.Cast<FacebookObject>().ToList(),
-                            i_LoggedInUser.Friends.Cast<FacebookObject>().ToList());
+                    CommonGroupsDic.Add(myFriend.Id, currentCommonGroups);
+                    CommonLikedPagesDic.Add(myFriend.Id, currentCommonLikedPages);
+                    CommonFriendsDic.Add(myFriend.Id, currentCommonFriends);
                 }
             }
 
             return commonDictionary;
         }
 
+        private void resetDictionaries()
+        {
+            CommonGroupsDic.Clear();
+            CommonLikedPagesDic.Clear();
+            CommonFriendsDic.Clear();
+        }
     }
 }

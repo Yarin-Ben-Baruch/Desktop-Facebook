@@ -57,15 +57,7 @@ namespace BasicFacebookFeatures
 
             LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
 
-            foreach (User user in usersToShow)
-            {
-                m_ListBoxMostLikesPhotos.Items.Add(user);
-            }
-
-            if (m_ListBoxMostLikesPhotos.Items.Count == 0)
-            {
-                MessageBox.Show("No User to retrieve :(");
-            }
+            enterDataIntoListBox(m_ListBoxMostLikesPhotos, usersToShow);
         }
 
         private void fetchUserComments()
@@ -79,18 +71,21 @@ namespace BasicFacebookFeatures
 
             LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostCommentsOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
 
-            foreach (User user in usersToShow)
+            enterDataIntoListBox(m_ListBoxMostComments, usersToShow);
+        }
+
+        private void enterDataIntoListBox(ListBox i_ListBoxToAdd, LinkedList<User> i_UsersToAdd)
+        {
+            foreach (User user in i_UsersToAdd)
             {
-                m_ListBoxMostComments.Items.Add(user);
+                i_ListBoxToAdd.Items.Add(user);
             }
 
-            if (m_ListBoxMostComments.Items.Count == 0)
+            if (i_ListBoxToAdd.Items.Count == 0)
             {
                 MessageBox.Show("No User to retrieve :(");
             }
         }
-
-
 
 
 

@@ -100,6 +100,5 @@ namespace FaceBookAppLogic
 
             return photos;
         }
-
     }
 }

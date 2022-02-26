@@ -26,7 +26,7 @@ namespace FaceBookAppLogic
         public LinkedList<User> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums, List<User> i_FriendsList)
         {
             Dictionary<string, int> mostLikesPhotosUserIdDic = r_BestFriendLogic.GetMostLikesOnPhotosByUsers(i_Albums);
-            LinkedList<string> sortedListOfIds = orderUsersMaxToMin(mostLikesPhotosUserIdDic);
+            LinkedList<string> sortedListOfIds = orderDictionaryByValueReverse(mostLikesPhotosUserIdDic);
 
             return convertIdToUser(sortedListOfIds, i_FriendsList);
         }
@@ -34,7 +34,7 @@ namespace FaceBookAppLogic
         public LinkedList<User> GetMostCommentsOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums, List<User> i_FriendsList)
         {
             Dictionary<string, int> mostLikesPhotosUserIdDic = r_BestFriendLogic.GetMostCommentsOnPhotosByUsers(i_Albums);
-            LinkedList<string> sortedListOfIds = orderUsersMaxToMin(mostLikesPhotosUserIdDic);
+            LinkedList<string> sortedListOfIds = orderDictionaryByValueReverse(mostLikesPhotosUserIdDic);
 
             return convertIdToUser(sortedListOfIds, i_FriendsList);
         }
@@ -44,42 +44,13 @@ namespace FaceBookAppLogic
             return r_BestFriendLogic.GetMostLikesOnPostsByUsers(i_Post);
         }
 
-        public LinkedList<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser, User.eGender i_ChosenGender)
+        public LinkedList<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends,
+            User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)
         {
-            Dictionary<User, int> bestMatchDictionary = r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser, i_ChosenGender);
+            Dictionary<User, int> bestMatchDictionary = r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser,
+                i_ChosenGender, i_StartAge, i_EndAge);
 
-            return orderUsersMaxToMin(bestMatchDictionary);
-        }
-
-        private LinkedList<User> convertIdToUser(LinkedList<string> i_UserIdList, List<User> i_FriendsList)
-        {
-            LinkedList<User> sortedUsers = new LinkedList<User>();
-
-            foreach (string userId in i_UserIdList)
-            {
-                foreach (User user in i_FriendsList)
-                {
-                    if (user.Id.Equals(userId))
-                    {
-                        sortedUsers.AddLast(user);
-                    }
-                }
-            }
-
-            return sortedUsers;
-        }
-
-        private LinkedList<T> orderUsersMaxToMin<T>(Dictionary<T, int> i_UsersToOrder)
-        {
-            LinkedList<T> sortedUsers = new LinkedList<T>();
-            IOrderedEnumerable<KeyValuePair<T, int>> orderDic = i_UsersToOrder.OrderBy(key => -key.Value);
-
-            foreach (KeyValuePair<T, int> user in orderDic)
-            {
-                sortedUsers.AddLast(user.Key);
-            }
-
-            return sortedUsers;
+            return orderDictionaryByValueReverse(bestMatchDictionary);
         }
 
         public List<Page> FindCommonLikedPages(string i_MyMatch)
@@ -109,5 +80,35 @@ namespace FaceBookAppLogic
             return commonList.Cast<User>().ToList();
         }
 
+        private LinkedList<T> orderDictionaryByValueReverse<T>(Dictionary<T, int> i_UsersToOrder)
+        {
+            LinkedList<T> sortedUsers = new LinkedList<T>();
+            IOrderedEnumerable<KeyValuePair<T, int>> orderDic = i_UsersToOrder.OrderBy(key => -key.Value);
+
+            foreach (KeyValuePair<T, int> user in orderDic)
+            {
+                sortedUsers.AddLast(user.Key);
+            }
+
+            return sortedUsers;
+        }
+
+        private LinkedList<User> convertIdToUser(LinkedList<string> i_UserIdList, List<User> i_FriendsList)
+        {
+            LinkedList<User> sortedUsers = new LinkedList<User>();
+
+            foreach (string userId in i_UserIdList)
+            {
+                foreach (User user in i_FriendsList)
+                {
+                    if (user.Id.Equals(userId))
+                    {
+                        sortedUsers.AddLast(user);
+                    }
+                }
+            }
+
+            return sortedUsers;
+        }
     }
 }
