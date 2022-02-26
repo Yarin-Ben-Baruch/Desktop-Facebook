@@ -38,31 +38,14 @@ namespace BasicFacebookFeatures
 
         private void fetchPosts()
         {
-            m_ListBoxMostLikesPosts.Items.Clear();
-
-
             LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPostByUsers(r_FormMain.LoggedInUser.Posts);
+
+            m_ListBoxMostLikesPosts.Items.Clear();
 
             foreach (User user in usersToShow)
             {
                 m_ListBoxMostLikesPosts.Items.Add(user);
             }
-
-            //foreach (Post post in r_FormMain.LoggedInUser.Posts)
-            //{
-            //    if (post.Message != null)
-            //    {
-            //        m_ListBoxMostLikesPosts.Items.Add(post.Message);
-            //    }
-            //    else if (post.Caption != null)
-            //    {
-            //        m_ListBoxMostLikesPosts.Items.Add(post.Caption);
-            //    }
-            //    else
-            //    {
-            //        m_ListBoxMostLikesPosts.Items.Add(string.Format("[{0}]", post.Type));
-            //    }
-            //}
 
             if (m_ListBoxMostLikesPosts.Items.Count == 0)
             {
@@ -72,11 +55,11 @@ namespace BasicFacebookFeatures
 
         private void fetchPhotos()
         {
+            List<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
+
             m_ListBoxMostLikesPhotos.Items.Clear();
             m_ListBoxMostLikesPhotos.DisplayMember = "Name";
-            
             // For self Checking adding myself to the list to see if i show on the ListBox.
-            List<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
             listOfFriends.Add(r_FormMain.LoggedInUser);
 
             LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
@@ -85,14 +68,6 @@ namespace BasicFacebookFeatures
             {
                 m_ListBoxMostLikesPhotos.Items.Add(user);
             }
-
-            //foreach (Album album in r_FormMain.LoggedInUser.Albums)
-            //{
-            //    foreach (Photo photo in album.Photos)
-            //    {
-            //        m_ListBoxMostLikesPhotos.Items.Add(photo);
-            //    }
-            //}
 
             if (m_ListBoxMostLikesPhotos.Items.Count == 0)
             {

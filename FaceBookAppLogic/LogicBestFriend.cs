@@ -24,37 +24,6 @@ namespace FaceBookAppLogic
             return sortedPhotos;
         }
 
-        public LinkedList<string> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
-        {
-            List<Photo> photos = FetchPhotos(i_Albums);
-            Dictionary<string, int> usersMostLikes = new Dictionary<string, int>();
-            LinkedList<string> sortedUsers = new LinkedList<string>();
-
-            foreach (Photo photo in photos)
-            {
-                foreach (User user in photo.LikedBy)
-                {
-                    if (usersMostLikes.ContainsKey(user.Id))
-                    {
-                        usersMostLikes[user.Id] += 1;
-                    }
-                    else
-                    {
-                        usersMostLikes.Add(user.Id, 1);
-                    }
-                }
-            }
-
-            IOrderedEnumerable<KeyValuePair<string, int>> orderDic = usersMostLikes.OrderBy(key => -key.Value);
-
-            foreach (KeyValuePair<string, int> user in orderDic)
-            {
-                sortedUsers.AddLast(user.Key);
-            }
-
-            return sortedUsers;
-        }
-
         public LinkedList<User> GetMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_Post)
         {
             List<Post> posts = new List<Post>();
@@ -81,6 +50,42 @@ namespace FaceBookAppLogic
             foreach (KeyValuePair<User, int> user in orderDic)
             {
                 sortedUsers.Append(user.Key);
+            }
+
+            return sortedUsers;
+        }
+
+        public LinkedList<string> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
+        {
+            List<Photo> photos = FetchPhotos(i_Albums);
+            Dictionary<string, int> usersMostLikes = new Dictionary<string, int>();
+
+            foreach (Photo photo in photos)
+            {
+                foreach (User user in photo.LikedBy)
+                {
+                    if (usersMostLikes.ContainsKey(user.Id))
+                    {
+                        usersMostLikes[user.Id] += 1;
+                    }
+                    else
+                    {
+                        usersMostLikes.Add(user.Id, 1);
+                    }
+                }
+            }
+
+            return orderUserById(usersMostLikes);
+        }
+
+        private LinkedList<T> orderUserById<T>(Dictionary<T, int> i_UsersToOrder)
+        {
+            LinkedList<T> sortedUsers = new LinkedList<T>();
+            IOrderedEnumerable<KeyValuePair<T, int>> orderDic = i_UsersToOrder.OrderBy(key => -key.Value);
+
+            foreach (KeyValuePair<T, int> user in orderDic)
+            {
+                sortedUsers.AddLast(user.Key);
             }
 
             return sortedUsers;
