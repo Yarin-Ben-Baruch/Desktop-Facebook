@@ -79,11 +79,19 @@ namespace FaceBookAppLogic
             return commonDictionary;
         }
 
-        public List<FacebookObject> commonGroupsWithFriend(string i_MyMatch)
+        public List<FacebookObject> commonLikedPagesWithFriend(string i_MyMatch)
         {
             return CommonLikedPagesDic[i_MyMatch];
         }
 
+        public List<FacebookObject> commonGroupsWithFriend(string i_MyMatch)
+        {
+            return CommonGroupsDic[i_MyMatch];
+        }
+        public List<FacebookObject> commonFriendsWithFriend(string i_MyMatch)
+        {
+            return CommonFriendsDic[i_MyMatch];
+        }
 
     }
 }

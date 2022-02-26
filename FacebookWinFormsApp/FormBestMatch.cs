@@ -15,6 +15,7 @@ namespace BasicFacebookFeatures
     {
         private readonly FormMain r_FormMain;
         private User.eGender m_ChosenGender;
+        private LinkedList<User> m_BestMatchs;
 
         public FormBestMatch(FormMain i_FormMain)
         {
@@ -28,16 +29,14 @@ namespace BasicFacebookFeatures
             m_ListBoxBestMatch.Items.Clear();
             m_ListBoxBestMatch.DisplayMember = "Name";
 
-            LinkedList<User> bestMatchs = r_FormMain.ManagerLogic.FindBestMatch(
+            m_BestMatchs = r_FormMain.ManagerLogic.FindBestMatch(
                 r_FormMain.LoggedInUser.Friends,
                 r_FormMain.LoggedInUser,
                 m_ChosenGender);
 
-            initializatedCommonGroupsList(bestMatchs);
-
             try
             {
-                foreach (User user in bestMatchs)
+                foreach (User user in m_BestMatchs)
                 {
                     m_ListBoxBestMatch.Items.Add(user);
                 }
@@ -53,38 +52,11 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void initializatedCommonGroupsList(LinkedList<User> bestMatchsInLinkedList)
-        {
-            List<User> bestMatchs = new List<User>();
-            List<Page> commonGroupsWithMatch = new List<Page>();
 
-            bestMatchs = bestMatchsInLinkedList.ToList();
-            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonBetweenOneCategory<Page>(bestMatchs[0].Id);
-
-            m_ListBoxPages.Items.Clear();
-            m_ListBoxPages.DisplayMember = "Name";
-
-            try
-            {
-                foreach (Page page in commonGroupsWithMatch)
-                {
-                    m_ListBoxPages.Items.Add(page);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            if (m_ListBoxPages.Items.Count == 0)
-            {
-                MessageBox.Show("No liked pages to retrieve :(");
-            }
-        }
 
         private void linkLabelCommonGroups_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+
             m_ListBoxGroups.Items.Clear();
             m_ListBoxGroups.DisplayMember = "Name";
 
@@ -176,7 +148,7 @@ namespace BasicFacebookFeatures
             {
                 User selectedUser = m_ListBoxFriends.SelectedItem as User;
                 m_PictureBoxFriends.LoadAsync(selectedUser.PictureNormalURL);
-                
+
             }
         }
 
@@ -187,6 +159,8 @@ namespace BasicFacebookFeatures
                 User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
                 m_PictureBoxBestMatch.LoadAsync(selectedUser.PictureNormalURL);
             }
+
+            initializatedCommonPagesList(m_BestMatchs, m_ListBoxBestMatch.SelectedIndex);
         }
 
         private void linkLabelLoverProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -208,7 +182,7 @@ namespace BasicFacebookFeatures
 
         private void comboBoxGender_SelectedIndexChanged(object sender, EventArgs e)
         {
-            m_ChosenGender = (User.eGender) m_ComboBoxGender.SelectedIndex;
+            m_ChosenGender = (User.eGender)m_ComboBoxGender.SelectedIndex;
         }
 
         private void visitLoverProfile()
@@ -238,6 +212,64 @@ namespace BasicFacebookFeatures
             m_PictureBoxPages.Image = null;
             m_PictureBoxFriends.Image = null;
             m_PictureBoxGroups.Image = null;
+        }
+
+        private void initializatedCommonPagesList(LinkedList<User> bestMatchsInLinkedList, int SelectedIndex)
+        {
+            List<User> bestMatchs = new List<User>();
+            List<Page> commonPagesWithMatch = new List<Page>();
+
+            bestMatchs = bestMatchsInLinkedList.ToList();
+            commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonBetweenOneCategory<Page>(bestMatchs[SelectedIndex].Id);
+
+            m_ListBoxPages.Items.Clear();
+            m_ListBoxPages.DisplayMember = "Name";
+
+            try
+            {
+                foreach (Page page in commonPagesWithMatch)
+                {
+                    m_ListBoxPages.Items.Add(page);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (m_ListBoxPages.Items.Count == 0)
+            {
+                MessageBox.Show("No liked pages to retrieve :(");
+            }
+        }
+
+        private void initializatedCommonGroupsList(LinkedList<User> bestMatchsInLinkedList, int SelectedIndex)
+        {
+            List<User> bestMatchs = new List<User>();
+            List<Group> commonGroupsWithMatch = new List<Group>();
+
+            bestMatchs = bestMatchsInLinkedList.ToList();
+            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonBetweenOneCategory<Group>(bestMatchs[SelectedIndex].Id);
+
+            m_ListBoxPages.Items.Clear();
+            m_ListBoxPages.DisplayMember = "Name";
+
+            try
+            {
+                foreach (Page page in commonPagesWithMatch)
+                {
+                    m_ListBoxPages.Items.Add(page);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (m_ListBoxPages.Items.Count == 0)
+            {
+                MessageBox.Show("No liked pages to retrieve :(");
+            }
         }
     }
 }
