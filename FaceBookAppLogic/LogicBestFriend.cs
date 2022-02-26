@@ -24,32 +24,32 @@ namespace FaceBookAppLogic
             return sortedPhotos;
         }
 
-        public LinkedList<User> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
+        public LinkedList<string> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
         {
             List<Photo> photos = FetchPhotos(i_Albums);
-            Dictionary<User, int> usersMostLikes = new Dictionary<User, int>();
-            LinkedList<User> sortedUsers = new LinkedList<User>();
+            Dictionary<string, int> usersMostLikes = new Dictionary<string, int>();
+            LinkedList<string> sortedUsers = new LinkedList<string>();
 
             foreach (Photo photo in photos)
             {
                 foreach (User user in photo.LikedBy)
                 {
-                    if (usersMostLikes.ContainsKey(user))
+                    if (usersMostLikes.ContainsKey(user.Id))
                     {
-                        usersMostLikes[user] += 1;
+                        usersMostLikes[user.Id] += 1;
                     }
                     else
                     {
-                        usersMostLikes.Add(user, 1);
+                        usersMostLikes.Add(user.Id, 1);
                     }
                 }
             }
 
-            IOrderedEnumerable<KeyValuePair<User, int>> orderDic = usersMostLikes.OrderBy(key => key.Value);
+            IOrderedEnumerable<KeyValuePair<string, int>> orderDic = usersMostLikes.OrderBy(key => -key.Value);
 
-            foreach (KeyValuePair<User, int> user in orderDic)
+            foreach (KeyValuePair<string, int> user in orderDic)
             {
-                sortedUsers.Append(user.Key);
+                sortedUsers.AddLast(user.Key);
             }
 
             return sortedUsers;

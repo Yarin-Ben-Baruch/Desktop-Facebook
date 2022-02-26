@@ -1,6 +1,7 @@
 ﻿using FacebookWrapper.ObjectModel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
@@ -24,8 +25,9 @@ namespace BasicFacebookFeatures
         {
             if (m_ListBoxMostLikesPhotos.SelectedItems.Count == 1)
             {
-                Photo selectedPage = m_ListBoxMostLikesPhotos.SelectedItem as Photo;
-                m_PictureBoxSelectedFriendPhoto.LoadAsync(selectedPage.PictureNormalURL);
+                User selectedUser = m_ListBoxMostLikesPhotos.SelectedItem as User;
+
+                m_PictureBoxSelectedFriendPhoto.LoadAsync(selectedUser.PictureNormalURL);
             }
         }
 
@@ -72,8 +74,12 @@ namespace BasicFacebookFeatures
         {
             m_ListBoxMostLikesPhotos.Items.Clear();
             m_ListBoxMostLikesPhotos.DisplayMember = "Name";
+            
+            // For self Checking adding myself to the list to see if i show on the ListBox.
+            List<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
+            listOfFriends.Add(r_FormMain.LoggedInUser);
 
-            LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPhotosByUsers(r_FormMain.LoggedInUser.Albums);
+            LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
 
             foreach (User user in usersToShow)
             {
