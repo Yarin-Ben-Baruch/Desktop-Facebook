@@ -14,7 +14,7 @@ namespace BasicFacebookFeatures
     public partial class FormBestMatch : Form
     {
         private readonly FormMain r_FormMain;
-        
+        private User.eGender m_ChosenGender;
 
         public FormBestMatch(FormMain i_FormMain)
         {
@@ -22,15 +22,22 @@ namespace BasicFacebookFeatures
             InitializeComponent();
         }
 
+        private void getingTheData()
+        {
+            m_ComboBoxAge.SelectedItem.ToString();
+            
+        }
+
+
         private void m_ButtonSearchMatch_Click(object sender, EventArgs e)
         {
             m_ListBoxBestMatch.Items.Clear();
             m_ListBoxBestMatch.DisplayMember = "Name";
 
-            // BestMatchs Return NULL !!
             List<User> bestMatchs = r_FormMain.ManagerLogic.FindBestMatch(
                 r_FormMain.LoggedInUser.Friends,
-                r_FormMain.LoggedInUser);
+                r_FormMain.LoggedInUser,
+                m_ChosenGender);
 
             try
             {
@@ -183,9 +190,16 @@ namespace BasicFacebookFeatures
             
         }
 
-        private void m_ComboBoxCategoriesToMatch_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void m_ComboBoxAge_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void m_ComboBoxGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_ChosenGender = (User.eGender) m_ComboBoxGender.SelectedIndex;
         }
     }
 }

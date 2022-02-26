@@ -24,7 +24,7 @@ namespace FaceBookAppLogic
             return sortedPhotos;
         }
 
-        public LinkedList<User> GetMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_Post)
+        public Dictionary<User, int> GetMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_Post)
         {
             List<Post> posts = new List<Post>();
             Dictionary<User, int> usersMostLikes = new Dictionary<User, int>();
@@ -45,17 +45,19 @@ namespace FaceBookAppLogic
                 }
             }
 
-            IOrderedEnumerable<KeyValuePair<User, int>> orderDic = usersMostLikes.OrderBy(key => key.Value);
+            return usersMostLikes;
 
-            foreach (KeyValuePair<User, int> user in orderDic)
-            {
-                sortedUsers.Append(user.Key);
-            }
-
-            return sortedUsers;
+            // IOrderedEnumerable<KeyValuePair<User, int>> orderDic = usersMostLikes.OrderBy(key => key.Value);
+            //
+            // foreach (KeyValuePair<User, int> user in orderDic)
+            // {
+            //     sortedUsers.Append(user.Key);
+            // }
+            //
+            // return sortedUsers;
         }
 
-        public LinkedList<string> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
+        public Dictionary<string, int> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
         {
             List<Photo> photos = FetchPhotos(i_Albums);
             Dictionary<string, int> usersMostLikes = new Dictionary<string, int>();
@@ -75,20 +77,8 @@ namespace FaceBookAppLogic
                 }
             }
 
-            return orderUserById(usersMostLikes);
+            return usersMostLikes;
         }
 
-        private LinkedList<T> orderUserById<T>(Dictionary<T, int> i_UsersToOrder)
-        {
-            LinkedList<T> sortedUsers = new LinkedList<T>();
-            IOrderedEnumerable<KeyValuePair<T, int>> orderDic = i_UsersToOrder.OrderBy(key => -key.Value);
-
-            foreach (KeyValuePair<T, int> user in orderDic)
-            {
-                sortedUsers.AddLast(user.Key);
-            }
-
-            return sortedUsers;
-        }
     }
 }

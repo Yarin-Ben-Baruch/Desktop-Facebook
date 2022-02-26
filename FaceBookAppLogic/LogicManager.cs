@@ -25,9 +25,15 @@ namespace FaceBookAppLogic
 
         public LinkedList<User> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums, List<User> i_FriendsList)
         {
-            LinkedList<string> sortedListOfIds = r_BestFriendLogic.GetMostLikesOnPhotosByUsers(i_Albums);
+            Dictionary<string, int> dictionaryOfIds = r_BestFriendLogic.GetMostLikesOnPhotosByUsers(i_Albums);
+            LinkedList<string> sortedListOfIds = orderUserById(dictionaryOfIds);
 
             return convertIdToUser(sortedListOfIds, i_FriendsList);
+        }
+
+        public LinkedList<User> GetMostLikesOnPostByUsers(FacebookObjectCollection<Post> i_Post)
+        {
+            // return r_BestFriendLogic.GetMostLikesOnPostsByUsers(i_Post);
         }
 
         private LinkedList<User> convertIdToUser(LinkedList<string> i_UserIdList, List<User> i_FriendsList)
@@ -48,15 +54,23 @@ namespace FaceBookAppLogic
             return sortedUsers;
         }
 
-        public LinkedList<User> GetMostLikesOnPostByUsers(FacebookObjectCollection<Post> i_Post)
+        private LinkedList<T> orderUserById<T>(Dictionary<T, int> i_UsersToOrder)
         {
-            return r_BestFriendLogic.GetMostLikesOnPostsByUsers(i_Post);
+            LinkedList<T> sortedUsers = new LinkedList<T>();
+            IOrderedEnumerable<KeyValuePair<T, int>> orderDic = i_UsersToOrder.OrderBy(key => -key.Value);
+
+            foreach (KeyValuePair<T, int> user in orderDic)
+            {
+                sortedUsers.AddLast(user.Key);
+            }
+
+            return sortedUsers;
         }
 
         // All categories together
-        public List<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser)
+        public List<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser, User.eGender i_ChosenGender)
         {
-            return r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser);
+            return r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser, i_ChosenGender);
         }
 
         // Pages || Groups || Friends
