@@ -24,7 +24,7 @@ namespace FaceBookAppLogic
             return sortedPhotos;
         }
 
-        public Dictionary<User, int> GetMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_Post)
+        public LinkedList<User> GetMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_Post)
         {
             List<Post> posts = new List<Post>();
             Dictionary<User, int> usersMostLikes = new Dictionary<User, int>();
@@ -45,16 +45,14 @@ namespace FaceBookAppLogic
                 }
             }
 
-            return usersMostLikes;
-
-            // IOrderedEnumerable<KeyValuePair<User, int>> orderDic = usersMostLikes.OrderBy(key => key.Value);
-            //
-            // foreach (KeyValuePair<User, int> user in orderDic)
-            // {
-            //     sortedUsers.Append(user.Key);
-            // }
-            //
-            // return sortedUsers;
+            IOrderedEnumerable<KeyValuePair<User, int>> orderDic = usersMostLikes.OrderBy(key => key.Value);
+            
+            foreach (KeyValuePair<User, int> user in orderDic)
+            {
+                sortedUsers.Append(user.Key);
+            }
+            
+            return sortedUsers;
         }
 
         public Dictionary<string, int> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)

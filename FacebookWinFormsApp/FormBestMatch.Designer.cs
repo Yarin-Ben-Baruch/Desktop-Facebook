@@ -134,6 +134,7 @@ namespace BasicFacebookFeatures
             this.m_PictureBoxGroups.Margin = new System.Windows.Forms.Padding(4);
             this.m_PictureBoxGroups.Name = "m_PictureBoxGroups";
             this.m_PictureBoxGroups.Size = new System.Drawing.Size(93, 80);
+            this.m_PictureBoxGroups.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.m_PictureBoxGroups.TabIndex = 7;
             this.m_PictureBoxGroups.TabStop = false;
             // 
@@ -174,6 +175,7 @@ namespace BasicFacebookFeatures
             this.m_PictureBoxFriends.Margin = new System.Windows.Forms.Padding(4);
             this.m_PictureBoxFriends.Name = "m_PictureBoxFriends";
             this.m_PictureBoxFriends.Size = new System.Drawing.Size(93, 80);
+            this.m_PictureBoxFriends.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.m_PictureBoxFriends.TabIndex = 13;
             this.m_PictureBoxFriends.TabStop = false;
             // 
@@ -215,6 +217,7 @@ namespace BasicFacebookFeatures
             this.m_PictureBoxBestMatch.Margin = new System.Windows.Forms.Padding(4);
             this.m_PictureBoxBestMatch.Name = "m_PictureBoxBestMatch";
             this.m_PictureBoxBestMatch.Size = new System.Drawing.Size(93, 80);
+            this.m_PictureBoxBestMatch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.m_PictureBoxBestMatch.TabIndex = 15;
             this.m_PictureBoxBestMatch.TabStop = false;
             // 

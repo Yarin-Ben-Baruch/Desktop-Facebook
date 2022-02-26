@@ -25,15 +25,23 @@ namespace FaceBookAppLogic
 
         public LinkedList<User> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums, List<User> i_FriendsList)
         {
-            Dictionary<string, int> dictionaryOfIds = r_BestFriendLogic.GetMostLikesOnPhotosByUsers(i_Albums);
-            LinkedList<string> sortedListOfIds = orderUserById(dictionaryOfIds);
+            Dictionary<string, int> mostLikesPhotosUserIdDic = r_BestFriendLogic.GetMostLikesOnPhotosByUsers(i_Albums);
+            LinkedList<string> sortedListOfIds = orderUsersMaxToMin(mostLikesPhotosUserIdDic);
 
             return convertIdToUser(sortedListOfIds, i_FriendsList);
         }
 
         public LinkedList<User> GetMostLikesOnPostByUsers(FacebookObjectCollection<Post> i_Post)
         {
-            // return r_BestFriendLogic.GetMostLikesOnPostsByUsers(i_Post);
+            return r_BestFriendLogic.GetMostLikesOnPostsByUsers(i_Post);
+        }
+
+        // All categories together
+        public LinkedList<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser, User.eGender i_ChosenGender)
+        {
+            Dictionary<User, int> bestMatchDictionary = r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser, i_ChosenGender);
+
+            return orderUsersMaxToMin(bestMatchDictionary);
         }
 
         private LinkedList<User> convertIdToUser(LinkedList<string> i_UserIdList, List<User> i_FriendsList)
@@ -54,7 +62,7 @@ namespace FaceBookAppLogic
             return sortedUsers;
         }
 
-        private LinkedList<T> orderUserById<T>(Dictionary<T, int> i_UsersToOrder)
+        private LinkedList<T> orderUsersMaxToMin<T>(Dictionary<T, int> i_UsersToOrder)
         {
             LinkedList<T> sortedUsers = new LinkedList<T>();
             IOrderedEnumerable<KeyValuePair<T, int>> orderDic = i_UsersToOrder.OrderBy(key => -key.Value);
@@ -65,12 +73,6 @@ namespace FaceBookAppLogic
             }
 
             return sortedUsers;
-        }
-
-        // All categories together
-        public List<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser, User.eGender i_ChosenGender)
-        {
-            return r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser, i_ChosenGender);
         }
 
         // Pages || Groups || Friends

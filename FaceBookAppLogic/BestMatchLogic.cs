@@ -29,7 +29,7 @@ namespace FaceBookAppLogic
             return commonObjectsList;
         }
 
-        public List<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends,User i_LoggedInUser, User.eGender i_ChosenGender)
+        public Dictionary<User, int> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends,User i_LoggedInUser, User.eGender i_ChosenGender)
         {
             Dictionary<User, int> commonDictionary = new Dictionary<User, int>();
 
@@ -52,14 +52,16 @@ namespace FaceBookAppLogic
                 }
             }
 
-            List<User> bestMatchFriends = new List<User>(); 
+            return commonDictionary;
 
-            foreach (KeyValuePair<User, int> user in commonDictionary.OrderBy(key => -key.Value))
-            {
-                bestMatchFriends.Add(user.Key);
-            }
-
-            return bestMatchFriends;
+            // List<User> bestMatchFriends = new List<User>(); 
+            //
+            // foreach (KeyValuePair<User, int> user in commonDictionary.OrderBy(key => -key.Value))
+            // {
+            //     bestMatchFriends.Add(user.Key);
+            // }
+            //
+            // return bestMatchFriends;
         }
 
     }

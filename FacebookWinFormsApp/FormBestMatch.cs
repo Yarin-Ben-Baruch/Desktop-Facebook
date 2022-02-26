@@ -24,10 +24,11 @@ namespace BasicFacebookFeatures
 
         private void buttonSearchMatch_Click(object sender, EventArgs e)
         {
+            resetPreviusPhotos();
             m_ListBoxBestMatch.Items.Clear();
             m_ListBoxBestMatch.DisplayMember = "Name";
 
-            List<User> bestMatchs = r_FormMain.ManagerLogic.FindBestMatch(
+            LinkedList<User> bestMatchs = r_FormMain.ManagerLogic.FindBestMatch(
                 r_FormMain.LoggedInUser.Friends,
                 r_FormMain.LoggedInUser,
                 m_ChosenGender);
@@ -197,6 +198,14 @@ namespace BasicFacebookFeatures
         {
             m_ComboBoxAge.SelectedItem.ToString();
 
+        }
+
+        private void resetPreviusPhotos()
+        {
+            m_PictureBoxBestMatch.Image = null;
+            m_PictureBoxPages.Image = null;
+            m_PictureBoxFriends.Image = null;
+            m_PictureBoxGroups.Image = null;
         }
     }
 }
