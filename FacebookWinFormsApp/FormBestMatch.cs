@@ -25,7 +25,7 @@ namespace BasicFacebookFeatures
 
         private void buttonSearchMatch_Click(object sender, EventArgs e)
         {
-            resetPreviusPhotos();
+            resetPreviousSearch();
             m_ListBoxBestMatch.Items.Clear();
             m_ListBoxBestMatch.DisplayMember = "Name";
 
@@ -33,8 +33,8 @@ namespace BasicFacebookFeatures
                 r_FormMain.LoggedInUser.Friends,
                 r_FormMain.LoggedInUser,
                 m_ChosenGender,
-                m_NumericUpDownStartAge.Value,
-                m_NumericUpDownEndAge.Value);
+                Decimal.ToInt32(m_NumericUpDownStartAge.Value),
+                Decimal.ToInt32(m_NumericUpDownEndAge.Value));
 
             try
             {
@@ -112,7 +112,7 @@ namespace BasicFacebookFeatures
             m_ChosenGender = (User.eGender)m_ComboBoxGender.SelectedIndex;
         }
 
-        // NEED TO FIX
+        // TODO : Move To external function
         private void initializatedCommonPagesList(LinkedList<User> bestMatchsInLinkedList, int SelectedIndex)
         {
             List<User> bestMatchs = new List<User>();
@@ -231,8 +231,13 @@ namespace BasicFacebookFeatures
 
         }
 
-        private void resetPreviusPhotos()
+        private void resetPreviousSearch()
         {
+            m_ListBoxBestMatch.Items.Clear();
+            m_ListBoxFriends.Items.Clear();
+            m_ListBoxGroups.Items.Clear();
+            m_ListBoxPages.Items.Clear();
+
             m_PictureBoxBestMatch.Image = null;
             m_PictureBoxPages.Image = null;
             m_PictureBoxFriends.Image = null;

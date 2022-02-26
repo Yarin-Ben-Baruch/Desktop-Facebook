@@ -18,13 +18,13 @@ namespace FaceBookAppLogic
             CommonFriendsDic = new Dictionary<string, List<FacebookObject>>();
         }
 
-        public List<FacebookObject> FindCommonObjectsInCollection(List<FacebookObject> i_CollectionOfLoginUser, List<FacebookObject> i_CollctionOfMatchUser)
+        public List<FacebookObject> FindCommonObjectsInCollection(List<FacebookObject> i_CollectionOfLoginUser, List<FacebookObject> i_CollectionOfMyMatch)
         {
             List<FacebookObject> commonObjectsList = new List<FacebookObject>();
             
             foreach (FacebookObject matchObject in i_CollectionOfLoginUser)
             {
-                foreach (FacebookObject checkObject in i_CollctionOfMatchUser)
+                foreach (FacebookObject checkObject in i_CollectionOfMyMatch)
                 {
                     if (matchObject.Id.Equals(checkObject.Id))
                     {
@@ -49,7 +49,7 @@ namespace FaceBookAppLogic
 
             foreach (User myFriend in i_LoggedInUserFriends)
             {
-                currentUserAge = int.Parse(myFriend.Birthday.Substring(myFriend.Birthday.Length - 5, myFriend.Birthday.Length));
+                currentUserAge = DateTime.Now.Year - int.Parse(myFriend.Birthday.Substring(myFriend.Birthday.Length - 4));
 
                 if (myFriend.Gender == i_ChosenGender && i_StartAge <= currentUserAge && currentUserAge <= i_EndAge)
                 {
