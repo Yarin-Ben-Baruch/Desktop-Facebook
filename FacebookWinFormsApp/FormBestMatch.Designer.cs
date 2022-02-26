@@ -48,9 +48,6 @@ namespace BasicFacebookFeatures
             this.m_PictureBoxBestMatch = new System.Windows.Forms.PictureBox();
             this.m_LinkLabelLoverProfile = new System.Windows.Forms.LinkLabel();
             this.m_LabelBestMatch = new System.Windows.Forms.Label();
-            this.m_LinkLabelCommonGroups = new System.Windows.Forms.LinkLabel();
-            this.m_LinkLabelCommonPages = new System.Windows.Forms.LinkLabel();
-            this.m_LinkLabelCommonFriends = new System.Windows.Forms.LinkLabel();
             this.m_ComboBoxGender = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxGroups)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxPages)).BeginInit();
@@ -121,7 +118,7 @@ namespace BasicFacebookFeatures
             // m_LabelGroups
             // 
             this.m_LabelGroups.AutoSize = true;
-            this.m_LabelGroups.Location = new System.Drawing.Point(79, 229);
+            this.m_LabelGroups.Location = new System.Drawing.Point(69, 247);
             this.m_LabelGroups.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelGroups.Name = "m_LabelGroups";
             this.m_LabelGroups.Size = new System.Drawing.Size(114, 17);
@@ -151,7 +148,7 @@ namespace BasicFacebookFeatures
             // m_LabelPages
             // 
             this.m_LabelPages.AutoSize = true;
-            this.m_LabelPages.Location = new System.Drawing.Point(436, 229);
+            this.m_LabelPages.Location = new System.Drawing.Point(438, 247);
             this.m_LabelPages.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelPages.Name = "m_LabelPages";
             this.m_LabelPages.Size = new System.Drawing.Size(107, 17);
@@ -182,7 +179,7 @@ namespace BasicFacebookFeatures
             // m_LabelFriends
             // 
             this.m_LabelFriends.AutoSize = true;
-            this.m_LabelFriends.Location = new System.Drawing.Point(793, 229);
+            this.m_LabelFriends.Location = new System.Drawing.Point(801, 247);
             this.m_LabelFriends.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelFriends.Name = "m_LabelFriends";
             this.m_LabelFriends.Size = new System.Drawing.Size(114, 17);
@@ -243,39 +240,6 @@ namespace BasicFacebookFeatures
             this.m_LabelBestMatch.TabIndex = 17;
             this.m_LabelBestMatch.Text = "The Best Match";
             // 
-            // m_LinkLabelCommonGroups
-            // 
-            this.m_LinkLabelCommonGroups.AutoSize = true;
-            this.m_LinkLabelCommonGroups.Location = new System.Drawing.Point(94, 257);
-            this.m_LinkLabelCommonGroups.Name = "m_LinkLabelCommonGroups";
-            this.m_LinkLabelCommonGroups.Size = new System.Drawing.Size(90, 17);
-            this.m_LinkLabelCommonGroups.TabIndex = 18;
-            this.m_LinkLabelCommonGroups.TabStop = true;
-            this.m_LinkLabelCommonGroups.Text = "See common";
-            this.m_LinkLabelCommonGroups.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCommonGroups_LinkClicked);
-            // 
-            // m_LinkLabelCommonPages
-            // 
-            this.m_LinkLabelCommonPages.AutoSize = true;
-            this.m_LinkLabelCommonPages.Location = new System.Drawing.Point(443, 257);
-            this.m_LinkLabelCommonPages.Name = "m_LinkLabelCommonPages";
-            this.m_LinkLabelCommonPages.Size = new System.Drawing.Size(90, 17);
-            this.m_LinkLabelCommonPages.TabIndex = 19;
-            this.m_LinkLabelCommonPages.TabStop = true;
-            this.m_LinkLabelCommonPages.Text = "See common";
-            this.m_LinkLabelCommonPages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCommonPages_LinkClicked);
-            // 
-            // m_LinkLabelCommonFriends
-            // 
-            this.m_LinkLabelCommonFriends.AutoSize = true;
-            this.m_LinkLabelCommonFriends.Location = new System.Drawing.Point(803, 257);
-            this.m_LinkLabelCommonFriends.Name = "m_LinkLabelCommonFriends";
-            this.m_LinkLabelCommonFriends.Size = new System.Drawing.Size(90, 17);
-            this.m_LinkLabelCommonFriends.TabIndex = 20;
-            this.m_LinkLabelCommonFriends.TabStop = true;
-            this.m_LinkLabelCommonFriends.Text = "See common";
-            this.m_LinkLabelCommonFriends.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCommonFriends_LinkClicked);
-            // 
             // m_ComboBoxGender
             // 
             this.m_ComboBoxGender.FormattingEnabled = true;
@@ -297,9 +261,6 @@ namespace BasicFacebookFeatures
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(991, 554);
             this.Controls.Add(this.m_ComboBoxGender);
-            this.Controls.Add(this.m_LinkLabelCommonFriends);
-            this.Controls.Add(this.m_LinkLabelCommonPages);
-            this.Controls.Add(this.m_LinkLabelCommonGroups);
             this.Controls.Add(this.m_LabelBestMatch);
             this.Controls.Add(this.m_LinkLabelLoverProfile);
             this.Controls.Add(this.m_PictureBoxBestMatch);
@@ -350,9 +311,6 @@ namespace BasicFacebookFeatures
         private System.Windows.Forms.PictureBox m_PictureBoxBestMatch;
         private System.Windows.Forms.LinkLabel m_LinkLabelLoverProfile;
         private System.Windows.Forms.Label m_LabelBestMatch;
-        private System.Windows.Forms.LinkLabel m_LinkLabelCommonGroups;
-        private System.Windows.Forms.LinkLabel m_LinkLabelCommonPages;
-        private System.Windows.Forms.LinkLabel m_LinkLabelCommonFriends;
         private ComboBox m_ComboBoxGender;
     }
 }

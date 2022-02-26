@@ -85,12 +85,30 @@ namespace FaceBookAppLogic
 
 
         // NEED TO FIX
-        public List<T> FindCommonBetweenOneCategory<T>(string i_MyMatch)
+        public List<T> FindCommonLikedPages<T>(string i_MyMatch)
         {
             List<FacebookObject> commonList = new List<FacebookObject>();
 
             commonList = r_BestMatchLogic.commonLikedPagesWithFriend(i_MyMatch);
             
+            return commonList.Cast<T>().ToList();
+        }
+
+        public List<T> FindCommonGroups<T>(string i_MyMatch)
+        {
+            List<FacebookObject> commonList = new List<FacebookObject>();
+
+            commonList = r_BestMatchLogic.commonGroupsWithFriend(i_MyMatch);
+
+            return commonList.Cast<T>().ToList();
+        }
+
+        public List<T> FindCommonFriends<T>(string i_MyMatch)
+        {
+            List<FacebookObject> commonList = new List<FacebookObject>();
+
+            commonList = r_BestMatchLogic.commonFriendsWithFriend(i_MyMatch);
+
             return commonList.Cast<T>().ToList();
         }
 

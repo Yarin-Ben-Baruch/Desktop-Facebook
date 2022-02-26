@@ -52,78 +52,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-
-
-        private void linkLabelCommonGroups_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-            m_ListBoxGroups.Items.Clear();
-            m_ListBoxGroups.DisplayMember = "Name";
-
-            try
-            {
-                foreach (Group group in r_FormMain.LoggedInUser.Groups)
-                {
-                    m_ListBoxGroups.Items.Add(group);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            if (m_ListBoxGroups.Items.Count == 0)
-            {
-                MessageBox.Show("No groups to retrieve :(");
-            }
-        }
-
-        private void linkLabelCommonPages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            m_ListBoxPages.Items.Clear();
-            m_ListBoxPages.DisplayMember = "Name";
-
-            try
-            {
-                foreach (Page page in r_FormMain.LoggedInUser.LikedPages)
-                {
-                    m_ListBoxPages.Items.Add(page);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            if (m_ListBoxPages.Items.Count == 0)
-            {
-                MessageBox.Show("No liked pages to retrieve :(");
-            }
-        }
-
-        private void linkLabelCommonFriends_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            m_ListBoxFriends.Items.Clear();
-            m_ListBoxFriends.DisplayMember = "Name";
-
-            try
-            {
-                foreach (User user in r_FormMain.LoggedInUser.Friends)
-                {
-                    m_ListBoxFriends.Items.Add(user);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            if (m_ListBoxFriends.Items.Count == 0)
-            {
-                MessageBox.Show("No friends to retrieve :(");
-            }
-        }
-
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxGroups.SelectedItems.Count == 1)
@@ -161,6 +89,8 @@ namespace BasicFacebookFeatures
             }
 
             initializatedCommonPagesList(m_BestMatchs, m_ListBoxBestMatch.SelectedIndex);
+            initializatedCommonGroupsList(m_BestMatchs, m_ListBoxBestMatch.SelectedIndex);
+            initializatedCommonFriendsList(m_BestMatchs, m_ListBoxBestMatch.SelectedIndex);
         }
 
         private void linkLabelLoverProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -194,7 +124,7 @@ namespace BasicFacebookFeatures
             //with a URL:
             if (m_ListBoxBestMatch.SelectedItems.Count == 1)
             {
-                User selectedUser = m_ListBoxFriends.SelectedItem as User;
+                User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
                 System.Diagnostics.Process.Start(selectedUser.Link);
             }
 
@@ -214,13 +144,14 @@ namespace BasicFacebookFeatures
             m_PictureBoxGroups.Image = null;
         }
 
+        // NEED TO FIX
         private void initializatedCommonPagesList(LinkedList<User> bestMatchsInLinkedList, int SelectedIndex)
         {
             List<User> bestMatchs = new List<User>();
             List<Page> commonPagesWithMatch = new List<Page>();
 
             bestMatchs = bestMatchsInLinkedList.ToList();
-            commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonBetweenOneCategory<Page>(bestMatchs[SelectedIndex].Id);
+            commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages<Page>(bestMatchs[SelectedIndex].Id);
 
             m_ListBoxPages.Items.Clear();
             m_ListBoxPages.DisplayMember = "Name";
@@ -249,16 +180,16 @@ namespace BasicFacebookFeatures
             List<Group> commonGroupsWithMatch = new List<Group>();
 
             bestMatchs = bestMatchsInLinkedList.ToList();
-            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonBetweenOneCategory<Group>(bestMatchs[SelectedIndex].Id);
+            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups<Group>(bestMatchs[SelectedIndex].Id);
 
-            m_ListBoxPages.Items.Clear();
-            m_ListBoxPages.DisplayMember = "Name";
+            m_ListBoxGroups.Items.Clear();
+            m_ListBoxGroups.DisplayMember = "Name";
 
             try
             {
-                foreach (Page page in commonPagesWithMatch)
+                foreach (Group group in commonGroupsWithMatch)
                 {
-                    m_ListBoxPages.Items.Add(page);
+                    m_ListBoxGroups.Items.Add(group);
                 }
             }
             catch (Exception ex)
@@ -266,9 +197,38 @@ namespace BasicFacebookFeatures
                 MessageBox.Show(ex.Message);
             }
 
-            if (m_ListBoxPages.Items.Count == 0)
+            if (m_ListBoxGroups.Items.Count == 0)
             {
-                MessageBox.Show("No liked pages to retrieve :(");
+                MessageBox.Show("No groups to retrieve :(");
+            }
+        }
+
+        private void initializatedCommonFriendsList(LinkedList<User> bestMatchsInLinkedList, int SelectedIndex)
+        {
+            List<User> bestMatchs = new List<User>();
+            List<User> commonGroupsWithMatch = new List<User>();
+
+            bestMatchs = bestMatchsInLinkedList.ToList();
+            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends<User>(bestMatchs[SelectedIndex].Id);
+
+            m_ListBoxFriends.Items.Clear();
+            m_ListBoxFriends.DisplayMember = "Name";
+
+            try
+            {
+                foreach (User user in commonGroupsWithMatch)
+                {
+                    m_ListBoxFriends.Items.Add(user);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (m_ListBoxFriends.Items.Count == 0)
+            {
+                MessageBox.Show("No friends to retrieve :(");
             }
         }
     }
