@@ -120,6 +120,8 @@ namespace BasicFacebookFeatures
             m_LabelFullName.Text = "Full name";
             m_LabelBirthday.Text = "Birthday";
 
+            m_PictureBoxSelectedPopularPhoto.Image = null;
+            m_LabelNumberOfLikes.Text = "Likes:";
             m_ListBoxPopularPhotos.Items.Clear();
         }
 
