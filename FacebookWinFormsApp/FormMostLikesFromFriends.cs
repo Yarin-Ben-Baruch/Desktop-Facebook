@@ -21,6 +21,11 @@ namespace BasicFacebookFeatures
             fetchPhotos();
         }
 
+        private void m_LabelMostCommentsOnPosts_Click(object sender, EventArgs e)
+        {
+            fetchUserComments();
+        }
+
         private void listBoxMostLikesPhotos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxMostLikesPhotos.SelectedItems.Count == 1)
@@ -30,6 +35,64 @@ namespace BasicFacebookFeatures
                 m_PictureBoxSelectedFriendPhoto.LoadAsync(selectedUser.PictureNormalURL);
             }
         }
+
+        private void m_ListBoxMostComments_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (m_ListBoxMostComments.SelectedItems.Count == 1)
+            {
+                User selectedUser = m_ListBoxMostComments.SelectedItem as User;
+
+                m_PictureBoxSelectedFriendComment.LoadAsync(selectedUser.PictureNormalURL);
+            }
+        }
+
+        private void fetchPhotos()
+        {
+            List<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
+
+            m_ListBoxMostLikesPhotos.Items.Clear();
+            m_ListBoxMostLikesPhotos.DisplayMember = "Name";
+            // For self Checking adding myself to the list to see if i show on the ListBox.
+            listOfFriends.Add(r_FormMain.LoggedInUser);
+
+            LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
+
+            foreach (User user in usersToShow)
+            {
+                m_ListBoxMostLikesPhotos.Items.Add(user);
+            }
+
+            if (m_ListBoxMostLikesPhotos.Items.Count == 0)
+            {
+                MessageBox.Show("No User to retrieve :(");
+            }
+        }
+
+        private void fetchUserComments()
+        {
+            List<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
+
+            m_ListBoxMostComments.Items.Clear();
+            m_ListBoxMostComments.DisplayMember = "Name";
+            // For self Checking adding myself to the list to see if i show on the ListBox.
+            listOfFriends.Add(r_FormMain.LoggedInUser);
+
+            LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostCommentsOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
+
+            foreach (User user in usersToShow)
+            {
+                m_ListBoxMostComments.Items.Add(user);
+            }
+
+            if (m_ListBoxMostComments.Items.Count == 0)
+            {
+                MessageBox.Show("No User to retrieve :(");
+            }
+        }
+
+
+
+
 
         private void labelMostLikesOnPosts_Click(object sender, EventArgs e)
         {
@@ -53,26 +116,5 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void fetchPhotos()
-        {
-            List<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
-
-            m_ListBoxMostLikesPhotos.Items.Clear();
-            m_ListBoxMostLikesPhotos.DisplayMember = "Name";
-            // For self Checking adding myself to the list to see if i show on the ListBox.
-            listOfFriends.Add(r_FormMain.LoggedInUser);
-
-            LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
-
-            foreach (User user in usersToShow)
-            {
-                m_ListBoxMostLikesPhotos.Items.Add(user);
-            }
-
-            if (m_ListBoxMostLikesPhotos.Items.Count == 0)
-            {
-                MessageBox.Show("No Photo to retrieve :(");
-            }
-        }
     }
 }

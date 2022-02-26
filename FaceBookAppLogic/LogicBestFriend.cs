@@ -78,5 +78,31 @@ namespace FaceBookAppLogic
             return usersMostLikes;
         }
 
+        public Dictionary<string, int> GetMostCommentsOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
+        {
+            List<Photo> photos = FetchPhotos(i_Albums);
+            Dictionary<string, int> usersMostLikes = new Dictionary<string, int>();
+            User currentUser;
+
+            foreach (Photo photo in photos)
+            {
+                foreach (Comment comment in photo.Comments)
+                {
+                    currentUser = comment.From;
+
+                    if (usersMostLikes.ContainsKey(currentUser.Id))
+                    {
+                        usersMostLikes[currentUser.Id] += 1;
+                    }
+                    else
+                    {
+                        usersMostLikes.Add(currentUser.Id, 1);
+                    }
+                }
+            }
+
+            return usersMostLikes;
+        }
+        
     }
 }

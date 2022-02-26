@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FacebookWrapper.ObjectModel;
 
 namespace FaceBookAppLogic
@@ -26,6 +23,14 @@ namespace FaceBookAppLogic
         public LinkedList<User> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums, List<User> i_FriendsList)
         {
             Dictionary<string, int> mostLikesPhotosUserIdDic = r_BestFriendLogic.GetMostLikesOnPhotosByUsers(i_Albums);
+            LinkedList<string> sortedListOfIds = orderUsersMaxToMin(mostLikesPhotosUserIdDic);
+
+            return convertIdToUser(sortedListOfIds, i_FriendsList);
+        }
+
+        public LinkedList<User> GetMostCommentsOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums, List<User> i_FriendsList)
+        {
+            Dictionary<string, int> mostLikesPhotosUserIdDic = r_BestFriendLogic.GetMostCommentsOnPhotosByUsers(i_Albums);
             LinkedList<string> sortedListOfIds = orderUsersMaxToMin(mostLikesPhotosUserIdDic);
 
             return convertIdToUser(sortedListOfIds, i_FriendsList);

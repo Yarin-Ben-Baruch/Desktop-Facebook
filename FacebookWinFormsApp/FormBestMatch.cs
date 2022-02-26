@@ -59,7 +59,7 @@ namespace BasicFacebookFeatures
             List<Page> commonGroupsWithMatch = new List<Page>();
 
             bestMatchs = bestMatchsInLinkedList.ToList();
-            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonBetweenOneCategory<Page>(bestMatchs[].Id);
+            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonBetweenOneCategory<Page>(bestMatchs[0].Id);
 
             m_ListBoxPages.Items.Clear();
             m_ListBoxPages.DisplayMember = "Name";
