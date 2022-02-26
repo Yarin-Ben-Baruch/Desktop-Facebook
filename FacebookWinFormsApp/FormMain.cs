@@ -11,7 +11,6 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private const string k_AppId = "507070034420577";
-        // TODO: ITS OK ? sr ? rs ?
         private static readonly string[] sr_Permissions = {
             "email", "public_profile", "user_age_range", "user_birthday", "user_events",
             "user_friends", "user_gender", "user_hometown", "user_likes", "user_link",
