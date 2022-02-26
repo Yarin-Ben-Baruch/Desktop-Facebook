@@ -22,14 +22,7 @@ namespace BasicFacebookFeatures
             InitializeComponent();
         }
 
-        private void getingTheData()
-        {
-            m_ComboBoxAge.SelectedItem.ToString();
-            
-        }
-
-
-        private void m_ButtonSearchMatch_Click(object sender, EventArgs e)
+        private void buttonSearchMatch_Click(object sender, EventArgs e)
         {
             m_ListBoxBestMatch.Items.Clear();
             m_ListBoxBestMatch.DisplayMember = "Name";
@@ -57,7 +50,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_LinkLabelCommonGroups_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelCommonGroups_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             m_ListBoxGroups.Items.Clear();
             m_ListBoxGroups.DisplayMember = "Name";
@@ -80,7 +73,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_LinkLabelCommonPages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelCommonPages_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             m_ListBoxPages.Items.Clear();
             m_ListBoxPages.DisplayMember = "Name";
@@ -103,7 +96,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_LinkLabelCommonFriends_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelCommonFriends_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             m_ListBoxFriends.Items.Clear();
             m_ListBoxFriends.DisplayMember = "Name";
@@ -126,7 +119,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_ListBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxGroups.SelectedItems.Count == 1)
             {
@@ -135,7 +128,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_ListBoxPages_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxPages_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxPages.SelectedItems.Count == 1)
             {
@@ -144,7 +137,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_ListBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxFriends.SelectedItems.Count == 1)
             {
@@ -154,7 +147,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_ListBoxBestMatch_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxBestMatch_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxBestMatch.SelectedItems.Count == 1)
             {
@@ -163,7 +156,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_LinkLabelLoverProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void linkLabelLoverProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
             {
@@ -173,6 +166,16 @@ namespace BasicFacebookFeatures
             {
                 MessageBox.Show("Unable to open link that was clicked.");
             }
+        }
+
+        private void comboBoxAge_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_ChosenGender = (User.eGender) m_ComboBoxGender.SelectedIndex;
         }
 
         private void visitLoverProfile()
@@ -187,19 +190,13 @@ namespace BasicFacebookFeatures
                 User selectedUser = m_ListBoxFriends.SelectedItem as User;
                 System.Diagnostics.Process.Start(selectedUser.Link);
             }
-            
-        }
-
-
-
-        private void m_ComboBoxAge_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
         }
 
-        private void m_ComboBoxGender_SelectedIndexChanged(object sender, EventArgs e)
+        private void getingTheData()
         {
-            m_ChosenGender = (User.eGender) m_ComboBoxGender.SelectedIndex;
+            m_ComboBoxAge.SelectedItem.ToString();
+
         }
     }
 }

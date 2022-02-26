@@ -112,7 +112,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonBestMatch.TabIndex = 56;
             this.m_ButtonBestMatch.Text = "Find best match";
             this.m_ButtonBestMatch.UseVisualStyleBackColor = false;
-            this.m_ButtonBestMatch.Click += new System.EventHandler(this.m_ButtonBestMatch_Click);
+            this.m_ButtonBestMatch.Click += new System.EventHandler(this.buttonBestMatch_Click);
             // 
             // m_ButtonMostLikesFromFriends
             // 
@@ -124,7 +124,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonMostLikesFromFriends.TabIndex = 57;
             this.m_ButtonMostLikesFromFriends.Text = "My loyal friend";
             this.m_ButtonMostLikesFromFriends.UseVisualStyleBackColor = false;
-            this.m_ButtonMostLikesFromFriends.Click += new System.EventHandler(this.m_ButtonMostLikesFromFriends_Click);
+            this.m_ButtonMostLikesFromFriends.Click += new System.EventHandler(this.buttonMostLikesFromFriends_Click);
             // 
             // m_ListBoxPopularPhotos
             // 
@@ -136,7 +136,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxPopularPhotos.Name = "m_ListBoxPopularPhotos";
             this.m_ListBoxPopularPhotos.Size = new System.Drawing.Size(386, 354);
             this.m_ListBoxPopularPhotos.TabIndex = 58;
-            this.m_ListBoxPopularPhotos.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxPopularPhotos_SelectedIndexChanged);
+            this.m_ListBoxPopularPhotos.SelectedIndexChanged += new System.EventHandler(this.listBoxPopularPhotos_SelectedIndexChanged);
             // 
             // m_PictureBoxSelectedPopularPhoto
             // 
@@ -159,7 +159,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonPopularPhotos.TabIndex = 60;
             this.m_ButtonPopularPhotos.Text = "My popular photos";
             this.m_ButtonPopularPhotos.UseVisualStyleBackColor = false;
-            this.m_ButtonPopularPhotos.Click += new System.EventHandler(this.m_ButtonPopularPhotos_Click);
+            this.m_ButtonPopularPhotos.Click += new System.EventHandler(this.buttonPopularPhotos_Click);
             // 
             // m_LabelNumberOfLikes
             // 

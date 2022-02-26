@@ -50,7 +50,7 @@ namespace BasicFacebookFeatures
             this.m_LabelMostLikesOnPhotos.Size = new System.Drawing.Size(210, 25);
             this.m_LabelMostLikesOnPhotos.TabIndex = 0;
             this.m_LabelMostLikesOnPhotos.Text = "Most likes on photos";
-            this.m_LabelMostLikesOnPhotos.Click += new System.EventHandler(this.m_LabelMostLikesOnPhotos_Click);
+            this.m_LabelMostLikesOnPhotos.Click += new System.EventHandler(this.labelMostLikesOnPhotos_Click);
             // 
             // m_ListBoxMostLikesPhotos
             // 
@@ -61,7 +61,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxMostLikesPhotos.Name = "m_ListBoxMostLikesPhotos";
             this.m_ListBoxMostLikesPhotos.Size = new System.Drawing.Size(324, 379);
             this.m_ListBoxMostLikesPhotos.TabIndex = 1;
-            this.m_ListBoxMostLikesPhotos.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxMostLikesPhotos_SelectedIndexChanged);
+            this.m_ListBoxMostLikesPhotos.SelectedIndexChanged += new System.EventHandler(this.listBoxMostLikesPhotos_SelectedIndexChanged);
             // 
             // m_PictureBoxSelectedFriendPhoto
             // 
@@ -92,7 +92,7 @@ namespace BasicFacebookFeatures
             this.m_LabelMostLikesOnPosts.Size = new System.Drawing.Size(197, 25);
             this.m_LabelMostLikesOnPosts.TabIndex = 3;
             this.m_LabelMostLikesOnPosts.Text = "Most likes on posts";
-            this.m_LabelMostLikesOnPosts.Click += new System.EventHandler(this.m_LabelMostLikesOnPosts_Click);
+            this.m_LabelMostLikesOnPosts.Click += new System.EventHandler(this.labelMostLikesOnPosts_Click);
             // 
             // m_PictureBoxSelectedFriendPost
             // 

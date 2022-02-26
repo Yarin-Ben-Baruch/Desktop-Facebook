@@ -36,7 +36,7 @@ namespace BasicFacebookFeatures
             resetWhenLogout();
 		}
 
-        private void m_ButtonBestMatch_Click(object sender, EventArgs e)
+        private void buttonBestMatch_Click(object sender, EventArgs e)
         {
             if (LoggedInUser != null)
             {
@@ -45,7 +45,7 @@ namespace BasicFacebookFeatures
             // TODO: ERROR MESSAGE
         }
 
-        private void m_ButtonMostLikesFromFriends_Click(object sender, EventArgs e)
+        private void buttonMostLikesFromFriends_Click(object sender, EventArgs e)
         {
             if (LoggedInUser != null)
             {
@@ -54,7 +54,7 @@ namespace BasicFacebookFeatures
             // TODO: ERROR MESSAGE
         }
 
-        private void m_ButtonPopularPhotos_Click(object sender, EventArgs e)
+        private void buttonPopularPhotos_Click(object sender, EventArgs e)
         {
             if (LoggedInUser != null)
             {
@@ -63,7 +63,7 @@ namespace BasicFacebookFeatures
             // TODO : ERROR MESSAGE
         }
 
-        private void m_ListBoxPopularPhotos_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxPopularPhotos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxPopularPhotos.SelectedItems.Count == 1)
             {

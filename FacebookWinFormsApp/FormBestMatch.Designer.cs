@@ -73,7 +73,7 @@ namespace BasicFacebookFeatures
             this.m_ComboBoxAge.Name = "m_ComboBoxAge";
             this.m_ComboBoxAge.Size = new System.Drawing.Size(160, 24);
             this.m_ComboBoxAge.TabIndex = 1;
-            this.m_ComboBoxAge.SelectedIndexChanged += new System.EventHandler(this.m_ComboBoxAge_SelectedIndexChanged);
+            this.m_ComboBoxAge.SelectedIndexChanged += new System.EventHandler(this.comboBoxAge_SelectedIndexChanged);
             // 
             // m_LabelGender
             // 
@@ -105,7 +105,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonSearchMatch.TabIndex = 4;
             this.m_ButtonSearchMatch.Text = "Search";
             this.m_ButtonSearchMatch.UseVisualStyleBackColor = false;
-            this.m_ButtonSearchMatch.Click += new System.EventHandler(this.m_ButtonSearchMatch_Click);
+            this.m_ButtonSearchMatch.Click += new System.EventHandler(this.buttonSearchMatch_Click);
             // 
             // m_ListBoxGroups
             // 
@@ -116,7 +116,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxGroups.Name = "m_ListBoxGroups";
             this.m_ListBoxGroups.Size = new System.Drawing.Size(204, 244);
             this.m_ListBoxGroups.TabIndex = 5;
-            this.m_ListBoxGroups.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxGroups_SelectedIndexChanged);
+            this.m_ListBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 
             // m_LabelGroups
             // 
@@ -166,7 +166,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxPages.Name = "m_ListBoxPages";
             this.m_ListBoxPages.Size = new System.Drawing.Size(204, 244);
             this.m_ListBoxPages.TabIndex = 8;
-            this.m_ListBoxPages.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxPages_SelectedIndexChanged);
+            this.m_ListBoxPages.SelectedIndexChanged += new System.EventHandler(this.listBoxPages_SelectedIndexChanged);
             // 
             // m_PictureBoxFriends
             // 
@@ -196,7 +196,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxFriends.Name = "m_ListBoxFriends";
             this.m_ListBoxFriends.Size = new System.Drawing.Size(204, 244);
             this.m_ListBoxFriends.TabIndex = 11;
-            this.m_ListBoxFriends.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxFriends_SelectedIndexChanged);
+            this.m_ListBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
             // 
             // m_ListBoxBestMatch
             // 
@@ -207,7 +207,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxBestMatch.Name = "m_ListBoxBestMatch";
             this.m_ListBoxBestMatch.Size = new System.Drawing.Size(272, 164);
             this.m_ListBoxBestMatch.TabIndex = 14;
-            this.m_ListBoxBestMatch.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxBestMatch_SelectedIndexChanged);
+            this.m_ListBoxBestMatch.SelectedIndexChanged += new System.EventHandler(this.listBoxBestMatch_SelectedIndexChanged);
             // 
             // m_PictureBoxBestMatch
             // 
@@ -228,7 +228,7 @@ namespace BasicFacebookFeatures
             this.m_LinkLabelLoverProfile.TabIndex = 16;
             this.m_LinkLabelLoverProfile.TabStop = true;
             this.m_LinkLabelLoverProfile.Text = "link for your Lover";
-            this.m_LinkLabelLoverProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_LinkLabelLoverProfile_LinkClicked);
+            this.m_LinkLabelLoverProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLoverProfile_LinkClicked);
             // 
             // m_LabelBestMatch
             // 
@@ -249,7 +249,7 @@ namespace BasicFacebookFeatures
             this.m_LinkLabelCommonGroups.TabIndex = 18;
             this.m_LinkLabelCommonGroups.TabStop = true;
             this.m_LinkLabelCommonGroups.Text = "See common";
-            this.m_LinkLabelCommonGroups.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_LinkLabelCommonGroups_LinkClicked);
+            this.m_LinkLabelCommonGroups.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCommonGroups_LinkClicked);
             // 
             // m_LinkLabelCommonPages
             // 
@@ -260,7 +260,7 @@ namespace BasicFacebookFeatures
             this.m_LinkLabelCommonPages.TabIndex = 19;
             this.m_LinkLabelCommonPages.TabStop = true;
             this.m_LinkLabelCommonPages.Text = "See common";
-            this.m_LinkLabelCommonPages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_LinkLabelCommonPages_LinkClicked);
+            this.m_LinkLabelCommonPages.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCommonPages_LinkClicked);
             // 
             // m_LinkLabelCommonFriends
             // 
@@ -271,7 +271,7 @@ namespace BasicFacebookFeatures
             this.m_LinkLabelCommonFriends.TabIndex = 20;
             this.m_LinkLabelCommonFriends.TabStop = true;
             this.m_LinkLabelCommonFriends.Text = "See common";
-            this.m_LinkLabelCommonFriends.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.m_LinkLabelCommonFriends_LinkClicked);
+            this.m_LinkLabelCommonFriends.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelCommonFriends_LinkClicked);
             // 
             // m_ComboBoxGender
             // 
@@ -284,7 +284,7 @@ namespace BasicFacebookFeatures
             this.m_ComboBoxGender.Name = "m_ComboBoxGender";
             this.m_ComboBoxGender.Size = new System.Drawing.Size(160, 24);
             this.m_ComboBoxGender.TabIndex = 21;
-            this.m_ComboBoxGender.SelectedIndexChanged += new System.EventHandler(this.m_ComboBoxGender_SelectedIndexChanged);
+            this.m_ComboBoxGender.SelectedIndexChanged += new System.EventHandler(this.comboBoxGender_SelectedIndexChanged);
             // 
             // FormBestMatch
             // 

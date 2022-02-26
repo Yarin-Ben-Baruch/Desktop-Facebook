@@ -16,12 +16,12 @@ namespace BasicFacebookFeatures
             InitializeComponent();
         }
 
-        private void m_LabelMostLikesOnPhotos_Click(object sender, EventArgs e)
+        private void labelMostLikesOnPhotos_Click(object sender, EventArgs e)
         {
             fetchPhotos();
         }
 
-        private void m_ListBoxMostLikesPhotos_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBoxMostLikesPhotos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxMostLikesPhotos.SelectedItems.Count == 1)
             {
@@ -31,7 +31,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_LabelMostLikesOnPosts_Click(object sender, EventArgs e)
+        private void labelMostLikesOnPosts_Click(object sender, EventArgs e)
         {
             fetchPosts();
         }
