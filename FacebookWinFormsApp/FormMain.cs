@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using FaceBookAppLogic;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
-using Message = System.Windows.Forms.Message;
+
 
 namespace BasicFacebookFeatures
 {

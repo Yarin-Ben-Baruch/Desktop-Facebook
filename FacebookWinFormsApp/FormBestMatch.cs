@@ -25,10 +25,8 @@ namespace BasicFacebookFeatures
 
         private void buttonSearchMatch_Click(object sender, EventArgs e)
         {
-            resetPreviousSearch();
-            m_ListBoxBestMatch.Items.Clear();
-            m_ListBoxBestMatch.DisplayMember = "Name";
-
+            const string errorMessage = "No matches to retrieve :(";
+            
             m_BestMatches = r_FormMain.ManagerLogic.FindBestMatch(
                 r_FormMain.LoggedInUser.Friends,
                 r_FormMain.LoggedInUser,
@@ -36,22 +34,9 @@ namespace BasicFacebookFeatures
                 Decimal.ToInt32(m_NumericUpDownStartAge.Value),
                 Decimal.ToInt32(m_NumericUpDownEndAge.Value));
 
-            try
-            {
-                foreach (User user in m_BestMatches)
-                {
-                    m_ListBoxBestMatch.Items.Add(user);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            resetPreviousSearch();
+            fillListBoxWithCommonCollection(m_BestMatches.ToList(), errorMessage, m_ListBoxBestMatch);
 
-            if (m_ListBoxBestMatch.Items.Count == 0)
-            {
-                MessageBox.Show("No matchs to retrieve :(");
-            }
         }
 
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,81 +97,54 @@ namespace BasicFacebookFeatures
             m_ChosenGender = (User.eGender)m_ComboBoxGender.SelectedIndex;
         }
 
-        // TODO : Move To external function
         private void initializedCommonPagesList(LinkedList<User> bestMatchesInLinkedList, int SelectedIndex)
         {
+            const string errorMessage = "No liked pages to retrieve :(";
             List<User> bestMatchs = new List<User>();
             List<Page> commonPagesWithMatch = new List<Page>();
 
             bestMatchs = bestMatchesInLinkedList.ToList();
             commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages(bestMatchs[SelectedIndex].Id);
 
-            m_ListBoxPages.Items.Clear();
-            m_ListBoxPages.DisplayMember = "Name";
-
-            try
-            {
-                foreach (Page page in commonPagesWithMatch)
-                {
-                    m_ListBoxPages.Items.Add(page);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            if (m_ListBoxPages.Items.Count == 0)
-            {
-                MessageBox.Show("No liked pages to retrieve :(");
-            }
+            resetListAndPhoto(m_ListBoxPages, m_PictureBoxPages);
+            fillListBoxWithCommonCollection(commonPagesWithMatch, errorMessage, m_ListBoxPages);
         }
 
         private void initializedCommonGroupsList(LinkedList<User> bestMatchesInLinkedList, int SelectedIndex)
         {
+            const string errorMessage = "No groups to retrieve :(";
             List<User> bestMatchs = new List<User>();
             List<Group> commonGroupsWithMatch = new List<Group>();
 
             bestMatchs = bestMatchesInLinkedList.ToList();
             commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups(bestMatchs[SelectedIndex].Id);
 
-            m_ListBoxGroups.Items.Clear();
-            m_ListBoxGroups.DisplayMember = "Name";
-
-            try
-            {
-                foreach (Group group in commonGroupsWithMatch)
-                {
-                    m_ListBoxGroups.Items.Add(group);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            if (m_ListBoxGroups.Items.Count == 0)
-            {
-                MessageBox.Show("No groups to retrieve :(");
-            }
+            resetListAndPhoto(m_ListBoxGroups, m_PictureBoxGroups);
+            fillListBoxWithCommonCollection(commonGroupsWithMatch, errorMessage, m_ListBoxGroups);
         }
 
         private void initializedCommonFriendsList(LinkedList<User> bestMatchesInLinkedList, int SelectedIndex)
         {
+            const string errorMessage = "No friends to retrieve :(";
             List<User> bestMatchs = new List<User>();
-            List<User> commonGroupsWithMatch = new List<User>();
+            List<User> commonFriendsWithMatch = new List<User>();
 
             bestMatchs = bestMatchesInLinkedList.ToList();
-            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends(bestMatchs[SelectedIndex].Id);
+            commonFriendsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends(bestMatchs[SelectedIndex].Id);
 
-            m_ListBoxFriends.Items.Clear();
-            m_ListBoxFriends.DisplayMember = "Name";
+            resetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);
+            fillListBoxWithCommonCollection(commonFriendsWithMatch, errorMessage, m_ListBoxFriends);
+        }
+
+        private void fillListBoxWithCommonCollection<T>(List<T> i_CommonCollection, string i_ErrorMessage, ListBox i_ListBoxToFill)
+        {
+            i_ListBoxToFill.DisplayMember = "Name";
 
             try
             {
-                foreach (User user in commonGroupsWithMatch)
+                foreach (T commonItem in i_CommonCollection)
                 {
-                    m_ListBoxFriends.Items.Add(user);
+                    i_ListBoxToFill.Items.Add(commonItem);
                 }
             }
             catch (Exception ex)
@@ -194,10 +152,17 @@ namespace BasicFacebookFeatures
                 MessageBox.Show(ex.Message);
             }
 
-            if (m_ListBoxFriends.Items.Count == 0)
+            if (i_ListBoxToFill.Items.Count == 0)
             {
-                MessageBox.Show("No friends to retrieve :(");
+                MessageBox.Show(i_ErrorMessage);
             }
+
+        }
+
+        private void resetListAndPhoto(ListBox i_ListBoxToFill, PictureBox i_PhotoToRemove)
+        {
+            i_PhotoToRemove.Image = null;
+            i_ListBoxToFill.Items.Clear();
         }
 
         private void numericUpDownStartAge_ValueChanged(object sender, EventArgs e)
