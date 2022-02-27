@@ -15,7 +15,7 @@ namespace BasicFacebookFeatures
     {
         private readonly FormMain r_FormMain;
         private User.eGender m_ChosenGender;
-        private LinkedList<User> m_BestMatches;
+        private ICollection<User> m_BestMatches;
 
         public FormBestMatch(FormMain i_FormMain)
         {
@@ -44,6 +44,7 @@ namespace BasicFacebookFeatures
             if (m_ListBoxGroups.SelectedItems.Count == 1)
             {
                 Group selectedGroup = m_ListBoxGroups.SelectedItem as Group;
+
                 m_PictureBoxGroups.LoadAsync(selectedGroup.PictureNormalURL);
             }
         }
@@ -53,6 +54,7 @@ namespace BasicFacebookFeatures
             if (m_ListBoxPages.SelectedItems.Count == 1)
             {
                 Page selectedPage = m_ListBoxPages.SelectedItem as Page;
+
                 m_PictureBoxPages.LoadAsync(selectedPage.PictureNormalURL);
             }
         }
@@ -62,8 +64,8 @@ namespace BasicFacebookFeatures
             if (m_ListBoxFriends.SelectedItems.Count == 1)
             {
                 User selectedUser = m_ListBoxFriends.SelectedItem as User;
-                m_PictureBoxFriends.LoadAsync(selectedUser.PictureNormalURL);
 
+                m_PictureBoxFriends.LoadAsync(selectedUser.PictureNormalURL);
             }
         }
 
@@ -72,6 +74,7 @@ namespace BasicFacebookFeatures
             if (m_ListBoxBestMatch.SelectedItems.Count == 1)
             {
                 User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
+
                 m_PictureBoxBestMatch.LoadAsync(selectedUser.PictureNormalURL);
             }
 
@@ -80,6 +83,7 @@ namespace BasicFacebookFeatures
             initializedCommonFriendsList(m_BestMatches, m_ListBoxBestMatch.SelectedIndex);
         }
 
+        // TODO : CHECK
         private void linkLabelLoverProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
@@ -92,51 +96,66 @@ namespace BasicFacebookFeatures
             }
         }
 
+        private void visitLoverProfile()
+        {
+            // Change the color of the link text by setting LinkVisited
+            // to true.
+            m_LinkLabelLoverProfile.LinkVisited = true;
+            //Call the Process.Start method to open the default browser
+            //with a URL:
+            if (m_ListBoxBestMatch.SelectedItems.Count == 1)
+            {
+                User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
+                System.Diagnostics.Process.Start(selectedUser.Link);
+            }
+
+        }
+
         private void comboBoxGender_SelectedIndexChanged(object sender, EventArgs e)
         {
             m_ChosenGender = (User.eGender)m_ComboBoxGender.SelectedIndex;
         }
 
-        private void initializedCommonPagesList(LinkedList<User> bestMatchesInLinkedList, int SelectedIndex)
+        private void initializedCommonPagesList(ICollection<User> i_BestMatchesInLinkedList, int i_SelectedIndex)
         {
             const string errorMessage = "No liked pages to retrieve :(";
-            List<User> bestMatchs = new List<User>();
-            List<Page> commonPagesWithMatch = new List<Page>();
+            IList<User> bestMatchs = new List<User>();
+            ICollection<Page> commonPagesWithMatch = new List<Page>();
 
-            bestMatchs = bestMatchesInLinkedList.ToList();
-            commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages(bestMatchs[SelectedIndex].Id);
+            bestMatchs = i_BestMatchesInLinkedList.ToList();
+            commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages(bestMatchs[i_SelectedIndex].Id);
 
             resetListAndPhoto(m_ListBoxPages, m_PictureBoxPages);
             fillListBoxWithCommonCollection(commonPagesWithMatch, errorMessage, m_ListBoxPages);
         }
 
-        private void initializedCommonGroupsList(LinkedList<User> bestMatchesInLinkedList, int SelectedIndex)
+        private void initializedCommonGroupsList(ICollection<User> i_BestMatchesInLinkedList, int i_SelectedIndex)
         {
             const string errorMessage = "No groups to retrieve :(";
-            List<User> bestMatchs = new List<User>();
-            List<Group> commonGroupsWithMatch = new List<Group>();
+            IList<User> bestMatchs = new List<User>();
+            ICollection<Group> commonGroupsWithMatch = new List<Group>();
 
-            bestMatchs = bestMatchesInLinkedList.ToList();
-            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups(bestMatchs[SelectedIndex].Id);
+            bestMatchs = i_BestMatchesInLinkedList.ToList();
+            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups(bestMatchs[i_SelectedIndex].Id);
 
             resetListAndPhoto(m_ListBoxGroups, m_PictureBoxGroups);
             fillListBoxWithCommonCollection(commonGroupsWithMatch, errorMessage, m_ListBoxGroups);
         }
 
-        private void initializedCommonFriendsList(LinkedList<User> bestMatchesInLinkedList, int SelectedIndex)
+        private void initializedCommonFriendsList(ICollection<User> i_BestMatchesInLinkedList, int i_SelectedIndex)
         {
             const string errorMessage = "No friends to retrieve :(";
-            List<User> bestMatchs = new List<User>();
-            List<User> commonFriendsWithMatch = new List<User>();
+            IList<User> bestMatchs = new List<User>();
+            ICollection<User> commonFriendsWithMatch = new List<User>();
 
-            bestMatchs = bestMatchesInLinkedList.ToList();
-            commonFriendsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends(bestMatchs[SelectedIndex].Id);
+            bestMatchs = i_BestMatchesInLinkedList.ToList();
+            commonFriendsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends(bestMatchs[i_SelectedIndex].Id);
 
             resetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);
             fillListBoxWithCommonCollection(commonFriendsWithMatch, errorMessage, m_ListBoxFriends);
         }
 
-        private void fillListBoxWithCommonCollection<T>(List<T> i_CommonCollection, string i_ErrorMessage, ListBox i_ListBoxToFill)
+        private void fillListBoxWithCommonCollection<T>(ICollection<T> i_CommonCollection, string i_ErrorMessage, ListBox i_ListBoxToFill)
         {
             i_ListBoxToFill.DisplayMember = "Name";
 
@@ -179,21 +198,6 @@ namespace BasicFacebookFeatures
             {
                 m_NumericUpDownStartAge.Value = m_NumericUpDownEndAge.Value;
             }
-        }
-
-        private void visitLoverProfile()
-        {
-            // Change the color of the link text by setting LinkVisited
-            // to true.
-            m_LinkLabelLoverProfile.LinkVisited = true;
-            //Call the Process.Start method to open the default browser
-            //with a URL:
-            if (m_ListBoxBestMatch.SelectedItems.Count == 1)
-            {
-                User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
-                System.Diagnostics.Process.Start(selectedUser.Link);
-            }
-
         }
 
         private void resetPreviousSearch()

@@ -6,13 +6,13 @@ namespace FaceBookAppLogic
 {
     public class LogicBestFriend
     {
-        public LinkedList<User> GetMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_Post)
+        public ICollection<User> GetMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_CollectionOfPostsToCheck)
         {
-            List<Post> posts = new List<Post>();
-            Dictionary<User, int> usersMostLikes = new Dictionary<User, int>();
-            LinkedList<User> sortedUsers = new LinkedList<User>();
+            ICollection<Post> posts = new List<Post>();
+            IDictionary<User, int> usersMostLikes = new Dictionary<User, int>();
+            ICollection<User> sortedUsers = new LinkedList<User>();
 
-            foreach (Post post in i_Post)
+            foreach (Post post in i_CollectionOfPostsToCheck)
             {
                 foreach (User user in post.LikedBy)
                 {
@@ -37,12 +37,12 @@ namespace FaceBookAppLogic
             return sortedUsers;
         }
 
-        public Dictionary<string, int> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
+        public IDictionary<string, int> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_CollectionOfAlbumsToCheck)
         {
-            List<Photo> photos = FetchPhotos(i_Albums);
-            Dictionary<string, int> usersMostLikes = new Dictionary<string, int>();
+            ICollection<Photo> photosToCheck = FetchPhotos(i_CollectionOfAlbumsToCheck);
+            IDictionary<string, int> usersMostLikes = new Dictionary<string, int>();
 
-            foreach (Photo photo in photos)
+            foreach (Photo photo in photosToCheck)
             {
                 foreach (User user in photo.LikedBy)
                 {
@@ -60,10 +60,10 @@ namespace FaceBookAppLogic
             return usersMostLikes;
         }
 
-        public Dictionary<string, int> GetMostCommentsOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
+        public IDictionary<string, int> GetMostCommentsOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
         {
-            List<Photo> photos = FetchPhotos(i_Albums);
-            Dictionary<string, int> usersMostLikes = new Dictionary<string, int>();
+            ICollection<Photo> photos = FetchPhotos(i_Albums);
+            IDictionary<string, int> usersMostLikes = new Dictionary<string, int>();
             User currentUser;
 
             foreach (Photo photo in photos)
@@ -86,9 +86,9 @@ namespace FaceBookAppLogic
             return usersMostLikes;
         }
 
-        internal List<Photo> FetchPhotos(FacebookObjectCollection<Album> i_Albums)
+        internal ICollection<Photo> FetchPhotos(FacebookObjectCollection<Album> i_Albums)
         {
-            List<Photo> photos = new List<Photo>();
+            ICollection<Photo> photos = new List<Photo>();
 
             foreach (Album album in i_Albums)
             {

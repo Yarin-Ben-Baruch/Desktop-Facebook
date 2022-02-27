@@ -39,8 +39,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BestMatchLogic.cs" />
-    <Compile Include="FindLocation.cs" />
+    <Compile Include="LogicBestMatch.cs" />
+    <Compile Include="LogicFriendsCities.cs" />
     <Compile Include="LogicBestFriend.cs" />
     <Compile Include="LogicManager.cs" />
   </ItemGroup>

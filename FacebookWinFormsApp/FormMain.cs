@@ -110,7 +110,7 @@ namespace BasicFacebookFeatures
 
         private void fetchPhotos()
         {
-            List<Photo> photos = ManagerLogic.FetchSortedPhotos(LoggedInUser.Albums);
+            ICollection<Photo> photos = ManagerLogic.FetchSortedPhotos(LoggedInUser.Albums);
 
             m_ListBoxPopularPhotos.Items.Clear();
             m_ListBoxPopularPhotos.DisplayMember = "Name";

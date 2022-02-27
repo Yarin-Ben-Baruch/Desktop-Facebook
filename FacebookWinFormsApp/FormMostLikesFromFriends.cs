@@ -48,33 +48,33 @@ namespace BasicFacebookFeatures
 
         private void fetchUserPhotos()
         {
-            List<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
+            ICollection<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
 
             m_ListBoxMostLikesPhotos.Items.Clear();
             m_ListBoxMostLikesPhotos.DisplayMember = "Name";
             // For self Checking adding myself to the list to see if i show on the ListBox.
             listOfFriends.Add(r_FormMain.LoggedInUser);
 
-            LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
+            ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
 
             enterDataIntoListBox(m_ListBoxMostLikesPhotos, usersToShow);
         }
 
         private void fetchUserComments()
         {
-            List<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
+            ICollection<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
 
             m_ListBoxMostComments.Items.Clear();
             m_ListBoxMostComments.DisplayMember = "Name";
             // For self Checking adding myself to the list to see if i show on the ListBox.
             listOfFriends.Add(r_FormMain.LoggedInUser);
 
-            LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostCommentsOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
+            ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostCommentsOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
 
             enterDataIntoListBox(m_ListBoxMostComments, usersToShow);
         }
 
-        private void enterDataIntoListBox(ListBox i_ListBoxToAdd, LinkedList<User> i_UsersToAdd)
+        private void enterDataIntoListBox(ListBox i_ListBoxToAdd, ICollection<User> i_UsersToAdd)
         {
             foreach (User user in i_UsersToAdd)
             {
@@ -94,7 +94,7 @@ namespace BasicFacebookFeatures
 
         private void fetchPosts()
         {
-            LinkedList<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPostByUsers(r_FormMain.LoggedInUser.Posts);
+            ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPostByUsers(r_FormMain.LoggedInUser.Posts);
 
             m_ListBoxMostLikesPosts.Items.Clear();
 

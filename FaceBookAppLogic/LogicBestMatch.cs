@@ -5,22 +5,23 @@ using System.Linq;
 
 namespace FaceBookAppLogic
 {
-    class BestMatchLogic
+    class LogicBestMatch
     {
-        public Dictionary<string, List<FacebookObject>> CommonGroupsDic { get; set; }
-        public Dictionary<string, List<FacebookObject>> CommonLikedPagesDic { get; set; }
-        public Dictionary<string, List<FacebookObject>> CommonFriendsDic { get; set; }
+        public IDictionary<string, ICollection<FacebookObject>> CommonGroupsDic { get; set; }
+        public IDictionary<string, ICollection<FacebookObject>> CommonLikedPagesDic { get; set; }
+        public IDictionary<string, ICollection<FacebookObject>> CommonFriendsDic { get; set; }
 
-        public BestMatchLogic()
+        public LogicBestMatch()
         {
-            CommonGroupsDic = new Dictionary<string, List<FacebookObject>>();
-            CommonLikedPagesDic = new Dictionary<string, List<FacebookObject>>();
-            CommonFriendsDic = new Dictionary<string, List<FacebookObject>>();
+            CommonGroupsDic = new Dictionary<string, ICollection<FacebookObject>>();
+            CommonLikedPagesDic = new Dictionary<string, ICollection<FacebookObject>>();
+            CommonFriendsDic = new Dictionary<string, ICollection<FacebookObject>>();
         }
 
-        public List<FacebookObject> FindCommonObjectsInCollection(List<FacebookObject> i_CollectionOfLoginUser, List<FacebookObject> i_CollectionOfMyMatch)
+        public ICollection<FacebookObject> FindCommonObjectsInCollection(ICollection<FacebookObject> i_CollectionOfLoginUser,
+            ICollection<FacebookObject> i_CollectionOfMyMatch)
         {
-            List<FacebookObject> commonObjectsList = new List<FacebookObject>();
+            ICollection<FacebookObject> commonObjectsList = new List<FacebookObject>();
 
             foreach (FacebookObject matchObject in i_CollectionOfLoginUser)
             {
@@ -36,13 +37,13 @@ namespace FaceBookAppLogic
             return commonObjectsList;
         }
 
-        public Dictionary<User, int> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends,
+        public IDictionary<User, int> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends,
             User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)
         {
-            Dictionary<User, int> commonDictionary = new Dictionary<User, int>();
-            List<FacebookObject> currentCommonGroups;
-            List<FacebookObject> currentCommonLikedPages;
-            List<FacebookObject> currentCommonFriends;
+            IDictionary<User, int> commonDictionary = new Dictionary<User, int>();
+            ICollection<FacebookObject> currentCommonGroups;
+            ICollection<FacebookObject> currentCommonLikedPages;
+            ICollection<FacebookObject> currentCommonFriends;
             int currentUserAge;
 
             resetDictionaries();

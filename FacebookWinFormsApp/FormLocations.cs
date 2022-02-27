@@ -32,7 +32,7 @@ namespace BasicFacebookFeatures
 
         private void listBoxUserInSameCity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (m_ListBoxAllCities.SelectedItems.Count == 1)
+            if (m_ListBoxUserInSameCity.SelectedItems.Count == 1)
             {
                 User selectedUser = m_ListBoxUserInSameCity.SelectedItem as User;
 
@@ -42,16 +42,17 @@ namespace BasicFacebookFeatures
 
         private void fetchCities()
         {
-            ISet<City> allCities = r_FormMain.ManagerLogic.GetAllCities(r_FormMain.LoggedInUser.Friends);
+            ICollection<City> allCities = r_FormMain.ManagerLogic.GetAllCities(r_FormMain.LoggedInUser.Friends);
 
             enterDataIntoListBox(m_ListBoxAllCities, allCities);
         }
 
         private void fetchUsers(City i_CityToFind)
         {
-            IList<User> allUserInTheCity =
+            ICollection<User> allUserInTheCity =
                 r_FormMain.ManagerLogic.GetAllUserInCity(r_FormMain.LoggedInUser.Friends, i_CityToFind);
 
+            m_PictureBoxProfileUser.Image = null;
             m_ListBoxUserInSameCity.Items.Clear();
             m_ListBoxUserInSameCity.DisplayMember = "Name";
 
@@ -66,7 +67,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void enterDataIntoListBox(ListBox i_ListBoxToAdd, ISet<City> i_AllCities)
+        private void enterDataIntoListBox(ListBox i_ListBoxToAdd, ICollection<City> i_AllCities)
         {
             i_ListBoxToAdd.Items.Clear();
             i_ListBoxToAdd.DisplayMember = "Name";
