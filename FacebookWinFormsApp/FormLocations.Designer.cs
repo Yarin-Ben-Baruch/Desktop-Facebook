@@ -32,7 +32,9 @@ namespace BasicFacebookFeatures
             this.m_ButtonFindCities = new System.Windows.Forms.Button();
             this.m_ListBoxAllCities = new System.Windows.Forms.ListBox();
             this.m_ListBoxUserInSameCity = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.m_LabelHeaderListBox = new System.Windows.Forms.Label();
+            this.m_PictureBoxProfileUser = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxProfileUser)).BeginInit();
             this.SuspendLayout();
             // 
             // m_ButtonFindCities
@@ -63,22 +65,33 @@ namespace BasicFacebookFeatures
             this.m_ListBoxUserInSameCity.Name = "m_ListBoxUserInSameCity";
             this.m_ListBoxUserInSameCity.Size = new System.Drawing.Size(273, 329);
             this.m_ListBoxUserInSameCity.TabIndex = 2;
+            this.m_ListBoxUserInSameCity.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxUserInSameCity_SelectedIndexChanged);
             // 
-            // label1
+            // m_LabelHeaderListBox
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(564, 59);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(179, 25);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Who live with him";
+            this.m_LabelHeaderListBox.AutoSize = true;
+            this.m_LabelHeaderListBox.Location = new System.Drawing.Point(564, 59);
+            this.m_LabelHeaderListBox.Name = "m_LabelHeaderListBox";
+            this.m_LabelHeaderListBox.Size = new System.Drawing.Size(179, 25);
+            this.m_LabelHeaderListBox.TabIndex = 3;
+            this.m_LabelHeaderListBox.Text = "Who live with him";
+            // 
+            // m_PictureBoxProfileUser
+            // 
+            this.m_PictureBoxProfileUser.Location = new System.Drawing.Point(674, 330);
+            this.m_PictureBoxProfileUser.Name = "m_PictureBoxProfileUser";
+            this.m_PictureBoxProfileUser.Size = new System.Drawing.Size(122, 124);
+            this.m_PictureBoxProfileUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.m_PictureBoxProfileUser.TabIndex = 4;
+            this.m_PictureBoxProfileUser.TabStop = false;
             // 
             // FormLocations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 560);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.m_PictureBoxProfileUser);
+            this.Controls.Add(this.m_LabelHeaderListBox);
             this.Controls.Add(this.m_ListBoxUserInSameCity);
             this.Controls.Add(this.m_ListBoxAllCities);
             this.Controls.Add(this.m_ButtonFindCities);
@@ -87,6 +100,7 @@ namespace BasicFacebookFeatures
             this.Name = "FormLocations";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLocations";
+            ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxProfileUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,6 +111,7 @@ namespace BasicFacebookFeatures
         private System.Windows.Forms.Button m_ButtonFindCities;
         private System.Windows.Forms.ListBox m_ListBoxAllCities;
         private System.Windows.Forms.ListBox m_ListBoxUserInSameCity;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label m_LabelHeaderListBox;
+        private System.Windows.Forms.PictureBox m_PictureBoxProfileUser;
     }
 }

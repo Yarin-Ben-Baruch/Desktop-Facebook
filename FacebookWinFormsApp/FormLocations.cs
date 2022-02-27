@@ -33,18 +33,7 @@ namespace BasicFacebookFeatures
             {
                 City city = m_ListBoxAllCities.SelectedItem as City;
 
-                IList<User> allUserInTheCity =
-                    r_FormMain.ManagerLogic.GetAllUserInCity(r_FormMain.LoggedInUser.Friends, city);
-
-                foreach (User user in allUserInTheCity)
-                {
-                    m_ListBoxUserInSameCity.Items.Add(user);
-                }
-
-                if (m_ListBoxUserInSameCity.Items.Count == 0)
-                {
-                    MessageBox.Show("No user to retrieve :(");
-                }
+                fetchUsers(city);
             }
         }
 
@@ -57,6 +46,9 @@ namespace BasicFacebookFeatures
 
         private void enterDataIntoListBox(ListBox i_ListBoxToAdd, ISet<City> i_AllCities)
         {
+            i_ListBoxToAdd.Items.Clear();
+            i_ListBoxToAdd.DisplayMember = "Name";
+
             foreach (City city in i_AllCities)
             {
                 i_ListBoxToAdd.Items.Add(city);
@@ -65,6 +57,35 @@ namespace BasicFacebookFeatures
             if (i_ListBoxToAdd.Items.Count == 0)
             {
                 MessageBox.Show("No city to retrieve :(");
+            }
+        }
+
+        private void fetchUsers(City i_CityToFind)
+        {
+            IList<User> allUserInTheCity =
+                r_FormMain.ManagerLogic.GetAllUserInCity(r_FormMain.LoggedInUser.Friends, i_CityToFind);
+
+            m_ListBoxUserInSameCity.Items.Clear();
+            m_ListBoxUserInSameCity.DisplayMember = "Name";
+
+            foreach (User user in allUserInTheCity)
+            {
+                m_ListBoxUserInSameCity.Items.Add(user);
+            }
+
+            if (m_ListBoxUserInSameCity.Items.Count == 0)
+            {
+                MessageBox.Show("No user to retrieve :(");
+            }
+        }
+
+        private void m_ListBoxUserInSameCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (m_ListBoxAllCities.SelectedItems.Count == 1)
+            {
+                User selectedUser = m_ListBoxUserInSameCity.SelectedItem as User;
+
+                m_PictureBoxProfileUser.LoadAsync(selectedUser.PictureNormalURL);
             }
         }
     }
