@@ -65,7 +65,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxUserInSameCity.Name = "m_ListBoxUserInSameCity";
             this.m_ListBoxUserInSameCity.Size = new System.Drawing.Size(273, 329);
             this.m_ListBoxUserInSameCity.TabIndex = 2;
-            this.m_ListBoxUserInSameCity.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxUserInSameCity_SelectedIndexChanged);
+            this.m_ListBoxUserInSameCity.SelectedIndexChanged += new System.EventHandler(this.listBoxUserInSameCity_SelectedIndexChanged);
             // 
             // m_LabelHeaderListBox
             // 

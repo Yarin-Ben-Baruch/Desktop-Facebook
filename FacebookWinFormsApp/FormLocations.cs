@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
@@ -37,27 +30,21 @@ namespace BasicFacebookFeatures
             }
         }
 
+        private void listBoxUserInSameCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (m_ListBoxAllCities.SelectedItems.Count == 1)
+            {
+                User selectedUser = m_ListBoxUserInSameCity.SelectedItem as User;
+
+                m_PictureBoxProfileUser.LoadAsync(selectedUser.PictureNormalURL);
+            }
+        }
+
         private void fetchCities()
         {
             ISet<City> allCities = r_FormMain.ManagerLogic.GetAllCities(r_FormMain.LoggedInUser.Friends);
 
             enterDataIntoListBox(m_ListBoxAllCities, allCities);
-        }
-
-        private void enterDataIntoListBox(ListBox i_ListBoxToAdd, ISet<City> i_AllCities)
-        {
-            i_ListBoxToAdd.Items.Clear();
-            i_ListBoxToAdd.DisplayMember = "Name";
-
-            foreach (City city in i_AllCities)
-            {
-                i_ListBoxToAdd.Items.Add(city);
-            }
-
-            if (i_ListBoxToAdd.Items.Count == 0)
-            {
-                MessageBox.Show("No city to retrieve :(");
-            }
         }
 
         private void fetchUsers(City i_CityToFind)
@@ -79,13 +66,19 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_ListBoxUserInSameCity_SelectedIndexChanged(object sender, EventArgs e)
+        private void enterDataIntoListBox(ListBox i_ListBoxToAdd, ISet<City> i_AllCities)
         {
-            if (m_ListBoxAllCities.SelectedItems.Count == 1)
-            {
-                User selectedUser = m_ListBoxUserInSameCity.SelectedItem as User;
+            i_ListBoxToAdd.Items.Clear();
+            i_ListBoxToAdd.DisplayMember = "Name";
 
-                m_PictureBoxProfileUser.LoadAsync(selectedUser.PictureNormalURL);
+            foreach (City city in i_AllCities)
+            {
+                i_ListBoxToAdd.Items.Add(city);
+            }
+
+            if (i_ListBoxToAdd.Items.Count == 0)
+            {
+                MessageBox.Show("No city to retrieve :(");
             }
         }
     }
