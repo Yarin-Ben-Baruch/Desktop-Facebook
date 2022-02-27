@@ -1,9 +1,8 @@
-﻿
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace BasicFacebookFeatures
 {
-    partial class FormBestMatch
+    public partial class FormBestMatch
     {
         /// <summary>
         /// Required designer variable.
@@ -20,6 +19,7 @@ namespace BasicFacebookFeatures
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 

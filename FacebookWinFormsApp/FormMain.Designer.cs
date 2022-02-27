@@ -2,7 +2,7 @@
 
 namespace BasicFacebookFeatures
 {
-    partial class FormMain
+    public partial class FormMain
     {
         /// <summary>
         /// Required designer variable.
@@ -19,6 +19,7 @@ namespace BasicFacebookFeatures
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -232,4 +233,3 @@ namespace BasicFacebookFeatures
         private Button m_ButtonFindMyFriendsCities;
     }
 }
-

@@ -1,7 +1,6 @@
-﻿
-namespace BasicFacebookFeatures
+﻿namespace BasicFacebookFeatures
 {
-    partial class FormLocations
+    public partial class FormLocations
     {
         /// <summary>
         /// Required designer variable.
@@ -18,6 +17,7 @@ namespace BasicFacebookFeatures
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 

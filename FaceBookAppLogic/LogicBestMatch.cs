@@ -1,14 +1,16 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using FacebookWrapper.ObjectModel;
 
 namespace FaceBookAppLogic
 {
-    class LogicBestMatch
+    public class LogicBestMatch
     {
         public IDictionary<string, ICollection<FacebookObject>> CommonGroupsDic { get; set; }
+
         public IDictionary<string, ICollection<FacebookObject>> CommonLikedPagesDic { get; set; }
+
         public IDictionary<string, ICollection<FacebookObject>> CommonFriendsDic { get; set; }
 
         public LogicBestMatch()
@@ -18,8 +20,7 @@ namespace FaceBookAppLogic
             CommonFriendsDic = new Dictionary<string, ICollection<FacebookObject>>();
         }
 
-        public ICollection<FacebookObject> FindCommonObjectsInCollection(ICollection<FacebookObject> i_CollectionOfLoginUser,
-            ICollection<FacebookObject> i_CollectionOfMyMatch)
+        public ICollection<FacebookObject> FindCommonObjectsInCollection(ICollection<FacebookObject> i_CollectionOfLoginUser, ICollection<FacebookObject> i_CollectionOfMyMatch)
         {
             ICollection<FacebookObject> commonObjectsList = new List<FacebookObject>();
 
@@ -37,8 +38,7 @@ namespace FaceBookAppLogic
             return commonObjectsList;
         }
 
-        public IDictionary<User, int> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends,
-            User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)
+        public IDictionary<User, int> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)
         {
             IDictionary<User, int> commonDictionary = new Dictionary<User, int>();
             ICollection<FacebookObject> currentCommonGroups;
@@ -54,12 +54,9 @@ namespace FaceBookAppLogic
 
                 if (myFriend.Gender == i_ChosenGender && i_StartAge <= currentUserAge && currentUserAge <= i_EndAge)
                 {
-                    currentCommonGroups = FindCommonObjectsInCollection(myFriend.Groups.Cast<FacebookObject>().ToList(),
-                        i_LoggedInUser.Groups.Cast<FacebookObject>().ToList());
+                    currentCommonGroups = FindCommonObjectsInCollection(myFriend.Groups.Cast<FacebookObject>().ToList(), i_LoggedInUser.Groups.Cast<FacebookObject>().ToList());
 
-                    currentCommonLikedPages = FindCommonObjectsInCollection(
-                        myFriend.LikedPages.Cast<FacebookObject>().ToList(),
-                        i_LoggedInUser.LikedPages.Cast<FacebookObject>().ToList());
+                    currentCommonLikedPages = FindCommonObjectsInCollection(myFriend.LikedPages.Cast<FacebookObject>().ToList(), i_LoggedInUser.LikedPages.Cast<FacebookObject>().ToList());
 
                     currentCommonFriends = FindCommonObjectsInCollection(
                         myFriend.Friends.Cast<FacebookObject>().ToList(),
@@ -68,7 +65,6 @@ namespace FaceBookAppLogic
                     commonDictionary.Add(myFriend, currentCommonGroups.Count);
                     commonDictionary[myFriend] += currentCommonLikedPages.Count;
                     commonDictionary[myFriend] += currentCommonFriends.Count;
-
 
                     CommonGroupsDic.Add(myFriend.Id, currentCommonGroups);
                     CommonLikedPagesDic.Add(myFriend.Id, currentCommonLikedPages);

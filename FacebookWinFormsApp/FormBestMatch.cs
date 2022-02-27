@@ -31,12 +31,11 @@ namespace BasicFacebookFeatures
                 r_FormMain.LoggedInUser.Friends,
                 r_FormMain.LoggedInUser,
                 m_ChosenGender,
-                Decimal.ToInt32(m_NumericUpDownStartAge.Value),
-                Decimal.ToInt32(m_NumericUpDownEndAge.Value));
+                decimal.ToInt32(m_NumericUpDownStartAge.Value),
+                decimal.ToInt32(m_NumericUpDownEndAge.Value));
 
             resetPreviousSearch();
             fillListBoxWithCommonCollection(m_BestMatches.ToList(), errorMessage, m_ListBoxBestMatch);
-
         }
 
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,7 +89,7 @@ namespace BasicFacebookFeatures
             {
                 visitLoverProfile();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Unable to open link that was clicked.");
             }
@@ -98,17 +97,16 @@ namespace BasicFacebookFeatures
 
         private void visitLoverProfile()
         {
-            // Change the color of the link text by setting LinkVisited
-            // to true.
+            //// Change the color of the link text by setting LinkVisited
+            //// to true.
             m_LinkLabelLoverProfile.LinkVisited = true;
-            //Call the Process.Start method to open the default browser
-            //with a URL:
+            //// Call the Process.Start method to open the default browser
+            //// with a URL:
             if (m_ListBoxBestMatch.SelectedItems.Count == 1)
             {
                 User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
                 System.Diagnostics.Process.Start(selectedUser.Link);
             }
-
         }
 
         private void comboBoxGender_SelectedIndexChanged(object sender, EventArgs e)
@@ -175,7 +173,6 @@ namespace BasicFacebookFeatures
             {
                 MessageBox.Show(i_ErrorMessage);
             }
-
         }
 
         private void resetListAndPhoto(ListBox i_ListBoxToFill, PictureBox i_PhotoToRemove)

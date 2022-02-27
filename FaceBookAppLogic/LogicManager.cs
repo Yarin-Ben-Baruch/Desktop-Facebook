@@ -8,24 +8,23 @@ namespace FaceBookAppLogic
     {
         private readonly LogicBestMatch r_BestMatchLogic;
         private readonly LogicBestFriend r_BestFriendLogic;
-        private readonly LogicFriendsCities r_FindLocation;
-
+        private readonly LogicFriendsCities r_FriendsCities;
 
         public LogicManager()
         {
             r_BestFriendLogic = new LogicBestFriend();
             r_BestMatchLogic = new LogicBestMatch();
-            r_FindLocation = new LogicFriendsCities();
+            r_FriendsCities = new LogicFriendsCities();
         }
 
         public ICollection<City> GetAllCities(FacebookObjectCollection<User> i_LoggedInUserFriends)
         {
-            return r_FindLocation.GetAllCities(i_LoggedInUserFriends);
+            return r_FriendsCities.GetAllCities(i_LoggedInUserFriends);
         }
 
         public ICollection<User> GetAllUserInCity(FacebookObjectCollection<User> i_LoggedInUserFriends, City i_City)
         {
-            return r_FindLocation.GetAllUsersInCity(i_LoggedInUserFriends, i_City);
+            return r_FriendsCities.GetAllUsersInCity(i_LoggedInUserFriends, i_City);
         }
 
         public ICollection<Photo> FetchSortedPhotos(FacebookObjectCollection<Album> i_Albums)
@@ -57,11 +56,9 @@ namespace FaceBookAppLogic
             return r_BestFriendLogic.GetMostLikesOnPostsByUsers(i_Post);
         }
 
-        public ICollection<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends,
-            User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)
+        public ICollection<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)
         {
-            IDictionary<User, int> bestMatchDictionary = r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser,
-                i_ChosenGender, i_StartAge, i_EndAge);
+            IDictionary<User, int> bestMatchDictionary = r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser, i_ChosenGender, i_StartAge, i_EndAge);
 
             return orderDictionaryByValueReverse(bestMatchDictionary);
         }

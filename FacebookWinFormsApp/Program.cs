@@ -4,7 +4,7 @@ using FacebookWrapper;
 
 namespace BasicFacebookFeatures
 {
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.

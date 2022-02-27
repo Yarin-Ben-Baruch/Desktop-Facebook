@@ -5,7 +5,6 @@ using FaceBookAppLogic;
 using FacebookWrapper.ObjectModel;
 using FacebookWrapper;
 
-
 namespace BasicFacebookFeatures
 {
     public partial class FormMain : Form
@@ -14,8 +13,7 @@ namespace BasicFacebookFeatures
         private static readonly string[] sr_Permissions = {
             "email", "public_profile", "user_age_range", "user_birthday", "user_events",
             "user_friends", "user_gender", "user_hometown", "user_likes", "user_link",
-            "user_location", "user_photos", "user_posts", "groups_access_member_info",
-            "user_videos"};
+            "user_location", "user_photos", "user_posts", "groups_access_member_info", "user_videos" };
 
         public LogicManager ManagerLogic { get; }
 

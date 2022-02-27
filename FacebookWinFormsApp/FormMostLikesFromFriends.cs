@@ -1,8 +1,8 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
@@ -52,7 +52,7 @@ namespace BasicFacebookFeatures
 
             m_ListBoxMostLikesPhotos.Items.Clear();
             m_ListBoxMostLikesPhotos.DisplayMember = "Name";
-            // For self Checking adding myself to the list to see if i show on the ListBox.
+            //// For self Checking adding myself to the list to see if i show on the ListBox.
             listOfFriends.Add(r_FormMain.LoggedInUser);
 
             ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
@@ -66,7 +66,7 @@ namespace BasicFacebookFeatures
 
             m_ListBoxMostComments.Items.Clear();
             m_ListBoxMostComments.DisplayMember = "Name";
-            // For self Checking adding myself to the list to see if i show on the ListBox.
+            //// For self Checking adding myself to the list to see if i show on the ListBox.
             listOfFriends.Add(r_FormMain.LoggedInUser);
 
             ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostCommentsOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
