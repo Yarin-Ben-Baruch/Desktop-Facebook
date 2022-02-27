@@ -1,7 +1,7 @@
-﻿using System;
+﻿using FacebookWrapper.ObjectModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using FacebookWrapper.ObjectModel;
 
 namespace FaceBookAppLogic
 {
@@ -21,7 +21,7 @@ namespace FaceBookAppLogic
         public List<FacebookObject> FindCommonObjectsInCollection(List<FacebookObject> i_CollectionOfLoginUser, List<FacebookObject> i_CollectionOfMyMatch)
         {
             List<FacebookObject> commonObjectsList = new List<FacebookObject>();
-            
+
             foreach (FacebookObject matchObject in i_CollectionOfLoginUser)
             {
                 foreach (FacebookObject checkObject in i_CollectionOfMyMatch)
@@ -36,7 +36,7 @@ namespace FaceBookAppLogic
             return commonObjectsList;
         }
 
-        public Dictionary<User, int> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, 
+        public Dictionary<User, int> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends,
             User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)
         {
             Dictionary<User, int> commonDictionary = new Dictionary<User, int>();
@@ -49,7 +49,7 @@ namespace FaceBookAppLogic
 
             foreach (User myFriend in i_LoggedInUserFriends)
             {
-                currentUserAge = DateTime.Now.Year - int.Parse(myFriend.Birthday.Substring(myFriend.Birthday.Length - 4));
+                currentUserAge = getFriendAge(myFriend);
 
                 if (myFriend.Gender == i_ChosenGender && i_StartAge <= currentUserAge && currentUserAge <= i_EndAge)
                 {
@@ -83,6 +83,19 @@ namespace FaceBookAppLogic
             CommonGroupsDic.Clear();
             CommonLikedPagesDic.Clear();
             CommonFriendsDic.Clear();
+        }
+
+        private int getFriendAge(User i_Friend)
+        {
+            int currentUserAge = -1;
+
+            if (i_Friend.Birthday.Length == 10)
+            {
+                currentUserAge = DateTime.Now.Year -
+                                 int.Parse(i_Friend.Birthday.Substring(i_Friend.Birthday.Length - 4));
+            }
+
+            return currentUserAge;
         }
     }
 }

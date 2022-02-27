@@ -41,6 +41,7 @@ namespace BasicFacebookFeatures
             this.m_PictureBoxSelectedPopularPhoto = new System.Windows.Forms.PictureBox();
             this.m_ButtonPopularPhotos = new System.Windows.Forms.Button();
             this.m_LabelNumberOfLikes = new System.Windows.Forms.Label();
+            this.m_ButtonFindMyFriendsCities = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxProfilePhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxSelectedPopularPhoto)).BeginInit();
             this.SuspendLayout();
@@ -105,7 +106,7 @@ namespace BasicFacebookFeatures
             // m_ButtonBestMatch
             // 
             this.m_ButtonBestMatch.BackColor = System.Drawing.Color.White;
-            this.m_ButtonBestMatch.Location = new System.Drawing.Point(66, 575);
+            this.m_ButtonBestMatch.Location = new System.Drawing.Point(66, 485);
             this.m_ButtonBestMatch.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonBestMatch.Name = "m_ButtonBestMatch";
             this.m_ButtonBestMatch.Size = new System.Drawing.Size(228, 88);
@@ -117,7 +118,7 @@ namespace BasicFacebookFeatures
             // m_ButtonMostLikesFromFriends
             // 
             this.m_ButtonMostLikesFromFriends.BackColor = System.Drawing.Color.White;
-            this.m_ButtonMostLikesFromFriends.Location = new System.Drawing.Point(66, 387);
+            this.m_ButtonMostLikesFromFriends.Location = new System.Drawing.Point(66, 348);
             this.m_ButtonMostLikesFromFriends.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonMostLikesFromFriends.Name = "m_ButtonMostLikesFromFriends";
             this.m_ButtonMostLikesFromFriends.Size = new System.Drawing.Size(228, 88);
@@ -170,6 +171,18 @@ namespace BasicFacebookFeatures
             this.m_LabelNumberOfLikes.TabIndex = 61;
             this.m_LabelNumberOfLikes.Text = "Likes:";
             // 
+            // m_ButtonFindMyFriendsCities
+            // 
+            this.m_ButtonFindMyFriendsCities.BackColor = System.Drawing.Color.White;
+            this.m_ButtonFindMyFriendsCities.Location = new System.Drawing.Point(66, 614);
+            this.m_ButtonFindMyFriendsCities.Margin = new System.Windows.Forms.Padding(4);
+            this.m_ButtonFindMyFriendsCities.Name = "m_ButtonFindMyFriendsCities";
+            this.m_ButtonFindMyFriendsCities.Size = new System.Drawing.Size(228, 88);
+            this.m_ButtonFindMyFriendsCities.TabIndex = 62;
+            this.m_ButtonFindMyFriendsCities.Text = "Find cities";
+            this.m_ButtonFindMyFriendsCities.UseVisualStyleBackColor = false;
+            this.m_ButtonFindMyFriendsCities.Click += new System.EventHandler(this.buttonFindMyFriendsCities_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -178,6 +191,7 @@ namespace BasicFacebookFeatures
             this.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.background_image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1252, 727);
+            this.Controls.Add(this.m_ButtonFindMyFriendsCities);
             this.Controls.Add(this.m_LabelNumberOfLikes);
             this.Controls.Add(this.m_ButtonPopularPhotos);
             this.Controls.Add(this.m_PictureBoxSelectedPopularPhoto);
@@ -215,6 +229,7 @@ namespace BasicFacebookFeatures
         private System.Windows.Forms.PictureBox m_PictureBoxSelectedPopularPhoto;
         private System.Windows.Forms.Button m_ButtonPopularPhotos;
         private Label m_LabelNumberOfLikes;
+        private Button m_ButtonFindMyFriendsCities;
     }
 }
 

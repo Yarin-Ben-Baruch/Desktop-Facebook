@@ -73,6 +73,18 @@ namespace BasicFacebookFeatures
             }
         }
 
+        private void buttonFindMyFriendsCities_Click(object sender, EventArgs e)
+        {
+            if (LoggedInUser != null)
+            {
+                new FormLocations(this).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("You need to be logged in", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void buttonPopularPhotos_Click(object sender, EventArgs e)
         {
             if (LoggedInUser != null)

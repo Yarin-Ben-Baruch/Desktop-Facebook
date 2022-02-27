@@ -8,11 +8,24 @@ namespace FaceBookAppLogic
     {
         private readonly BestMatchLogic r_BestMatchLogic;
         private readonly LogicBestFriend r_BestFriendLogic;
+        private readonly FindLocation r_FindLocation;
+
 
         public LogicManager()
         {
             r_BestFriendLogic = new LogicBestFriend();
             r_BestMatchLogic = new BestMatchLogic();
+            r_FindLocation = new FindLocation();
+        }
+
+        public ISet<City> GetAllCities(FacebookObjectCollection<User> i_LoggedInUserFriends)
+        {
+            return r_FindLocation.GetAllCities(i_LoggedInUserFriends);
+        }
+
+        public IList<User> GetAllUserInCity(FacebookObjectCollection<User> i_LoggedInUserFriends, City i_City)
+        {
+            return r_FindLocation.GetAllUserInCity(i_LoggedInUserFriends, i_City);
         }
 
         public List<Photo> FetchSortedPhotos(FacebookObjectCollection<Album> i_Albums)

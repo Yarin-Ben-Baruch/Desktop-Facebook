@@ -95,6 +95,12 @@
     <Compile Include="FormBestMatch.Designer.cs">
       <DependentUpon>FormBestMatch.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormLocations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLocations.Designer.cs">
+      <DependentUpon>FormLocations.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormBestMatch.resx">
       <DependentUpon>FormBestMatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLocations.resx">
+      <DependentUpon>FormLocations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
