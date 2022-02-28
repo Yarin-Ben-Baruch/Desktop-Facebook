@@ -137,7 +137,7 @@ namespace BasicFacebookFeatures
         {
             if (LoggedInUser != null)
             {
-                new FormChooseName(this).ShowDialog();
+                new FormAccountInfo(this).ShowDialog();
             }
             else
             {

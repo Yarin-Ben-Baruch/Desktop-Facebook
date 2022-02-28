@@ -11,11 +11,11 @@ using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-    public partial class FormChooseName : Form
+    public partial class FormAccountInfo : Form
     {
         private readonly FormMain r_FormMain;
 
-        public FormChooseName(FormMain i_FormMain)
+        public FormAccountInfo(FormMain i_FormMain)
         {
             r_FormMain = i_FormMain;
             InitializeComponent();

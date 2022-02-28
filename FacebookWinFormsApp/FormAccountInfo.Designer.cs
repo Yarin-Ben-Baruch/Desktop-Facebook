@@ -1,6 +1,6 @@
 ﻿namespace BasicFacebookFeatures
 {
-    partial class FormChooseName
+    partial class FormAccountInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             // m_ListBoxFriends
             // 
             this.m_ListBoxFriends.FormattingEnabled = true;
-            this.m_ListBoxFriends.Location = new System.Drawing.Point(41, 79);
+            this.m_ListBoxFriends.Location = new System.Drawing.Point(31, 50);
             this.m_ListBoxFriends.Name = "m_ListBoxFriends";
             this.m_ListBoxFriends.Size = new System.Drawing.Size(165, 160);
             this.m_ListBoxFriends.TabIndex = 0;
@@ -57,7 +57,7 @@
             // 
             // m_ButtonShowFriends
             // 
-            this.m_ButtonShowFriends.Location = new System.Drawing.Point(65, 50);
+            this.m_ButtonShowFriends.Location = new System.Drawing.Point(60, 21);
             this.m_ButtonShowFriends.Name = "m_ButtonShowFriends";
             this.m_ButtonShowFriends.Size = new System.Drawing.Size(103, 23);
             this.m_ButtonShowFriends.TabIndex = 2;
@@ -67,7 +67,7 @@
             // 
             // m_PictureBoxFriends
             // 
-            this.m_PictureBoxFriends.Location = new System.Drawing.Point(122, 167);
+            this.m_PictureBoxFriends.Location = new System.Drawing.Point(112, 138);
             this.m_PictureBoxFriends.Name = "m_PictureBoxFriends";
             this.m_PictureBoxFriends.Size = new System.Drawing.Size(84, 72);
             this.m_PictureBoxFriends.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             // m_PictureBoxLikedPages
             // 
-            this.m_PictureBoxLikedPages.Location = new System.Drawing.Point(565, 167);
+            this.m_PictureBoxLikedPages.Location = new System.Drawing.Point(489, 138);
             this.m_PictureBoxLikedPages.Name = "m_PictureBoxLikedPages";
             this.m_PictureBoxLikedPages.Size = new System.Drawing.Size(84, 72);
             this.m_PictureBoxLikedPages.TabIndex = 6;
@@ -83,7 +83,7 @@
             // 
             // m_ButtonLikedPages
             // 
-            this.m_ButtonLikedPages.Location = new System.Drawing.Point(499, 50);
+            this.m_ButtonLikedPages.Location = new System.Drawing.Point(423, 21);
             this.m_ButtonLikedPages.Name = "m_ButtonLikedPages";
             this.m_ButtonLikedPages.Size = new System.Drawing.Size(134, 23);
             this.m_ButtonLikedPages.TabIndex = 5;
@@ -94,7 +94,7 @@
             // m_ListBoxLikedPages
             // 
             this.m_ListBoxLikedPages.FormattingEnabled = true;
-            this.m_ListBoxLikedPages.Location = new System.Drawing.Point(475, 79);
+            this.m_ListBoxLikedPages.Location = new System.Drawing.Point(399, 50);
             this.m_ListBoxLikedPages.Name = "m_ListBoxLikedPages";
             this.m_ListBoxLikedPages.Size = new System.Drawing.Size(174, 160);
             this.m_ListBoxLikedPages.TabIndex = 4;
@@ -102,7 +102,7 @@
             // 
             // m_PictureBoxEvents
             // 
-            this.m_PictureBoxEvents.Location = new System.Drawing.Point(222, 395);
+            this.m_PictureBoxEvents.Location = new System.Drawing.Point(126, 391);
             this.m_PictureBoxEvents.Name = "m_PictureBoxEvents";
             this.m_PictureBoxEvents.Size = new System.Drawing.Size(84, 72);
             this.m_PictureBoxEvents.TabIndex = 9;
@@ -110,7 +110,7 @@
             // 
             // m_ButtonEvents
             // 
-            this.m_ButtonEvents.Location = new System.Drawing.Point(141, 278);
+            this.m_ButtonEvents.Location = new System.Drawing.Point(60, 274);
             this.m_ButtonEvents.Name = "m_ButtonEvents";
             this.m_ButtonEvents.Size = new System.Drawing.Size(113, 23);
             this.m_ButtonEvents.TabIndex = 8;
@@ -121,15 +121,15 @@
             // m_ListBoxEvents
             // 
             this.m_ListBoxEvents.FormattingEnabled = true;
-            this.m_ListBoxEvents.Location = new System.Drawing.Point(98, 307);
+            this.m_ListBoxEvents.Location = new System.Drawing.Point(31, 303);
             this.m_ListBoxEvents.Name = "m_ListBoxEvents";
-            this.m_ListBoxEvents.Size = new System.Drawing.Size(208, 160);
+            this.m_ListBoxEvents.Size = new System.Drawing.Size(179, 160);
             this.m_ListBoxEvents.TabIndex = 7;
             this.m_ListBoxEvents.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxEvents_SelectedIndexChanged);
             // 
             // m_PictureBoxAlbums
             // 
-            this.m_PictureBoxAlbums.Location = new System.Drawing.Point(531, 395);
+            this.m_PictureBoxAlbums.Location = new System.Drawing.Point(489, 391);
             this.m_PictureBoxAlbums.Name = "m_PictureBoxAlbums";
             this.m_PictureBoxAlbums.Size = new System.Drawing.Size(84, 72);
             this.m_PictureBoxAlbums.TabIndex = 15;
@@ -137,9 +137,9 @@
             // 
             // m_ButtonAlbums
             // 
-            this.m_ButtonAlbums.Location = new System.Drawing.Point(450, 278);
+            this.m_ButtonAlbums.Location = new System.Drawing.Point(426, 274);
             this.m_ButtonAlbums.Name = "m_ButtonAlbums";
-            this.m_ButtonAlbums.Size = new System.Drawing.Size(113, 23);
+            this.m_ButtonAlbums.Size = new System.Drawing.Size(123, 23);
             this.m_ButtonAlbums.TabIndex = 14;
             this.m_ButtonAlbums.Text = "See My Albums";
             this.m_ButtonAlbums.UseVisualStyleBackColor = true;
@@ -148,17 +148,18 @@
             // m_ListBoxAlbums
             // 
             this.m_ListBoxAlbums.FormattingEnabled = true;
-            this.m_ListBoxAlbums.Location = new System.Drawing.Point(407, 307);
+            this.m_ListBoxAlbums.Location = new System.Drawing.Point(399, 303);
             this.m_ListBoxAlbums.Name = "m_ListBoxAlbums";
-            this.m_ListBoxAlbums.Size = new System.Drawing.Size(208, 160);
+            this.m_ListBoxAlbums.Size = new System.Drawing.Size(174, 160);
             this.m_ListBoxAlbums.TabIndex = 13;
             this.m_ListBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxAlbums_SelectedIndexChanged);
             // 
-            // FormChooseName
+            // FormAccountInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 516);
+            this.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.MostLikesForm;
+            this.ClientSize = new System.Drawing.Size(611, 484);
             this.Controls.Add(this.m_PictureBoxAlbums);
             this.Controls.Add(this.m_ButtonAlbums);
             this.Controls.Add(this.m_ListBoxAlbums);
@@ -174,10 +175,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FormChooseName";
+            this.Name = "FormAccountInfo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form";
+            this.Text = "Account info";
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxFriends)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxLikedPages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxEvents)).EndInit();

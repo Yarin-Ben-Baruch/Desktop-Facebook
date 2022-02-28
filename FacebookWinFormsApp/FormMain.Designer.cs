@@ -42,7 +42,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonFindMyFriendsCities = new System.Windows.Forms.Button();
             this.m_LabelGender = new System.Windows.Forms.Label();
             this.m_LabelMyCity = new System.Windows.Forms.Label();
-            this.m_ButtonMoreDateils = new System.Windows.Forms.Button();
+            this.m_ButtonAccountInfo = new System.Windows.Forms.Button();
             this.m_ButtonPosts = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxProfilePhoto)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +50,7 @@ namespace BasicFacebookFeatures
             // m_ButtonLogin
             // 
             this.m_ButtonLogin.BackColor = System.Drawing.Color.White;
-            this.m_ButtonLogin.Location = new System.Drawing.Point(410, 25);
+            this.m_ButtonLogin.Location = new System.Drawing.Point(388, 17);
             this.m_ButtonLogin.Name = "m_ButtonLogin";
             this.m_ButtonLogin.Size = new System.Drawing.Size(179, 23);
             this.m_ButtonLogin.TabIndex = 36;
@@ -61,7 +61,7 @@ namespace BasicFacebookFeatures
             // m_ButtonLogout
             // 
             this.m_ButtonLogout.BackColor = System.Drawing.Color.White;
-            this.m_ButtonLogout.Location = new System.Drawing.Point(410, 58);
+            this.m_ButtonLogout.Location = new System.Drawing.Point(388, 50);
             this.m_ButtonLogout.Name = "m_ButtonLogout";
             this.m_ButtonLogout.Size = new System.Drawing.Size(179, 23);
             this.m_ButtonLogout.TabIndex = 52;
@@ -105,7 +105,7 @@ namespace BasicFacebookFeatures
             // m_ButtonBestMatch
             // 
             this.m_ButtonBestMatch.BackColor = System.Drawing.Color.White;
-            this.m_ButtonBestMatch.Location = new System.Drawing.Point(416, 181);
+            this.m_ButtonBestMatch.Location = new System.Drawing.Point(453, 181);
             this.m_ButtonBestMatch.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.m_ButtonBestMatch.Name = "m_ButtonBestMatch";
             this.m_ButtonBestMatch.Size = new System.Drawing.Size(114, 46);
@@ -117,7 +117,7 @@ namespace BasicFacebookFeatures
             // m_ButtonMostLikesFromFriends
             // 
             this.m_ButtonMostLikesFromFriends.BackColor = System.Drawing.Color.White;
-            this.m_ButtonMostLikesFromFriends.Location = new System.Drawing.Point(55, 251);
+            this.m_ButtonMostLikesFromFriends.Location = new System.Drawing.Point(29, 251);
             this.m_ButtonMostLikesFromFriends.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.m_ButtonMostLikesFromFriends.Name = "m_ButtonMostLikesFromFriends";
             this.m_ButtonMostLikesFromFriends.Size = new System.Drawing.Size(114, 46);
@@ -129,7 +129,7 @@ namespace BasicFacebookFeatures
             // m_ButtonPopularPhotos
             // 
             this.m_ButtonPopularPhotos.BackColor = System.Drawing.Color.White;
-            this.m_ButtonPopularPhotos.Location = new System.Drawing.Point(416, 251);
+            this.m_ButtonPopularPhotos.Location = new System.Drawing.Point(453, 251);
             this.m_ButtonPopularPhotos.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.m_ButtonPopularPhotos.Name = "m_ButtonPopularPhotos";
             this.m_ButtonPopularPhotos.Size = new System.Drawing.Size(118, 46);
@@ -141,7 +141,7 @@ namespace BasicFacebookFeatures
             // m_ButtonFindMyFriendsCities
             // 
             this.m_ButtonFindMyFriendsCities.BackColor = System.Drawing.Color.White;
-            this.m_ButtonFindMyFriendsCities.Location = new System.Drawing.Point(55, 181);
+            this.m_ButtonFindMyFriendsCities.Location = new System.Drawing.Point(29, 181);
             this.m_ButtonFindMyFriendsCities.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.m_ButtonFindMyFriendsCities.Name = "m_ButtonFindMyFriendsCities";
             this.m_ButtonFindMyFriendsCities.Size = new System.Drawing.Size(114, 46);
@@ -170,23 +170,23 @@ namespace BasicFacebookFeatures
             this.m_LabelMyCity.TabIndex = 64;
             this.m_LabelMyCity.Text = "My city";
             // 
-            // m_ButtonMoreDateils
+            // m_ButtonAccountInfo
             // 
-            this.m_ButtonMoreDateils.BackColor = System.Drawing.Color.White;
-            this.m_ButtonMoreDateils.Location = new System.Drawing.Point(51, 320);
-            this.m_ButtonMoreDateils.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.m_ButtonMoreDateils.Name = "m_ButtonMoreDateils";
-            this.m_ButtonMoreDateils.Size = new System.Drawing.Size(118, 46);
-            this.m_ButtonMoreDateils.TabIndex = 65;
-            this.m_ButtonMoreDateils.Text = "More Dateils";
-            this.m_ButtonMoreDateils.UseVisualStyleBackColor = false;
-            this.m_ButtonMoreDateils.Click += new System.EventHandler(this.m_ButtonMoreDateils_Click);
+            this.m_ButtonAccountInfo.BackColor = System.Drawing.Color.White;
+            this.m_ButtonAccountInfo.Location = new System.Drawing.Point(25, 320);
+            this.m_ButtonAccountInfo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.m_ButtonAccountInfo.Name = "m_ButtonAccountInfo";
+            this.m_ButtonAccountInfo.Size = new System.Drawing.Size(118, 46);
+            this.m_ButtonAccountInfo.TabIndex = 65;
+            this.m_ButtonAccountInfo.Text = "Account info";
+            this.m_ButtonAccountInfo.UseVisualStyleBackColor = false;
+            this.m_ButtonAccountInfo.Click += new System.EventHandler(this.m_ButtonMoreDateils_Click);
             // 
             // m_ButtonPosts
             // 
             this.m_ButtonPosts.BackColor = System.Drawing.Color.White;
             this.m_ButtonPosts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.m_ButtonPosts.Location = new System.Drawing.Point(416, 320);
+            this.m_ButtonPosts.Location = new System.Drawing.Point(453, 320);
             this.m_ButtonPosts.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.m_ButtonPosts.Name = "m_ButtonPosts";
             this.m_ButtonPosts.Size = new System.Drawing.Size(118, 46);
@@ -202,9 +202,9 @@ namespace BasicFacebookFeatures
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.background_image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(613, 378);
+            this.ClientSize = new System.Drawing.Size(591, 378);
             this.Controls.Add(this.m_ButtonPosts);
-            this.Controls.Add(this.m_ButtonMoreDateils);
+            this.Controls.Add(this.m_ButtonAccountInfo);
             this.Controls.Add(this.m_LabelMyCity);
             this.Controls.Add(this.m_LabelGender);
             this.Controls.Add(this.m_ButtonFindMyFriendsCities);
@@ -240,7 +240,7 @@ namespace BasicFacebookFeatures
         private Button m_ButtonFindMyFriendsCities;
         private Label m_LabelGender;
         private Label m_LabelMyCity;
-        private Button m_ButtonMoreDateils;
+        private Button m_ButtonAccountInfo;
         private Button m_ButtonPosts;
     }
 }
