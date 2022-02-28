@@ -29,65 +29,65 @@ namespace BasicFacebookFeatures
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBoxPostComments = new System.Windows.Forms.ListBox();
-            this.listBoxPosts = new System.Windows.Forms.ListBox();
-            this.buttonSetStatus = new System.Windows.Forms.Button();
-            this.textBoxStatus = new System.Windows.Forms.TextBox();
+            this.m_ListBoxPostComments = new System.Windows.Forms.ListBox();
+            this.m_ListBoxPosts = new System.Windows.Forms.ListBox();
+            this.m_ButtonSetStatus = new System.Windows.Forms.Button();
+            this.m_TextBoxStatus = new System.Windows.Forms.TextBox();
             this.linkPosts = new System.Windows.Forms.LinkLabel();
             this.m_ButtonFetchPosts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // listBoxPostComments
+            // m_ListBoxPostComments
             // 
-            this.listBoxPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.m_ListBoxPostComments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxPostComments.BackColor = System.Drawing.SystemColors.Info;
-            this.listBoxPostComments.DisplayMember = "name";
-            this.listBoxPostComments.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxPostComments.FormattingEnabled = true;
-            this.listBoxPostComments.ItemHeight = 39;
-            this.listBoxPostComments.Location = new System.Drawing.Point(787, 334);
-            this.listBoxPostComments.Margin = new System.Windows.Forms.Padding(6);
-            this.listBoxPostComments.Name = "listBoxPostComments";
-            this.listBoxPostComments.Size = new System.Drawing.Size(370, 160);
-            this.listBoxPostComments.TabIndex = 57;
+            this.m_ListBoxPostComments.BackColor = System.Drawing.SystemColors.Info;
+            this.m_ListBoxPostComments.DisplayMember = "name";
+            this.m_ListBoxPostComments.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_ListBoxPostComments.FormattingEnabled = true;
+            this.m_ListBoxPostComments.ItemHeight = 39;
+            this.m_ListBoxPostComments.Location = new System.Drawing.Point(787, 334);
+            this.m_ListBoxPostComments.Margin = new System.Windows.Forms.Padding(6);
+            this.m_ListBoxPostComments.Name = "m_ListBoxPostComments";
+            this.m_ListBoxPostComments.Size = new System.Drawing.Size(370, 160);
+            this.m_ListBoxPostComments.TabIndex = 57;
             // 
-            // listBoxPosts
+            // m_ListBoxPosts
             // 
-            this.listBoxPosts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.m_ListBoxPosts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listBoxPosts.DisplayMember = "name";
-            this.listBoxPosts.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxPosts.FormattingEnabled = true;
-            this.listBoxPosts.ItemHeight = 39;
-            this.listBoxPosts.Location = new System.Drawing.Point(75, 178);
-            this.listBoxPosts.Margin = new System.Windows.Forms.Padding(6);
-            this.listBoxPosts.Name = "listBoxPosts";
-            this.listBoxPosts.Size = new System.Drawing.Size(1082, 316);
-            this.listBoxPosts.TabIndex = 52;
-            this.listBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
+            this.m_ListBoxPosts.DisplayMember = "name";
+            this.m_ListBoxPosts.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.m_ListBoxPosts.FormattingEnabled = true;
+            this.m_ListBoxPosts.ItemHeight = 39;
+            this.m_ListBoxPosts.Location = new System.Drawing.Point(75, 178);
+            this.m_ListBoxPosts.Margin = new System.Windows.Forms.Padding(6);
+            this.m_ListBoxPosts.Name = "m_ListBoxPosts";
+            this.m_ListBoxPosts.Size = new System.Drawing.Size(1082, 316);
+            this.m_ListBoxPosts.TabIndex = 52;
+            this.m_ListBoxPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxPosts_SelectedIndexChanged);
             // 
-            // buttonSetStatus
+            // m_ButtonSetStatus
             // 
-            this.buttonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonSetStatus.Location = new System.Drawing.Point(1007, 127);
-            this.buttonSetStatus.Margin = new System.Windows.Forms.Padding(6);
-            this.buttonSetStatus.Name = "buttonSetStatus";
-            this.buttonSetStatus.Size = new System.Drawing.Size(150, 44);
-            this.buttonSetStatus.TabIndex = 55;
-            this.buttonSetStatus.Text = "Post";
-            this.buttonSetStatus.UseVisualStyleBackColor = true;
-            this.buttonSetStatus.Click += new System.EventHandler(this.buttonSetStatus_Click);
+            this.m_ButtonSetStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.m_ButtonSetStatus.Location = new System.Drawing.Point(1007, 127);
+            this.m_ButtonSetStatus.Margin = new System.Windows.Forms.Padding(6);
+            this.m_ButtonSetStatus.Name = "m_ButtonSetStatus";
+            this.m_ButtonSetStatus.Size = new System.Drawing.Size(150, 44);
+            this.m_ButtonSetStatus.TabIndex = 55;
+            this.m_ButtonSetStatus.Text = "Post";
+            this.m_ButtonSetStatus.UseVisualStyleBackColor = true;
+            this.m_ButtonSetStatus.Click += new System.EventHandler(this.buttonSetStatus_Click);
             // 
-            // textBoxStatus
+            // m_TextBoxStatus
             // 
-            this.textBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.m_TextBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxStatus.Location = new System.Drawing.Point(525, 134);
-            this.textBoxStatus.Margin = new System.Windows.Forms.Padding(6);
-            this.textBoxStatus.Name = "textBoxStatus";
-            this.textBoxStatus.Size = new System.Drawing.Size(452, 31);
-            this.textBoxStatus.TabIndex = 54;
+            this.m_TextBoxStatus.Location = new System.Drawing.Point(525, 134);
+            this.m_TextBoxStatus.Margin = new System.Windows.Forms.Padding(6);
+            this.m_TextBoxStatus.Name = "m_TextBoxStatus";
+            this.m_TextBoxStatus.Size = new System.Drawing.Size(452, 31);
+            this.m_TextBoxStatus.TabIndex = 54;
             // 
             // linkPosts
             // 
@@ -115,10 +115,10 @@ namespace BasicFacebookFeatures
             this.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.MostLikesForm;
             this.ClientSize = new System.Drawing.Size(1252, 578);
             this.Controls.Add(this.m_ButtonFetchPosts);
-            this.Controls.Add(this.listBoxPostComments);
-            this.Controls.Add(this.listBoxPosts);
-            this.Controls.Add(this.buttonSetStatus);
-            this.Controls.Add(this.textBoxStatus);
+            this.Controls.Add(this.m_ListBoxPostComments);
+            this.Controls.Add(this.m_ListBoxPosts);
+            this.Controls.Add(this.m_ButtonSetStatus);
+            this.Controls.Add(this.m_TextBoxStatus);
             this.Controls.Add(this.linkPosts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimizeBox = false;
@@ -132,10 +132,10 @@ namespace BasicFacebookFeatures
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBoxPostComments;
-        private System.Windows.Forms.ListBox listBoxPosts;
-        private System.Windows.Forms.Button buttonSetStatus;
-        private System.Windows.Forms.TextBox textBoxStatus;
+        private System.Windows.Forms.ListBox m_ListBoxPostComments;
+        private System.Windows.Forms.ListBox m_ListBoxPosts;
+        private System.Windows.Forms.Button m_ButtonSetStatus;
+        private System.Windows.Forms.TextBox m_TextBoxStatus;
         private System.Windows.Forms.LinkLabel linkPosts;
         private System.Windows.Forms.Button m_ButtonFetchPosts;
     }

@@ -94,6 +94,30 @@ namespace BasicFacebookFeatures
             }
         }
 
+        private void buttonAccountInfo_Click(object sender, EventArgs e)
+        {
+            if (LoggedInUser != null)
+            {
+                new FormAccountInfo(this).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonPosts_Click(object sender, EventArgs e)
+        {
+            if (LoggedInUser != null)
+            {
+                new FormPost(this).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void resetWhenLogout()
         {
             LoggedInUser = null;
@@ -104,7 +128,6 @@ namespace BasicFacebookFeatures
             m_LabelFullName.Text = "Full name";
             m_LabelBirthday.Text = "Birthday";
             m_LabelGender.Text = "Gender";
-            m_LabelMyCity.Text = "My city";
         }
 
         private void fetchUserInfo()
@@ -113,7 +136,6 @@ namespace BasicFacebookFeatures
             m_LabelFullName.Text = LoggedInUser.Name;
             m_LabelBirthday.Text = LoggedInUser.Birthday;
             m_LabelGender.Text = LoggedInUser.Gender.ToString();
-            //m_LabelMyCity.Text = LoggedInUser.Location.ToString();
         }
 
         private void loginAndInit()
@@ -130,30 +152,6 @@ namespace BasicFacebookFeatures
             else
             {
                 MessageBox.Show("Login Failed", k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void m_ButtonMoreDateils_Click(object sender, EventArgs e)
-        {
-            if (LoggedInUser != null)
-            {
-                new FormAccountInfo(this).ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void m_ButtonPosts_Click(object sender, EventArgs e)
-        {
-            if (LoggedInUser != null)
-            {
-                new FormPost(this).ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

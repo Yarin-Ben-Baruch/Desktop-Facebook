@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
@@ -23,22 +16,22 @@ namespace BasicFacebookFeatures
 
         private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Post selected = r_FormMain.LoggedInUser.Posts[listBoxPosts.SelectedIndex];
+            Post selected = r_FormMain.LoggedInUser.Posts[m_ListBoxPosts.SelectedIndex];
 
-            listBoxPostComments.DisplayMember = "Message";
-            listBoxPostComments.DataSource = selected.Comments;
+            m_ListBoxPostComments.DisplayMember = "Message";
+            m_ListBoxPostComments.DataSource = selected.Comments;
         }
 
         private void buttonSetStatus_Click(object sender, EventArgs e)
         {
             try
             {
-                Status postedStatus = r_FormMain.LoggedInUser.PostStatus(textBoxStatus.Text);
+                Status postedStatus = r_FormMain.LoggedInUser.PostStatus(m_TextBoxStatus.Text);
                 MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -49,25 +42,25 @@ namespace BasicFacebookFeatures
 
         private void fetchPosts()
         {
-            listBoxPosts.Items.Clear();
+            m_ListBoxPosts.Items.Clear();
 
             foreach (Post post in r_FormMain.LoggedInUser.Posts)
             {
                 if (post.Message != null)
                 {
-                    listBoxPosts.Items.Add(post.Message);
+                    m_ListBoxPosts.Items.Add(post.Message);
                 }
                 else if (post.Caption != null)
                 {
-                    listBoxPosts.Items.Add(post.Caption);
+                    m_ListBoxPosts.Items.Add(post.Caption);
                 }
                 else
                 {
-                    listBoxPosts.Items.Add(string.Format("[{0}]", post.Type));
+                    m_ListBoxPosts.Items.Add(string.Format("[{0}]", post.Type));
                 }
             }
 
-            if (listBoxPosts.Items.Count == 0)
+            if (m_ListBoxPosts.Items.Count == 0)
             {
                 MessageBox.Show("No Posts to retrieve :(");
             }
