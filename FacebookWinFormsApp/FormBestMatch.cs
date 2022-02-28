@@ -153,36 +153,6 @@ namespace BasicFacebookFeatures
             r_FormMain.fetchUserData(m_ListBoxFriends, commonFriendsWithMatch, errorMessage);
         }
 
-        // private void fillListBoxWithCommonCollection<T>(ICollection<T> i_CommonCollection, string i_ErrorMessage, ListBox i_ListBoxToFill)
-        // {
-        //
-        //     i_ListBoxToFill.DisplayMember = "Name";
-        //
-        //     try
-        //     {
-        //         foreach (T commonItem in i_CommonCollection)
-        //         {
-        //             i_ListBoxToFill.Items.Add(commonItem);
-        //         }
-        //     }
-        //     catch (Exception ex)
-        //     {
-        //         MessageBox.Show(ex.Message);
-        //     }
-        //
-        //     if (i_ListBoxToFill.Items.Count == 0)
-        //     {
-        //         MessageBox.Show(i_ErrorMessage);
-        //     }
-        // }
-
-
-        // private void resetListAndPhoto(ListBox i_ListBoxToFill, PictureBox i_PhotoToRemove)
-        // {
-        //     i_PhotoToRemove.Image = null;
-        //     i_ListBoxToFill.Items.Clear();
-        // }
-
         private void numericUpDownStartAge_ValueChanged(object sender, EventArgs e)
         {
             if (m_NumericUpDownStartAge.Value > m_NumericUpDownEndAge.Value)

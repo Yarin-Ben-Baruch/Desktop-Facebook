@@ -57,24 +57,7 @@ namespace BasicFacebookFeatures
 
             r_FormMain.resetListAndPhoto(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
             r_FormMain.fetchUserData(m_ListBoxAllCities, allCities, errorMessage);
-
-            //enterDataIntoListBox(m_ListBoxAllCities, allCities);
         }
 
-        // private void enterDataIntoListBox(ListBox i_ListBoxToAdd, ICollection<City> i_AllCities)
-        // {
-        //     i_ListBoxToAdd.Items.Clear();
-        //     i_ListBoxToAdd.DisplayMember = "Name";
-        //
-        //     foreach (City city in i_AllCities)
-        //     {
-        //         i_ListBoxToAdd.Items.Add(city);
-        //     }
-        //
-        //     if (i_ListBoxToAdd.Items.Count == 0)
-        //     {
-        //         MessageBox.Show("No city to retrieve :(");
-        //     }
-        // }
     }
 }

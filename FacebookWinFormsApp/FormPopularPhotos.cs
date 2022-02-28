@@ -29,7 +29,6 @@ namespace BasicFacebookFeatures
             r_FormMain.resetListAndPhoto(m_ListBoxPopularPhotos,m_PictureBoxSelectedPopularPhoto);
             r_FormMain.fetchUserData(m_ListBoxPopularPhotos, photos, errorMessage);
 
-            // fetchPhotos();
         }
 
         private void listBoxPopularPhotos_SelectedIndexChanged(object sender, EventArgs e)
@@ -43,17 +42,5 @@ namespace BasicFacebookFeatures
             }
         }
 
-        // private void fetchPhotos()
-        // {
-        //     ICollection<Photo> photos = r_FormMain.ManagerLogic.FetchSortedPhotos(r_FormMain.LoggedInUser.Albums);
-        //
-        //     m_ListBoxPopularPhotos.Items.Clear();
-        //     m_ListBoxPopularPhotos.DisplayMember = "Name";
-        //
-        //     foreach (Photo photo in photos)
-        //     {
-        //         m_ListBoxPopularPhotos.Items.Add(photo);
-        //     }
-        // }
     }
 }

@@ -155,7 +155,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-
         // COMMON METHODS
         internal void fetchUserData<T>(ListBox i_ListBoxToFill,
             ICollection<T> i_Collection, string i_ErrorMessage)

@@ -100,23 +100,5 @@ namespace BasicFacebookFeatures
                 }
             }
         }
-
-        // WE HAVE THIS METHOD TWICE !!!
-        // private void fetchUserData<T>(ListBox i_ListBoxToFill,
-        //     FacebookObjectCollection<T> i_Collection, string i_ErrorMessage)
-        // {
-        //     i_ListBoxToFill.Items.Clear();
-        //     i_ListBoxToFill.DisplayMember = "Name";
-        //
-        //     foreach (T itemToAdd in i_Collection)
-        //     {
-        //         i_ListBoxToFill.Items.Add(itemToAdd);
-        //     }
-        //
-        //     if (i_ListBoxToFill.Items.Count == 0)
-        //     {
-        //         MessageBox.Show(i_ErrorMessage);
-        //     }
-        // }
     }
 }
