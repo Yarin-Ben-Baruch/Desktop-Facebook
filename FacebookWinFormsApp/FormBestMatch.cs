@@ -35,7 +35,7 @@ namespace BasicFacebookFeatures
                 decimal.ToInt32(m_NumericUpDownEndAge.Value));
 
             resetPreviousSearch();
-            fillListBoxWithCommonCollection(m_BestMatches.ToList(), errorMessage, m_ListBoxBestMatch);
+            r_FormMain.fetchUserData(m_ListBoxBestMatch, m_BestMatches.ToList(), errorMessage);
         }
 
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,8 +123,8 @@ namespace BasicFacebookFeatures
             bestMatchs = i_BestMatchesInLinkedList.ToList();
             commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages(bestMatchs[i_SelectedIndex].Id);
 
-            resetListAndPhoto(m_ListBoxPages, m_PictureBoxPages);
-            fillListBoxWithCommonCollection(commonPagesWithMatch, errorMessage, m_ListBoxPages);
+            r_FormMain.resetListAndPhoto(m_ListBoxPages, m_PictureBoxPages);
+            r_FormMain.fetchUserData(m_ListBoxPages, commonPagesWithMatch, errorMessage);
         }
 
         private void initializedCommonGroupsList(ICollection<User> i_BestMatchesInLinkedList, int i_SelectedIndex)
@@ -136,8 +136,8 @@ namespace BasicFacebookFeatures
             bestMatchs = i_BestMatchesInLinkedList.ToList();
             commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups(bestMatchs[i_SelectedIndex].Id);
 
-            resetListAndPhoto(m_ListBoxGroups, m_PictureBoxGroups);
-            fillListBoxWithCommonCollection(commonGroupsWithMatch, errorMessage, m_ListBoxGroups);
+            r_FormMain.resetListAndPhoto(m_ListBoxGroups, m_PictureBoxGroups);
+            r_FormMain.fetchUserData(m_ListBoxGroups, commonGroupsWithMatch, errorMessage);
         }
 
         private void initializedCommonFriendsList(ICollection<User> i_BestMatchesInLinkedList, int i_SelectedIndex)
@@ -149,37 +149,39 @@ namespace BasicFacebookFeatures
             bestMatchs = i_BestMatchesInLinkedList.ToList();
             commonFriendsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends(bestMatchs[i_SelectedIndex].Id);
 
-            resetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);
-            fillListBoxWithCommonCollection(commonFriendsWithMatch, errorMessage, m_ListBoxFriends);
+            r_FormMain.resetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);
+            r_FormMain.fetchUserData(m_ListBoxFriends, commonFriendsWithMatch, errorMessage);
         }
 
-        private void fillListBoxWithCommonCollection<T>(ICollection<T> i_CommonCollection, string i_ErrorMessage, ListBox i_ListBoxToFill)
-        {
-            i_ListBoxToFill.DisplayMember = "Name";
+        // private void fillListBoxWithCommonCollection<T>(ICollection<T> i_CommonCollection, string i_ErrorMessage, ListBox i_ListBoxToFill)
+        // {
+        //
+        //     i_ListBoxToFill.DisplayMember = "Name";
+        //
+        //     try
+        //     {
+        //         foreach (T commonItem in i_CommonCollection)
+        //         {
+        //             i_ListBoxToFill.Items.Add(commonItem);
+        //         }
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         MessageBox.Show(ex.Message);
+        //     }
+        //
+        //     if (i_ListBoxToFill.Items.Count == 0)
+        //     {
+        //         MessageBox.Show(i_ErrorMessage);
+        //     }
+        // }
 
-            try
-            {
-                foreach (T commonItem in i_CommonCollection)
-                {
-                    i_ListBoxToFill.Items.Add(commonItem);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
-            if (i_ListBoxToFill.Items.Count == 0)
-            {
-                MessageBox.Show(i_ErrorMessage);
-            }
-        }
-
-        private void resetListAndPhoto(ListBox i_ListBoxToFill, PictureBox i_PhotoToRemove)
-        {
-            i_PhotoToRemove.Image = null;
-            i_ListBoxToFill.Items.Clear();
-        }
+        // private void resetListAndPhoto(ListBox i_ListBoxToFill, PictureBox i_PhotoToRemove)
+        // {
+        //     i_PhotoToRemove.Image = null;
+        //     i_ListBoxToFill.Items.Clear();
+        // }
 
         private void numericUpDownStartAge_ValueChanged(object sender, EventArgs e)
         {

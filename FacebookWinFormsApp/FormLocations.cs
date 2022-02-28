@@ -30,6 +30,16 @@ namespace BasicFacebookFeatures
             }
         }
 
+        private void fetchUsers(City i_CityToFind)
+        {
+            const string errorMessage = "No user to retrieve :(";
+            ICollection<User> allUserInTheCity =
+                r_FormMain.ManagerLogic.GetAllUserInCity(r_FormMain.LoggedInUser.Friends, i_CityToFind);
+
+            r_FormMain.resetListAndPhoto(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
+            r_FormMain.fetchUserData(m_ListBoxUserInSameCity, allUserInTheCity, errorMessage);
+        }
+
         private void listBoxUserInSameCity_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxUserInSameCity.SelectedItems.Count == 1)
@@ -42,45 +52,29 @@ namespace BasicFacebookFeatures
 
         private void fetchCities()
         {
+            const string errorMessage = "No city to retrieve :(";
             ICollection<City> allCities = r_FormMain.ManagerLogic.GetAllCities(r_FormMain.LoggedInUser.Friends);
 
-            enterDataIntoListBox(m_ListBoxAllCities, allCities);
+            r_FormMain.resetListAndPhoto(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
+            r_FormMain.fetchUserData(m_ListBoxAllCities, allCities, errorMessage);
+
+            //enterDataIntoListBox(m_ListBoxAllCities, allCities);
         }
 
-        private void fetchUsers(City i_CityToFind)
-        {
-            ICollection<User> allUserInTheCity =
-                r_FormMain.ManagerLogic.GetAllUserInCity(r_FormMain.LoggedInUser.Friends, i_CityToFind);
-
-            m_PictureBoxProfileUser.Image = null;
-            m_ListBoxUserInSameCity.Items.Clear();
-            m_ListBoxUserInSameCity.DisplayMember = "Name";
-
-            foreach (User user in allUserInTheCity)
-            {
-                m_ListBoxUserInSameCity.Items.Add(user);
-            }
-
-            if (m_ListBoxUserInSameCity.Items.Count == 0)
-            {
-                MessageBox.Show("No user to retrieve :(");
-            }
-        }
-
-        private void enterDataIntoListBox(ListBox i_ListBoxToAdd, ICollection<City> i_AllCities)
-        {
-            i_ListBoxToAdd.Items.Clear();
-            i_ListBoxToAdd.DisplayMember = "Name";
-
-            foreach (City city in i_AllCities)
-            {
-                i_ListBoxToAdd.Items.Add(city);
-            }
-
-            if (i_ListBoxToAdd.Items.Count == 0)
-            {
-                MessageBox.Show("No city to retrieve :(");
-            }
-        }
+        // private void enterDataIntoListBox(ListBox i_ListBoxToAdd, ICollection<City> i_AllCities)
+        // {
+        //     i_ListBoxToAdd.Items.Clear();
+        //     i_ListBoxToAdd.DisplayMember = "Name";
+        //
+        //     foreach (City city in i_AllCities)
+        //     {
+        //         i_ListBoxToAdd.Items.Add(city);
+        //     }
+        //
+        //     if (i_ListBoxToAdd.Items.Count == 0)
+        //     {
+        //         MessageBox.Show("No city to retrieve :(");
+        //     }
+        // }
     }
 }

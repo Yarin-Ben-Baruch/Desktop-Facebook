@@ -18,28 +18,32 @@ namespace BasicFacebookFeatures
         {
             const string errorMessage = "No Friends to retrieve :(";
 
-            fetchUserData(m_ListBoxFriends, r_FormMain.LoggedInUser.Friends, errorMessage);
+            r_FormMain.resetListAndPhoto(m_ListBoxFriends,m_PictureBoxFriends);
+            r_FormMain.fetchUserData(m_ListBoxFriends, r_FormMain.LoggedInUser.Friends, errorMessage);
         }
 
         private void buttonAlbums_Click(object sender, EventArgs e)
         {
             const string errorMessage = "No Albums to retrieve :(";
 
-            fetchUserData(m_ListBoxAlbums, r_FormMain.LoggedInUser.Albums, errorMessage);
+            r_FormMain.resetListAndPhoto(m_ListBoxAlbums, m_PictureBoxAlbums);
+            r_FormMain.fetchUserData(m_ListBoxAlbums, r_FormMain.LoggedInUser.Albums, errorMessage);
         }
 
         private void buttonLikedPages_Click(object sender, EventArgs e)
         {
             const string errorMessage = "No Liked Pages to retrieve :(";
 
-            fetchUserData(m_ListBoxLikedPages, r_FormMain.LoggedInUser.LikedPages, errorMessage);
+            r_FormMain.resetListAndPhoto(m_ListBoxLikedPages, m_PictureBoxLikedPages);
+            r_FormMain.fetchUserData(m_ListBoxLikedPages, r_FormMain.LoggedInUser.LikedPages, errorMessage);
         }
 
         private void buttonEvents_Click(object sender, EventArgs e)
         {
             const string errorMessage = "No Events to retrieve :(";
 
-            fetchUserData(m_ListBoxEvents, r_FormMain.LoggedInUser.Events, errorMessage);
+            r_FormMain.resetListAndPhoto(m_ListBoxEvents, m_PictureBoxEvents);
+            r_FormMain.fetchUserData(m_ListBoxEvents, r_FormMain.LoggedInUser.Events, errorMessage);
         }
 
         private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,21 +102,21 @@ namespace BasicFacebookFeatures
         }
 
         // WE HAVE THIS METHOD TWICE !!!
-        private void fetchUserData<T>(ListBox i_ListBoxToFill,
-            FacebookObjectCollection<T> i_Collection, string i_ErrorMessage)
-        {
-            i_ListBoxToFill.Items.Clear();
-            i_ListBoxToFill.DisplayMember = "Name";
-
-            foreach (T itemToAdd in i_Collection)
-            {
-                i_ListBoxToFill.Items.Add(itemToAdd);
-            }
-
-            if (i_ListBoxToFill.Items.Count == 0)
-            {
-                MessageBox.Show(i_ErrorMessage);
-            }
-        }
+        // private void fetchUserData<T>(ListBox i_ListBoxToFill,
+        //     FacebookObjectCollection<T> i_Collection, string i_ErrorMessage)
+        // {
+        //     i_ListBoxToFill.Items.Clear();
+        //     i_ListBoxToFill.DisplayMember = "Name";
+        //
+        //     foreach (T itemToAdd in i_Collection)
+        //     {
+        //         i_ListBoxToFill.Items.Add(itemToAdd);
+        //     }
+        //
+        //     if (i_ListBoxToFill.Items.Count == 0)
+        //     {
+        //         MessageBox.Show(i_ErrorMessage);
+        //     }
+        // }
     }
 }

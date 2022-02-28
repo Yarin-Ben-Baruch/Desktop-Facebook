@@ -35,15 +35,17 @@ namespace BasicFacebookFeatures
             }
         }
 
+        // TODO : CHECK IF CAN PUT IN 
         private void buttonFetchPosts_Click(object sender, EventArgs e)
         {
+
             fetchPosts();
         }
 
         private void fetchPosts()
         {
             m_ListBoxPosts.Items.Clear();
-
+        
             foreach (Post post in r_FormMain.LoggedInUser.Posts)
             {
                 if (post.Message != null)
@@ -59,7 +61,7 @@ namespace BasicFacebookFeatures
                     m_ListBoxPosts.Items.Add(string.Format("[{0}]", post.Type));
                 }
             }
-
+        
             if (m_ListBoxPosts.Items.Count == 0)
             {
                 MessageBox.Show("No Posts to retrieve :(");

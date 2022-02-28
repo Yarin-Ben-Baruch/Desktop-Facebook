@@ -154,5 +154,29 @@ namespace BasicFacebookFeatures
                 MessageBox.Show("Login Failed", k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+        // COMMON METHODS
+        internal void fetchUserData<T>(ListBox i_ListBoxToFill,
+            ICollection<T> i_Collection, string i_ErrorMessage)
+        {
+            i_ListBoxToFill.DisplayMember = "Name";
+
+            foreach (T itemToAdd in i_Collection)
+            {
+                i_ListBoxToFill.Items.Add(itemToAdd);
+            }
+
+            if (i_ListBoxToFill.Items.Count == 0)
+            {
+                MessageBox.Show(i_ErrorMessage);
+            }
+        }
+
+        internal void resetListAndPhoto(ListBox i_ListBoxToFill, PictureBox i_PhotoToRemove)
+        {
+            i_PhotoToRemove.Image = null;
+            i_ListBoxToFill.Items.Clear();
+        }
     }
 }
