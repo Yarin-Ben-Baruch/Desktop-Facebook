@@ -12,7 +12,7 @@ namespace BasicFacebookFeatures
         private const string k_AppId = "507070034420577";
         private const string k_ErrorMessage = "You need to be logged in";
         private const string k_TypeOfMessage = "Error";
-        private static readonly string[] sr_Permissions = { "public_profile", "user_birthday", "user_friends", "user_gender", "user_likes", "user_link", "user_location", "user_photos", "user_posts", "groups_access_member_info" };
+        private static readonly string[] sr_Permissions = { "public_profile", "user_birthday", "user_friends", "user_gender", "user_likes", "user_link", "user_location", "user_photos", "user_posts", "groups_access_member_info", "user_events" };
 
         public LogicManager ManagerLogic { get; }
 
