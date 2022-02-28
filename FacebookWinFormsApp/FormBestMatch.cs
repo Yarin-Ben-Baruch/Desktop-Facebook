@@ -16,6 +16,7 @@ namespace BasicFacebookFeatures
         private readonly FormMain r_FormMain;
         private User.eGender m_ChosenGender;
         private ICollection<User> m_BestMatches;
+        private const string k_ErrorMessage = "This feature is not yet supported";
 
         public FormBestMatch(FormMain i_FormMain)
         {
@@ -25,17 +26,24 @@ namespace BasicFacebookFeatures
 
         private void buttonSearchMatch_Click(object sender, EventArgs e)
         {
-            const string errorMessage = "No matches to retrieve :(";
-            
-            m_BestMatches = r_FormMain.ManagerLogic.FindBestMatch(
-                r_FormMain.LoggedInUser.Friends,
-                r_FormMain.LoggedInUser,
-                m_ChosenGender,
-                decimal.ToInt32(m_NumericUpDownStartAge.Value),
-                decimal.ToInt32(m_NumericUpDownEndAge.Value));
+            try
+            {
+                const string errorMessage = "No matches to retrieve :(";
 
-            resetPreviousSearch();
-            r_FormMain.fetchUserData(m_ListBoxBestMatch, m_BestMatches.ToList(), errorMessage);
+                m_BestMatches = r_FormMain.ManagerLogic.FindBestMatch(
+                    r_FormMain.LoggedInUser.Friends,
+                    r_FormMain.LoggedInUser,
+                    m_ChosenGender,
+                    decimal.ToInt32(m_NumericUpDownStartAge.Value),
+                    decimal.ToInt32(m_NumericUpDownEndAge.Value));
+
+                resetPreviousSearch();
+                r_FormMain.fetchUserData(m_ListBoxBestMatch, m_BestMatches.ToList(), errorMessage);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
+            }
         }
 
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,7 +52,14 @@ namespace BasicFacebookFeatures
             {
                 Group selectedGroup = m_ListBoxGroups.SelectedItem as Group;
 
-                m_PictureBoxGroups.LoadAsync(selectedGroup.PictureNormalURL);
+                try
+                {
+                    m_PictureBoxGroups.LoadAsync(selectedGroup.PictureNormalURL);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(k_ErrorMessage);
+                }
             }
         }
 
@@ -54,7 +69,14 @@ namespace BasicFacebookFeatures
             {
                 Page selectedPage = m_ListBoxPages.SelectedItem as Page;
 
-                m_PictureBoxPages.LoadAsync(selectedPage.PictureNormalURL);
+                try
+                {
+                    m_PictureBoxPages.LoadAsync(selectedPage.PictureNormalURL);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(k_ErrorMessage);
+                }
             }
         }
 
@@ -64,7 +86,14 @@ namespace BasicFacebookFeatures
             {
                 User selectedUser = m_ListBoxFriends.SelectedItem as User;
 
-                m_PictureBoxFriends.LoadAsync(selectedUser.PictureNormalURL);
+                try
+                {
+                    m_PictureBoxFriends.LoadAsync(selectedUser.PictureNormalURL);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(k_ErrorMessage);
+                }
             }
         }
 

@@ -70,6 +70,7 @@
             this.m_PictureBoxFriends.Location = new System.Drawing.Point(112, 138);
             this.m_PictureBoxFriends.Name = "m_PictureBoxFriends";
             this.m_PictureBoxFriends.Size = new System.Drawing.Size(84, 72);
+            this.m_PictureBoxFriends.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.m_PictureBoxFriends.TabIndex = 3;
             this.m_PictureBoxFriends.TabStop = false;
             // 
@@ -78,6 +79,7 @@
             this.m_PictureBoxLikedPages.Location = new System.Drawing.Point(489, 138);
             this.m_PictureBoxLikedPages.Name = "m_PictureBoxLikedPages";
             this.m_PictureBoxLikedPages.Size = new System.Drawing.Size(84, 72);
+            this.m_PictureBoxLikedPages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.m_PictureBoxLikedPages.TabIndex = 6;
             this.m_PictureBoxLikedPages.TabStop = false;
             // 
@@ -105,6 +107,7 @@
             this.m_PictureBoxEvents.Location = new System.Drawing.Point(126, 391);
             this.m_PictureBoxEvents.Name = "m_PictureBoxEvents";
             this.m_PictureBoxEvents.Size = new System.Drawing.Size(84, 72);
+            this.m_PictureBoxEvents.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.m_PictureBoxEvents.TabIndex = 9;
             this.m_PictureBoxEvents.TabStop = false;
             // 
@@ -132,6 +135,7 @@
             this.m_PictureBoxAlbums.Location = new System.Drawing.Point(489, 391);
             this.m_PictureBoxAlbums.Name = "m_PictureBoxAlbums";
             this.m_PictureBoxAlbums.Size = new System.Drawing.Size(84, 72);
+            this.m_PictureBoxAlbums.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.m_PictureBoxAlbums.TabIndex = 15;
             this.m_PictureBoxAlbums.TabStop = false;
             // 
@@ -187,7 +191,6 @@
         }
 
         #endregion
-
         private System.Windows.Forms.ListBox m_ListBoxFriends;
         private System.Windows.Forms.Button m_ButtonShowFriends;
         private System.Windows.Forms.PictureBox m_PictureBoxFriends;

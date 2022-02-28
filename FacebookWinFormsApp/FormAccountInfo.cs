@@ -7,6 +7,7 @@ namespace BasicFacebookFeatures
     public partial class FormAccountInfo : Form
     {
         private readonly FormMain r_FormMain;
+        private const string k_ErrorMessage = "This feature is not yet supported";
 
         public FormAccountInfo(FormMain i_FormMain)
         {
@@ -16,34 +17,62 @@ namespace BasicFacebookFeatures
 
         private void buttonShowFriends_Click(object sender, EventArgs e)
         {
-            const string errorMessage = "No Friends to retrieve :(";
+            try
+            {
+                const string errorMessage = "No Friends to retrieve :(";
 
-            r_FormMain.resetListAndPhoto(m_ListBoxFriends,m_PictureBoxFriends);
-            r_FormMain.fetchUserData(m_ListBoxFriends, r_FormMain.LoggedInUser.Friends, errorMessage);
+                r_FormMain.resetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);
+                r_FormMain.fetchUserData(m_ListBoxFriends, r_FormMain.LoggedInUser.Friends, errorMessage);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
+            }
         }
 
         private void buttonAlbums_Click(object sender, EventArgs e)
         {
-            const string errorMessage = "No Albums to retrieve :(";
+            try
+            {
+                const string errorMessage = "No Albums to retrieve :(";
 
-            r_FormMain.resetListAndPhoto(m_ListBoxAlbums, m_PictureBoxAlbums);
-            r_FormMain.fetchUserData(m_ListBoxAlbums, r_FormMain.LoggedInUser.Albums, errorMessage);
+                r_FormMain.resetListAndPhoto(m_ListBoxAlbums, m_PictureBoxAlbums);
+                r_FormMain.fetchUserData(m_ListBoxAlbums, r_FormMain.LoggedInUser.Albums, errorMessage);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
+            }
         }
 
         private void buttonLikedPages_Click(object sender, EventArgs e)
         {
-            const string errorMessage = "No Liked Pages to retrieve :(";
+            try
+            {
+                const string errorMessage = "No Liked Pages to retrieve :(";
 
-            r_FormMain.resetListAndPhoto(m_ListBoxLikedPages, m_PictureBoxLikedPages);
-            r_FormMain.fetchUserData(m_ListBoxLikedPages, r_FormMain.LoggedInUser.LikedPages, errorMessage);
+                r_FormMain.resetListAndPhoto(m_ListBoxLikedPages, m_PictureBoxLikedPages);
+                r_FormMain.fetchUserData(m_ListBoxLikedPages, r_FormMain.LoggedInUser.LikedPages, errorMessage);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
+            }
         }
 
         private void buttonEvents_Click(object sender, EventArgs e)
         {
-            const string errorMessage = "No Events to retrieve :(";
+            try
+            {
+                const string errorMessage = "No Events to retrieve :(";
 
-            r_FormMain.resetListAndPhoto(m_ListBoxEvents, m_PictureBoxEvents);
-            r_FormMain.fetchUserData(m_ListBoxEvents, r_FormMain.LoggedInUser.Events, errorMessage);
+                r_FormMain.resetListAndPhoto(m_ListBoxEvents, m_PictureBoxEvents);
+                r_FormMain.fetchUserData(m_ListBoxEvents, r_FormMain.LoggedInUser.Events, errorMessage);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
+            }
         }
 
         private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)

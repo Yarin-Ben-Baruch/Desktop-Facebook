@@ -7,6 +7,7 @@ namespace BasicFacebookFeatures
     public partial class FormPost : Form
     {
         private readonly FormMain r_FormMain;
+        private const string k_ErrorMessage = "This feature is not yet supported";
 
         public FormPost(FormMain i_FormMain)
         {
@@ -18,8 +19,15 @@ namespace BasicFacebookFeatures
         {
             Post selected = r_FormMain.LoggedInUser.Posts[m_ListBoxPosts.SelectedIndex];
 
-            m_ListBoxPostComments.DisplayMember = "Message";
-            m_ListBoxPostComments.DataSource = selected.Comments;
+            try
+            {
+                m_ListBoxPostComments.DisplayMember = "Message";
+                m_ListBoxPostComments.DataSource = selected.Comments;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
+            }
         }
 
         private void buttonSetStatus_Click(object sender, EventArgs e)
@@ -38,8 +46,14 @@ namespace BasicFacebookFeatures
         // TODO : CHECK IF CAN PUT IN 
         private void buttonFetchPosts_Click(object sender, EventArgs e)
         {
-
-            fetchPosts();
+            try
+            {
+                fetchPosts();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
+            }
         }
 
         private void fetchPosts()

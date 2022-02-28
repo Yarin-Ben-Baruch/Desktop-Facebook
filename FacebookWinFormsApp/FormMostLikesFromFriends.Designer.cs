@@ -75,6 +75,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxMostLikesPosts.Name = "m_ListBoxMostLikesPosts";
             this.m_ListBoxMostLikesPosts.Size = new System.Drawing.Size(318, 379);
             this.m_ListBoxMostLikesPosts.TabIndex = 4;
+            this.m_ListBoxMostLikesPosts.SelectedIndexChanged += new System.EventHandler(this.listBoxMostLikesPosts_SelectedIndexChanged);
             // 
             // m_PictureBoxSelectedFriendPost
             // 

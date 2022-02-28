@@ -50,7 +50,7 @@ namespace BasicFacebookFeatures
             // 
             this.m_ButtonLogin.BackColor = System.Drawing.Color.White;
             this.m_ButtonLogin.Location = new System.Drawing.Point(776, 33);
-            this.m_ButtonLogin.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.m_ButtonLogin.Margin = new System.Windows.Forms.Padding(6);
             this.m_ButtonLogin.Name = "m_ButtonLogin";
             this.m_ButtonLogin.Size = new System.Drawing.Size(358, 44);
             this.m_ButtonLogin.TabIndex = 36;
@@ -62,7 +62,7 @@ namespace BasicFacebookFeatures
             // 
             this.m_ButtonLogout.BackColor = System.Drawing.Color.White;
             this.m_ButtonLogout.Location = new System.Drawing.Point(776, 96);
-            this.m_ButtonLogout.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.m_ButtonLogout.Margin = new System.Windows.Forms.Padding(6);
             this.m_ButtonLogout.Name = "m_ButtonLogout";
             this.m_ButtonLogout.Size = new System.Drawing.Size(358, 44);
             this.m_ButtonLogout.TabIndex = 52;
@@ -164,10 +164,10 @@ namespace BasicFacebookFeatures
             // m_ButtonAccountInfo
             // 
             this.m_ButtonAccountInfo.BackColor = System.Drawing.Color.White;
-            this.m_ButtonAccountInfo.Location = new System.Drawing.Point(50, 615);
+            this.m_ButtonAccountInfo.Location = new System.Drawing.Point(58, 615);
             this.m_ButtonAccountInfo.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.m_ButtonAccountInfo.Name = "m_ButtonAccountInfo";
-            this.m_ButtonAccountInfo.Size = new System.Drawing.Size(236, 88);
+            this.m_ButtonAccountInfo.Size = new System.Drawing.Size(228, 88);
             this.m_ButtonAccountInfo.TabIndex = 65;
             this.m_ButtonAccountInfo.Text = "Account info";
             this.m_ButtonAccountInfo.UseVisualStyleBackColor = false;
@@ -207,7 +207,7 @@ namespace BasicFacebookFeatures
             this.Controls.Add(this.m_ButtonLogout);
             this.Controls.Add(this.m_ButtonLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

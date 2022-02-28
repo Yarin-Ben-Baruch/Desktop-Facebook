@@ -9,6 +9,7 @@ namespace BasicFacebookFeatures
     public partial class FormMostLikesFromFriends : Form
     {
         private readonly FormMain r_FormMain;
+        private const string k_ErrorMessage = "This feature is not yet supported";
 
         public FormMostLikesFromFriends(FormMain i_FormMain)
         {
@@ -18,12 +19,38 @@ namespace BasicFacebookFeatures
 
         private void buttonMostLikesOnPhotos_Click(object sender, EventArgs e)
         {
-            fetchUserPhotos();
+            try
+            {
+                fetchUserPhotos();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
+            }
         }
 
         private void buttonMostComments_Click(object sender, EventArgs e)
         {
-            fetchUserComments();
+            try
+            {
+                fetchUserComments();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
+            }
+        }
+
+        private void m_ButtonMostLikesOnPosts_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                fetchUserPosts();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
+            }
         }
 
         private void listBoxMostLikesPhotos_SelectedIndexChanged(object sender, EventArgs e)
@@ -32,7 +59,17 @@ namespace BasicFacebookFeatures
             {
                 User selectedUser = m_ListBoxMostLikesPhotos.SelectedItem as User;
 
-                m_PictureBoxSelectedFriendPhoto.LoadAsync(selectedUser.PictureNormalURL);
+                updatePhoto(selectedUser);
+            }
+        }
+
+        private void listBoxMostLikesPosts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (m_ListBoxMostLikesPhotos.SelectedItems.Count == 1)
+            {
+                User selectedUser = m_ListBoxMostLikesPhotos.SelectedItem as User;
+
+                updatePhoto(selectedUser);
             }
         }
 
@@ -42,7 +79,19 @@ namespace BasicFacebookFeatures
             {
                 User selectedUser = m_ListBoxMostComments.SelectedItem as User;
 
-                m_PictureBoxSelectedFriendComment.LoadAsync(selectedUser.PictureNormalURL);
+                updatePhoto(selectedUser);
+            }
+        }
+
+        private void updatePhoto(User i_SelectedUser)
+        {
+            try
+            {
+                m_PictureBoxSelectedFriendPhoto.LoadAsync(i_SelectedUser.PictureNormalURL);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
             }
         }
 
@@ -70,19 +119,18 @@ namespace BasicFacebookFeatures
 
             ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostCommentsOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
 
-            r_FormMain.resetListAndPhoto(m_ListBoxMostComments,m_PictureBoxSelectedFriendComment);
+            r_FormMain.resetListAndPhoto(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
             r_FormMain.fetchUserData(m_ListBoxMostComments, usersToShow,errorMessage);
-
         }
 
-        private void m_ButtonMostLikesOnPosts_Click(object sender, EventArgs e)
+        private void fetchUserPosts()
         {
             const string errorMessage = "No Posts to retrieve :(";
-            ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPostByUsers(r_FormMain.LoggedInUser.Posts);
+            ICollection<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
+            ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPostByUsers(r_FormMain.LoggedInUser.Posts, listOfFriends);
 
-            r_FormMain.resetListAndPhoto(m_ListBoxMostLikesPosts,m_PictureBoxSelectedFriendPost);
+            r_FormMain.resetListAndPhoto(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
             r_FormMain.fetchUserData(m_ListBoxMostLikesPosts, usersToShow, errorMessage);
-
         }
     }
 }

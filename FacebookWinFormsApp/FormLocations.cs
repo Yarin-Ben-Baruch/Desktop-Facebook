@@ -8,6 +8,7 @@ namespace BasicFacebookFeatures
     public partial class FormLocations : Form
     {
         private readonly FormMain r_FormMain;
+        private const string k_ErrorMessage = "This feature is not yet supported";
 
         public FormLocations(FormMain i_FormMain)
         {
@@ -17,7 +18,14 @@ namespace BasicFacebookFeatures
 
         private void buttonFindCities_Click(object sender, EventArgs e)
         {
-            fetchCities();
+            try
+            {
+                fetchCities();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessage);
+            }
         }
 
         private void listBoxAllCities_SelectedIndexChanged(object sender, EventArgs e)
@@ -46,7 +54,14 @@ namespace BasicFacebookFeatures
             {
                 User selectedUser = m_ListBoxUserInSameCity.SelectedItem as User;
 
-                m_PictureBoxProfileUser.LoadAsync(selectedUser.PictureNormalURL);
+                try
+                {
+                    m_PictureBoxProfileUser.LoadAsync(selectedUser.PictureNormalURL);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show(k_ErrorMessage);
+                }
             }
         }
 
