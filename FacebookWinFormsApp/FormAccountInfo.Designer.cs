@@ -53,7 +53,7 @@
             this.m_ListBoxFriends.Name = "m_ListBoxFriends";
             this.m_ListBoxFriends.Size = new System.Drawing.Size(165, 160);
             this.m_ListBoxFriends.TabIndex = 0;
-            this.m_ListBoxFriends.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxFriends_SelectedIndexChanged);
+            this.m_ListBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
             // 
             // m_ButtonShowFriends
             // 
@@ -63,7 +63,7 @@
             this.m_ButtonShowFriends.TabIndex = 2;
             this.m_ButtonShowFriends.Text = "See My Friends";
             this.m_ButtonShowFriends.UseVisualStyleBackColor = true;
-            this.m_ButtonShowFriends.Click += new System.EventHandler(this.m_ButtonShowFriends_Click);
+            this.m_ButtonShowFriends.Click += new System.EventHandler(this.buttonShowFriends_Click);
             // 
             // m_PictureBoxFriends
             // 
@@ -89,7 +89,7 @@
             this.m_ButtonLikedPages.TabIndex = 5;
             this.m_ButtonLikedPages.Text = "See My Liked Pages";
             this.m_ButtonLikedPages.UseVisualStyleBackColor = true;
-            this.m_ButtonLikedPages.Click += new System.EventHandler(this.m_ButtonLikedPages_Click);
+            this.m_ButtonLikedPages.Click += new System.EventHandler(this.buttonLikedPages_Click);
             // 
             // m_ListBoxLikedPages
             // 
@@ -98,7 +98,7 @@
             this.m_ListBoxLikedPages.Name = "m_ListBoxLikedPages";
             this.m_ListBoxLikedPages.Size = new System.Drawing.Size(174, 160);
             this.m_ListBoxLikedPages.TabIndex = 4;
-            this.m_ListBoxLikedPages.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxLikedPages_SelectedIndexChanged);
+            this.m_ListBoxLikedPages.SelectedIndexChanged += new System.EventHandler(this.listBoxLikedPages_SelectedIndexChanged);
             // 
             // m_PictureBoxEvents
             // 
@@ -116,7 +116,7 @@
             this.m_ButtonEvents.TabIndex = 8;
             this.m_ButtonEvents.Text = "See My Events";
             this.m_ButtonEvents.UseVisualStyleBackColor = true;
-            this.m_ButtonEvents.Click += new System.EventHandler(this.m_ButtonEvents_Click);
+            this.m_ButtonEvents.Click += new System.EventHandler(this.buttonEvents_Click);
             // 
             // m_ListBoxEvents
             // 
@@ -125,7 +125,7 @@
             this.m_ListBoxEvents.Name = "m_ListBoxEvents";
             this.m_ListBoxEvents.Size = new System.Drawing.Size(179, 160);
             this.m_ListBoxEvents.TabIndex = 7;
-            this.m_ListBoxEvents.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxEvents_SelectedIndexChanged);
+            this.m_ListBoxEvents.SelectedIndexChanged += new System.EventHandler(this.listBoxEvents_SelectedIndexChanged);
             // 
             // m_PictureBoxAlbums
             // 
@@ -143,7 +143,7 @@
             this.m_ButtonAlbums.TabIndex = 14;
             this.m_ButtonAlbums.Text = "See My Albums";
             this.m_ButtonAlbums.UseVisualStyleBackColor = true;
-            this.m_ButtonAlbums.Click += new System.EventHandler(this.m_ButtonAlbums_Click);
+            this.m_ButtonAlbums.Click += new System.EventHandler(this.buttonAlbums_Click);
             // 
             // m_ListBoxAlbums
             // 
@@ -152,7 +152,7 @@
             this.m_ListBoxAlbums.Name = "m_ListBoxAlbums";
             this.m_ListBoxAlbums.Size = new System.Drawing.Size(174, 160);
             this.m_ListBoxAlbums.TabIndex = 13;
-            this.m_ListBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.m_ListBoxAlbums_SelectedIndexChanged);
+            this.m_ListBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
             // 
             // FormAccountInfo
             // 
