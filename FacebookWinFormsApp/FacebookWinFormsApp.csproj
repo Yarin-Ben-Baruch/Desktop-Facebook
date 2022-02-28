@@ -136,6 +136,9 @@
     <EmbeddedResource Include="FormBestMatch.resx">
       <DependentUpon>FormBestMatch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormChooseName.resx">
+      <DependentUpon>FormChooseName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLocations.resx">
       <DependentUpon>FormLocations.cs</DependentUpon>
     </EmbeddedResource>

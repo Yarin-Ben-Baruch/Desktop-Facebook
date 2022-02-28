@@ -113,7 +113,7 @@ namespace BasicFacebookFeatures
             m_LabelFullName.Text = LoggedInUser.Name;
             m_LabelBirthday.Text = LoggedInUser.Birthday;
             m_LabelGender.Text = LoggedInUser.Gender.ToString();
-            m_LabelMyCity.Text = LoggedInUser.Location.ToString();
+            //m_LabelMyCity.Text = LoggedInUser.Location.ToString();
         }
 
         private void loginAndInit()
@@ -130,6 +130,30 @@ namespace BasicFacebookFeatures
             else
             {
                 MessageBox.Show("Login Failed", k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void m_ButtonMoreDateils_Click(object sender, EventArgs e)
+        {
+            if (LoggedInUser != null)
+            {
+                new FormChooseName(this).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void m_ButtonPosts_Click(object sender, EventArgs e)
+        {
+            if (LoggedInUser != null)
+            {
+                new FormPost(this).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
