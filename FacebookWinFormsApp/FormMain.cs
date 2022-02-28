@@ -127,6 +127,8 @@ namespace BasicFacebookFeatures
             m_PictureBoxProfilePhoto.Image = null;
             m_LabelFullName.Text = "Full name";
             m_LabelBirthday.Text = "Birthday";
+            m_LabelGender.Text = "Gender";
+            m_LabelMyCity.Text = "My city";
 
             m_PictureBoxSelectedPopularPhoto.Image = null;
             m_LabelNumberOfLikes.Text = "Likes:";
@@ -136,8 +138,10 @@ namespace BasicFacebookFeatures
         private void fetchUserInfo()
         {
             m_PictureBoxProfilePhoto.LoadAsync(LoggedInUser.PictureLargeURL);
-            m_LabelFullName.Text = LoginResult.LoggedInUser.Name;
-            m_LabelBirthday.Text = LoginResult.LoggedInUser.Birthday;
+            m_LabelFullName.Text = LoggedInUser.Name;
+            m_LabelBirthday.Text = LoggedInUser.Birthday;
+            m_LabelGender.Text = LoggedInUser.Gender.ToString();
+            m_LabelMyCity.Text = LoggedInUser.Location.ToString();
         }
 
         private void loginAndInit()

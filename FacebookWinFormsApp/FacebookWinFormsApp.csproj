@@ -95,6 +95,12 @@
     <Compile Include="FormBestMatch.Designer.cs">
       <DependentUpon>FormBestMatch.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormChooseName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseName.Designer.cs">
+      <DependentUpon>FormChooseName.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLocations.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,12 @@
     </Compile>
     <Compile Include="FormMostLikesFromFriends.Designer.cs">
       <DependentUpon>FormMostLikesFromFriends.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPopularPhotos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPopularPhotos.Designer.cs">
+      <DependentUpon>FormPopularPhotos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
