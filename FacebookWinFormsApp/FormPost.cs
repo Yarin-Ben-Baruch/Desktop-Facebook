@@ -24,6 +24,7 @@ namespace BasicFacebookFeatures
         private void listBoxPosts_SelectedIndexChanged(object sender, EventArgs e)
         {
             Post selected = r_FormMain.LoggedInUser.Posts[listBoxPosts.SelectedIndex];
+
             listBoxPostComments.DisplayMember = "Message";
             listBoxPostComments.DataSource = selected.Comments;
         }
@@ -39,6 +40,11 @@ namespace BasicFacebookFeatures
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void buttonFetchPosts_Click(object sender, EventArgs e)
+        {
+            fetchPosts();
         }
 
         private void fetchPosts()
@@ -65,11 +71,6 @@ namespace BasicFacebookFeatures
             {
                 MessageBox.Show("No Posts to retrieve :(");
             }
-        }
-
-        private void buttonFetchPosts_Click(object sender, EventArgs e)
-        {
-            fetchPosts();
         }
     }
 }
