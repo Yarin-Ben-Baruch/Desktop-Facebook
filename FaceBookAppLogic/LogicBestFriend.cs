@@ -6,35 +6,28 @@ namespace FaceBookAppLogic
 {
     public class LogicBestFriend
     {
-        public ICollection<User> GetMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_CollectionOfPostsToCheck)
+        public IDictionary<string, int> GetMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_CollectionOfPostsToCheck)
         {
             ICollection<Post> posts = new List<Post>();
-            IDictionary<User, int> usersMostLikes = new Dictionary<User, int>();
+            IDictionary<string, int> usersMostLikes = new Dictionary<string, int>();
             ICollection<User> sortedUsers = new LinkedList<User>();
 
             foreach (Post post in i_CollectionOfPostsToCheck)
             {
                 foreach (User user in post.LikedBy)
                 {
-                    if (usersMostLikes.ContainsKey(user))
+                    if (usersMostLikes.ContainsKey(user.Id))
                     {
-                        usersMostLikes[user] += 1;
+                        usersMostLikes[user.Id] += 1;
                     }
                     else
                     {
-                        usersMostLikes.Add(user, 1);
+                        usersMostLikes.Add(user.Id, 1);
                     }
                 }
             }
 
-            IOrderedEnumerable<KeyValuePair<User, int>> orderDic = usersMostLikes.OrderBy(key => key.Value);
-            
-            foreach (KeyValuePair<User, int> user in orderDic)
-            {
-                sortedUsers.Append(user.Key);
-            }
-            
-            return sortedUsers;
+            return usersMostLikes;
         }
 
         public IDictionary<string, int> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_CollectionOfAlbumsToCheck)

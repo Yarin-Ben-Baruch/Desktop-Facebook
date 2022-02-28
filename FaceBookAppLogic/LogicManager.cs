@@ -51,9 +51,12 @@ namespace FaceBookAppLogic
             return convertIdToUser(sortedListOfIds, i_FriendsList);
         }
 
-        public ICollection<User> GetMostLikesOnPostByUsers(FacebookObjectCollection<Post> i_Post)
+        public ICollection<User> GetMostLikesOnPostByUsers(FacebookObjectCollection<Post> i_Post, ICollection<User> i_FriendsList)
         {
-            return r_BestFriendLogic.GetMostLikesOnPostsByUsers(i_Post);
+            IDictionary<string, int> mostLikesPostUserIdDic = r_BestFriendLogic.GetMostLikesOnPostsByUsers(i_Post);
+            ICollection<string> sortedListOfIds = orderDictionaryByValueReverse(mostLikesPostUserIdDic);
+
+            return convertIdToUser(sortedListOfIds, i_FriendsList);
         }
 
         public ICollection<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)
