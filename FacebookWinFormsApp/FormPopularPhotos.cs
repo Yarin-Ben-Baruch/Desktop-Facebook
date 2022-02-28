@@ -26,6 +26,17 @@ namespace BasicFacebookFeatures
             fetchPhotos();
         }
 
+        private void listBoxPopularPhotos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (m_ListBoxPopularPhotos.SelectedItems.Count == 1)
+            {
+                Photo selectedPhoto = m_ListBoxPopularPhotos.SelectedItem as Photo;
+
+                m_PictureBoxSelectedPopularPhoto.LoadAsync(selectedPhoto.PictureNormalURL);
+                m_LabelNumberOfLikes.Text = $"Likes: {selectedPhoto.LikedBy.Count}";
+            }
+        }
+
         private void fetchPhotos()
         {
             ICollection<Photo> photos = r_FormMain.ManagerLogic.FetchSortedPhotos(r_FormMain.LoggedInUser.Albums);
@@ -36,17 +47,6 @@ namespace BasicFacebookFeatures
             foreach (Photo photo in photos)
             {
                 m_ListBoxPopularPhotos.Items.Add(photo);
-            }
-        }
-
-        private void listBoxPopularPhotos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (m_ListBoxPopularPhotos.SelectedItems.Count == 1)
-            {
-                Photo selectedPhoto = m_ListBoxPopularPhotos.SelectedItem as Photo;
-
-                m_PictureBoxSelectedPopularPhoto.LoadAsync(selectedPhoto.PictureNormalURL);
-                m_LabelNumberOfLikes.Text = string.Format("Likes: {0}", selectedPhoto.LikedBy.Count);
             }
         }
     }

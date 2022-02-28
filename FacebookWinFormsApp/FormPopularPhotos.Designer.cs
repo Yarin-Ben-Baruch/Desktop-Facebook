@@ -84,6 +84,7 @@ namespace BasicFacebookFeatures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.MostLikesForm;
             this.ClientSize = new System.Drawing.Size(644, 538);
             this.Controls.Add(this.m_LabelNumberOfLikes);
             this.Controls.Add(this.m_ButtonPopularPhotos);
@@ -92,6 +93,7 @@ namespace BasicFacebookFeatures
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimizeBox = false;
             this.Name = "FormPopularPhotos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPopularPhotos";
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxSelectedPopularPhoto)).EndInit();
             this.ResumeLayout(false);

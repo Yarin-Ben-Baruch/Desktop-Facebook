@@ -125,6 +125,12 @@
     <Compile Include="FormPopularPhotos.Designer.cs">
       <DependentUpon>FormPopularPhotos.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPost.Designer.cs">
+      <DependentUpon>FormPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormBestMatch.resx">
@@ -141,6 +147,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPopularPhotos.resx">
       <DependentUpon>FormPopularPhotos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPost.resx">
+      <DependentUpon>FormPost.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -48,7 +48,7 @@ namespace BasicFacebookFeatures
             // m_ButtonLogin
             // 
             this.m_ButtonLogin.BackColor = System.Drawing.Color.White;
-            this.m_ButtonLogin.Location = new System.Drawing.Point(868, 45);
+            this.m_ButtonLogin.Location = new System.Drawing.Point(820, 49);
             this.m_ButtonLogin.Margin = new System.Windows.Forms.Padding(6);
             this.m_ButtonLogin.Name = "m_ButtonLogin";
             this.m_ButtonLogin.Size = new System.Drawing.Size(358, 44);
@@ -60,7 +60,7 @@ namespace BasicFacebookFeatures
             // m_ButtonLogout
             // 
             this.m_ButtonLogout.BackColor = System.Drawing.Color.White;
-            this.m_ButtonLogout.Location = new System.Drawing.Point(868, 108);
+            this.m_ButtonLogout.Location = new System.Drawing.Point(820, 112);
             this.m_ButtonLogout.Margin = new System.Windows.Forms.Padding(6);
             this.m_ButtonLogout.Name = "m_ButtonLogout";
             this.m_ButtonLogout.Size = new System.Drawing.Size(358, 44);
@@ -105,7 +105,7 @@ namespace BasicFacebookFeatures
             // m_ButtonBestMatch
             // 
             this.m_ButtonBestMatch.BackColor = System.Drawing.Color.White;
-            this.m_ButtonBestMatch.Location = new System.Drawing.Point(594, 614);
+            this.m_ButtonBestMatch.Location = new System.Drawing.Point(833, 348);
             this.m_ButtonBestMatch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.m_ButtonBestMatch.Name = "m_ButtonBestMatch";
             this.m_ButtonBestMatch.Size = new System.Drawing.Size(228, 88);
@@ -117,7 +117,7 @@ namespace BasicFacebookFeatures
             // m_ButtonMostLikesFromFriends
             // 
             this.m_ButtonMostLikesFromFriends.BackColor = System.Drawing.Color.White;
-            this.m_ButtonMostLikesFromFriends.Location = new System.Drawing.Point(310, 614);
+            this.m_ButtonMostLikesFromFriends.Location = new System.Drawing.Point(110, 482);
             this.m_ButtonMostLikesFromFriends.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.m_ButtonMostLikesFromFriends.Name = "m_ButtonMostLikesFromFriends";
             this.m_ButtonMostLikesFromFriends.Size = new System.Drawing.Size(228, 88);
@@ -129,7 +129,7 @@ namespace BasicFacebookFeatures
             // m_ButtonPopularPhotos
             // 
             this.m_ButtonPopularPhotos.BackColor = System.Drawing.Color.White;
-            this.m_ButtonPopularPhotos.Location = new System.Drawing.Point(980, 614);
+            this.m_ButtonPopularPhotos.Location = new System.Drawing.Point(833, 482);
             this.m_ButtonPopularPhotos.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.m_ButtonPopularPhotos.Name = "m_ButtonPopularPhotos";
             this.m_ButtonPopularPhotos.Size = new System.Drawing.Size(236, 88);
@@ -141,7 +141,7 @@ namespace BasicFacebookFeatures
             // m_ButtonFindMyFriendsCities
             // 
             this.m_ButtonFindMyFriendsCities.BackColor = System.Drawing.Color.White;
-            this.m_ButtonFindMyFriendsCities.Location = new System.Drawing.Point(34, 614);
+            this.m_ButtonFindMyFriendsCities.Location = new System.Drawing.Point(110, 348);
             this.m_ButtonFindMyFriendsCities.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.m_ButtonFindMyFriendsCities.Name = "m_ButtonFindMyFriendsCities";
             this.m_ButtonFindMyFriendsCities.Size = new System.Drawing.Size(228, 88);
@@ -175,7 +175,7 @@ namespace BasicFacebookFeatures
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.background_image;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1252, 727);
+            this.ClientSize = new System.Drawing.Size(1226, 727);
             this.Controls.Add(this.m_LabelMyCity);
             this.Controls.Add(this.m_LabelGender);
             this.Controls.Add(this.m_ButtonFindMyFriendsCities);

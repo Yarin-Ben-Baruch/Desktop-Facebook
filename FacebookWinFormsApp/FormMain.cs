@@ -94,30 +94,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void listBoxPopularPhotos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (m_ListBoxPopularPhotos.SelectedItems.Count == 1)
-            {
-                Photo selectedPhoto = m_ListBoxPopularPhotos.SelectedItem as Photo;
-
-                m_PictureBoxSelectedPopularPhoto.LoadAsync(selectedPhoto.PictureNormalURL);
-                m_LabelNumberOfLikes.Text = string.Format("Likes: {0}", selectedPhoto.LikedBy.Count);
-            }
-        }
-
-        private void fetchPhotos()
-        {
-            ICollection<Photo> photos = ManagerLogic.FetchSortedPhotos(LoggedInUser.Albums);
-
-            m_ListBoxPopularPhotos.Items.Clear();
-            m_ListBoxPopularPhotos.DisplayMember = "Name";
-
-            foreach (Photo photo in photos)
-            {
-                m_ListBoxPopularPhotos.Items.Add(photo);
-            }
-        }
-
         private void resetWhenLogout()
         {
             LoggedInUser = null;
@@ -129,10 +105,6 @@ namespace BasicFacebookFeatures
             m_LabelBirthday.Text = "Birthday";
             m_LabelGender.Text = "Gender";
             m_LabelMyCity.Text = "My city";
-
-            m_PictureBoxSelectedPopularPhoto.Image = null;
-            m_LabelNumberOfLikes.Text = "Likes:";
-            m_ListBoxPopularPhotos.Items.Clear();
         }
 
         private void fetchUserInfo()
