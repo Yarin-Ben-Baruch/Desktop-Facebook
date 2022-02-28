@@ -86,7 +86,7 @@ namespace BasicFacebookFeatures
         {
             if (LoggedInUser != null)
             {
-                fetchPhotos();
+                new FormPopularPhotos(this).ShowDialog();
             }
             else
             {

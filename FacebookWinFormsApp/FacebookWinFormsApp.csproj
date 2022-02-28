@@ -139,6 +139,9 @@
     <EmbeddedResource Include="FormMostLikesFromFriends.resx">
       <DependentUpon>FormMostLikesFromFriends.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPopularPhotos.resx">
+      <DependentUpon>FormPopularPhotos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
