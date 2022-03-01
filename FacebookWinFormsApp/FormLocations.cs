@@ -44,13 +44,13 @@ namespace BasicFacebookFeatures
             ICollection<User> allUserInTheCity =
                 r_FormMain.ManagerLogic.GetAllUserInCity(r_FormMain.LoggedInUser.Friends, i_CityToFind);
 
-            r_FormMain.resetListAndPhoto(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
-            r_FormMain.fetchUserData(m_ListBoxUserInSameCity, allUserInTheCity, errorMessage);
+            r_FormMain.ResetListAndPhoto(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
+            r_FormMain.FetchUserData(m_ListBoxUserInSameCity, allUserInTheCity, errorMessage);
         }
 
         private void listBoxUserInSameCity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
+            r_FormMain.UpdatePhotoAsUser(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
         }
 
         private void fetchCities()
@@ -58,8 +58,8 @@ namespace BasicFacebookFeatures
             const string errorMessage = "No city to retrieve :(";
             ICollection<City> allCities = r_FormMain.ManagerLogic.GetAllCities(r_FormMain.LoggedInUser.Friends);
 
-            r_FormMain.resetListAndPhoto(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
-            r_FormMain.fetchUserData(m_ListBoxAllCities, allCities, errorMessage);
+            r_FormMain.ResetListAndPhoto(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
+            r_FormMain.FetchUserData(m_ListBoxAllCities, allCities, errorMessage);
         }
 
     }

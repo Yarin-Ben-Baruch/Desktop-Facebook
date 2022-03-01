@@ -23,8 +23,8 @@ namespace BasicFacebookFeatures
                 const string errorMessage = "No photos to ...";
                 ICollection<Photo> photos = r_FormMain.ManagerLogic.FetchSortedPhotos(r_FormMain.LoggedInUser.Albums);
 
-                r_FormMain.resetListAndPhoto(m_ListBoxPopularPhotos, m_PictureBoxSelectedPopularPhoto);
-                r_FormMain.fetchUserData(m_ListBoxPopularPhotos, photos, errorMessage);
+                r_FormMain.ResetListAndPhoto(m_ListBoxPopularPhotos, m_PictureBoxSelectedPopularPhoto);
+                r_FormMain.FetchUserData(m_ListBoxPopularPhotos, photos, errorMessage);
             }
             catch (Exception)
             {

@@ -21,8 +21,8 @@ namespace BasicFacebookFeatures
             {
                 const string errorMessage = "No Friends to retrieve :(";
 
-                r_FormMain.resetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);
-                r_FormMain.fetchUserData(m_ListBoxFriends, r_FormMain.LoggedInUser.Friends, errorMessage);
+                r_FormMain.ResetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);
+                r_FormMain.FetchUserData(m_ListBoxFriends, r_FormMain.LoggedInUser.Friends, errorMessage);
             }
             catch (Exception)
             {
@@ -36,8 +36,8 @@ namespace BasicFacebookFeatures
             {
                 const string errorMessage = "No Albums to retrieve :(";
 
-                r_FormMain.resetListAndPhoto(m_ListBoxAlbums, m_PictureBoxAlbums);
-                r_FormMain.fetchUserData(m_ListBoxAlbums, r_FormMain.LoggedInUser.Albums, errorMessage);
+                r_FormMain.ResetListAndPhoto(m_ListBoxAlbums, m_PictureBoxAlbums);
+                r_FormMain.FetchUserData(m_ListBoxAlbums, r_FormMain.LoggedInUser.Albums, errorMessage);
             }
             catch (Exception)
             {
@@ -51,8 +51,8 @@ namespace BasicFacebookFeatures
             {
                 const string errorMessage = "No Liked Pages to retrieve :(";
 
-                r_FormMain.resetListAndPhoto(m_ListBoxLikedPages, m_PictureBoxLikedPages);
-                r_FormMain.fetchUserData(m_ListBoxLikedPages, r_FormMain.LoggedInUser.LikedPages, errorMessage);
+                r_FormMain.ResetListAndPhoto(m_ListBoxLikedPages, m_PictureBoxLikedPages);
+                r_FormMain.FetchUserData(m_ListBoxLikedPages, r_FormMain.LoggedInUser.LikedPages, errorMessage);
             }
             catch (Exception)
             {
@@ -66,8 +66,8 @@ namespace BasicFacebookFeatures
             {
                 const string errorMessage = "No Events to retrieve :(";
 
-                r_FormMain.resetListAndPhoto(m_ListBoxEvents, m_PictureBoxEvents);
-                r_FormMain.fetchUserData(m_ListBoxEvents, r_FormMain.LoggedInUser.Events, errorMessage);
+                r_FormMain.ResetListAndPhoto(m_ListBoxEvents, m_PictureBoxEvents);
+                r_FormMain.FetchUserData(m_ListBoxEvents, r_FormMain.LoggedInUser.Events, errorMessage);
             }
             catch (Exception)
             {
@@ -77,12 +77,12 @@ namespace BasicFacebookFeatures
 
         private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxFriends, m_PictureBoxFriends);
+            r_FormMain.UpdatePhotoAsUser(m_ListBoxFriends, m_PictureBoxFriends);
         }
 
         private void listBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsPage(m_ListBoxLikedPages, m_PictureBoxLikedPages);
+            r_FormMain.UpdatePhotoAsPage(m_ListBoxLikedPages, m_PictureBoxLikedPages);
 
             // if (m_ListBoxLikedPages.SelectedItems.Count == 1)
             // {
@@ -97,7 +97,7 @@ namespace BasicFacebookFeatures
 
         private void listBoxEvents_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsEvent(m_ListBoxEvents, m_PictureBoxEvents);
+            r_FormMain.UpdatePhotoAsEvent(m_ListBoxEvents, m_PictureBoxEvents);
 
             // if (m_ListBoxEvents.SelectedItems.Count == 1)
             // {
@@ -112,7 +112,7 @@ namespace BasicFacebookFeatures
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsAlbum(m_ListBoxAlbums, m_PictureBoxAlbums);
+            r_FormMain.UpdatePhotoAsAlbum(m_ListBoxAlbums, m_PictureBoxAlbums);
 
             // if (m_ListBoxAlbums.SelectedItems.Count == 1)
             // {

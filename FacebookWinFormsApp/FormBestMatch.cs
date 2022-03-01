@@ -38,7 +38,7 @@ namespace BasicFacebookFeatures
                     decimal.ToInt32(m_NumericUpDownEndAge.Value));
 
                 resetPreviousSearch();
-                r_FormMain.fetchUserData(m_ListBoxBestMatch, m_BestMatches.ToList(), errorMessage);
+                r_FormMain.FetchUserData(m_ListBoxBestMatch, m_BestMatches.ToList(), errorMessage);
             }
             catch (Exception)
             {
@@ -67,7 +67,7 @@ namespace BasicFacebookFeatures
 
         private void listBoxPages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsPage(m_ListBoxPages, m_PictureBoxPages);
+            r_FormMain.UpdatePhotoAsPage(m_ListBoxPages, m_PictureBoxPages);
 
             // if (m_ListBoxPages.SelectedItems.Count == 1)
             // {
@@ -86,7 +86,7 @@ namespace BasicFacebookFeatures
 
         private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxFriends, m_PictureBoxFriends);
+            r_FormMain.UpdatePhotoAsUser(m_ListBoxFriends, m_PictureBoxFriends);
         }
 
         private void listBoxBestMatch_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,8 +144,8 @@ namespace BasicFacebookFeatures
             bestMatchs = i_BestMatchesInLinkedList.ToList();
             commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages(bestMatchs[i_SelectedIndex].Id);
 
-            r_FormMain.resetListAndPhoto(m_ListBoxPages, m_PictureBoxPages);
-            r_FormMain.fetchUserData(m_ListBoxPages, commonPagesWithMatch, errorMessage);
+            r_FormMain.ResetListAndPhoto(m_ListBoxPages, m_PictureBoxPages);
+            r_FormMain.FetchUserData(m_ListBoxPages, commonPagesWithMatch, errorMessage);
         }
 
         private void initializedCommonGroupsList(ICollection<User> i_BestMatchesInLinkedList, int i_SelectedIndex)
@@ -157,8 +157,8 @@ namespace BasicFacebookFeatures
             bestMatchs = i_BestMatchesInLinkedList.ToList();
             commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups(bestMatchs[i_SelectedIndex].Id);
 
-            r_FormMain.resetListAndPhoto(m_ListBoxGroups, m_PictureBoxGroups);
-            r_FormMain.fetchUserData(m_ListBoxGroups, commonGroupsWithMatch, errorMessage);
+            r_FormMain.ResetListAndPhoto(m_ListBoxGroups, m_PictureBoxGroups);
+            r_FormMain.FetchUserData(m_ListBoxGroups, commonGroupsWithMatch, errorMessage);
         }
 
         private void initializedCommonFriendsList(ICollection<User> i_BestMatchesInLinkedList, int i_SelectedIndex)
@@ -170,8 +170,8 @@ namespace BasicFacebookFeatures
             bestMatchs = i_BestMatchesInLinkedList.ToList();
             commonFriendsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends(bestMatchs[i_SelectedIndex].Id);
 
-            r_FormMain.resetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);
-            r_FormMain.fetchUserData(m_ListBoxFriends, commonFriendsWithMatch, errorMessage);
+            r_FormMain.ResetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);
+            r_FormMain.FetchUserData(m_ListBoxFriends, commonFriendsWithMatch, errorMessage);
         }
 
         private void numericUpDownStartAge_ValueChanged(object sender, EventArgs e)

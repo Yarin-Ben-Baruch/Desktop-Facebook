@@ -55,17 +55,17 @@ namespace BasicFacebookFeatures
 
         private void listBoxMostLikesPhotos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto);
+            r_FormMain.UpdatePhotoAsUser(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto);
         }
 
         private void listBoxMostLikesPosts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
+            r_FormMain.UpdatePhotoAsUser(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
         }
 
         private void listBoxMostComments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
+            r_FormMain.UpdatePhotoAsUser(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
         }
 
         private void fetchUserPhotos()
@@ -78,8 +78,8 @@ namespace BasicFacebookFeatures
 
             ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
 
-            r_FormMain.resetListAndPhoto(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto);
-            r_FormMain.fetchUserData(m_ListBoxMostLikesPhotos, usersToShow, errorMessage);
+            r_FormMain.ResetListAndPhoto(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto);
+            r_FormMain.FetchUserData(m_ListBoxMostLikesPhotos, usersToShow, errorMessage);
         }
 
         private void fetchUserComments()
@@ -92,8 +92,8 @@ namespace BasicFacebookFeatures
 
             ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostCommentsOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
 
-            r_FormMain.resetListAndPhoto(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
-            r_FormMain.fetchUserData(m_ListBoxMostComments, usersToShow,errorMessage);
+            r_FormMain.ResetListAndPhoto(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
+            r_FormMain.FetchUserData(m_ListBoxMostComments, usersToShow,errorMessage);
         }
 
         private void fetchUserPosts()
@@ -102,8 +102,8 @@ namespace BasicFacebookFeatures
             ICollection<User> listOfFriends = r_FormMain.LoggedInUser.Friends.ToList();
             ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPostByUsers(r_FormMain.LoggedInUser.Posts, listOfFriends);
 
-            r_FormMain.resetListAndPhoto(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
-            r_FormMain.fetchUserData(m_ListBoxMostLikesPosts, usersToShow, errorMessage);
+            r_FormMain.ResetListAndPhoto(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
+            r_FormMain.FetchUserData(m_ListBoxMostLikesPosts, usersToShow, errorMessage);
         }
     }
 }

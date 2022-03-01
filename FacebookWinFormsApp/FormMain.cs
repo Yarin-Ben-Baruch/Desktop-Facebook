@@ -176,7 +176,7 @@ namespace BasicFacebookFeatures
         }
 
         // COMMON METHODS
-        internal void fetchUserData<T>(ListBox i_ListBoxToFill,
+        internal void FetchUserData<T>(ListBox i_ListBoxToFill,
             ICollection<T> i_Collection, string i_ErrorMessage)
         {
             i_ListBoxToFill.DisplayMember = "Name";
@@ -192,13 +192,13 @@ namespace BasicFacebookFeatures
             }
         }
 
-        internal void resetListAndPhoto(ListBox i_ListBoxToFill, PictureBox i_PhotoToRemove)
+        internal void ResetListAndPhoto(ListBox i_ListBoxToFill, PictureBox i_PhotoToRemove)
         {
             i_PhotoToRemove.Image = null;
             i_ListBoxToFill.Items.Clear();
         }
 
-        internal void updatePhotoAsUser(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        internal void UpdatePhotoAsUser(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
         {
             if (i_SelectedListBox.SelectedItems.Count == 1)
             {
@@ -212,7 +212,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        internal void updatePhotoAsPage(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        internal void UpdatePhotoAsPage(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
         {
             if (i_SelectedListBox.SelectedItems.Count == 1)
             {
@@ -225,7 +225,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        internal void updatePhotoAsEvent(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        internal void UpdatePhotoAsEvent(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
         {
             if (i_SelectedListBox.SelectedItems.Count == 1)
             {
@@ -238,7 +238,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        internal void updatePhotoAsAlbum(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        internal void UpdatePhotoAsAlbum(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
         {
             if (i_SelectedListBox.SelectedItems.Count == 1)
             {
