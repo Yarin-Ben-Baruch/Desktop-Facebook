@@ -29,6 +29,96 @@ namespace BasicFacebookFeatures
             ManagerLogic = new LogicManager();
         }
 
+        // COMMON METHODS
+        internal void FetchUserData<T>(ListBox i_ListBoxToFill,
+            ICollection<T> i_Collection, string i_ErrorMessage)
+        {
+            i_ListBoxToFill.DisplayMember = "Name";
+
+            foreach (T itemToAdd in i_Collection)
+            {
+                i_ListBoxToFill.Items.Add(itemToAdd);
+            }
+
+            if (i_ListBoxToFill.Items.Count == 0)
+            {
+                MessageBox.Show(i_ErrorMessage);
+            }
+        }
+
+        internal void ResetListAndPhoto(ListBox i_ListBoxToFill, PictureBox i_PhotoToRemove)
+        {
+            i_PhotoToRemove.Image = null;
+            i_ListBoxToFill.Items.Clear();
+        }
+
+        internal void UpdatePhotoAsUser(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        {
+            if (i_SelectedListBox.SelectedItems.Count == 1)
+            {
+                User selectedUser = i_SelectedListBox.SelectedItem as User;
+
+                i_PhotoToAdd.LoadAsync(selectedUser.PictureNormalURL);
+            }
+            else
+            {
+                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
+            }
+        }
+
+        internal void UpdatePhotoAsPage(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        {
+            if (i_SelectedListBox.SelectedItems.Count == 1)
+            {
+                Page selectedPage = i_SelectedListBox.SelectedItem as Page;
+                i_PhotoToAdd.LoadAsync(selectedPage.PictureNormalURL);
+            }
+            else
+            {
+                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
+            }
+        }
+
+        internal void UpdatePhotoAsEvent(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        {
+            if (i_SelectedListBox.SelectedItems.Count == 1)
+            {
+                Event selectedEvent = i_SelectedListBox.SelectedItem as Event;
+                i_PhotoToAdd.LoadAsync(selectedEvent.Cover.SourceURL);
+            }
+            else
+            {
+                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
+            }
+        }
+
+        internal void UpdatePhotoAsAlbum(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        {
+            if (i_SelectedListBox.SelectedItems.Count == 1)
+            {
+                Album selectedEvent = i_SelectedListBox.SelectedItem as Album;
+                i_PhotoToAdd.LoadAsync(selectedEvent.PictureAlbumURL);
+            }
+            else
+            {
+                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
+            }
+        }
+
+        internal void UpdatePhotoAsGroup(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        {
+            if (i_SelectedListBox.SelectedItems.Count == 1)
+            {
+                Group selectedGroup = i_SelectedListBox.SelectedItem as Group;
+
+                i_PhotoToAdd.LoadAsync(selectedGroup.PictureNormalURL);
+            }
+            else
+            {
+                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
+            }
+        }
+
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             try
@@ -172,96 +262,6 @@ namespace BasicFacebookFeatures
             else
             {
                 MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        // COMMON METHODS
-        internal void FetchUserData<T>(ListBox i_ListBoxToFill,
-            ICollection<T> i_Collection, string i_ErrorMessage)
-        {
-            i_ListBoxToFill.DisplayMember = "Name";
-
-            foreach (T itemToAdd in i_Collection)
-            {
-                i_ListBoxToFill.Items.Add(itemToAdd);
-            }
-
-            if (i_ListBoxToFill.Items.Count == 0)
-            {
-                MessageBox.Show(i_ErrorMessage);
-            }
-        }
-
-        internal void ResetListAndPhoto(ListBox i_ListBoxToFill, PictureBox i_PhotoToRemove)
-        {
-            i_PhotoToRemove.Image = null;
-            i_ListBoxToFill.Items.Clear();
-        }
-
-        internal void UpdatePhotoAsUser(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
-        {
-            if (i_SelectedListBox.SelectedItems.Count == 1)
-            {
-                User selectedUser = i_SelectedListBox.SelectedItem as User;
-
-                i_PhotoToAdd.LoadAsync(selectedUser.PictureNormalURL);
-            }
-            else 
-            { 
-                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
-            }
-        }
-
-        internal void UpdatePhotoAsPage(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
-        {
-            if (i_SelectedListBox.SelectedItems.Count == 1)
-            {
-                Page selectedPage = i_SelectedListBox.SelectedItem as Page;
-                i_PhotoToAdd.LoadAsync(selectedPage.PictureNormalURL);
-            }
-            else
-            {
-                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
-            }
-        }
-
-        internal void UpdatePhotoAsEvent(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
-        {
-            if (i_SelectedListBox.SelectedItems.Count == 1)
-            {
-                Event selectedEvent = i_SelectedListBox.SelectedItem as Event;
-                i_PhotoToAdd.LoadAsync(selectedEvent.Cover.SourceURL);
-            }
-            else
-            {
-                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
-            }
-        }
-
-        internal void UpdatePhotoAsAlbum(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
-        {
-            if (i_SelectedListBox.SelectedItems.Count == 1)
-            {
-                Album selectedEvent = i_SelectedListBox.SelectedItem as Album;
-                i_PhotoToAdd.LoadAsync(selectedEvent.PictureAlbumURL);
-            }
-            else
-            {
-                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
-            }
-        }
-
-        internal void UpdatePhotoAsGroup(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
-        {
-            if (i_SelectedListBox.SelectedItems.Count == 1)
-            {
-                Group selectedGroup = i_SelectedListBox.SelectedItem as Group;
-
-                i_PhotoToAdd.LoadAsync(selectedGroup.PictureNormalURL);
-            }
-            else
-            {
-                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
             }
         }
 
