@@ -10,7 +10,8 @@ namespace BasicFacebookFeatures
     public partial class FormMain : Form
     {
         private const string k_AppId = "507070034420577";
-        private const string k_ErrorMessage = "You need to be logged in";
+        private const string k_ErrorMessageLogin = "You need to be logged in";
+        private const string k_ErrorMessageSupported = "This feature is not yet supported";
         private const string k_TypeOfMessage = "Error";
         private static readonly string[] sr_Permissions = { "public_profile", "user_birthday", "user_friends", "user_gender", "user_likes", "user_link", "user_location", "user_photos", "user_posts", "groups_access_member_info", "user_events" };
 
@@ -30,19 +31,25 @@ namespace BasicFacebookFeatures
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            loginAndInit();
+            try
+            {
+                loginAndInit();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(k_ErrorMessageSupported);
+            }
         }
 
         private void buttonLogout_Click(object sender, EventArgs e)
         {
-            if (LoggedInUser != null)
+            try
             {
-                FacebookService.LogoutWithUI();
-                resetWhenLogout();
+                logoutAndReset();
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageSupported);
             }
         }
 
@@ -54,7 +61,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -66,7 +73,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -78,7 +85,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -90,7 +97,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -102,7 +109,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -114,7 +121,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessage, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -152,6 +159,19 @@ namespace BasicFacebookFeatures
             else
             {
                 MessageBox.Show("Login Failed", k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void logoutAndReset()
+        {
+            if (LoggedInUser != null)
+            {
+                FacebookService.LogoutWithUI();
+                resetWhenLogout();
+            }
+            else
+            {
+                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

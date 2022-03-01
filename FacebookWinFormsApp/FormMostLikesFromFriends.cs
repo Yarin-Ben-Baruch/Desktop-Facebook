@@ -55,39 +55,29 @@ namespace BasicFacebookFeatures
 
         private void listBoxMostLikesPhotos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (m_ListBoxMostLikesPhotos.SelectedItems.Count == 1)
-            {
-                User selectedUser = m_ListBoxMostLikesPhotos.SelectedItem as User;
-
-                updatePhoto(selectedUser);
-            }
+            updatePhoto(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto);
         }
 
         private void listBoxMostLikesPosts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (m_ListBoxMostLikesPhotos.SelectedItems.Count == 1)
-            {
-                User selectedUser = m_ListBoxMostLikesPhotos.SelectedItem as User;
-
-                updatePhoto(selectedUser);
-            }
+            updatePhoto(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
         }
 
         private void listBoxMostComments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (m_ListBoxMostComments.SelectedItems.Count == 1)
-            {
-                User selectedUser = m_ListBoxMostComments.SelectedItem as User;
-
-                updatePhoto(selectedUser);
-            }
+            updatePhoto(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
         }
 
-        private void updatePhoto(User i_SelectedUser)
+        private void updatePhoto(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
         {
             try
             {
-                m_PictureBoxSelectedFriendPhoto.LoadAsync(i_SelectedUser.PictureNormalURL);
+                if (i_SelectedListBox.SelectedItems.Count == 1)
+                {
+                    User selectedUser = i_SelectedListBox.SelectedItem as User;
+
+                    i_PhotoToAdd.LoadAsync(selectedUser.PictureNormalURL);
+                }
             }
             catch (Exception)
             {

@@ -104,11 +104,10 @@ namespace BasicFacebookFeatures
                 User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
 
                 m_PictureBoxBestMatch.LoadAsync(selectedUser.PictureNormalURL);
+                initializedCommonPagesList(m_BestMatches, m_ListBoxBestMatch.SelectedIndex);
+                initializedCommonGroupsList(m_BestMatches, m_ListBoxBestMatch.SelectedIndex);
+                initializedCommonFriendsList(m_BestMatches, m_ListBoxBestMatch.SelectedIndex);
             }
-
-            initializedCommonPagesList(m_BestMatches, m_ListBoxBestMatch.SelectedIndex);
-            initializedCommonGroupsList(m_BestMatches, m_ListBoxBestMatch.SelectedIndex);
-            initializedCommonFriendsList(m_BestMatches, m_ListBoxBestMatch.SelectedIndex);
         }
 
         // TODO : CHECK
@@ -134,6 +133,7 @@ namespace BasicFacebookFeatures
             if (m_ListBoxBestMatch.SelectedItems.Count == 1)
             {
                 User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
+
                 System.Diagnostics.Process.Start(selectedUser.Link);
             }
         }
