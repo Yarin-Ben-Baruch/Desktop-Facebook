@@ -50,21 +50,7 @@ namespace BasicFacebookFeatures
 
         private void listBoxUserInSameCity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxUserInSameCity, m_PictureBoxProfileUser, k_ErrorMessage);
-
-            // if (m_ListBoxUserInSameCity.SelectedItems.Count == 1)
-            // {
-            //     User selectedUser = m_ListBoxUserInSameCity.SelectedItem as User;
-            //
-            //     try
-            //     {
-            //         m_PictureBoxProfileUser.LoadAsync(selectedUser.PictureNormalURL);
-            //     }
-            //     catch (Exception)
-            //     {
-            //         MessageBox.Show(k_ErrorMessage);
-            //     }
-            // }
+            r_FormMain.updatePhotoAsUser(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
         }
 
         private void fetchCities()

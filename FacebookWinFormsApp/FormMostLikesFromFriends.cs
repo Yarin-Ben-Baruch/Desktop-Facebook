@@ -55,17 +55,17 @@ namespace BasicFacebookFeatures
 
         private void listBoxMostLikesPhotos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto, k_ErrorMessage);
+            r_FormMain.updatePhotoAsUser(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto);
         }
 
         private void listBoxMostLikesPosts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost, k_ErrorMessage);
+            r_FormMain.updatePhotoAsUser(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
         }
 
         private void listBoxMostComments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment, k_ErrorMessage);
+            r_FormMain.updatePhotoAsUser(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
         }
 
         private void fetchUserPhotos()

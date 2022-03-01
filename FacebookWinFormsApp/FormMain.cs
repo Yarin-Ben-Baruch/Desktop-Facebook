@@ -198,24 +198,17 @@ namespace BasicFacebookFeatures
             i_ListBoxToFill.Items.Clear();
         }
 
-        internal void updatePhotoAsUser(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd, string i_ErrorMessage)
+        internal void updatePhotoAsUser(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
         {
-            try
+            if (i_SelectedListBox.SelectedItems.Count == 1)
             {
-                if (i_SelectedListBox.SelectedItems.Count == 1)
-                {
-                    User selectedUser = i_SelectedListBox.SelectedItem as User;
+                User selectedUser = i_SelectedListBox.SelectedItem as User;
 
-                    i_PhotoToAdd.LoadAsync(selectedUser.PictureNormalURL);
-                }
-                else
-                {
-                    i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
-                }
+                i_PhotoToAdd.LoadAsync(selectedUser.PictureNormalURL);
             }
-            catch (Exception)
-            {
-                MessageBox.Show(i_ErrorMessage);
+            else 
+            { 
+                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
             }
         }
     }

@@ -77,17 +77,7 @@ namespace BasicFacebookFeatures
 
         private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxFriends, m_PictureBoxFriends, k_ErrorMessage);
-
-            // if (m_ListBoxFriends.SelectedItems.Count == 1)
-            // {
-            //     User selectedFriend = m_ListBoxFriends.SelectedItem as User;
-            //     m_PictureBoxFriends.LoadAsync(selectedFriend.PictureNormalURL);
-            // }
-            // else
-            // {
-            //     m_PictureBoxFriends.Image = m_PictureBoxFriends.ErrorImage;
-            // }
+            r_FormMain.updatePhotoAsUser(m_ListBoxFriends, m_PictureBoxFriends);
         }
 
         private void listBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)

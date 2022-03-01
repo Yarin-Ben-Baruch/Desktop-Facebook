@@ -82,21 +82,7 @@ namespace BasicFacebookFeatures
 
         private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
         {
-            r_FormMain.updatePhotoAsUser(m_ListBoxFriends, m_PictureBoxFriends, k_ErrorMessage);
-
-            // if (m_ListBoxFriends.SelectedItems.Count == 1)
-            // {
-            //     User selectedUser = m_ListBoxFriends.SelectedItem as User;
-            //
-            //     try
-            //     {
-            //         m_PictureBoxFriends.LoadAsync(selectedUser.PictureNormalURL);
-            //     }
-            //     catch (Exception)
-            //     {
-            //         MessageBox.Show(k_ErrorMessage);
-            //     }
-            // }
+            r_FormMain.updatePhotoAsUser(m_ListBoxFriends, m_PictureBoxFriends);
         }
 
         // TODO: CHECK TRY CATCH
