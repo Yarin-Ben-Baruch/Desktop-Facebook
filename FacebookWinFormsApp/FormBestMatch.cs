@@ -48,36 +48,40 @@ namespace BasicFacebookFeatures
 
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (m_ListBoxGroups.SelectedItems.Count == 1)
-            {
-                Group selectedGroup = m_ListBoxGroups.SelectedItem as Group;
+            r_FormMain.UpdatePhotoAsGroup(m_ListBoxGroups, m_PictureBoxGroups);
 
-                try
-                {
-                    m_PictureBoxGroups.LoadAsync(selectedGroup.PictureNormalURL);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show(k_ErrorMessage);
-                }
-            }
+            // if (m_ListBoxGroups.SelectedItems.Count == 1)
+            // {
+            //     Group selectedGroup = m_ListBoxGroups.SelectedItem as Group;
+            //
+            //     try
+            //     {
+            //         m_PictureBoxGroups.LoadAsync(selectedGroup.PictureNormalURL);
+            //     }
+            //     catch (Exception)
+            //     {
+            //         MessageBox.Show(k_ErrorMessage);
+            //     }
+            // }
         }
 
         private void listBoxPages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (m_ListBoxPages.SelectedItems.Count == 1)
-            {
-                Page selectedPage = m_ListBoxPages.SelectedItem as Page;
+            r_FormMain.updatePhotoAsPage(m_ListBoxPages, m_PictureBoxPages);
 
-                try
-                {
-                    m_PictureBoxPages.LoadAsync(selectedPage.PictureNormalURL);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show(k_ErrorMessage);
-                }
-            }
+            // if (m_ListBoxPages.SelectedItems.Count == 1)
+            // {
+            //     Page selectedPage = m_ListBoxPages.SelectedItem as Page;
+            //
+            //     try
+            //     {
+            //         m_PictureBoxPages.LoadAsync(selectedPage.PictureNormalURL);
+            //     }
+            //     catch (Exception)
+            //     {
+            //         MessageBox.Show(k_ErrorMessage);
+            //     }
+            // }
         }
 
         private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)
@@ -85,7 +89,6 @@ namespace BasicFacebookFeatures
             r_FormMain.updatePhotoAsUser(m_ListBoxFriends, m_PictureBoxFriends);
         }
 
-        // TODO: CHECK TRY CATCH
         private void listBoxBestMatch_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxBestMatch.SelectedItems.Count == 1)

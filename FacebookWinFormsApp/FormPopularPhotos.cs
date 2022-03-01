@@ -33,6 +33,7 @@ namespace BasicFacebookFeatures
 
         }
 
+        // TODO: PUT TO INTERNAL METHOD
         private void listBoxPopularPhotos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (m_ListBoxPopularPhotos.SelectedItems.Count == 1)

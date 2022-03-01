@@ -211,5 +211,59 @@ namespace BasicFacebookFeatures
                 i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
             }
         }
+
+        internal void updatePhotoAsPage(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        {
+            if (i_SelectedListBox.SelectedItems.Count == 1)
+            {
+                Page selectedPage = i_SelectedListBox.SelectedItem as Page;
+                i_PhotoToAdd.LoadAsync(selectedPage.PictureNormalURL);
+            }
+            else
+            {
+                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
+            }
+        }
+
+        internal void updatePhotoAsEvent(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        {
+            if (i_SelectedListBox.SelectedItems.Count == 1)
+            {
+                Event selectedEvent = i_SelectedListBox.SelectedItem as Event;
+                i_PhotoToAdd.LoadAsync(selectedEvent.Cover.SourceURL);
+            }
+            else
+            {
+                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
+            }
+        }
+
+        internal void updatePhotoAsAlbum(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        {
+            if (i_SelectedListBox.SelectedItems.Count == 1)
+            {
+                Album selectedEvent = i_SelectedListBox.SelectedItem as Album;
+                i_PhotoToAdd.LoadAsync(selectedEvent.PictureAlbumURL);
+            }
+            else
+            {
+                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
+            }
+        }
+
+        internal void UpdatePhotoAsGroup(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
+        {
+            if (i_SelectedListBox.SelectedItems.Count == 1)
+            {
+                Group selectedGroup = i_SelectedListBox.SelectedItem as Group;
+
+                i_PhotoToAdd.LoadAsync(selectedGroup.PictureNormalURL);
+            }
+            else
+            {
+                i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
+            }
+        }
+
     }
 }

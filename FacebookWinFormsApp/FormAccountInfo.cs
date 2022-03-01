@@ -82,44 +82,50 @@ namespace BasicFacebookFeatures
 
         private void listBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (m_ListBoxLikedPages.SelectedItems.Count == 1)
-            {
-                Page selectedPage = m_ListBoxLikedPages.SelectedItem as Page;
-                m_PictureBoxLikedPages.LoadAsync(selectedPage.PictureNormalURL);
-            }
-            else
-            {
-                m_PictureBoxLikedPages.Image = m_PictureBoxLikedPages.ErrorImage;
-            }
+            r_FormMain.updatePhotoAsPage(m_ListBoxLikedPages, m_PictureBoxLikedPages);
+
+            // if (m_ListBoxLikedPages.SelectedItems.Count == 1)
+            // {
+            //     Page selectedPage = m_ListBoxLikedPages.SelectedItem as Page;
+            //     m_PictureBoxLikedPages.LoadAsync(selectedPage.PictureNormalURL);
+            // }
+            // else
+            // {
+            //     m_PictureBoxLikedPages.Image = m_PictureBoxLikedPages.ErrorImage;
+            // }
         }
 
         private void listBoxEvents_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (m_ListBoxEvents.SelectedItems.Count == 1)
-            {
-                Event selectedEvent = m_ListBoxEvents.SelectedItem as Event;
-                m_PictureBoxEvents.LoadAsync(selectedEvent.Cover.SourceURL);
-            }
-            else
-            {
-                m_PictureBoxEvents.Image = m_PictureBoxLikedPages.ErrorImage;
-            }
+            r_FormMain.updatePhotoAsEvent(m_ListBoxEvents, m_PictureBoxEvents);
+
+            // if (m_ListBoxEvents.SelectedItems.Count == 1)
+            // {
+            //     Event selectedEvent = m_ListBoxEvents.SelectedItem as Event;
+            //     m_PictureBoxEvents.LoadAsync(selectedEvent.Cover.SourceURL);
+            // }
+            // else
+            // {
+            //     m_PictureBoxEvents.Image = m_PictureBoxLikedPages.ErrorImage;
+            // }
         }
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (m_ListBoxAlbums.SelectedItems.Count == 1)
-            {
-                Album selectedAlbum = m_ListBoxAlbums.SelectedItem as Album;
-                if (selectedAlbum.PictureAlbumURL != null)
-                {
-                    m_PictureBoxAlbums.LoadAsync(selectedAlbum.PictureAlbumURL);
-                }
-                else
-                {
-                    m_PictureBoxAlbums.Image = m_PictureBoxAlbums.ErrorImage;
-                }
-            }
+            r_FormMain.updatePhotoAsAlbum(m_ListBoxAlbums, m_PictureBoxAlbums);
+
+            // if (m_ListBoxAlbums.SelectedItems.Count == 1)
+            // {
+            //     Album selectedAlbum = m_ListBoxAlbums.SelectedItem as Album;
+            //     if (selectedAlbum.PictureAlbumURL != null)
+            //     {
+            //         m_PictureBoxAlbums.LoadAsync(selectedAlbum.PictureAlbumURL);
+            //     }
+            //     else
+            //     {
+            //         m_PictureBoxAlbums.Image = m_PictureBoxAlbums.ErrorImage;
+            //     }
+            // }
         }
     }
 }
