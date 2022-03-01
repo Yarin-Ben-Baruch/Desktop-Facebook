@@ -55,34 +55,17 @@ namespace BasicFacebookFeatures
 
         private void listBoxMostLikesPhotos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            updatePhoto(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto);
+            r_FormMain.updatePhotoAsUser(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto, k_ErrorMessage);
         }
 
         private void listBoxMostLikesPosts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            updatePhoto(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
+            r_FormMain.updatePhotoAsUser(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost, k_ErrorMessage);
         }
 
         private void listBoxMostComments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            updatePhoto(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
-        }
-
-        private void updatePhoto(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd)
-        {
-            try
-            {
-                if (i_SelectedListBox.SelectedItems.Count == 1)
-                {
-                    User selectedUser = i_SelectedListBox.SelectedItem as User;
-
-                    i_PhotoToAdd.LoadAsync(selectedUser.PictureNormalURL);
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show(k_ErrorMessage);
-            }
+            r_FormMain.updatePhotoAsUser(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment, k_ErrorMessage);
         }
 
         private void fetchUserPhotos()

@@ -197,5 +197,26 @@ namespace BasicFacebookFeatures
             i_PhotoToRemove.Image = null;
             i_ListBoxToFill.Items.Clear();
         }
+
+        internal void updatePhotoAsUser(ListBox i_SelectedListBox, PictureBox i_PhotoToAdd, string i_ErrorMessage)
+        {
+            try
+            {
+                if (i_SelectedListBox.SelectedItems.Count == 1)
+                {
+                    User selectedUser = i_SelectedListBox.SelectedItem as User;
+
+                    i_PhotoToAdd.LoadAsync(selectedUser.PictureNormalURL);
+                }
+                else
+                {
+                    i_PhotoToAdd.Image = i_PhotoToAdd.ErrorImage;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(i_ErrorMessage);
+            }
+        }
     }
 }
