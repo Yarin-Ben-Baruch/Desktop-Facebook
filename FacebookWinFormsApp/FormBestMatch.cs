@@ -13,11 +13,11 @@ namespace BasicFacebookFeatures
 {
     public partial class FormBestMatch : Form
     {
+        private const string k_ErrorMessage = "This feature is not yet supported";
         private readonly FormMain r_FormMain;
         private User.eGender m_ChosenGender;
         private ICollection<User> m_BestMatches;
-        private const string k_ErrorMessage = "This feature is not yet supported";
-
+        
         public FormBestMatch(FormMain i_FormMain)
         {
             r_FormMain = i_FormMain;

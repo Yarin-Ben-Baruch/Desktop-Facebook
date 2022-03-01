@@ -6,9 +6,9 @@ namespace BasicFacebookFeatures
 {
     public partial class FormPost : Form
     {
-        private readonly FormMain r_FormMain;
         private const string k_ErrorMessage = "This feature is not yet supported";
-
+        private readonly FormMain r_FormMain;
+        
         public FormPost(FormMain i_FormMain)
         {
             r_FormMain = i_FormMain;
@@ -83,23 +83,3 @@ namespace BasicFacebookFeatures
         }
     }
 }
-
-/*
- * private void listBoxPostComments_DoubleClick(object sender, EventArgs e)
-        {
-            if (listBoxPostComments.SelectedItems.Count == 1)
-            {
-                try
-                {
-                    (listBoxPostComments.SelectedItem as Comment).Like();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-@"posting LIKEs is no longer supported :(
-(OAuthException - #3) 
-Publishing likes through the API is only available for page access tokens");
-                }
-            }
-        }
- */

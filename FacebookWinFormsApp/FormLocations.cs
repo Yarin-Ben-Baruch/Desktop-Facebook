@@ -7,9 +7,9 @@ namespace BasicFacebookFeatures
 {
     public partial class FormLocations : Form
     {
-        private readonly FormMain r_FormMain;
         private const string k_ErrorMessage = "This feature is not yet supported";
-
+        private readonly FormMain r_FormMain;
+        
         public FormLocations(FormMain i_FormMain)
         {
             r_FormMain = i_FormMain;
@@ -61,6 +61,5 @@ namespace BasicFacebookFeatures
             r_FormMain.ResetListAndPhoto(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
             r_FormMain.FetchUserData(m_ListBoxAllCities, allCities, errorMessage);
         }
-
     }
 }

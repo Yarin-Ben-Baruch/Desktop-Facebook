@@ -30,8 +30,7 @@ namespace BasicFacebookFeatures
         }
 
         // COMMON METHODS
-        internal void FetchUserData<T>(ListBox i_ListBoxToFill,
-            ICollection<T> i_Collection, string i_ErrorMessage)
+        internal void FetchUserData<T>(ListBox i_ListBoxToFill, ICollection<T> i_Collection, string i_ErrorMessage)
         {
             i_ListBoxToFill.DisplayMember = "Name";
 
@@ -264,6 +263,5 @@ namespace BasicFacebookFeatures
                 MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }

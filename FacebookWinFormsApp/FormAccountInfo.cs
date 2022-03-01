@@ -6,8 +6,8 @@ namespace BasicFacebookFeatures
 {
     public partial class FormAccountInfo : Form
     {
-        private readonly FormMain r_FormMain;
         private const string k_ErrorMessage = "This feature is not yet supported";
+        private readonly FormMain r_FormMain;
 
         public FormAccountInfo(FormMain i_FormMain)
         {

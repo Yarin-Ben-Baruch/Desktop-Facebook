@@ -8,9 +8,9 @@ namespace BasicFacebookFeatures
 {
     public partial class FormMostLikesFromFriends : Form
     {
-        private readonly FormMain r_FormMain;
         private const string k_ErrorMessage = "This feature is not yet supported";
-
+        private readonly FormMain r_FormMain;
+        
         public FormMostLikesFromFriends(FormMain i_FormMain)
         {
             r_FormMain = i_FormMain;
@@ -93,7 +93,7 @@ namespace BasicFacebookFeatures
             ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostCommentsOnPhotosByUsers(r_FormMain.LoggedInUser.Albums, listOfFriends);
 
             r_FormMain.ResetListAndPhoto(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
-            r_FormMain.FetchUserData(m_ListBoxMostComments, usersToShow,errorMessage);
+            r_FormMain.FetchUserData(m_ListBoxMostComments, usersToShow, errorMessage);
         }
 
         private void fetchUserPosts()

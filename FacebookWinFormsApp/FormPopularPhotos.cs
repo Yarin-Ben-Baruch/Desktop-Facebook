@@ -1,15 +1,15 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
     public partial class FormPopularPhotos : Form
     {
-        private readonly FormMain r_FormMain;
         private const string k_ErrorMessage = "This feature is not yet supported";
-
+        private readonly FormMain r_FormMain;
+        
         public FormPopularPhotos(FormMain i_FormMain)
         {
             r_FormMain = i_FormMain;
@@ -30,7 +30,6 @@ namespace BasicFacebookFeatures
             {
                 MessageBox.Show(k_ErrorMessage);
             }
-
         }
 
         // TODO: PUT TO INTERNAL METHOD
@@ -51,6 +50,5 @@ namespace BasicFacebookFeatures
                 }
             }
         }
-
     }
 }
