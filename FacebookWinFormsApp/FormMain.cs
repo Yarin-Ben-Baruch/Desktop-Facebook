@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 using FaceBookAppLogic;
 using FacebookWrapper.ObjectModel;
@@ -27,6 +28,35 @@ namespace BasicFacebookFeatures
             FacebookService.s_CollectionLimit = 100;
 
             ManagerLogic = new LogicManager();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+
+            if (LoginResult != null)
+            {
+                saveUserSettings();
+            }
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            this.Location = ApplicationSettings.Instance.LastWindowLocation;
+            this.m_CheckBoxAutoLogin.Checked = ApplicationSettings.Instance.AutoLogin;
+            this.WindowState = ApplicationSettings.Instance.LastWindowState;
+        }
+
+        protected override void OnShown(EventArgs e)
+        {
+            base.OnShown(e);
+
+            if (ApplicationSettings.Instance.AutoLogin)
+            {
+                autoLogin();
+            }
         }
 
         // COMMON METHODS
@@ -122,7 +152,7 @@ namespace BasicFacebookFeatures
         {
             try
             {
-                loginAndInit();
+                loginToUser();
             }
             catch (Exception)
             {
@@ -134,7 +164,7 @@ namespace BasicFacebookFeatures
         {
             try
             {
-                logoutAndReset();
+                logoutFromUser();
             }
             catch (Exception)
             {
@@ -214,6 +244,36 @@ namespace BasicFacebookFeatures
             }
         }
 
+        private void logoutFromUser()
+        {
+            if (LoggedInUser != null)
+            {
+                FacebookService.LogoutWithUI();
+                resetWhenLogout();
+                saveUserSettings();
+            }
+            else
+            {
+                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void loginToUser()
+        {
+            LoginResult = FacebookService.Login(k_AppId, sr_Permissions);
+
+            if (!string.IsNullOrEmpty(LoginResult.AccessToken))
+            {
+                LoggedInUser = LoginResult.LoggedInUser;
+                ApplicationSettings.Instance.AccessToken = LoginResult.AccessToken;
+                initWhenLogin();
+            }
+            else
+            {
+                MessageBox.Show("Login Failed", k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void resetWhenLogout()
         {
             LoggedInUser = null;
@@ -224,43 +284,35 @@ namespace BasicFacebookFeatures
             m_LabelFullName.Text = "Full name";
             m_LabelBirthday.Text = "Birthday";
             m_LabelGender.Text = "Gender";
+
+            m_CheckBoxAutoLogin.Enabled = false;
         }
 
-        private void fetchUserInfo()
+        private void initWhenLogin()
         {
+            m_ButtonLogin.Text = "Logged in";
             m_PictureBoxProfilePhoto.LoadAsync(LoggedInUser.PictureLargeURL);
             m_LabelFullName.Text = LoggedInUser.Name;
             m_LabelBirthday.Text = LoggedInUser.Birthday;
             m_LabelGender.Text = LoggedInUser.Gender.ToString();
+            m_CheckBoxAutoLogin.Enabled = true;
         }
 
-        private void loginAndInit()
+        private void saveUserSettings()
         {
-            LoginResult = FacebookService.Login(k_AppId, sr_Permissions);
-
-            if (!string.IsNullOrEmpty(LoginResult.AccessToken))
-            {
-                LoggedInUser = LoginResult.LoggedInUser;
-
-                m_ButtonLogin.Text = $"Logged in";
-                fetchUserInfo();
-            }
-            else
-            {
-                MessageBox.Show("Login Failed", k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            ApplicationSettings.Instance.LastWindowLocation = Location;
+            ApplicationSettings.Instance.AutoLogin = m_CheckBoxAutoLogin.Checked;
+            ApplicationSettings.Instance.Save();
         }
 
-        private void logoutAndReset()
+        private void autoLogin()
         {
-            if (LoggedInUser != null)
+            LoginResult result = FacebookService.Connect(ApplicationSettings.Instance.AccessToken);
+
+            if (string.IsNullOrEmpty(result.ErrorMessage))
             {
-                FacebookService.LogoutWithUI();
-                resetWhenLogout();
-            }
-            else
-            {
-                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoggedInUser = result.LoggedInUser;
+                initWhenLogin();
             }
         }
     }
