@@ -16,6 +16,16 @@ namespace BasicFacebookFeatures
         private const string k_TypeOfMessage = "Error";
         private static readonly string[] sr_Permissions = { "public_profile", "user_birthday", "user_friends", "user_gender", "user_likes", "user_link", "user_location", "user_photos", "user_posts", "groups_access_member_info", "user_events" };
 
+        internal string ErrorMessageSupported
+        {
+            get => k_ErrorMessageSupported;
+        }
+
+        internal string TypeOfMessage
+        {
+            get => k_TypeOfMessage;
+        }
+
         public LogicManager ManagerLogic { get; }
 
         public User LoggedInUser { get; set; }
@@ -156,7 +166,7 @@ namespace BasicFacebookFeatures
             }
             catch (Exception)
             {
-                MessageBox.Show(k_ErrorMessageSupported);
+                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -168,7 +178,7 @@ namespace BasicFacebookFeatures
             }
             catch (Exception)
             {
-                MessageBox.Show(k_ErrorMessageSupported);
+                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -180,7 +190,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -192,7 +202,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -204,7 +214,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -216,7 +226,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -228,7 +238,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -240,7 +250,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -254,7 +264,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(k_ErrorMessageLogin, k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -270,7 +280,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show("Login Failed", k_TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Login Failed", TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

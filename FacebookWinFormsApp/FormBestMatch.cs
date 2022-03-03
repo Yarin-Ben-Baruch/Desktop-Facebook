@@ -13,7 +13,7 @@ namespace BasicFacebookFeatures
 {
     public partial class FormBestMatch : Form
     {
-        private const string k_ErrorMessage = "This feature is not yet supported";
+
         private readonly FormMain r_FormMain;
         private User.eGender m_ChosenGender;
         private ICollection<User> m_BestMatches;
@@ -42,46 +42,18 @@ namespace BasicFacebookFeatures
             }
             catch (Exception)
             {
-                MessageBox.Show(k_ErrorMessage);
+                MessageBox.Show(r_FormMain.ErrorMessageSupported, r_FormMain.TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             r_FormMain.UpdatePhotoAsGroup(m_ListBoxGroups, m_PictureBoxGroups);
-
-            // if (m_ListBoxGroups.SelectedItems.Count == 1)
-            // {
-            //     Group selectedGroup = m_ListBoxGroups.SelectedItem as Group;
-            //
-            //     try
-            //     {
-            //         m_PictureBoxGroups.LoadAsync(selectedGroup.PictureNormalURL);
-            //     }
-            //     catch (Exception)
-            //     {
-            //         MessageBox.Show(k_ErrorMessage);
-            //     }
-            // }
         }
 
         private void listBoxPages_SelectedIndexChanged(object sender, EventArgs e)
         {
             r_FormMain.UpdatePhotoAsPage(m_ListBoxPages, m_PictureBoxPages);
-
-            // if (m_ListBoxPages.SelectedItems.Count == 1)
-            // {
-            //     Page selectedPage = m_ListBoxPages.SelectedItem as Page;
-            //
-            //     try
-            //     {
-            //         m_PictureBoxPages.LoadAsync(selectedPage.PictureNormalURL);
-            //     }
-            //     catch (Exception)
-            //     {
-            //         MessageBox.Show(k_ErrorMessage);
-            //     }
-            // }
         }
 
         private void listBoxFriends_SelectedIndexChanged(object sender, EventArgs e)

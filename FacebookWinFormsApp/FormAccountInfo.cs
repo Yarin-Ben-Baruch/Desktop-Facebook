@@ -6,7 +6,6 @@ namespace BasicFacebookFeatures
 {
     public partial class FormAccountInfo : Form
     {
-        private const string k_ErrorMessage = "This feature is not yet supported";
         private readonly FormMain r_FormMain;
 
         public FormAccountInfo(FormMain i_FormMain)
@@ -26,7 +25,7 @@ namespace BasicFacebookFeatures
             }
             catch (Exception)
             {
-                MessageBox.Show(k_ErrorMessage);
+                MessageBox.Show(r_FormMain.ErrorMessageSupported, r_FormMain.TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -41,7 +40,7 @@ namespace BasicFacebookFeatures
             }
             catch (Exception)
             {
-                MessageBox.Show(k_ErrorMessage);
+                MessageBox.Show(r_FormMain.ErrorMessageSupported, r_FormMain.TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -56,7 +55,7 @@ namespace BasicFacebookFeatures
             }
             catch (Exception)
             {
-                MessageBox.Show(k_ErrorMessage);
+                MessageBox.Show(r_FormMain.ErrorMessageSupported, r_FormMain.TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -71,7 +70,7 @@ namespace BasicFacebookFeatures
             }
             catch (Exception)
             {
-                MessageBox.Show(k_ErrorMessage);
+                MessageBox.Show(r_FormMain.ErrorMessageSupported, r_FormMain.TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -83,49 +82,16 @@ namespace BasicFacebookFeatures
         private void listBoxLikedPages_SelectedIndexChanged(object sender, EventArgs e)
         {
             r_FormMain.UpdatePhotoAsPage(m_ListBoxLikedPages, m_PictureBoxLikedPages);
-
-            // if (m_ListBoxLikedPages.SelectedItems.Count == 1)
-            // {
-            //     Page selectedPage = m_ListBoxLikedPages.SelectedItem as Page;
-            //     m_PictureBoxLikedPages.LoadAsync(selectedPage.PictureNormalURL);
-            // }
-            // else
-            // {
-            //     m_PictureBoxLikedPages.Image = m_PictureBoxLikedPages.ErrorImage;
-            // }
         }
 
         private void listBoxEvents_SelectedIndexChanged(object sender, EventArgs e)
         {
             r_FormMain.UpdatePhotoAsEvent(m_ListBoxEvents, m_PictureBoxEvents);
-
-            // if (m_ListBoxEvents.SelectedItems.Count == 1)
-            // {
-            //     Event selectedEvent = m_ListBoxEvents.SelectedItem as Event;
-            //     m_PictureBoxEvents.LoadAsync(selectedEvent.Cover.SourceURL);
-            // }
-            // else
-            // {
-            //     m_PictureBoxEvents.Image = m_PictureBoxLikedPages.ErrorImage;
-            // }
         }
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
         {
             r_FormMain.UpdatePhotoAsAlbum(m_ListBoxAlbums, m_PictureBoxAlbums);
-
-            // if (m_ListBoxAlbums.SelectedItems.Count == 1)
-            // {
-            //     Album selectedAlbum = m_ListBoxAlbums.SelectedItem as Album;
-            //     if (selectedAlbum.PictureAlbumURL != null)
-            //     {
-            //         m_PictureBoxAlbums.LoadAsync(selectedAlbum.PictureAlbumURL);
-            //     }
-            //     else
-            //     {
-            //         m_PictureBoxAlbums.Image = m_PictureBoxAlbums.ErrorImage;
-            //     }
-            // }
         }
     }
 }

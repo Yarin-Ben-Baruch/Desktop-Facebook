@@ -6,7 +6,6 @@ namespace BasicFacebookFeatures
 {
     public partial class FormPost : Form
     {
-        private const string k_ErrorMessage = "This feature is not yet supported";
         private readonly FormMain r_FormMain;
         
         public FormPost(FormMain i_FormMain)
@@ -26,7 +25,7 @@ namespace BasicFacebookFeatures
             }
             catch (Exception)
             {
-                MessageBox.Show(k_ErrorMessage);
+                MessageBox.Show(r_FormMain.ErrorMessageSupported, r_FormMain.TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -37,9 +36,9 @@ namespace BasicFacebookFeatures
                 Status postedStatus = r_FormMain.LoggedInUser.PostStatus(m_TextBoxStatus.Text);
                 MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(r_FormMain.ErrorMessageSupported, r_FormMain.TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -52,7 +51,7 @@ namespace BasicFacebookFeatures
             }
             catch (Exception)
             {
-                MessageBox.Show(k_ErrorMessage);
+                MessageBox.Show(r_FormMain.ErrorMessageSupported, r_FormMain.TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
