@@ -37,14 +37,14 @@ namespace FaceBookAppLogic
             {
                 if (s_ApplicationSettings == null)
                 {
-                    s_ApplicationSettings = ApplicationSettings.FromFileOrDefault();
+                    s_ApplicationSettings = ApplicationSettings.fromFileOrDefault();
                 }
 
                 return s_ApplicationSettings;
             }
         }
 
-        private static ApplicationSettings FromFileOrDefault()
+        private static ApplicationSettings fromFileOrDefault()
         {
             ApplicationSettings loadedThis = null;
 

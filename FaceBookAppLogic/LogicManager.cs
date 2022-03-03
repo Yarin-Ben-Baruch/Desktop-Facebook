@@ -26,7 +26,7 @@ namespace FaceBookAppLogic
         {
             return r_FriendsCities.GetAllUsersInCity(i_LoggedInUserFriends, i_City);
         }
-
+        
         public ICollection<Photo> FetchSortedPhotos(FacebookObjectCollection<Album> i_Albums)
         {
             ICollection<Photo> allPhotos = r_BestFriendLogic.FetchPhotos(i_Albums);
