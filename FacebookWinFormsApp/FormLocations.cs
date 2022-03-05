@@ -33,11 +33,12 @@ namespace BasicFacebookFeatures
             {
                 City city = m_ListBoxAllCities.SelectedItem as City;
 
-                fetchUsers(city);
+                fetchUsersByCity(city);
             }
         }
 
-        private void fetchUsers(City i_CityToFind)
+        // Change name.
+        private void fetchUsersByCity(City i_CityToFind)
         {
             const string errorMessage = "No user to retrieve :(";
             ICollection<User> allUserInTheCity =

@@ -19,7 +19,7 @@ namespace BasicFacebookFeatures
         {
             try
             {
-                const string errorMessage = "No photos to ...";
+                const string errorMessage = "No photos to retrieve :(";
                 ICollection<Photo> photos = r_FormMain.ManagerLogic.FetchSortedPhotos(r_FormMain.LoggedInUser.Albums);
 
                 r_FormMain.ResetListAndPhoto(m_ListBoxPopularPhotos, m_PictureBoxSelectedPopularPhoto);

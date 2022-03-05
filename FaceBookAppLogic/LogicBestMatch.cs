@@ -32,7 +32,7 @@ namespace FaceBookAppLogic
 
             foreach (User myFriend in i_LoggedInUserFriends)
             {
-                currentUserAge = getFriendAge(myFriend);
+                currentUserAge = calcFriendAge(myFriend);
 
                 if (myFriend.Gender == i_ChosenGender && i_StartAge <= currentUserAge && currentUserAge <= i_EndAge)
                 {
@@ -64,7 +64,8 @@ namespace FaceBookAppLogic
             CommonFriendsDic.Clear();
         }
 
-        private int getFriendAge(User i_Friend)
+        // Change Name
+        private int calcFriendAge(User i_Friend)
         {
             int currentUserAge = -1;
 
@@ -77,7 +78,7 @@ namespace FaceBookAppLogic
             return currentUserAge;
         }
 
-        //replece to private
+        //replace to private
         private ICollection<FacebookObject> findCommonObjectsInCollection(ICollection<FacebookObject> i_CollectionOfLoginUser, ICollection<FacebookObject> i_CollectionOfMyMatch)
         {
             ICollection<FacebookObject> commonObjectsList = new List<FacebookObject>();

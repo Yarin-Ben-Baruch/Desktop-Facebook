@@ -44,7 +44,8 @@ namespace FaceBookAppLogic
         {
         }
 
-        public void Save()
+        // Change name.
+        public void SaveApplicationSettings()
         {
             using (FileStream stream = new FileStream(sr_FileName, FileMode.Create))
             {

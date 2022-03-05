@@ -306,7 +306,7 @@ namespace BasicFacebookFeatures
         {
             ApplicationSettings.Instance.LastWindowLocation = Location;
             ApplicationSettings.Instance.AutoLogin = m_CheckBoxAutoLogin.Checked;
-            ApplicationSettings.Instance.Save();
+            ApplicationSettings.Instance.SaveApplicationSettings();
         }
 
         private void autoLogin()
