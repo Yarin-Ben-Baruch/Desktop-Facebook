@@ -20,24 +20,6 @@ namespace FaceBookAppLogic
             CommonFriendsDic = new Dictionary<string, ICollection<FacebookObject>>();
         }
 
-        public ICollection<FacebookObject> FindCommonObjectsInCollection(ICollection<FacebookObject> i_CollectionOfLoginUser, ICollection<FacebookObject> i_CollectionOfMyMatch)
-        {
-            ICollection<FacebookObject> commonObjectsList = new List<FacebookObject>();
-
-            foreach (FacebookObject matchObject in i_CollectionOfLoginUser)
-            {
-                foreach (FacebookObject checkObject in i_CollectionOfMyMatch)
-                {
-                    if (matchObject.Id.Equals(checkObject.Id))
-                    {
-                        commonObjectsList.Add(matchObject);
-                    }
-                }
-            }
-
-            return commonObjectsList;
-        }
-
         public IDictionary<User, int> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)
         {
             IDictionary<User, int> commonDictionary = new Dictionary<User, int>();
@@ -54,11 +36,11 @@ namespace FaceBookAppLogic
 
                 if (myFriend.Gender == i_ChosenGender && i_StartAge <= currentUserAge && currentUserAge <= i_EndAge)
                 {
-                    currentCommonGroups = FindCommonObjectsInCollection(myFriend.Groups.Cast<FacebookObject>().ToList(), i_LoggedInUser.Groups.Cast<FacebookObject>().ToList());
+                    currentCommonGroups = findCommonObjectsInCollection(myFriend.Groups.Cast<FacebookObject>().ToList(), i_LoggedInUser.Groups.Cast<FacebookObject>().ToList());
 
-                    currentCommonLikedPages = FindCommonObjectsInCollection(myFriend.LikedPages.Cast<FacebookObject>().ToList(), i_LoggedInUser.LikedPages.Cast<FacebookObject>().ToList());
+                    currentCommonLikedPages = findCommonObjectsInCollection(myFriend.LikedPages.Cast<FacebookObject>().ToList(), i_LoggedInUser.LikedPages.Cast<FacebookObject>().ToList());
 
-                    currentCommonFriends = FindCommonObjectsInCollection(
+                    currentCommonFriends = findCommonObjectsInCollection(
                         myFriend.Friends.Cast<FacebookObject>().ToList(),
                         i_LoggedInUser.Friends.Cast<FacebookObject>().ToList());
 
@@ -93,6 +75,25 @@ namespace FaceBookAppLogic
             }
 
             return currentUserAge;
+        }
+
+        //replece to private
+        private ICollection<FacebookObject> findCommonObjectsInCollection(ICollection<FacebookObject> i_CollectionOfLoginUser, ICollection<FacebookObject> i_CollectionOfMyMatch)
+        {
+            ICollection<FacebookObject> commonObjectsList = new List<FacebookObject>();
+
+            foreach (FacebookObject matchObject in i_CollectionOfLoginUser)
+            {
+                foreach (FacebookObject checkObject in i_CollectionOfMyMatch)
+                {
+                    if (matchObject.Id.Equals(checkObject.Id))
+                    {
+                        commonObjectsList.Add(matchObject);
+                    }
+                }
+            }
+
+            return commonObjectsList;
         }
     }
 }

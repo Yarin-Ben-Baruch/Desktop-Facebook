@@ -22,9 +22,9 @@ namespace FaceBookAppLogic
             return r_FriendsCities.GetAllCities(i_LoggedInUserFriends);
         }
 
-        public ICollection<User> GetAllUserInCity(FacebookObjectCollection<User> i_LoggedInUserFriends, City i_City)
+        public ICollection<User> GetAllUserInCity(FacebookObjectCollection<User> i_LoggedInUserFriends, City i_SelectedCity)
         {
-            return r_FriendsCities.GetAllUsersInCity(i_LoggedInUserFriends, i_City);
+            return r_FriendsCities.GetAllUsersInCity(i_LoggedInUserFriends, i_SelectedCity);
         }
         
         public ICollection<Photo> FetchSortedPhotos(FacebookObjectCollection<Album> i_Albums)

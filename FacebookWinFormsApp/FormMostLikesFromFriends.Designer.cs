@@ -136,7 +136,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonMostLikesOnPosts.TabIndex = 11;
             this.m_ButtonMostLikesOnPosts.Text = "Most likes on posts";
             this.m_ButtonMostLikesOnPosts.UseVisualStyleBackColor = true;
-            this.m_ButtonMostLikesOnPosts.Click += new System.EventHandler(this.m_ButtonMostLikesOnPosts_Click);
+            this.m_ButtonMostLikesOnPosts.Click += new System.EventHandler(this.buttonMostLikesOnPosts_Click);
             // 
             // FormMostLikesFromFriends
             // 

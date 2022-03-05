@@ -9,9 +9,22 @@ namespace FaceBookAppLogic
     {
         private static readonly string sr_FileName;
 
+        private static readonly XmlSerializer sr_Serializer;
+
         private static ApplicationSettings s_ApplicationSettings;
 
-        private static readonly XmlSerializer sr_Serializer;
+        public static ApplicationSettings Instance
+        {
+            get
+            {
+                if (s_ApplicationSettings == null)
+                {
+                    s_ApplicationSettings = fromFileOrDefault();
+                }
+
+                return s_ApplicationSettings;
+            }
+        }
 
         public bool AutoLogin { get; set; }
 
@@ -31,19 +44,15 @@ namespace FaceBookAppLogic
         {
         }
 
-        public static ApplicationSettings Instance
+        public void Save()
         {
-            get
+            using (FileStream stream = new FileStream(sr_FileName, FileMode.Create))
             {
-                if (s_ApplicationSettings == null)
-                {
-                    s_ApplicationSettings = ApplicationSettings.fromFileOrDefault();
-                }
-
-                return s_ApplicationSettings;
+                sr_Serializer.Serialize(stream, this);
             }
         }
 
+        //replace to private
         private static ApplicationSettings fromFileOrDefault()
         {
             ApplicationSettings loadedThis = null;
@@ -65,14 +74,6 @@ namespace FaceBookAppLogic
             }
 
             return loadedThis;
-        }
-
-        public void Save()
-        {
-            using (FileStream stream = new FileStream(sr_FileName, FileMode.Create))
-            {
-                sr_Serializer.Serialize(stream, this);
-            }
         }
     }
 }

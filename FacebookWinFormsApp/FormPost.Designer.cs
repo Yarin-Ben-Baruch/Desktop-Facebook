@@ -33,7 +33,7 @@
             this.m_ListBoxPosts = new System.Windows.Forms.ListBox();
             this.m_ButtonSetStatus = new System.Windows.Forms.Button();
             this.m_TextBoxStatus = new System.Windows.Forms.TextBox();
-            this.linkPosts = new System.Windows.Forms.LinkLabel();
+            this.m_LinkPosts = new System.Windows.Forms.LinkLabel();
             this.m_ButtonFetchPosts = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -89,14 +89,14 @@
             this.m_TextBoxStatus.Size = new System.Drawing.Size(452, 31);
             this.m_TextBoxStatus.TabIndex = 54;
             // 
-            // linkPosts
+            // m_LinkPosts
             // 
-            this.linkPosts.AutoSize = true;
-            this.linkPosts.Location = new System.Drawing.Point(77, 122);
-            this.linkPosts.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.linkPosts.Name = "linkPosts";
-            this.linkPosts.Size = new System.Drawing.Size(0, 25);
-            this.linkPosts.TabIndex = 56;
+            this.m_LinkPosts.AutoSize = true;
+            this.m_LinkPosts.Location = new System.Drawing.Point(77, 122);
+            this.m_LinkPosts.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.m_LinkPosts.Name = "m_LinkPosts";
+            this.m_LinkPosts.Size = new System.Drawing.Size(0, 25);
+            this.m_LinkPosts.TabIndex = 56;
             // 
             // m_ButtonFetchPosts
             // 
@@ -119,7 +119,7 @@
             this.Controls.Add(this.m_ListBoxPosts);
             this.Controls.Add(this.m_ButtonSetStatus);
             this.Controls.Add(this.m_TextBoxStatus);
-            this.Controls.Add(this.linkPosts);
+            this.Controls.Add(this.m_LinkPosts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MinimizeBox = false;
             this.Name = "FormPost";
@@ -136,7 +136,7 @@
         private System.Windows.Forms.ListBox m_ListBoxPosts;
         private System.Windows.Forms.Button m_ButtonSetStatus;
         private System.Windows.Forms.TextBox m_TextBoxStatus;
-        private System.Windows.Forms.LinkLabel linkPosts;
+        private System.Windows.Forms.LinkLabel m_LinkPosts;
         private System.Windows.Forms.Button m_ButtonFetchPosts;
     }
 }

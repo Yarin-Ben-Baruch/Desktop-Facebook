@@ -13,7 +13,6 @@ namespace BasicFacebookFeatures
 {
     public partial class FormBestMatch : Form
     {
-
         private readonly FormMain r_FormMain;
         private User.eGender m_ChosenGender;
         private ICollection<User> m_BestMatches;
@@ -87,6 +86,27 @@ namespace BasicFacebookFeatures
             }
         }
 
+        private void comboBoxGender_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_ChosenGender = (User.eGender)m_ComboBoxGender.SelectedIndex;
+        }
+
+        private void numericUpDownStartAge_ValueChanged(object sender, EventArgs e)
+        {
+            if (m_NumericUpDownStartAge.Value > m_NumericUpDownEndAge.Value)
+            {
+                m_NumericUpDownEndAge.Value = m_NumericUpDownStartAge.Value;
+            }
+        }
+
+        private void numericUpDownEndAge_ValueChanged(object sender, EventArgs e)
+        {
+            if (m_NumericUpDownStartAge.Value > m_NumericUpDownEndAge.Value)
+            {
+                m_NumericUpDownStartAge.Value = m_NumericUpDownEndAge.Value;
+            }
+        }
+
         private void visitLoverProfile()
         {
             //// Change the color of the link text by setting LinkVisited
@@ -100,11 +120,6 @@ namespace BasicFacebookFeatures
 
                 System.Diagnostics.Process.Start(selectedUser.Link);
             }
-        }
-
-        private void comboBoxGender_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            m_ChosenGender = (User.eGender)m_ComboBoxGender.SelectedIndex;
         }
 
         private void initializedCommonPagesList(ICollection<User> i_BestMatchesInLinkedList, int i_SelectedIndex)
@@ -144,22 +159,6 @@ namespace BasicFacebookFeatures
 
             r_FormMain.ResetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);
             r_FormMain.FetchUserData(m_ListBoxFriends, commonFriendsWithMatch, errorMessage);
-        }
-
-        private void numericUpDownStartAge_ValueChanged(object sender, EventArgs e)
-        {
-            if (m_NumericUpDownStartAge.Value > m_NumericUpDownEndAge.Value)
-            {
-                m_NumericUpDownEndAge.Value = m_NumericUpDownStartAge.Value;
-            }
-        }
-
-        private void numericUpDownEndAge_ValueChanged(object sender, EventArgs e)
-        {
-            if (m_NumericUpDownStartAge.Value > m_NumericUpDownEndAge.Value)
-            {
-                m_NumericUpDownStartAge.Value = m_NumericUpDownEndAge.Value;
-            }
         }
 
         private void resetPreviousSearch()

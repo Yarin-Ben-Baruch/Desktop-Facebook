@@ -40,7 +40,7 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void m_ButtonMostLikesOnPosts_Click(object sender, EventArgs e)
+        private void buttonMostLikesOnPosts_Click(object sender, EventArgs e)
         {
             try
             {
