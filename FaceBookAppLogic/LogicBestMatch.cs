@@ -64,7 +64,7 @@ namespace FaceBookAppLogic
             CommonFriendsDic.Clear();
         }
 
-        // Change Name
+        //Change Name
         private int calcFriendAge(User i_Friend)
         {
             int currentUserAge = -1;
