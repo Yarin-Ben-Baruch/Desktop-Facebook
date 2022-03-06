@@ -37,7 +37,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-        //Change name.
         private void fetchUsersByCity(City i_CityToFind)
         {
             const string errorMessage = "No user to retrieve :(";

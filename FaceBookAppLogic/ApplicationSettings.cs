@@ -44,7 +44,6 @@ namespace FaceBookAppLogic
         {
         }
 
-        //Change name.
         public void SaveApplicationSettings()
         {
             using (FileStream stream = new FileStream(sr_FileName, FileMode.Create))
@@ -53,7 +52,6 @@ namespace FaceBookAppLogic
             }
         }
 
-        //replace to private
         private static ApplicationSettings fromFileOrDefault()
         {
             ApplicationSettings loadedThis = null;

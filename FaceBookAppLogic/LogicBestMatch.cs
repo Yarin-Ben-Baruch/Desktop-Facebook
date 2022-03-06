@@ -64,7 +64,6 @@ namespace FaceBookAppLogic
             CommonFriendsDic.Clear();
         }
 
-        //Change Name
         private int calcFriendAge(User i_Friend)
         {
             int currentUserAge = -1;
@@ -78,7 +77,6 @@ namespace FaceBookAppLogic
             return currentUserAge;
         }
 
-        //replace to private
         private ICollection<FacebookObject> findCommonObjectsInCollection(ICollection<FacebookObject> i_CollectionOfLoginUser, ICollection<FacebookObject> i_CollectionOfMyMatch)
         {
             ICollection<FacebookObject> commonObjectsList = new List<FacebookObject>();
