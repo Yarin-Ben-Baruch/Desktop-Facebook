@@ -51,7 +51,7 @@ namespace BasicFacebookFeatures
             // 
             this.m_ButtonLogin.BackColor = System.Drawing.Color.White;
             this.m_ButtonLogin.Location = new System.Drawing.Point(517, 21);
-            this.m_ButtonLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ButtonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonLogin.Name = "m_ButtonLogin";
             this.m_ButtonLogin.Size = new System.Drawing.Size(239, 28);
             this.m_ButtonLogin.TabIndex = 36;
@@ -63,7 +63,7 @@ namespace BasicFacebookFeatures
             // 
             this.m_ButtonLogout.BackColor = System.Drawing.Color.White;
             this.m_ButtonLogout.Location = new System.Drawing.Point(517, 61);
-            this.m_ButtonLogout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ButtonLogout.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonLogout.Name = "m_ButtonLogout";
             this.m_ButtonLogout.Size = new System.Drawing.Size(239, 28);
             this.m_ButtonLogout.TabIndex = 52;
@@ -180,7 +180,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonPosts.Name = "m_ButtonPosts";
             this.m_ButtonPosts.Size = new System.Drawing.Size(157, 56);
             this.m_ButtonPosts.TabIndex = 66;
-            this.m_ButtonPosts.Text = "My posts";
+            this.m_ButtonPosts.Text = "Post details";
             this.m_ButtonPosts.UseVisualStyleBackColor = false;
             this.m_ButtonPosts.Click += new System.EventHandler(this.buttonPosts_Click);
             // 
@@ -188,7 +188,7 @@ namespace BasicFacebookFeatures
             // 
             this.m_CheckBoxAutoLogin.AutoSize = true;
             this.m_CheckBoxAutoLogin.Location = new System.Drawing.Point(627, 104);
-            this.m_CheckBoxAutoLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_CheckBoxAutoLogin.Margin = new System.Windows.Forms.Padding(4);
             this.m_CheckBoxAutoLogin.Name = "m_CheckBoxAutoLogin";
             this.m_CheckBoxAutoLogin.Size = new System.Drawing.Size(122, 21);
             this.m_CheckBoxAutoLogin.TabIndex = 67;
@@ -217,7 +217,7 @@ namespace BasicFacebookFeatures
             this.Controls.Add(this.m_ButtonLogout);
             this.Controls.Add(this.m_ButtonLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

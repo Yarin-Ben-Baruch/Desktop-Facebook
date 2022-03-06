@@ -34,6 +34,7 @@ namespace BasicFacebookFeatures
             try
             {
                 Status postedStatus = r_FormMain.LoggedInUser.PostStatus(m_TextBoxStatus.Text);
+
                 MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
             }
             catch (Exception)
@@ -42,7 +43,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-        // TODO : CHECK IF CAN PUT IN 
         private void buttonFetchPosts_Click(object sender, EventArgs e)
         {
             try

@@ -63,7 +63,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-        // COMMON METHODS
         internal void FetchUserData<T>(ListBox i_ListBoxToFill, ICollection<T> i_Collection, string i_ErrorMessage)
         {
             i_ListBoxToFill.DisplayMember = "Name";
@@ -184,7 +183,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -196,7 +195,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -208,7 +207,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -220,7 +219,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -232,7 +231,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -244,7 +243,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -258,7 +257,7 @@ namespace BasicFacebookFeatures
             }
             else
             {
-                MessageBox.Show(ErrorMessageSupported, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(k_ErrorMessageLogin, TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
