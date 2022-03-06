@@ -9,12 +9,14 @@ namespace FaceBookAppLogic
         private readonly LogicBestMatch r_BestMatchLogic;
         private readonly LogicBestFriend r_BestFriendLogic;
         private readonly LogicFriendsCities r_FriendsCities;
+        private readonly LogicUtilities r_LogicUtilities;
 
         public LogicManager()
         {
             r_BestFriendLogic = new LogicBestFriend();
             r_BestMatchLogic = new LogicBestMatch();
             r_FriendsCities = new LogicFriendsCities();
+            r_LogicUtilities = new LogicUtilities();
         }
 
         public ICollection<City> GetAllCities(FacebookObjectCollection<User> i_LoggedInUserFriends)
@@ -38,32 +40,32 @@ namespace FaceBookAppLogic
         public ICollection<User> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums, ICollection<User> i_FriendsList)
         {
             IDictionary<string, int> mostLikesPhotosUserIdDic = r_BestFriendLogic.GetMostLikesOnPhotosByUsers(i_Albums);
-            ICollection<string> sortedListOfIds = orderDictionaryByValueReverse(mostLikesPhotosUserIdDic);
+            ICollection<string> sortedListOfIds = r_LogicUtilities.OrderDictionaryByValueReverse(mostLikesPhotosUserIdDic);
 
-            return convertIdToUser(sortedListOfIds, i_FriendsList);
+            return r_LogicUtilities.ConvertIdToUser(sortedListOfIds, i_FriendsList);
         }
 
         public ICollection<User> GetMostCommentsOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums, ICollection<User> i_FriendsList)
         {
             IDictionary<string, int> mostLikesPhotosUserIdDic = r_BestFriendLogic.GetMostCommentsOnPhotosByUsers(i_Albums);
-            ICollection<string> sortedListOfIds = orderDictionaryByValueReverse(mostLikesPhotosUserIdDic);
+            ICollection<string> sortedListOfIds = r_LogicUtilities.OrderDictionaryByValueReverse(mostLikesPhotosUserIdDic);
 
-            return convertIdToUser(sortedListOfIds, i_FriendsList);
+            return r_LogicUtilities.ConvertIdToUser(sortedListOfIds, i_FriendsList);
         }
 
         public ICollection<User> GetMostLikesOnPostByUsers(FacebookObjectCollection<Post> i_Post, ICollection<User> i_FriendsList)
         {
             IDictionary<string, int> mostLikesPostUserIdDic = r_BestFriendLogic.GetMostLikesOnPostsByUsers(i_Post);
-            ICollection<string> sortedListOfIds = orderDictionaryByValueReverse(mostLikesPostUserIdDic);
+            ICollection<string> sortedListOfIds = r_LogicUtilities.OrderDictionaryByValueReverse(mostLikesPostUserIdDic);
 
-            return convertIdToUser(sortedListOfIds, i_FriendsList);
+            return r_LogicUtilities.ConvertIdToUser(sortedListOfIds, i_FriendsList);
         }
 
         public ICollection<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)
         {
             IDictionary<User, int> bestMatchDictionary = r_BestMatchLogic.FindBestMatch(i_LoggedInUserFriends, i_LoggedInUser, i_ChosenGender, i_StartAge, i_EndAge);
 
-            return orderDictionaryByValueReverse(bestMatchDictionary);
+            return r_LogicUtilities.OrderDictionaryByValueReverse(bestMatchDictionary);
         }
 
         public ICollection<Page> FindCommonLikedPages(string i_MyMatch)
@@ -91,37 +93,6 @@ namespace FaceBookAppLogic
             commonList = r_BestMatchLogic.CommonFriendsDic[i_MyMatch];
 
             return commonList.Cast<User>().ToList();
-        }
-
-        private ICollection<T> orderDictionaryByValueReverse<T>(IDictionary<T, int> i_UsersToOrder)
-        {
-            ICollection<T> sortedUsers = new LinkedList<T>();
-            IOrderedEnumerable<KeyValuePair<T, int>> orderDic = i_UsersToOrder.OrderBy(key => -key.Value);
-
-            foreach (KeyValuePair<T, int> user in orderDic)
-            {
-                sortedUsers.Add(user.Key);
-            }
-
-            return sortedUsers;
-        }
-
-        private ICollection<User> convertIdToUser(ICollection<string> i_UserIdList, ICollection<User> i_FriendsList)
-        {
-            ICollection<User> sortedUsers = new LinkedList<User>();
-
-            foreach (string userId in i_UserIdList)
-            {
-                foreach (User user in i_FriendsList)
-                {
-                    if (user.Id.Equals(userId))
-                    {
-                        sortedUsers.Add(user);
-                    }
-                }
-            }
-
-            return sortedUsers;
         }
     }
 }

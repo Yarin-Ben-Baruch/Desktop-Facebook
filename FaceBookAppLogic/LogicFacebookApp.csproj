@@ -44,6 +44,7 @@
     <Compile Include="LogicFriendsCities.cs" />
     <Compile Include="LogicBestFriend.cs" />
     <Compile Include="LogicManager.cs" />
+    <Compile Include="LogicUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Facebook">
