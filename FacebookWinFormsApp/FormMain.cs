@@ -103,6 +103,7 @@ namespace BasicFacebookFeatures
             if (i_SelectedListBox.SelectedItems.Count == 1)
             {
                 Page selectedPage = i_SelectedListBox.SelectedItem as Page;
+
                 i_PhotoToAdd.LoadAsync(selectedPage.PictureNormalURL);
             }
             else
@@ -116,6 +117,7 @@ namespace BasicFacebookFeatures
             if (i_SelectedListBox.SelectedItems.Count == 1)
             {
                 Event selectedEvent = i_SelectedListBox.SelectedItem as Event;
+
                 i_PhotoToAdd.LoadAsync(selectedEvent.Cover.SourceURL);
             }
             else
