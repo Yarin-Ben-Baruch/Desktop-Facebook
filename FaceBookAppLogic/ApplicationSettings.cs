@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 
 namespace FaceBookAppLogic
 {
-    public class ApplicationSettings
+    public sealed class ApplicationSettings
     {
         private static readonly string sr_FileName;
 
