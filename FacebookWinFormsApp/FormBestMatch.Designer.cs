@@ -83,7 +83,7 @@ namespace BasicFacebookFeatures
             // 
             this.m_ButtonSearchMatch.BackColor = System.Drawing.Color.White;
             this.m_ButtonSearchMatch.Location = new System.Drawing.Point(72, 131);
-            this.m_ButtonSearchMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ButtonSearchMatch.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonSearchMatch.Name = "m_ButtonSearchMatch";
             this.m_ButtonSearchMatch.Size = new System.Drawing.Size(100, 28);
             this.m_ButtonSearchMatch.TabIndex = 4;
@@ -96,7 +96,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxGroups.FormattingEnabled = true;
             this.m_ListBoxGroups.ItemHeight = 16;
             this.m_ListBoxGroups.Location = new System.Drawing.Point(32, 278);
-            this.m_ListBoxGroups.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ListBoxGroups.Margin = new System.Windows.Forms.Padding(4);
             this.m_ListBoxGroups.Name = "m_ListBoxGroups";
             this.m_ListBoxGroups.Size = new System.Drawing.Size(204, 244);
             this.m_ListBoxGroups.TabIndex = 5;
@@ -115,7 +115,7 @@ namespace BasicFacebookFeatures
             // m_PictureBoxGroups
             // 
             this.m_PictureBoxGroups.Location = new System.Drawing.Point(141, 440);
-            this.m_PictureBoxGroups.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_PictureBoxGroups.Margin = new System.Windows.Forms.Padding(4);
             this.m_PictureBoxGroups.Name = "m_PictureBoxGroups";
             this.m_PictureBoxGroups.Size = new System.Drawing.Size(93, 80);
             this.m_PictureBoxGroups.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -125,7 +125,7 @@ namespace BasicFacebookFeatures
             // m_PictureBoxPages
             // 
             this.m_PictureBoxPages.Location = new System.Drawing.Point(504, 440);
-            this.m_PictureBoxPages.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_PictureBoxPages.Margin = new System.Windows.Forms.Padding(4);
             this.m_PictureBoxPages.Name = "m_PictureBoxPages";
             this.m_PictureBoxPages.Size = new System.Drawing.Size(93, 80);
             this.m_PictureBoxPages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -147,7 +147,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxPages.FormattingEnabled = true;
             this.m_ListBoxPages.ItemHeight = 16;
             this.m_ListBoxPages.Location = new System.Drawing.Point(395, 278);
-            this.m_ListBoxPages.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ListBoxPages.Margin = new System.Windows.Forms.Padding(4);
             this.m_ListBoxPages.Name = "m_ListBoxPages";
             this.m_ListBoxPages.Size = new System.Drawing.Size(204, 244);
             this.m_ListBoxPages.TabIndex = 8;
@@ -156,7 +156,7 @@ namespace BasicFacebookFeatures
             // m_PictureBoxFriends
             // 
             this.m_PictureBoxFriends.Location = new System.Drawing.Point(861, 440);
-            this.m_PictureBoxFriends.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_PictureBoxFriends.Margin = new System.Windows.Forms.Padding(4);
             this.m_PictureBoxFriends.Name = "m_PictureBoxFriends";
             this.m_PictureBoxFriends.Size = new System.Drawing.Size(93, 80);
             this.m_PictureBoxFriends.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -178,7 +178,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxFriends.FormattingEnabled = true;
             this.m_ListBoxFriends.ItemHeight = 16;
             this.m_ListBoxFriends.Location = new System.Drawing.Point(752, 278);
-            this.m_ListBoxFriends.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ListBoxFriends.Margin = new System.Windows.Forms.Padding(4);
             this.m_ListBoxFriends.Name = "m_ListBoxFriends";
             this.m_ListBoxFriends.Size = new System.Drawing.Size(204, 244);
             this.m_ListBoxFriends.TabIndex = 11;
@@ -189,7 +189,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxBestMatch.FormattingEnabled = true;
             this.m_ListBoxBestMatch.ItemHeight = 16;
             this.m_ListBoxBestMatch.Location = new System.Drawing.Point(684, 24);
-            this.m_ListBoxBestMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ListBoxBestMatch.Margin = new System.Windows.Forms.Padding(4);
             this.m_ListBoxBestMatch.Name = "m_ListBoxBestMatch";
             this.m_ListBoxBestMatch.Size = new System.Drawing.Size(272, 164);
             this.m_ListBoxBestMatch.TabIndex = 14;
@@ -198,7 +198,7 @@ namespace BasicFacebookFeatures
             // m_PictureBoxBestMatch
             // 
             this.m_PictureBoxBestMatch.Location = new System.Drawing.Point(861, 107);
-            this.m_PictureBoxBestMatch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_PictureBoxBestMatch.Margin = new System.Windows.Forms.Padding(4);
             this.m_PictureBoxBestMatch.Name = "m_PictureBoxBestMatch";
             this.m_PictureBoxBestMatch.Size = new System.Drawing.Size(93, 80);
             this.m_PictureBoxBestMatch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -220,10 +220,11 @@ namespace BasicFacebookFeatures
             // m_LabelBestMatch
             // 
             this.m_LabelBestMatch.AutoSize = true;
-            this.m_LabelBestMatch.Location = new System.Drawing.Point(503, 54);
+            this.m_LabelBestMatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.m_LabelBestMatch.Location = new System.Drawing.Point(499, 31);
             this.m_LabelBestMatch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelBestMatch.Name = "m_LabelBestMatch";
-            this.m_LabelBestMatch.Size = new System.Drawing.Size(107, 17);
+            this.m_LabelBestMatch.Size = new System.Drawing.Size(150, 25);
             this.m_LabelBestMatch.TabIndex = 17;
             this.m_LabelBestMatch.Text = "The Best Match";
             // 
@@ -234,7 +235,7 @@ namespace BasicFacebookFeatures
             "Female",
             "Male"});
             this.m_ComboBoxGender.Location = new System.Drawing.Point(111, 28);
-            this.m_ComboBoxGender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.m_ComboBoxGender.Margin = new System.Windows.Forms.Padding(4);
             this.m_ComboBoxGender.Name = "m_ComboBoxGender";
             this.m_ComboBoxGender.Size = new System.Drawing.Size(160, 24);
             this.m_ComboBoxGender.TabIndex = 21;
@@ -243,7 +244,7 @@ namespace BasicFacebookFeatures
             // m_NumericUpDownStartAge
             // 
             this.m_NumericUpDownStartAge.Location = new System.Drawing.Point(111, 72);
-            this.m_NumericUpDownStartAge.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_NumericUpDownStartAge.Margin = new System.Windows.Forms.Padding(2);
             this.m_NumericUpDownStartAge.Minimum = new decimal(new int[] {
             16,
             0,
@@ -262,7 +263,7 @@ namespace BasicFacebookFeatures
             // m_NumericUpDownEndAge
             // 
             this.m_NumericUpDownEndAge.Location = new System.Drawing.Point(216, 70);
-            this.m_NumericUpDownEndAge.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_NumericUpDownEndAge.Margin = new System.Windows.Forms.Padding(2);
             this.m_NumericUpDownEndAge.Minimum = new decimal(new int[] {
             16,
             0,
@@ -316,7 +317,7 @@ namespace BasicFacebookFeatures
             this.Controls.Add(this.m_LabelAge);
             this.Controls.Add(this.m_LabelGender);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "FormBestMatch";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

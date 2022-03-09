@@ -40,7 +40,7 @@
             // m_ButtonFindCities
             // 
             this.m_ButtonFindCities.Location = new System.Drawing.Point(23, 52);
-            this.m_ButtonFindCities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_ButtonFindCities.Margin = new System.Windows.Forms.Padding(2);
             this.m_ButtonFindCities.Name = "m_ButtonFindCities";
             this.m_ButtonFindCities.Size = new System.Drawing.Size(187, 32);
             this.m_ButtonFindCities.TabIndex = 0;
@@ -53,7 +53,7 @@
             this.m_ListBoxAllCities.FormattingEnabled = true;
             this.m_ListBoxAllCities.ItemHeight = 16;
             this.m_ListBoxAllCities.Location = new System.Drawing.Point(27, 103);
-            this.m_ListBoxAllCities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_ListBoxAllCities.Margin = new System.Windows.Forms.Padding(2);
             this.m_ListBoxAllCities.Name = "m_ListBoxAllCities";
             this.m_ListBoxAllCities.Size = new System.Drawing.Size(183, 212);
             this.m_ListBoxAllCities.TabIndex = 1;
@@ -64,7 +64,7 @@
             this.m_ListBoxUserInSameCity.FormattingEnabled = true;
             this.m_ListBoxUserInSameCity.ItemHeight = 16;
             this.m_ListBoxUserInSameCity.Location = new System.Drawing.Point(383, 103);
-            this.m_ListBoxUserInSameCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_ListBoxUserInSameCity.Margin = new System.Windows.Forms.Padding(2);
             this.m_ListBoxUserInSameCity.Name = "m_ListBoxUserInSameCity";
             this.m_ListBoxUserInSameCity.Size = new System.Drawing.Size(183, 212);
             this.m_ListBoxUserInSameCity.TabIndex = 2;
@@ -73,17 +73,18 @@
             // m_LabelHeaderListBox
             // 
             this.m_LabelHeaderListBox.AutoSize = true;
-            this.m_LabelHeaderListBox.Location = new System.Drawing.Point(410, 60);
+            this.m_LabelHeaderListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.m_LabelHeaderListBox.Location = new System.Drawing.Point(407, 57);
             this.m_LabelHeaderListBox.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.m_LabelHeaderListBox.Name = "m_LabelHeaderListBox";
-            this.m_LabelHeaderListBox.Size = new System.Drawing.Size(106, 17);
+            this.m_LabelHeaderListBox.Size = new System.Drawing.Size(125, 20);
             this.m_LabelHeaderListBox.TabIndex = 3;
             this.m_LabelHeaderListBox.Text = "Who lives there";
             // 
             // m_PictureBoxProfileUser
             // 
             this.m_PictureBoxProfileUser.Location = new System.Drawing.Point(483, 233);
-            this.m_PictureBoxProfileUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.m_PictureBoxProfileUser.Margin = new System.Windows.Forms.Padding(2);
             this.m_PictureBoxProfileUser.Name = "m_PictureBoxProfileUser";
             this.m_PictureBoxProfileUser.Size = new System.Drawing.Size(81, 79);
             this.m_PictureBoxProfileUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,7 +103,7 @@
             this.Controls.Add(this.m_ListBoxAllCities);
             this.Controls.Add(this.m_ButtonFindCities);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "FormLocations";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
