@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FacebookWrapper.ObjectModel;
 
@@ -6,77 +7,32 @@ namespace FaceBookAppLogic
 {
     public class LogicBestFriend
     {
-        public IDictionary<string, int> GetMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_CollectionOfPostsToCheck)
+        //add to diagram aggrigation
+        public IDictionary<string, int> MostLikesOnPhotos { get; set; }
+
+        public IDictionary<string, int> MostLikesOnPosts { get; set; }
+
+        public IDictionary<string, int> MostCommentsOnPhotos { get; set; }
+
+        public LogicBestFriend()
         {
-            ICollection<Post> posts = new List<Post>();
-            IDictionary<string, int> usersMostLikes = new Dictionary<string, int>();
-            ICollection<User> sortedUsers = new LinkedList<User>();
-
-            foreach (Post post in i_CollectionOfPostsToCheck)
-            {
-                foreach (User user in post.LikedBy)
-                {
-                    if (usersMostLikes.ContainsKey(user.Id))
-                    {
-                        usersMostLikes[user.Id] += 1;
-                    }
-                    else
-                    {
-                        usersMostLikes.Add(user.Id, 1);
-                    }
-                }
-            }
-
-            return usersMostLikes;
+            MostLikesOnPhotos = new Dictionary<string, int>();
+            MostLikesOnPosts = new Dictionary<string, int>();
+            MostCommentsOnPhotos = new Dictionary<string, int>();
         }
 
-        public IDictionary<string, int> GetMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_CollectionOfAlbumsToCheck)
+        public IDictionary<string, int> GetMyLoyalFriends(User i_LoggedInUser)
         {
-            ICollection<Photo> photosToCheck = FetchPhotos(i_CollectionOfAlbumsToCheck);
-            IDictionary<string, int> usersMostLikes = new Dictionary<string, int>();
+            IDictionary<string, int> myLoyalFriends;
 
-            foreach (Photo photo in photosToCheck)
-            {
-                foreach (User user in photo.LikedBy)
-                {
-                    if (usersMostLikes.ContainsKey(user.Id))
-                    {
-                        usersMostLikes[user.Id] += 1;
-                    }
-                    else
-                    {
-                        usersMostLikes.Add(user.Id, 1);
-                    }
-                }
-            }
+            initMostCommentsOnPhotosByUsers(i_LoggedInUser.Albums);
+            initMostLikesOnPhotosByUsers(i_LoggedInUser.Albums);
+            //MostLikesOnPosts = getMostLikesOnPostsByUsers(i_LoggedInUser.Posts);
 
-            return usersMostLikes;
-        }
+            myLoyalFriends = mergingDictionary(MostCommentsOnPhotos, MostLikesOnPhotos);
+            //myLoyalFriends = mergingDictionary(myLoyalFriends, MostLikesOnPosts);
 
-        public IDictionary<string, int> GetMostCommentsOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
-        {
-            ICollection<Photo> photos = FetchPhotos(i_Albums);
-            IDictionary<string, int> usersMostLikes = new Dictionary<string, int>();
-            User currentUser;
-
-            foreach (Photo photo in photos)
-            {
-                foreach (Comment comment in photo.Comments)
-                {
-                    currentUser = comment.From;
-
-                    if (usersMostLikes.ContainsKey(currentUser.Id))
-                    {
-                        usersMostLikes[currentUser.Id] += 1;
-                    }
-                    else
-                    {
-                        usersMostLikes.Add(currentUser.Id, 1);
-                    }
-                }
-            }
-
-            return usersMostLikes;
+            return myLoyalFriends;
         }
 
         internal ICollection<Photo> FetchPhotos(FacebookObjectCollection<Album> i_Albums)
@@ -92,6 +48,90 @@ namespace FaceBookAppLogic
             }
 
             return photos;
+        }
+
+        //remvoce
+        private void getMostLikesOnPostsByUsers(FacebookObjectCollection<Post> i_CollectionOfPostsToCheck)
+        {
+            ICollection<Post> posts = new List<Post>();
+
+            foreach (Post post in i_CollectionOfPostsToCheck)
+            {
+                foreach (User user in post.LikedBy)
+                {
+                    if (MostLikesOnPosts.ContainsKey(user.Id))
+                    {
+                        MostLikesOnPosts[user.Id] += 1;
+                    }
+                    else
+                    {
+                        MostLikesOnPosts.Add(user.Id, 1);
+                    }
+                }
+            }
+        }
+
+        private void initMostLikesOnPhotosByUsers(FacebookObjectCollection<Album> i_CollectionOfAlbumsToCheck)
+        {
+            ICollection<Photo> photosToCheck = FetchPhotos(i_CollectionOfAlbumsToCheck);
+
+            foreach (Photo photo in photosToCheck)
+            {
+                foreach (User user in photo.LikedBy)
+                {
+                    if (MostLikesOnPhotos.ContainsKey(user.Id))
+                    {
+                        MostLikesOnPhotos[user.Id] += 1;
+                    }
+                    else
+                    {
+                        MostLikesOnPhotos.Add(user.Id, 1);
+                    }
+                }
+            }
+        }
+
+        private void initMostCommentsOnPhotosByUsers(FacebookObjectCollection<Album> i_Albums)
+        {
+            ICollection<Photo> photos = FetchPhotos(i_Albums);
+            User currentUser;
+
+            foreach (Photo photo in photos)
+            {
+                foreach (Comment comment in photo.Comments)
+                {
+                    currentUser = comment.From;
+
+                    if (MostCommentsOnPhotos.ContainsKey(currentUser.Id))
+                    {
+                        MostCommentsOnPhotos[currentUser.Id] += 1;
+                    }
+                    else
+                    {
+                        MostCommentsOnPhotos.Add(currentUser.Id, 1);
+                    }
+                }
+            }
+        }
+
+        private IDictionary<string, int> mergingDictionary(IDictionary<string, int> i_FirstDictionary, IDictionary<string, int> i_SecondDictionary)
+        {
+            IDictionary<string, int> mergeDictionary = new Dictionary<string, int>(i_FirstDictionary);
+            ICollection<string> dictionaryKeys = i_FirstDictionary.Keys;
+
+            foreach (string currentKey in dictionaryKeys)
+            {
+                if (i_SecondDictionary.ContainsKey(currentKey))
+                {
+                    mergeDictionary[currentKey] += i_SecondDictionary[currentKey];
+                }
+                else
+                {
+                    mergeDictionary.Add(currentKey, i_SecondDictionary[currentKey]);
+                }
+            }
+
+            return mergeDictionary;
         }
     }
 }
