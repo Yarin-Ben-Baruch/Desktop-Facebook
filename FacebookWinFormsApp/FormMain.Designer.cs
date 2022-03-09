@@ -54,7 +54,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonLogin.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonLogin.Name = "m_ButtonLogin";
             this.m_ButtonLogin.Size = new System.Drawing.Size(239, 28);
-            this.m_ButtonLogin.TabIndex = 36;
+            this.m_ButtonLogin.TabIndex = 0;
             this.m_ButtonLogin.Text = "Login";
             this.m_ButtonLogin.UseVisualStyleBackColor = false;
             this.m_ButtonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
@@ -66,7 +66,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonLogout.Margin = new System.Windows.Forms.Padding(4);
             this.m_ButtonLogout.Name = "m_ButtonLogout";
             this.m_ButtonLogout.Size = new System.Drawing.Size(239, 28);
-            this.m_ButtonLogout.TabIndex = 52;
+            this.m_ButtonLogout.TabIndex = 1;
             this.m_ButtonLogout.Text = "Logout";
             this.m_ButtonLogout.UseVisualStyleBackColor = false;
             this.m_ButtonLogout.Click += new System.EventHandler(this.buttonLogout_Click);
@@ -89,7 +89,7 @@ namespace BasicFacebookFeatures
             this.m_LabelFullName.Location = new System.Drawing.Point(248, 28);
             this.m_LabelFullName.Name = "m_LabelFullName";
             this.m_LabelFullName.Size = new System.Drawing.Size(69, 17);
-            this.m_LabelFullName.TabIndex = 54;
+            this.m_LabelFullName.TabIndex = 0;
             this.m_LabelFullName.Text = "Full name";
             // 
             // m_LabelBirthday
@@ -99,7 +99,7 @@ namespace BasicFacebookFeatures
             this.m_LabelBirthday.Location = new System.Drawing.Point(248, 61);
             this.m_LabelBirthday.Name = "m_LabelBirthday";
             this.m_LabelBirthday.Size = new System.Drawing.Size(60, 17);
-            this.m_LabelBirthday.TabIndex = 55;
+            this.m_LabelBirthday.TabIndex = 0;
             this.m_LabelBirthday.Text = "Birthday";
             // 
             // m_ButtonBestMatch
@@ -109,7 +109,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonBestMatch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.m_ButtonBestMatch.Name = "m_ButtonBestMatch";
             this.m_ButtonBestMatch.Size = new System.Drawing.Size(152, 56);
-            this.m_ButtonBestMatch.TabIndex = 56;
+            this.m_ButtonBestMatch.TabIndex = 5;
             this.m_ButtonBestMatch.Text = "Find best match";
             this.m_ButtonBestMatch.UseVisualStyleBackColor = false;
             this.m_ButtonBestMatch.Click += new System.EventHandler(this.buttonBestMatch_Click);
@@ -121,7 +121,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonMostLikesFromFriends.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.m_ButtonMostLikesFromFriends.Name = "m_ButtonMostLikesFromFriends";
             this.m_ButtonMostLikesFromFriends.Size = new System.Drawing.Size(152, 56);
-            this.m_ButtonMostLikesFromFriends.TabIndex = 57;
+            this.m_ButtonMostLikesFromFriends.TabIndex = 4;
             this.m_ButtonMostLikesFromFriends.Text = "My loyal friend";
             this.m_ButtonMostLikesFromFriends.UseVisualStyleBackColor = false;
             this.m_ButtonMostLikesFromFriends.Click += new System.EventHandler(this.buttonMostLikesFromFriends_Click);
@@ -133,7 +133,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonPopularPhotos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.m_ButtonPopularPhotos.Name = "m_ButtonPopularPhotos";
             this.m_ButtonPopularPhotos.Size = new System.Drawing.Size(157, 56);
-            this.m_ButtonPopularPhotos.TabIndex = 60;
+            this.m_ButtonPopularPhotos.TabIndex = 8;
             this.m_ButtonPopularPhotos.Text = "My popular photos";
             this.m_ButtonPopularPhotos.UseVisualStyleBackColor = false;
             this.m_ButtonPopularPhotos.Click += new System.EventHandler(this.buttonPopularPhotos_Click);
@@ -145,7 +145,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonFindMyFriendsCities.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.m_ButtonFindMyFriendsCities.Name = "m_ButtonFindMyFriendsCities";
             this.m_ButtonFindMyFriendsCities.Size = new System.Drawing.Size(152, 56);
-            this.m_ButtonFindMyFriendsCities.TabIndex = 62;
+            this.m_ButtonFindMyFriendsCities.TabIndex = 3;
             this.m_ButtonFindMyFriendsCities.Text = "Where all my friends";
             this.m_ButtonFindMyFriendsCities.UseVisualStyleBackColor = false;
             this.m_ButtonFindMyFriendsCities.Click += new System.EventHandler(this.buttonFindMyFriendsCities_Click);
@@ -156,7 +156,7 @@ namespace BasicFacebookFeatures
             this.m_LabelGender.Location = new System.Drawing.Point(248, 93);
             this.m_LabelGender.Name = "m_LabelGender";
             this.m_LabelGender.Size = new System.Drawing.Size(56, 17);
-            this.m_LabelGender.TabIndex = 63;
+            this.m_LabelGender.TabIndex = 0;
             this.m_LabelGender.Text = "Gender";
             // 
             // m_ButtonAccountInfo
@@ -166,7 +166,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonAccountInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.m_ButtonAccountInfo.Name = "m_ButtonAccountInfo";
             this.m_ButtonAccountInfo.Size = new System.Drawing.Size(152, 56);
-            this.m_ButtonAccountInfo.TabIndex = 65;
+            this.m_ButtonAccountInfo.TabIndex = 6;
             this.m_ButtonAccountInfo.Text = "Account info";
             this.m_ButtonAccountInfo.UseVisualStyleBackColor = false;
             this.m_ButtonAccountInfo.Click += new System.EventHandler(this.buttonAccountInfo_Click);
@@ -179,7 +179,7 @@ namespace BasicFacebookFeatures
             this.m_ButtonPosts.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.m_ButtonPosts.Name = "m_ButtonPosts";
             this.m_ButtonPosts.Size = new System.Drawing.Size(157, 56);
-            this.m_ButtonPosts.TabIndex = 66;
+            this.m_ButtonPosts.TabIndex = 7;
             this.m_ButtonPosts.Text = "Post details";
             this.m_ButtonPosts.UseVisualStyleBackColor = false;
             this.m_ButtonPosts.Click += new System.EventHandler(this.buttonPosts_Click);
@@ -191,7 +191,7 @@ namespace BasicFacebookFeatures
             this.m_CheckBoxAutoLogin.Margin = new System.Windows.Forms.Padding(4);
             this.m_CheckBoxAutoLogin.Name = "m_CheckBoxAutoLogin";
             this.m_CheckBoxAutoLogin.Size = new System.Drawing.Size(122, 21);
-            this.m_CheckBoxAutoLogin.TabIndex = 67;
+            this.m_CheckBoxAutoLogin.TabIndex = 2;
             this.m_CheckBoxAutoLogin.Text = "Remember Me";
             this.m_CheckBoxAutoLogin.UseVisualStyleBackColor = true;
             // 

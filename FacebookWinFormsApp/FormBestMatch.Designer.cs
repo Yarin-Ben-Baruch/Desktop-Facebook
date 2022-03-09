@@ -66,7 +66,7 @@ namespace BasicFacebookFeatures
             this.m_LabelGender.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelGender.Name = "m_LabelGender";
             this.m_LabelGender.Size = new System.Drawing.Size(56, 17);
-            this.m_LabelGender.TabIndex = 2;
+            this.m_LabelGender.TabIndex = 0;
             this.m_LabelGender.Text = "Gender";
             // 
             // m_LabelAge
@@ -76,7 +76,7 @@ namespace BasicFacebookFeatures
             this.m_LabelAge.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelAge.Name = "m_LabelAge";
             this.m_LabelAge.Size = new System.Drawing.Size(33, 17);
-            this.m_LabelAge.TabIndex = 3;
+            this.m_LabelAge.TabIndex = 0;
             this.m_LabelAge.Text = "Age";
             // 
             // m_ButtonSearchMatch
@@ -99,7 +99,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxGroups.Margin = new System.Windows.Forms.Padding(4);
             this.m_ListBoxGroups.Name = "m_ListBoxGroups";
             this.m_ListBoxGroups.Size = new System.Drawing.Size(204, 244);
-            this.m_ListBoxGroups.TabIndex = 5;
+            this.m_ListBoxGroups.TabIndex = 7;
             this.m_ListBoxGroups.SelectedIndexChanged += new System.EventHandler(this.listBoxGroups_SelectedIndexChanged);
             // 
             // m_LabelGroups
@@ -109,7 +109,7 @@ namespace BasicFacebookFeatures
             this.m_LabelGroups.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelGroups.Name = "m_LabelGroups";
             this.m_LabelGroups.Size = new System.Drawing.Size(114, 17);
-            this.m_LabelGroups.TabIndex = 6;
+            this.m_LabelGroups.TabIndex = 0;
             this.m_LabelGroups.Text = "Common Groups";
             // 
             // m_PictureBoxGroups
@@ -139,7 +139,7 @@ namespace BasicFacebookFeatures
             this.m_LabelPages.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelPages.Name = "m_LabelPages";
             this.m_LabelPages.Size = new System.Drawing.Size(107, 17);
-            this.m_LabelPages.TabIndex = 9;
+            this.m_LabelPages.TabIndex = 0;
             this.m_LabelPages.Text = "Common Pages";
             // 
             // m_ListBoxPages
@@ -170,7 +170,7 @@ namespace BasicFacebookFeatures
             this.m_LabelFriends.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelFriends.Name = "m_LabelFriends";
             this.m_LabelFriends.Size = new System.Drawing.Size(114, 17);
-            this.m_LabelFriends.TabIndex = 12;
+            this.m_LabelFriends.TabIndex = 0;
             this.m_LabelFriends.Text = "Common Friends";
             // 
             // m_ListBoxFriends
@@ -181,7 +181,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxFriends.Margin = new System.Windows.Forms.Padding(4);
             this.m_ListBoxFriends.Name = "m_ListBoxFriends";
             this.m_ListBoxFriends.Size = new System.Drawing.Size(204, 244);
-            this.m_ListBoxFriends.TabIndex = 11;
+            this.m_ListBoxFriends.TabIndex = 9;
             this.m_ListBoxFriends.SelectedIndexChanged += new System.EventHandler(this.listBoxFriends_SelectedIndexChanged);
             // 
             // m_ListBoxBestMatch
@@ -192,7 +192,7 @@ namespace BasicFacebookFeatures
             this.m_ListBoxBestMatch.Margin = new System.Windows.Forms.Padding(4);
             this.m_ListBoxBestMatch.Name = "m_ListBoxBestMatch";
             this.m_ListBoxBestMatch.Size = new System.Drawing.Size(272, 164);
-            this.m_ListBoxBestMatch.TabIndex = 14;
+            this.m_ListBoxBestMatch.TabIndex = 5;
             this.m_ListBoxBestMatch.SelectedIndexChanged += new System.EventHandler(this.listBoxBestMatch_SelectedIndexChanged);
             // 
             // m_PictureBoxBestMatch
@@ -212,7 +212,7 @@ namespace BasicFacebookFeatures
             this.m_LinkLabelLoverProfile.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LinkLabelLoverProfile.Name = "m_LinkLabelLoverProfile";
             this.m_LinkLabelLoverProfile.Size = new System.Drawing.Size(167, 17);
-            this.m_LinkLabelLoverProfile.TabIndex = 16;
+            this.m_LinkLabelLoverProfile.TabIndex = 6;
             this.m_LinkLabelLoverProfile.TabStop = true;
             this.m_LinkLabelLoverProfile.Text = "Link to your match profile";
             this.m_LinkLabelLoverProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelLoverProfile_LinkClicked);
@@ -225,7 +225,7 @@ namespace BasicFacebookFeatures
             this.m_LabelBestMatch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.m_LabelBestMatch.Name = "m_LabelBestMatch";
             this.m_LabelBestMatch.Size = new System.Drawing.Size(150, 25);
-            this.m_LabelBestMatch.TabIndex = 17;
+            this.m_LabelBestMatch.TabIndex = 0;
             this.m_LabelBestMatch.Text = "The Best Match";
             // 
             // m_ComboBoxGender
@@ -238,7 +238,7 @@ namespace BasicFacebookFeatures
             this.m_ComboBoxGender.Margin = new System.Windows.Forms.Padding(4);
             this.m_ComboBoxGender.Name = "m_ComboBoxGender";
             this.m_ComboBoxGender.Size = new System.Drawing.Size(160, 24);
-            this.m_ComboBoxGender.TabIndex = 21;
+            this.m_ComboBoxGender.TabIndex = 0;
             this.m_ComboBoxGender.SelectedIndexChanged += new System.EventHandler(this.comboBoxGender_SelectedIndexChanged);
             // 
             // m_NumericUpDownStartAge
@@ -252,7 +252,7 @@ namespace BasicFacebookFeatures
             0});
             this.m_NumericUpDownStartAge.Name = "m_NumericUpDownStartAge";
             this.m_NumericUpDownStartAge.Size = new System.Drawing.Size(53, 22);
-            this.m_NumericUpDownStartAge.TabIndex = 22;
+            this.m_NumericUpDownStartAge.TabIndex = 1;
             this.m_NumericUpDownStartAge.Value = new decimal(new int[] {
             16,
             0,
@@ -271,7 +271,7 @@ namespace BasicFacebookFeatures
             0});
             this.m_NumericUpDownEndAge.Name = "m_NumericUpDownEndAge";
             this.m_NumericUpDownEndAge.Size = new System.Drawing.Size(53, 22);
-            this.m_NumericUpDownEndAge.TabIndex = 23;
+            this.m_NumericUpDownEndAge.TabIndex = 3;
             this.m_NumericUpDownEndAge.Value = new decimal(new int[] {
             16,
             0,
@@ -286,7 +286,7 @@ namespace BasicFacebookFeatures
             this.m_LabelConnectAges.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.m_LabelConnectAges.Name = "m_LabelConnectAges";
             this.m_LabelConnectAges.Size = new System.Drawing.Size(29, 17);
-            this.m_LabelConnectAges.TabIndex = 24;
+            this.m_LabelConnectAges.TabIndex = 2;
             this.m_LabelConnectAges.Text = "To:";
             // 
             // FormBestMatch
