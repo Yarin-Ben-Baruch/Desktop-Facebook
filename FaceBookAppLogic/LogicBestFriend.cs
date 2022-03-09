@@ -125,10 +125,10 @@ namespace FaceBookAppLogic
                 {
                     mergeDictionary[currentKey] += i_SecondDictionary[currentKey];
                 }
-                else
-                {
-                    mergeDictionary.Add(currentKey, i_SecondDictionary[currentKey]);
-                }
+                //else
+                //{
+                //    mergeDictionary.Add(currentKey, i_FirstDictionary[currentKey]);
+                //}
             }
 
             return mergeDictionary;
