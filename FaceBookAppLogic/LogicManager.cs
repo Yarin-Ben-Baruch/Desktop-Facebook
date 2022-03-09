@@ -10,7 +10,6 @@ namespace FaceBookAppLogic
         private readonly LogicLoyalFriend r_BestFriendLogic;
         private readonly LogicFriendsCities r_FriendsCities;
         private readonly LogicUtilities r_LogicUtilities;
-        private ICollection<User> m_FriendsList;
 
         public LogicManager()
         {
@@ -33,44 +32,29 @@ namespace FaceBookAppLogic
         public ICollection<Photo> FetchSortedPhotos(FacebookObjectCollection<Album> i_Albums)
         {
             ICollection<Photo> allPhotos = r_BestFriendLogic.FetchPhotos(i_Albums);
-            ICollection<Photo> sortedPhotos = allPhotos.OrderBy(photo => -photo.LikedBy.Count).ToList();
 
-            return sortedPhotos;
+            return allPhotos.OrderBy(photo => -photo.LikedBy.Count).ToList();
         }
 
         public ICollection<User> GetMyLoyalFriends(User i_LoggedInUser)
         {
-            IDictionary<string, int> myLoyalFriendsIdDic = r_BestFriendLogic.GetMyLoyalFriends(i_LoggedInUser);
-            ICollection<string> sortedListOfIds = r_LogicUtilities.OrderDictionaryByValueReverse(myLoyalFriendsIdDic);
+            IDictionary<User, int> myLoyalFriendsIdDic = r_BestFriendLogic.GetMyLoyalFriends(i_LoggedInUser);
 
-            m_FriendsList = i_LoggedInUser.Friends;
-            m_FriendsList.Add(i_LoggedInUser);
-
-            return r_LogicUtilities.ConvertIdToUser(sortedListOfIds, m_FriendsList);
+            return r_LogicUtilities.OrderDictionaryByValueReverse(myLoyalFriendsIdDic);
         }
 
         public ICollection<User> GetMostLikesOnPhotosByUsers()
         {
-            IDictionary<string, int> mostLikesPhotosUserIdDic = r_BestFriendLogic.MostLikesOnPhotos;
-            ICollection<string> sortedListOfIds = r_LogicUtilities.OrderDictionaryByValueReverse(mostLikesPhotosUserIdDic);
+            IDictionary<User, int> mostLikesPhotosUserIdDic = r_BestFriendLogic.MostLikesOnPhotos;
 
-            return r_LogicUtilities.ConvertIdToUser(sortedListOfIds, m_FriendsList);
+            return r_LogicUtilities.OrderDictionaryByValueReverse(mostLikesPhotosUserIdDic);
         }
 
         public ICollection<User> GetMostCommentsOnPhotosByUsers()
         {
-            IDictionary<string, int> mostLikesPhotosUserIdDic = r_BestFriendLogic.MostCommentsOnPhotos;
-            ICollection<string> sortedListOfIds = r_LogicUtilities.OrderDictionaryByValueReverse(mostLikesPhotosUserIdDic);
+            IDictionary<User, int> mostLikesPhotosUserIdDic = r_BestFriendLogic.MostCommentsOnPhotos;
 
-            return r_LogicUtilities.ConvertIdToUser(sortedListOfIds, m_FriendsList);
-        }
-
-        public ICollection<User> GetMostLikesOnPostByUsers()
-        {
-            IDictionary<string, int> mostLikesPostUserIdDic = r_BestFriendLogic.MostLikesOnPosts;
-            ICollection<string> sortedListOfIds = r_LogicUtilities.OrderDictionaryByValueReverse(mostLikesPostUserIdDic);
-
-            return r_LogicUtilities.ConvertIdToUser(sortedListOfIds, m_FriendsList);
+            return r_LogicUtilities.OrderDictionaryByValueReverse(mostLikesPhotosUserIdDic);
         }
 
         public ICollection<User> FindBestMatch(FacebookObjectCollection<User> i_LoggedInUserFriends, User i_LoggedInUser, User.eGender i_ChosenGender, int i_StartAge, int i_EndAge)

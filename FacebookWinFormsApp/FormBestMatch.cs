@@ -122,39 +122,39 @@ namespace BasicFacebookFeatures
             }
         }
 
-        private void initializedCommonPagesList(ICollection<User> i_BestMatchesInLinkedList, int i_SelectedIndex)
+        private void initializedCommonPagesList(ICollection<User> i_BestMatchesCollection, int i_SelectedIndex)
         {
             const string errorMessage = "No liked pages to retrieve :(";
             IList<User> bestMatchs = new List<User>();
             ICollection<Page> commonPagesWithMatch = new List<Page>();
 
-            bestMatchs = i_BestMatchesInLinkedList.ToList();
+            bestMatchs = i_BestMatchesCollection.ToList();
             commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages(bestMatchs[i_SelectedIndex].Id);
 
             r_FormMain.ResetListAndPhoto(m_ListBoxPages, m_PictureBoxPages);
             r_FormMain.FetchUserData(m_ListBoxPages, commonPagesWithMatch, errorMessage);
         }
 
-        private void initializedCommonGroupsList(ICollection<User> i_BestMatchesInLinkedList, int i_SelectedIndex)
+        private void initializedCommonGroupsList(ICollection<User> i_BestMatchesCollection, int i_SelectedIndex)
         {
             const string errorMessage = "No groups to retrieve :(";
             IList<User> bestMatchs = new List<User>();
             ICollection<Group> commonGroupsWithMatch = new List<Group>();
 
-            bestMatchs = i_BestMatchesInLinkedList.ToList();
+            bestMatchs = i_BestMatchesCollection.ToList();
             commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups(bestMatchs[i_SelectedIndex].Id);
 
             r_FormMain.ResetListAndPhoto(m_ListBoxGroups, m_PictureBoxGroups);
             r_FormMain.FetchUserData(m_ListBoxGroups, commonGroupsWithMatch, errorMessage);
         }
 
-        private void initializedCommonFriendsList(ICollection<User> i_BestMatchesInLinkedList, int i_SelectedIndex)
+        private void initializedCommonFriendsList(ICollection<User> i_BestMatchesCollection, int i_SelectedIndex)
         {
             const string errorMessage = "No friends to retrieve :(";
             IList<User> bestMatchs = new List<User>();
             ICollection<User> commonFriendsWithMatch = new List<User>();
 
-            bestMatchs = i_BestMatchesInLinkedList.ToList();
+            bestMatchs = i_BestMatchesCollection.ToList();
             commonFriendsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends(bestMatchs[i_SelectedIndex].Id);
 
             r_FormMain.ResetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);

@@ -18,23 +18,5 @@ namespace FaceBookAppLogic
 
             return sortedUsers;
         }
-
-        internal ICollection<User> ConvertIdToUser(ICollection<string> i_UserIdList, ICollection<User> i_FriendsList)
-        {
-            ICollection<User> sortedUsers = new LinkedList<User>();
-
-            foreach (string userId in i_UserIdList)
-            {
-                foreach (User user in i_FriendsList)
-                {
-                    if (user.Id.Equals(userId))
-                    {
-                        sortedUsers.Add(user);
-                    }
-                }
-            }
-
-            return sortedUsers;
-        }
     }
 }

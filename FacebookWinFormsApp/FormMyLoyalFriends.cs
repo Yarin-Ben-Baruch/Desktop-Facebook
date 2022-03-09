@@ -23,7 +23,6 @@ namespace BasicFacebookFeatures
                 r_FormMain.ResetListAndPhoto(m_ListBoxLoyalFriends, m_PictureBoxLoyalFriends);
                 r_FormMain.ResetListAndPhoto(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
                 r_FormMain.ResetListAndPhoto(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto);
-                r_FormMain.ResetListAndPhoto(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
                 fetchLoyalFriends();
             }
             catch (Exception)
@@ -33,8 +32,8 @@ namespace BasicFacebookFeatures
 
             fetchUserPhotos();
             fetchUserComments();
-            mostLikesOnPosts();
         }
+
         private void listBoxLoyalFriends_SelectedIndexChanged(object sender, EventArgs e)
         {
             r_FormMain.UpdatePhotoAsUser(m_ListBoxLoyalFriends, m_PictureBoxLoyalFriends);
@@ -43,11 +42,6 @@ namespace BasicFacebookFeatures
         private void listBoxMostLikesPhotos_SelectedIndexChanged(object sender, EventArgs e)
         {
             r_FormMain.UpdatePhotoAsUser(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto);
-        }
-
-        private void listBoxMostLikesPosts_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            r_FormMain.UpdatePhotoAsUser(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
         }
 
         private void listBoxMostComments_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,27 +74,6 @@ namespace BasicFacebookFeatures
 
             r_FormMain.ResetListAndPhoto(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
             r_FormMain.FetchUserData(m_ListBoxMostComments, usersToShow, errorMessage);
-        }
-
-        private void mostLikesOnPosts()
-        {
-            try
-            {
-                fetchUserPosts();
-            }
-            catch (Exception)
-            {
-                MessageBox.Show(r_FormMain.ErrorMessageSupported + " (likes on posts)", r_FormMain.TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void fetchUserPosts()
-        {
-            const string errorMessage = "No Posts to retrieve :(";
-            ICollection<User> usersToShow = r_FormMain.ManagerLogic.GetMostLikesOnPostByUsers();
-
-            r_FormMain.ResetListAndPhoto(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
-            r_FormMain.FetchUserData(m_ListBoxMostLikesPosts, usersToShow, errorMessage);
         }
     }
 }
