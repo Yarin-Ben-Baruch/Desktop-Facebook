@@ -117,18 +117,18 @@ namespace FaceBookAppLogic
         private IDictionary<string, int> mergingDictionary(IDictionary<string, int> i_FirstDictionary, IDictionary<string, int> i_SecondDictionary)
         {
             IDictionary<string, int> mergeDictionary = new Dictionary<string, int>(i_FirstDictionary);
-            ICollection<string> dictionaryKeys = i_FirstDictionary.Keys;
+            ICollection<string> dictionaryKeys = i_SecondDictionary.Keys;
 
             foreach (string currentKey in dictionaryKeys)
             {
-                if (i_SecondDictionary.ContainsKey(currentKey))
+                if (i_FirstDictionary.ContainsKey(currentKey))
                 {
                     mergeDictionary[currentKey] += i_SecondDictionary[currentKey];
                 }
-                //else
-                //{
-                //    mergeDictionary.Add(currentKey, i_FirstDictionary[currentKey]);
-                //}
+                else
+                {
+                    mergeDictionary.Add(currentKey, i_SecondDictionary[currentKey]);
+                }
             }
 
             return mergeDictionary;
