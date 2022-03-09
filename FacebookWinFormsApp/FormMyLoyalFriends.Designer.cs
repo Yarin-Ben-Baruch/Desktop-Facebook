@@ -2,7 +2,7 @@
 
 namespace BasicFacebookFeatures
 {
-    public partial class FormMostLikesFromFriends
+    public partial class FormMyLoyalFriends
     {
         /// <summary>
         /// Required designer variable.

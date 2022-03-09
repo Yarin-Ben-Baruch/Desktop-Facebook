@@ -7,14 +7,14 @@ namespace FaceBookAppLogic
     public class LogicManager
     {
         private readonly LogicBestMatch r_BestMatchLogic;
-        private readonly LogicBestFriend r_BestFriendLogic;
+        private readonly LogicLoyalFriend r_BestFriendLogic;
         private readonly LogicFriendsCities r_FriendsCities;
         private readonly LogicUtilities r_LogicUtilities;
         private ICollection<User> m_FriendsList;
 
         public LogicManager()
         {
-            r_BestFriendLogic = new LogicBestFriend();
+            r_BestFriendLogic = new LogicLoyalFriend();
             r_BestMatchLogic = new LogicBestMatch();
             r_FriendsCities = new LogicFriendsCities();
             r_LogicUtilities = new LogicUtilities();

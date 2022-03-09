@@ -6,11 +6,11 @@ using FacebookWrapper.ObjectModel;
 
 namespace BasicFacebookFeatures
 {
-    public partial class FormMostLikesFromFriends : Form
+    public partial class FormMyLoyalFriends : Form
     {
         private readonly FormMain r_FormMain;
         
-        public FormMostLikesFromFriends(FormMain i_FormMain)
+        public FormMyLoyalFriends(FormMain i_FormMain)
         {
             r_FormMain = i_FormMain;
             InitializeComponent();
@@ -20,6 +20,10 @@ namespace BasicFacebookFeatures
         {
             try
             {
+                r_FormMain.ResetListAndPhoto(m_ListBoxLoyalFriends, m_PictureBoxLoyalFriends);
+                r_FormMain.ResetListAndPhoto(m_ListBoxMostComments, m_PictureBoxSelectedFriendComment);
+                r_FormMain.ResetListAndPhoto(m_ListBoxMostLikesPhotos, m_PictureBoxSelectedFriendPhoto);
+                r_FormMain.ResetListAndPhoto(m_ListBoxMostLikesPosts, m_PictureBoxSelectedFriendPost);
                 fetchLoyalFriends();
             }
             catch (Exception)
@@ -78,11 +82,6 @@ namespace BasicFacebookFeatures
             r_FormMain.FetchUserData(m_ListBoxMostComments, usersToShow, errorMessage);
         }
 
-
-
-
-
-
         private void mostLikesOnPosts()
         {
             try
@@ -91,7 +90,7 @@ namespace BasicFacebookFeatures
             }
             catch (Exception)
             {
-                MessageBox.Show(r_FormMain.ErrorMessageSupported + "(likes on posts)", r_FormMain.TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(r_FormMain.ErrorMessageSupported + " (likes on posts)", r_FormMain.TypeOfMessage, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

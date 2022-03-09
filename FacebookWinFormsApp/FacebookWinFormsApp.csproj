@@ -113,11 +113,11 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMostLikesFromFriends.cs">
+    <Compile Include="FormMyLoyalFriends.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMostLikesFromFriends.Designer.cs">
-      <DependentUpon>FormMostLikesFromFriends.cs</DependentUpon>
+    <Compile Include="FormMyLoyalFriends.Designer.cs">
+      <DependentUpon>FormMyLoyalFriends.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPopularPhotos.cs">
       <SubType>Form</SubType>
@@ -145,8 +145,8 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMostLikesFromFriends.resx">
-      <DependentUpon>FormMostLikesFromFriends.cs</DependentUpon>
+    <EmbeddedResource Include="FormMyLoyalFriends.resx">
+      <DependentUpon>FormMyLoyalFriends.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPopularPhotos.resx">
       <DependentUpon>FormPopularPhotos.cs</DependentUpon>

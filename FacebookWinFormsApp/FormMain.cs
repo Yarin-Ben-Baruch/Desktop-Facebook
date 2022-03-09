@@ -193,7 +193,7 @@ namespace BasicFacebookFeatures
         {
             if (LoggedInUser != null)
             {
-                new FormMostLikesFromFriends(this).ShowDialog();
+                new FormMyLoyalFriends(this).ShowDialog();
             }
             else
             {

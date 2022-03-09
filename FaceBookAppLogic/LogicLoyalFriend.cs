@@ -5,7 +5,7 @@ using FacebookWrapper.ObjectModel;
 
 namespace FaceBookAppLogic
 {
-    public class LogicBestFriend
+    public class LogicLoyalFriend
     {
         //add to diagram aggrigation
         public IDictionary<string, int> MostLikesOnPhotos { get; set; }
@@ -14,7 +14,7 @@ namespace FaceBookAppLogic
 
         public IDictionary<string, int> MostCommentsOnPhotos { get; set; }
 
-        public LogicBestFriend()
+        public LogicLoyalFriend()
         {
             MostLikesOnPhotos = new Dictionary<string, int>();
             MostLikesOnPosts = new Dictionary<string, int>();

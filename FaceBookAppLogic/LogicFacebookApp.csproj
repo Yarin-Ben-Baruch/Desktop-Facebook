@@ -42,7 +42,7 @@
     <Compile Include="ApplicationSettings.cs" />
     <Compile Include="LogicBestMatch.cs" />
     <Compile Include="LogicFriendsCities.cs" />
-    <Compile Include="LogicBestFriend.cs" />
+    <Compile Include="LogicLoyalFriend.cs" />
     <Compile Include="LogicManager.cs" />
     <Compile Include="LogicUtilities.cs" />
   </ItemGroup>
