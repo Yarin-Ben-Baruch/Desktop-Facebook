@@ -7,8 +7,7 @@ namespace FaceBookAppLogic
 {
     public class LogicLoyalFriend
     {
-        //add to diagram aggrigation
-        public IDictionary<User, int> MostLikesOnPhotos { get; set; }
+         public IDictionary<User, int> MostLikesOnPhotos { get; set; }
 
         public IDictionary<User, int> MostCommentsOnPhotos { get; set; }
 
