@@ -8,9 +8,7 @@ namespace FaceBookAppLogic
     public sealed class ApplicationSettings
     {
         private static readonly string sr_FileName;
-
         private static readonly XmlSerializer sr_Serializer;
-
         private static ApplicationSettings s_ApplicationSettings;
 
         public static ApplicationSettings Instance

@@ -39,8 +39,8 @@ namespace BasicFacebookFeatures
             this.m_ButtonSearchLoyalFriends = new System.Windows.Forms.Button();
             this.m_PictureBoxLoyalFriends = new System.Windows.Forms.PictureBox();
             this.m_LabelLoyalFriends = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.m_LabelMostLikesOnPhotos = new System.Windows.Forms.Label();
+            this.m_LabelMostCommentsOnPhotos = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxSelectedFriendPhoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxSelectedFriendComment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.m_PictureBoxLoyalFriends)).BeginInit();
@@ -131,25 +131,25 @@ namespace BasicFacebookFeatures
             this.m_LabelLoyalFriends.TabIndex = 15;
             this.m_LabelLoyalFriends.Text = "My loyal friends";
             // 
-            // label2
+            // m_LabelMostLikesOnPhotos
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(100, 331);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 17);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Most likes on photos";
+            this.m_LabelMostLikesOnPhotos.AutoSize = true;
+            this.m_LabelMostLikesOnPhotos.Location = new System.Drawing.Point(100, 331);
+            this.m_LabelMostLikesOnPhotos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.m_LabelMostLikesOnPhotos.Name = "m_LabelMostLikesOnPhotos";
+            this.m_LabelMostLikesOnPhotos.Size = new System.Drawing.Size(137, 17);
+            this.m_LabelMostLikesOnPhotos.TabIndex = 16;
+            this.m_LabelMostLikesOnPhotos.Text = "Most likes on photos";
             // 
-            // label4
+            // m_LabelMostCommentsOnPhotos
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(526, 332);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(173, 17);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "Most comments on photos";
+            this.m_LabelMostCommentsOnPhotos.AutoSize = true;
+            this.m_LabelMostCommentsOnPhotos.Location = new System.Drawing.Point(526, 332);
+            this.m_LabelMostCommentsOnPhotos.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.m_LabelMostCommentsOnPhotos.Name = "m_LabelMostCommentsOnPhotos";
+            this.m_LabelMostCommentsOnPhotos.Size = new System.Drawing.Size(173, 17);
+            this.m_LabelMostCommentsOnPhotos.TabIndex = 18;
+            this.m_LabelMostCommentsOnPhotos.Text = "Most comments on photos";
             // 
             // FormMyLoyalFriends
             // 
@@ -158,8 +158,8 @@ namespace BasicFacebookFeatures
             this.BackgroundImage = global::BasicFacebookFeatures.Properties.Resources.MostLikesForm;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(789, 641);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.m_LabelMostCommentsOnPhotos);
+            this.Controls.Add(this.m_LabelMostLikesOnPhotos);
             this.Controls.Add(this.m_LabelLoyalFriends);
             this.Controls.Add(this.m_PictureBoxLoyalFriends);
             this.Controls.Add(this.m_ButtonSearchLoyalFriends);
@@ -191,7 +191,7 @@ namespace BasicFacebookFeatures
         private Button m_ButtonSearchLoyalFriends;
         private PictureBox m_PictureBoxLoyalFriends;
         private Label m_LabelLoyalFriends;
-        private Label label2;
-        private Label label4;
+        private Label m_LabelMostLikesOnPhotos;
+        private Label m_LabelMostCommentsOnPhotos;
     }
 }

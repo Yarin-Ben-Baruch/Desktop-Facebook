@@ -70,8 +70,7 @@ namespace FaceBookAppLogic
 
             if (i_Friend.Birthday.Length == 10)
             {
-                currentUserAge = DateTime.Now.Year -
-                                 int.Parse(i_Friend.Birthday.Substring(i_Friend.Birthday.Length - 4));
+                currentUserAge = DateTime.Now.Year - int.Parse(i_Friend.Birthday.Substring(i_Friend.Birthday.Length - 4));
             }
 
             return currentUserAge;

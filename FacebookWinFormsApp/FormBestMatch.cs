@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
 
@@ -73,7 +68,6 @@ namespace BasicFacebookFeatures
             }
         }
 
-        // TODO : CHECK
         private void linkLabelLoverProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try
@@ -109,11 +103,8 @@ namespace BasicFacebookFeatures
 
         private void visitLoverProfile()
         {
-            //// Change the color of the link text by setting LinkVisited
-            //// to true.
             m_LinkLabelLoverProfile.LinkVisited = true;
-            //// Call the Process.Start method to open the default browser
-            //// with a URL:
+
             if (m_ListBoxBestMatch.SelectedItems.Count == 1)
             {
                 User selectedUser = m_ListBoxBestMatch.SelectedItem as User;
@@ -125,11 +116,11 @@ namespace BasicFacebookFeatures
         private void initializedCommonPagesList(ICollection<User> i_BestMatchesCollection, int i_SelectedIndex)
         {
             const string errorMessage = "No liked pages to retrieve :(";
-            IList<User> bestMatchs = new List<User>();
+            IList<User> bestMatches = new List<User>();
             ICollection<Page> commonPagesWithMatch = new List<Page>();
 
-            bestMatchs = i_BestMatchesCollection.ToList();
-            commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages(bestMatchs[i_SelectedIndex].Id);
+            bestMatches = i_BestMatchesCollection.ToList();
+            commonPagesWithMatch = r_FormMain.ManagerLogic.FindCommonLikedPages(bestMatches[i_SelectedIndex].Id);
 
             r_FormMain.ResetListAndPhoto(m_ListBoxPages, m_PictureBoxPages);
             r_FormMain.FetchUserData(m_ListBoxPages, commonPagesWithMatch, errorMessage);
@@ -138,11 +129,11 @@ namespace BasicFacebookFeatures
         private void initializedCommonGroupsList(ICollection<User> i_BestMatchesCollection, int i_SelectedIndex)
         {
             const string errorMessage = "No groups to retrieve :(";
-            IList<User> bestMatchs = new List<User>();
+            IList<User> bestMatches = new List<User>();
             ICollection<Group> commonGroupsWithMatch = new List<Group>();
 
-            bestMatchs = i_BestMatchesCollection.ToList();
-            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups(bestMatchs[i_SelectedIndex].Id);
+            bestMatches = i_BestMatchesCollection.ToList();
+            commonGroupsWithMatch = r_FormMain.ManagerLogic.FindCommonGroups(bestMatches[i_SelectedIndex].Id);
 
             r_FormMain.ResetListAndPhoto(m_ListBoxGroups, m_PictureBoxGroups);
             r_FormMain.FetchUserData(m_ListBoxGroups, commonGroupsWithMatch, errorMessage);
@@ -151,11 +142,11 @@ namespace BasicFacebookFeatures
         private void initializedCommonFriendsList(ICollection<User> i_BestMatchesCollection, int i_SelectedIndex)
         {
             const string errorMessage = "No friends to retrieve :(";
-            IList<User> bestMatchs = new List<User>();
+            IList<User> bestMatches = new List<User>();
             ICollection<User> commonFriendsWithMatch = new List<User>();
 
-            bestMatchs = i_BestMatchesCollection.ToList();
-            commonFriendsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends(bestMatchs[i_SelectedIndex].Id);
+            bestMatches = i_BestMatchesCollection.ToList();
+            commonFriendsWithMatch = r_FormMain.ManagerLogic.FindCommonFriends(bestMatches[i_SelectedIndex].Id);
 
             r_FormMain.ResetListAndPhoto(m_ListBoxFriends, m_PictureBoxFriends);
             r_FormMain.FetchUserData(m_ListBoxFriends, commonFriendsWithMatch, errorMessage);
