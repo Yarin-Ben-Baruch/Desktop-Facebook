@@ -57,7 +57,7 @@ namespace BasicFacebookFeatures
             const string errorMessage = "No city to retrieve :(";
             ICollection<City> allCities = r_FormMain.ManagerLogic.GetAllCities(r_FormMain.LoggedInUser.Friends);
 
-            r_FormMain.ResetListAndPhoto(m_ListBoxUserInSameCity, m_PictureBoxProfileUser);
+            r_FormMain.ResetListAndPhoto(m_ListBoxAllCities, m_PictureBoxProfileUser);
             r_FormMain.FetchUserData(m_ListBoxAllCities, allCities, errorMessage);
         }
     }
